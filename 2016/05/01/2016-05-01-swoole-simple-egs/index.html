@@ -1,0 +1,591 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="swoole &amp;#x63A8;&amp;#x9001;&amp;#x7B80;&amp;#x5355;&amp;#x6837;&amp;#x4F8B;
+1.&amp;#x7BA1;&amp;#x7406;&amp;#x811A;&amp;#x672C;&amp;#x6CE8;&amp;#x610F;&amp;#x4E0D;&amp;#x7528;&amp;#x76F4;&amp;#x63A5;&amp;#x4E0A;&amp;#x4F20;&amp;#x811A;&amp;#x672C;&amp;#xFF0C;windows&amp;#x548C;linux&amp;#">
+<meta property="og:type" content="article">
+<meta property="og:title" content="swoole-simple-egs 简单样例">
+<meta property="og:url" content="http://yoursite.com/2016/05/01/2016-05-01-swoole-simple-egs/index.html">
+<meta property="og:site_name" content="Neconano's notebook">
+<meta property="og:description" content="swoole &amp;#x63A8;&amp;#x9001;&amp;#x7B80;&amp;#x5355;&amp;#x6837;&amp;#x4F8B;
+1.&amp;#x7BA1;&amp;#x7406;&amp;#x811A;&amp;#x672C;&amp;#x6CE8;&amp;#x610F;&amp;#x4E0D;&amp;#x7528;&amp;#x76F4;&amp;#x63A5;&amp;#x4E0A;&amp;#x4F20;&amp;#x811A;&amp;#x672C;&amp;#xFF0C;windows&amp;#x548C;linux&amp;#">
+<meta property="og:updated_time" content="2016-11-29T02:54:50.563Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="swoole-simple-egs 简单样例">
+<meta name="twitter:description" content="swoole &amp;#x63A8;&amp;#x9001;&amp;#x7B80;&amp;#x5355;&amp;#x6837;&amp;#x4F8B;
+1.&amp;#x7BA1;&amp;#x7406;&amp;#x811A;&amp;#x672C;&amp;#x6CE8;&amp;#x610F;&amp;#x4E0D;&amp;#x7528;&amp;#x76F4;&amp;#x63A5;&amp;#x4E0A;&amp;#x4F20;&amp;#x811A;&amp;#x672C;&amp;#xFF0C;windows&amp;#x548C;linux&amp;#">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"right","display":"always"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: 'Author'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2016/05/01/2016-05-01-swoole-simple-egs/"/>
+
+  <title> swoole-simple-egs 简单样例 | Neconano's notebook </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-right page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Neconano's notebook</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                swoole-simple-egs 简单样例
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2016-05-01T00:00:00+08:00" content="2016-05-01">
+              2016-05-01
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/swoole/" itemprop="url" rel="index">
+                    <span itemprop="name">swoole</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="swoole-&#x63A8;&#x9001;&#x7B80;&#x5355;&#x6837;&#x4F8B;"><a href="#swoole-&#x63A8;&#x9001;&#x7B80;&#x5355;&#x6837;&#x4F8B;" class="headerlink" title="swoole &#x63A8;&#x9001;&#x7B80;&#x5355;&#x6837;&#x4F8B;"></a>swoole &#x63A8;&#x9001;&#x7B80;&#x5355;&#x6837;&#x4F8B;</h1><hr>
+<h3 id="1-&#x7BA1;&#x7406;&#x811A;&#x672C;"><a href="#1-&#x7BA1;&#x7406;&#x811A;&#x672C;" class="headerlink" title="1.&#x7BA1;&#x7406;&#x811A;&#x672C;"></a>1.&#x7BA1;&#x7406;&#x811A;&#x672C;</h3><p>&#x6CE8;&#x610F;&#x4E0D;&#x7528;&#x76F4;&#x63A5;&#x4E0A;&#x4F20;&#x811A;&#x672C;&#xFF0C;windows&#x548C;linux&#x4F1A;&#x6709;&#x7F16;&#x7801;&#x95EE;&#x9898;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">#!/bin/sh</div><div class="line">SERVICE=&quot;ws_notice_server.php&quot;</div><div class="line">start(){</div><div class="line">    num=`ps -ef | grep $SERVICE | grep -v grep | wc -l`</div><div class="line">    if [ $num -eq 0 ]</div><div class="line">    then</div><div class="line">        echo &quot;starting...&quot;</div><div class="line">        nohup php $SERVICE &gt; $SERVICE.log 2&gt;&amp;1 &amp;</div><div class="line">        if [ $? -ne 0 ]</div><div class="line">        then</div><div class="line">            echo &quot;start failed, please check the log!&quot;</div><div class="line">            exit $?</div><div class="line">        else</div><div class="line">            #echo $! &gt; $SERVICE.pid</div><div class="line">            echo &quot;start success&quot;</div><div class="line">        fi</div><div class="line">    else</div><div class="line">        echo &quot;$SERVICE is running&quot;</div><div class="line">    fi</div><div class="line">}</div><div class="line"></div><div class="line">stop(){</div><div class="line">    echo &quot;stopping...&quot;</div><div class="line">    #kill -9 `cat $SERVICE.pid`</div><div class="line">    sudo kill -9 `ps -ef|grep -w $SERVICE|grep -v grep|awk &apos;{print $2}&apos;`</div><div class="line">    if [ $? -ne 0 ]</div><div class="line">    then</div><div class="line">        echo &quot;stop failed, may be $SERVICE isn&apos;t running&quot;</div><div class="line">        exit $?</div><div class="line">    else</div><div class="line">        #rm -rf $SERVICE.pid</div><div class="line">        echo &quot;stop success&quot;</div><div class="line">    fi</div><div class="line">}</div><div class="line"></div><div class="line">restart(){</div><div class="line">    stop&amp;&amp;start</div><div class="line">}</div><div class="line"></div><div class="line">status(){</div><div class="line">    num=`ps -ef | grep $SERVICE | grep -v grep | wc -l`</div><div class="line">    if [ $num -eq 0 ]</div><div class="line">    then</div><div class="line">        echo &quot;$SERVICE isn&apos;t running&quot;</div><div class="line">    else</div><div class="line">        echo &quot;$SERVICE is running&quot;</div><div class="line">    fi</div><div class="line">}</div><div class="line"></div><div class="line">case $1 in</div><div class="line">    start)      start ;;</div><div class="line">    stop)       stop ;;</div><div class="line">    restart)    restart ;;</div><div class="line">    status)     status ;;</div><div class="line">    *)          echo &quot;Usage: $0 {start|stop|restart|status}&quot; ;;</div><div class="line">esac</div><div class="line"></div><div class="line">exit 0</div></pre></td></tr></table></figure>
+<h3 id="2-&#x6D88;&#x606F;&#x63A8;&#x9001;&#x670D;&#x52A1;"><a href="#2-&#x6D88;&#x606F;&#x63A8;&#x9001;&#x670D;&#x52A1;" class="headerlink" title="2.&#x6D88;&#x606F;&#x63A8;&#x9001;&#x670D;&#x52A1;"></a>2.&#x6D88;&#x606F;&#x63A8;&#x9001;&#x670D;&#x52A1;</h3><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="meta">&lt;?php</span></div><div class="line"><span class="comment">/*</span></div><div class="line"> &#x6D88;&#x606F;&#x63A8;&#x9001;&#x670D;&#x52A1;</div><div class="line">*/</div><div class="line"><span class="keyword">require</span> <span class="keyword">__DIR__</span>.<span class="string">&quot;/NoticeRedis.php&quot;</span>;</div><div class="line"><span class="comment">//&#x521B;&#x5EFA;websocket&#x670D;&#x52A1;&#x5668;&#x5BF9;&#x8C61;&#xFF0C;&#x76D1;&#x542C;0.0.0.0:9502&#x7AEF;&#x53E3;</span></div><div class="line">$ws = <span class="keyword">new</span> swoole_websocket_server(<span class="string">&quot;0.0.0.0&quot;</span>, <span class="number">9502</span>);</div><div class="line"><span class="comment">//&#x76D1;&#x542C;WebSocket&#x8FDE;&#x63A5;&#x6253;&#x5F00;&#x4E8B;&#x4EF6;</span></div><div class="line">$ws-&gt;on(<span class="string">&apos;open&apos;</span>, <span class="function"><span class="keyword">function</span> <span class="params">($ws, $request)</span> </span>{</div><div class="line">    <span class="comment">//var_dump($request-&gt;fd,  $request-&gt;server);</span></div><div class="line">    <span class="comment">//$ws-&gt;push($request-&gt;fd, &quot;hello, welcome,my name is voy!\n&quot;);</span></div><div class="line">});</div><div class="line"></div><div class="line"><span class="comment">//&#x76D1;&#x542C;WebSocket&#x6D88;&#x606F;&#x4E8B;&#x4EF6;</span></div><div class="line">$ws-&gt;on(<span class="string">&apos;message&apos;</span>, <span class="function"><span class="keyword">function</span> <span class="params">($ws, $frame)</span> </span>{</div><div class="line">    <span class="keyword">echo</span> <span class="string">&quot;Message: {$frame-&gt;data}\n&quot;</span>;</div><div class="line">    <span class="comment">//&#x6253;&#x5F00;redis&#x94FE;&#x63A5;</span></div><div class="line">    $Notice = <span class="keyword">new</span> NoticeRedis();</div><div class="line"></div><div class="line">    <span class="keyword">if</span>($notice_arr = $Notice-&gt;serverClientMsg($frame-&gt;data)){ <span class="comment">//&#x901A;&#x77E5;&#x670D;&#x52A1;&#x7AEF;&#x53D1;&#x6765;&#x4FE1;&#x606F;</span></div><div class="line">        $all_client = $Notice-&gt;getAllClient();</div><div class="line"></div><div class="line">        <span class="keyword">if</span>(!<span class="keyword">empty</span>($all_client)){</div><div class="line">            <span class="keyword">foreach</span>($all_client <span class="keyword">as</span> $client){</div><div class="line">                <span class="keyword">if</span>(<span class="keyword">isset</span>($notice_arr[$client[<span class="string">&apos;uid&apos;</span>]]) &amp;&amp; $notice_arr[$client[<span class="string">&apos;uid&apos;</span>]]){</div><div class="line">                    <span class="keyword">foreach</span>($notice_arr[$client[<span class="string">&apos;uid&apos;</span>]] <span class="keyword">as</span> $index=&gt;$message){</div><div class="line">                        $message[<span class="string">&apos;index&apos;</span>] = $index;</div><div class="line">                        <span class="keyword">if</span>($message[<span class="string">&apos;state&apos;</span>]==$Notice::STATE_UN_SEND){</div><div class="line">                            $ws-&gt;push($client[<span class="string">&apos;sid&apos;</span>], json_encode($message));</div><div class="line">                            $Notice-&gt;markSend($client[<span class="string">&apos;uid&apos;</span>], $index);</div><div class="line">                        }</div><div class="line">                    }</div><div class="line"></div><div class="line">                }</div><div class="line">            }</div><div class="line">        }</div><div class="line"></div><div class="line">        $ws-&gt;push($frame-&gt;fd, json_encode($notice_arr));</div><div class="line">    }<span class="keyword">elseif</span>($uid = $Notice-&gt;isClient($frame-&gt;data, $frame-&gt;fd)){ <span class="comment">//&#x5BA2;&#x6237;&#x7AEF;&#x94FE;&#x63A5;&#x4FE1;&#x606F;</span></div><div class="line">        $notice_arr = $Notice-&gt;getNotice($uid);</div><div class="line">        <span class="keyword">if</span>($notice_arr){</div><div class="line">            <span class="keyword">foreach</span>($notice_arr <span class="keyword">as</span> $index=&gt;$message){</div><div class="line">                $message[<span class="string">&apos;index&apos;</span>] = $index;</div><div class="line">                $ws-&gt;push($frame-&gt;fd, json_encode($message));</div><div class="line">                $Notice-&gt;markSend($uid, $index);</div><div class="line">            }</div><div class="line">        }</div><div class="line">        <span class="keyword">echo</span> <span class="string">&quot;set fid:{$frame-&gt;fd} uid:$uid\n&quot;</span>;</div><div class="line">    }<span class="keyword">elseif</span>($uid = $Notice-&gt;isClientMarkRead($frame-&gt;data, $frame-&gt;fd)){</div><div class="line">        <span class="keyword">echo</span> <span class="string">&quot;mark send uid:$uid\n&quot;</span>;</div><div class="line">    }</div><div class="line">});</div><div class="line"></div><div class="line"><span class="comment">//&#x76D1;&#x542C;WebSocket&#x8FDE;&#x63A5;&#x5173;&#x95ED;&#x4E8B;&#x4EF6;</span></div><div class="line">$ws-&gt;on(<span class="string">&apos;close&apos;</span>, <span class="function"><span class="keyword">function</span> <span class="params">($ws, $fd)</span> </span>{</div><div class="line">    <span class="comment">//&#x5BA2;&#x6237;&#x7AEF;&#x65AD;&#x5F00;&#x94FE;&#x63A5;</span></div><div class="line">    <span class="comment">//&#x6E05;&#x9664;redis&#x5BA2;&#x6237;&#x7AEF;</span></div><div class="line">    <span class="comment">//&#x6253;&#x5F00;redis&#x94FE;&#x63A5;</span></div><div class="line">    $Notice = <span class="keyword">new</span> NoticeRedis();</div><div class="line">    $Notice-&gt;clearSid($fd);</div><div class="line"></div><div class="line">    <span class="keyword">echo</span> <span class="string">&quot;client-{$fd} is closed\n&quot;</span>;</div><div class="line">});</div><div class="line"></div><div class="line">$ws-&gt;start();</div></pre></td></tr></table></figure>
+<h3 id="3-redis&#x901A;&#x77E5;"><a href="#3-redis&#x901A;&#x77E5;" class="headerlink" title="3.redis&#x901A;&#x77E5;"></a>3.redis&#x901A;&#x77E5;</h3><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div><div class="line">133</div><div class="line">134</div><div class="line">135</div><div class="line">136</div><div class="line">137</div><div class="line">138</div><div class="line">139</div><div class="line">140</div><div class="line">141</div><div class="line">142</div><div class="line">143</div><div class="line">144</div><div class="line">145</div><div class="line">146</div><div class="line">147</div><div class="line">148</div><div class="line">149</div><div class="line">150</div><div class="line">151</div><div class="line">152</div><div class="line">153</div><div class="line">154</div><div class="line">155</div><div class="line">156</div><div class="line">157</div><div class="line">158</div><div class="line">159</div><div class="line">160</div><div class="line">161</div><div class="line">162</div><div class="line">163</div><div class="line">164</div><div class="line">165</div><div class="line">166</div><div class="line">167</div><div class="line">168</div><div class="line">169</div><div class="line">170</div><div class="line">171</div><div class="line">172</div><div class="line">173</div><div class="line">174</div><div class="line">175</div><div class="line">176</div><div class="line">177</div><div class="line">178</div><div class="line">179</div><div class="line">180</div><div class="line">181</div><div class="line">182</div><div class="line">183</div><div class="line">184</div><div class="line">185</div><div class="line">186</div><div class="line">187</div><div class="line">188</div><div class="line">189</div><div class="line">190</div><div class="line">191</div><div class="line">192</div><div class="line">193</div><div class="line">194</div><div class="line">195</div><div class="line">196</div><div class="line">197</div><div class="line">198</div><div class="line">199</div><div class="line">200</div><div class="line">201</div><div class="line">202</div><div class="line">203</div><div class="line">204</div><div class="line">205</div><div class="line">206</div><div class="line">207</div><div class="line">208</div><div class="line">209</div><div class="line">210</div><div class="line">211</div><div class="line">212</div><div class="line">213</div><div class="line">214</div><div class="line">215</div><div class="line">216</div><div class="line">217</div><div class="line">218</div><div class="line">219</div><div class="line">220</div><div class="line">221</div><div class="line">222</div><div class="line">223</div><div class="line">224</div><div class="line">225</div><div class="line">226</div><div class="line">227</div><div class="line">228</div><div class="line">229</div><div class="line">230</div><div class="line">231</div><div class="line">232</div><div class="line">233</div><div class="line">234</div><div class="line">235</div><div class="line">236</div><div class="line">237</div><div class="line">238</div><div class="line">239</div><div class="line">240</div><div class="line">241</div><div class="line">242</div><div class="line">243</div><div class="line">244</div><div class="line">245</div><div class="line">246</div><div class="line">247</div><div class="line">248</div><div class="line">249</div><div class="line">250</div><div class="line">251</div><div class="line">252</div><div class="line">253</div><div class="line">254</div><div class="line">255</div><div class="line">256</div><div class="line">257</div><div class="line">258</div><div class="line">259</div><div class="line">260</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="meta">&lt;?php</span></div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">NoticeRedis</span></span>{</div><div class="line">    <span class="keyword">public</span> $ip = <span class="string">&apos;127.0.0.1&apos;</span>;</div><div class="line">    <span class="keyword">public</span> $port = <span class="string">&apos;6379&apos;</span>;</div><div class="line">    <span class="keyword">private</span> $redis = <span class="keyword">null</span>;</div><div class="line"></div><div class="line">    <span class="keyword">const</span> STATE_SEND = <span class="number">1</span>;</div><div class="line">    <span class="keyword">const</span> STATE_UN_SEND = <span class="number">0</span>;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">__construct</span><span class="params">()</span></span>{</div><div class="line">        <span class="keyword">try</span>{</div><div class="line">            <span class="keyword">$this</span>-&gt;redis = $redis = <span class="keyword">new</span> Redis();</div><div class="line">            $redis-&gt;connect(<span class="keyword">$this</span>-&gt;ip, <span class="keyword">$this</span>-&gt;port);</div><div class="line">            $redis-&gt;ping();</div><div class="line">            <span class="keyword">return</span> $redis;</div><div class="line">        }<span class="keyword">catch</span> (RedisException $e){</div><div class="line">            <span class="keyword">exit</span>(<span class="string">&quot;Can not connect the redis.\n&quot;</span>);</div><div class="line">        }</div><div class="line">    }</div><div class="line"></div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line">     * &#x670D;&#x52A1;&#x5668;&#x5BA2;&#x6237;&#x7AEF;&#x53D1;&#x9001;&#x901A;&#x77E5;&#x7ED9;&#x63A8;&#x9001;&#x670D;&#x52A1;&#x5668;</div><div class="line">     * &#x8FD4;&#x56DE;&#x63A8;&#x9001;&#x5185;&#x5BB9;</div><div class="line">     * <span class="doctag">@param</span> $message</div><div class="line">     * <span class="doctag">@return</span> array|bool [uid:[url,message,state]]</div><div class="line">     */</div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">serverClientMsg</span><span class="params">($message)</span></span>{</div><div class="line">        <span class="keyword">if</span>(strpos($message, <span class="string">&quot;notice*&quot;</span>)!==<span class="keyword">false</span>){</div><div class="line">            $uid_str=substr($message,<span class="number">7</span>);</div><div class="line">            $uid_arr = <span class="keyword">array</span>();</div><div class="line">            <span class="keyword">if</span>($uid_str)</div><div class="line">                $uid_arr = explode(<span class="string">&apos;,&apos;</span>, $uid_str); <span class="comment">//uids</span></div><div class="line"></div><div class="line">            $message_arr = <span class="keyword">array</span>();</div><div class="line">            <span class="keyword">if</span>(!<span class="keyword">empty</span>($uid_arr)){</div><div class="line">                <span class="keyword">foreach</span>($uid_arr <span class="keyword">as</span> $uid){</div><div class="line">                    $message_arr[$uid]=<span class="keyword">$this</span>-&gt;getNotice($uid);</div><div class="line">                }</div><div class="line">            }</div><div class="line">            <span class="keyword">return</span> $message_arr;</div><div class="line">        }</div><div class="line">        <span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line">    }</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line">     * &#x5BA2;&#x6237;&#x7AEF;&#x94FE;&#x63A5;&#xFF0C;&#x53D1;&#x9001;UID</div><div class="line">     * &#x5B58;&#x50A8;</div><div class="line">     * <span class="doctag">@param</span> $message</div><div class="line">     * <span class="doctag">@param</span> int $sid</div><div class="line">     * <span class="doctag">@return</span> bool|string</div><div class="line">     */</div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">isClient</span><span class="params">($message, $sid=<span class="number">0</span>)</span></span>{</div><div class="line">        <span class="keyword">if</span>(strpos($message, <span class="string">&quot;uid*&quot;</span>)!==<span class="keyword">false</span>){</div><div class="line">            <span class="keyword">if</span>($sid){</div><div class="line">                <span class="keyword">return</span> <span class="keyword">$this</span>-&gt;setClient($message, $sid);</div><div class="line">            }</div><div class="line">            <span class="keyword">return</span> <span class="keyword">true</span>;</div><div class="line">        }</div><div class="line">        <span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line">    }</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line">     * &#x670D;&#x52A1;&#x5668;&#x5BA2;&#x6237;&#x7AEF;&#x8BBE;&#x7F6E;&#x6D88;&#x606F;&#xFF0C;&#x5355;&#x6761;</div><div class="line">     * &#x8BBE;&#x7F6E;&#x63A8;&#x9001;&#x4FE1;&#x606F;</div><div class="line">     * <span class="doctag">@param</span> $uid uid</div><div class="line">     * <span class="doctag">@param</span> string $type &#x7C7B;&#x578B;</div><div class="line">     * <span class="doctag">@param</span> string $url url</div><div class="line">     * <span class="doctag">@param</span> string $task_url task url</div><div class="line">     * <span class="doctag">@param</span> string $message message</div><div class="line">     * <span class="doctag">@param</span> int $state</div><div class="line">     * <span class="doctag">@return</span> bool true</div><div class="line">     */</div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">setNotice</span><span class="params">($uid, $type=<span class="string">&apos;&apos;</span>, $url = <span class="string">&apos;&apos;</span>, $task_url=<span class="string">&apos;&apos;</span>, $message = <span class="string">&apos;&apos;</span>, $state = self::STATE_UN_SEND)</span></span>{</div><div class="line">        $notice = <span class="keyword">array</span>(<span class="string">&apos;type&apos;</span>=&gt;$type, <span class="string">&apos;url&apos;</span>=&gt;$url, <span class="string">&apos;task_url&apos;</span>=&gt;$task_url, <span class="string">&apos;message&apos;</span>=&gt;$message, <span class="string">&apos;state&apos;</span>=&gt;$state);</div><div class="line">        <span class="keyword">$this</span>-&gt;redis-&gt;rPush(<span class="string">&quot;notice-{$uid}&quot;</span>, serialize($notice));</div><div class="line">        <span class="keyword">return</span> <span class="keyword">true</span>;</div><div class="line">    }</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line">     * &#x5BA2;&#x6237;&#x7AEF;&#x6807;&#x8BB0;&#x5DF2;&#x8BFB;</div><div class="line">     * &#x5BA2;&#x6237;&#x7AEF;&#x53D1;&#x9001;read*&#x52A0;index&#xFF0C;&#x5982;read*1,2,3</div><div class="line">     * <span class="doctag">@param</span> $message</div><div class="line">     * <span class="doctag">@param</span> int $sid</div><div class="line">     * <span class="doctag">@return</span> bool|string</div><div class="line">     */</div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">isClientMarkRead</span><span class="params">($message, $sid=<span class="number">0</span>)</span></span>{</div><div class="line">        <span class="keyword">if</span>(strpos($message, <span class="string">&quot;read*&quot;</span>)!==<span class="keyword">false</span>){</div><div class="line">            $index_str = substr($message, <span class="number">5</span>);</div><div class="line">            $index_arr = explode(<span class="string">&apos;,&apos;</span>, $index_str);</div><div class="line">            <span class="keyword">if</span>($sid &amp;&amp; !<span class="keyword">empty</span>($index_arr)){</div><div class="line">                $uid = <span class="keyword">$this</span>-&gt;getUidForSid($sid);</div><div class="line">                <span class="keyword">$this</span>-&gt;delNotice($uid, $index_arr);</div><div class="line">                <span class="keyword">return</span> $uid;</div><div class="line">            }</div><div class="line">            <span class="keyword">return</span> <span class="keyword">true</span>;</div><div class="line">        }</div><div class="line">        <span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line">    }</div><div class="line">    </div><div class="line">    <span class="comment">/**</span></div><div class="line">     * &#x6807;&#x8BB0;&#x5DF2;&#x53D1;&#x9001;</div><div class="line">     * <span class="doctag">@param</span> $uid</div><div class="line">     * <span class="doctag">@param</span> $index</div><div class="line">     * <span class="doctag">@return</span> bool|void</div><div class="line">     */</div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">markSend</span><span class="params">($uid, $index)</span></span>{</div><div class="line">        <span class="keyword">if</span>($notice = <span class="keyword">$this</span>-&gt;getNoticeItem($uid, $index)){</div><div class="line">            $notice[<span class="string">&apos;state&apos;</span>] = <span class="keyword">self</span>::STATE_SEND;</div><div class="line">            <span class="keyword">return</span> <span class="keyword">$this</span>-&gt;setNoticeItem($uid, $index, $notice);</div><div class="line">        }</div><div class="line">        <span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line">    }</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line">     * &#x5220;&#x9664;&#x5355;&#x6761;&#x6D88;&#x606F;</div><div class="line">     * <span class="doctag">@param</span> $uid</div><div class="line">     * <span class="doctag">@param</span> $notice</div><div class="line">     * <span class="doctag">@return</span> int</div><div class="line">     */</div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">delNoticeItem</span><span class="params">($uid, $notice)</span></span>{</div><div class="line">        <span class="keyword">return</span>  <span class="keyword">$this</span>-&gt;redis-&gt;lrem(<span class="string">&apos;notice-&apos;</span>.$uid, serialize($notice), <span class="number">0</span>);</div><div class="line">    }</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line">     * &#x4FEE;&#x6539;&#x5355;&#x6761;&#x6D88;&#x606F;</div><div class="line">     * <span class="doctag">@param</span> $uid</div><div class="line">     * <span class="doctag">@param</span> $index</div><div class="line">     * <span class="doctag">@param</span> $data</div><div class="line">     */</div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">setNoticeItem</span><span class="params">($uid, $index, $data)</span></span>{</div><div class="line">        <span class="keyword">$this</span>-&gt;redis-&gt;lset(<span class="string">&apos;notice-&apos;</span>.$uid, $index, serialize($data));</div><div class="line">    }</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line">     * &#x83B7;&#x53D6;&#x5355;&#x6761;&#x6D88;&#x606F;</div><div class="line">     * <span class="doctag">@param</span> $uid</div><div class="line">     * <span class="doctag">@param</span> $index</div><div class="line">     * <span class="doctag">@return</span> mixed|null</div><div class="line">     */</div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">getNoticeItem</span><span class="params">($uid, $index)</span></span>{</div><div class="line">        <span class="keyword">if</span>($message = <span class="keyword">$this</span>-&gt;redis-&gt;lindex(<span class="string">&apos;notice-&apos;</span>.$uid, $index)){</div><div class="line">            <span class="keyword">return</span> unserialize($message);</div><div class="line">        }</div><div class="line">        <span class="keyword">return</span> <span class="keyword">null</span>;</div><div class="line">    }</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line">     * &#x4FDD;&#x5B58;&#x5BA2;&#x6237;&#x7AEF;</div><div class="line">     * <span class="doctag">@param</span> $message</div><div class="line">     * <span class="doctag">@param</span> $sid</div><div class="line">     * <span class="doctag">@return</span> string</div><div class="line">     */</div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">setClient</span><span class="params">($message, $sid)</span></span>{</div><div class="line">        $uid = substr($message, <span class="number">4</span>);</div><div class="line">        <span class="keyword">$this</span>-&gt;redis-&gt;set(<span class="string">&apos;notice-sid&apos;</span>.$sid, $uid);</div><div class="line">        <span class="keyword">echo</span> <span class="string">&quot;set fid:{$sid} uid:$uid\n&quot;</span>;</div><div class="line">        <span class="keyword">return</span> $uid;</div><div class="line">    }</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line">     * &#x83B7;&#x53D6;&#x6240;&#x6709;&#x7684;&#x5BA2;&#x6237;&#x7AEF;</div><div class="line">     * <span class="doctag">@return</span> array [[sid,uid]..]</div><div class="line">     */</div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">getAllClient</span><span class="params">()</span></span>{</div><div class="line">        $clients_sid = <span class="keyword">$this</span>-&gt;redis-&gt;keys(<span class="string">&apos;notice-sid*&apos;</span>);</div><div class="line">        $clients = <span class="keyword">array</span>();</div><div class="line">        <span class="keyword">if</span>(!<span class="keyword">empty</span>($clients_sid)){</div><div class="line">            <span class="keyword">foreach</span>($clients_sid <span class="keyword">as</span> $sid_key){ <span class="comment">//&#x53D6;&#x7684;&#x4FE1;&#x606F;&#xFF0C;&#x8FDB;&#x884C;&#x63A8;&#x9001;</span></div><div class="line">                $clients[] = <span class="keyword">array</span>(</div><div class="line">                    <span class="string">&apos;sid&apos;</span>=&gt;substr($sid_key, <span class="number">10</span>),</div><div class="line">                    <span class="string">&apos;uid&apos;</span>=&gt;<span class="keyword">$this</span>-&gt;redis-&gt;get($sid_key)</div><div class="line">                );</div><div class="line">            }</div><div class="line">        }</div><div class="line">        <span class="keyword">return</span> $clients;</div><div class="line">    }</div><div class="line">    <span class="comment">/**</span></div><div class="line">     * &#x6839;&#x636E;&#x7528;&#x6237;&#x83B7;&#x53D6;&#x63A8;&#x9001;&#x4FE1;&#x606F;</div><div class="line">     * <span class="doctag">@param</span> $uid</div><div class="line">     * <span class="doctag">@return</span> array [url,message,state]</div><div class="line">     */</div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">getNotice</span><span class="params">($uid)</span></span>{</div><div class="line">        $notice = <span class="keyword">$this</span>-&gt;redis-&gt;lrange(<span class="string">&apos;notice-&apos;</span>.$uid, <span class="number">0</span>, <span class="number">-1</span>);</div><div class="line">        <span class="keyword">if</span>(count($notice)){</div><div class="line">            <span class="keyword">foreach</span>($notice <span class="keyword">as</span> $k=&gt;$item){</div><div class="line">                $notice[$k] = unserialize($item);</div><div class="line">            }</div><div class="line">            <span class="keyword">return</span> $notice;</div><div class="line">        }</div><div class="line">        <span class="keyword">return</span> <span class="keyword">null</span>;</div><div class="line">    }</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line">     * &#x6839;&#x636E;&#x5BA2;&#x6237;&#x7AEF;id&#x83B7;&#x53D6;&#x63A8;&#x9001;&#x4FE1;&#x606F;</div><div class="line">     * <span class="doctag">@param</span> $sid</div><div class="line">     * <span class="doctag">@return</span> array|null</div><div class="line">     */</div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">getNoticeForSid</span><span class="params">($sid)</span></span>{</div><div class="line">        <span class="keyword">if</span>($uid = <span class="keyword">$this</span>-&gt;getUidForSid($sid)){</div><div class="line">            <span class="keyword">return</span> <span class="keyword">$this</span>-&gt;getNotice($uid);</div><div class="line">        }</div><div class="line">        <span class="keyword">return</span> <span class="keyword">null</span>;</div><div class="line">    }</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line">     * &#x6839;&#x636E;&#x5BA2;&#x6237;&#x7AEF;id&#x83B7;&#x53D6;uid</div><div class="line">     * <span class="doctag">@param</span> $sid</div><div class="line">     * <span class="doctag">@return</span> bool|string</div><div class="line">     */</div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">getUidForSid</span><span class="params">($sid)</span></span>{</div><div class="line">        <span class="keyword">return</span> <span class="keyword">$this</span>-&gt;redis-&gt;get(<span class="string">&apos;notice-sid&apos;</span>.$sid);</div><div class="line">    }</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line">     * &#x5220;&#x9664;&#x5BA2;&#x6237;&#x7AEF;&#x4FE1;&#x606F;</div><div class="line">     * <span class="doctag">@param</span> $sid</div><div class="line">     * <span class="doctag">@return</span> bool</div><div class="line">     */</div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">clearSid</span><span class="params">($sid)</span></span>{</div><div class="line">        <span class="keyword">if</span>(<span class="keyword">$this</span>-&gt;redis-&gt;delete(<span class="string">&apos;notice-sid&apos;</span>.$sid)){<span class="comment">//&#x6E05;&#x9664;&#x6D88;&#x606F;</span></div><div class="line">            <span class="keyword">echo</span> <span class="string">&quot;del fid:$sid\n&quot;</span>;</div><div class="line">            <span class="keyword">return</span> <span class="keyword">true</span>;</div><div class="line">        }</div><div class="line">        <span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line">    }</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line">     * &#x5220;&#x9664;&#x5355;&#x6761;&#x6D88;&#x606F;</div><div class="line">     * <span class="doctag">@param</span> $uid</div><div class="line">     * <span class="doctag">@param</span> mixed $index</div><div class="line">     * <span class="doctag">@return</span> bool</div><div class="line">     */</div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">delNotice</span><span class="params">($uid, $index)</span></span>{</div><div class="line">        <span class="keyword">if</span>(is_numeric($index)) $index = <span class="keyword">array</span>($index);</div><div class="line">        <span class="keyword">if</span>(is_array($index)){</div><div class="line">            $notice_arr = <span class="keyword">array</span>();</div><div class="line">            <span class="keyword">foreach</span>($index <span class="keyword">as</span> $i){</div><div class="line">                $notice_arr[] = <span class="keyword">$this</span>-&gt;getNoticeItem($uid, $i);</div><div class="line">            }</div><div class="line">            <span class="keyword">foreach</span>($notice_arr <span class="keyword">as</span> $notice){</div><div class="line">                <span class="keyword">if</span>($notice) <span class="keyword">$this</span>-&gt;delNoticeItem($uid, $notice);</div><div class="line">            }</div><div class="line">        }</div><div class="line">        <span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line">    }</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line">     * &#x5220;&#x9664;&#x7528;&#x6237;&#x63A8;&#x9001;&#x4FE1;&#x606F;</div><div class="line">     * <span class="doctag">@param</span> $uid</div><div class="line">     * <span class="doctag">@return</span> bool</div><div class="line">     */</div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">clearNotice</span><span class="params">($uid)</span></span>{</div><div class="line">        <span class="keyword">if</span>(!$uid) <span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">$this</span>-&gt;redis-&gt;delete(<span class="string">&apos;notice-&apos;</span>.$uid);</div><div class="line">        <span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line">    }</div><div class="line">}</div></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/05/01/2016-05-01-spring-maven/" rel="next" title="spring-maven spring-maven笔记">
+                <i class="fa fa-chevron-left"></i> spring-maven spring-maven笔记
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/05/01/2016-05-01-swoole-framework-timer-process/" rel="prev" title="swoole-framework-timer-process 样例">
+                swoole-framework-timer-process 样例 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-name">categories</span>
+              
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">60</span>
+                <span class="site-state-item-name">tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#swoole-推送简单样例"><span class="nav-number">1.</span> <span class="nav-text">swoole 推送简单样例</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-管理脚本"><span class="nav-number">1.0.1.</span> <span class="nav-text">1.管理脚本</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-消息推送服务"><span class="nav-number">1.0.2.</span> <span class="nav-text">2.消息推送服务</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-redis通知"><span class="nav-number">1.0.3.</span> <span class="nav-text">3.redis通知</span></a></li></ol></li></ol></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Neconano</span>
+</div>
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

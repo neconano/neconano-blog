@@ -1,0 +1,630 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="php,swoole," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="swoole-webchat-minions &amp;#x5B89;&amp;#x88C5;&amp;#x7B14;&amp;#x8BB0;
+&amp;#x8BE5;&amp;#x9879;&amp;#x76EE;&amp;#x662F;&amp;#x57FA;&amp;#x4E8E;swoole+redis+msgpack+yaf&amp;#x5F00;&amp;#x53D1;&amp;#x7684;&amp;#x9AD8;&amp;#x6027;&amp;#x80FD;&amp;#x804A;&amp;#x5929;&amp;#x7CFB;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="swoole-webchat-minions 笔记">
+<meta property="og:url" content="http://yoursite.com/2016/04/01/2016-04-01-swoole-webchat-minions/index.html">
+<meta property="og:site_name" content="Neconano's notebook">
+<meta property="og:description" content="swoole-webchat-minions &amp;#x5B89;&amp;#x88C5;&amp;#x7B14;&amp;#x8BB0;
+&amp;#x8BE5;&amp;#x9879;&amp;#x76EE;&amp;#x662F;&amp;#x57FA;&amp;#x4E8E;swoole+redis+msgpack+yaf&amp;#x5F00;&amp;#x53D1;&amp;#x7684;&amp;#x9AD8;&amp;#x6027;&amp;#x80FD;&amp;#x804A;&amp;#x5929;&amp;#x7CFB;">
+<meta property="og:updated_time" content="2017-01-09T07:11:15.846Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="swoole-webchat-minions 笔记">
+<meta name="twitter:description" content="swoole-webchat-minions &amp;#x5B89;&amp;#x88C5;&amp;#x7B14;&amp;#x8BB0;
+&amp;#x8BE5;&amp;#x9879;&amp;#x76EE;&amp;#x662F;&amp;#x57FA;&amp;#x4E8E;swoole+redis+msgpack+yaf&amp;#x5F00;&amp;#x53D1;&amp;#x7684;&amp;#x9AD8;&amp;#x6027;&amp;#x80FD;&amp;#x804A;&amp;#x5929;&amp;#x7CFB;">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"right","display":"always"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: 'Author'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2016/04/01/2016-04-01-swoole-webchat-minions/"/>
+
+  <title> swoole-webchat-minions 笔记 | Neconano's notebook </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-right page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Neconano's notebook</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                swoole-webchat-minions 笔记
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2016-04-01T00:00:00+08:00" content="2016-04-01">
+              2016-04-01
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/swoole/" itemprop="url" rel="index">
+                    <span itemprop="name">swoole</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="swoole-webchat-minions-&#x5B89;&#x88C5;&#x7B14;&#x8BB0;"><a href="#swoole-webchat-minions-&#x5B89;&#x88C5;&#x7B14;&#x8BB0;" class="headerlink" title="swoole-webchat-minions &#x5B89;&#x88C5;&#x7B14;&#x8BB0;"></a>swoole-webchat-minions &#x5B89;&#x88C5;&#x7B14;&#x8BB0;</h1><hr>
+<h3 id="&#x8BE5;&#x9879;&#x76EE;&#x662F;&#x57FA;&#x4E8E;swoole-redis-msgpack-yaf&#x5F00;&#x53D1;&#x7684;&#x9AD8;&#x6027;&#x80FD;&#x804A;&#x5929;&#x7CFB;&#x7EDF;&#x9879;&#x76EE;&#x5730;&#x5740;"><a href="#&#x8BE5;&#x9879;&#x76EE;&#x662F;&#x57FA;&#x4E8E;swoole-redis-msgpack-yaf&#x5F00;&#x53D1;&#x7684;&#x9AD8;&#x6027;&#x80FD;&#x804A;&#x5929;&#x7CFB;&#x7EDF;&#x9879;&#x76EE;&#x5730;&#x5740;" class="headerlink" title="&#x8BE5;&#x9879;&#x76EE;&#x662F;&#x57FA;&#x4E8E;swoole+redis+msgpack+yaf&#x5F00;&#x53D1;&#x7684;&#x9AD8;&#x6027;&#x80FD;&#x804A;&#x5929;&#x7CFB;&#x7EDF;&#x9879;&#x76EE;&#x5730;&#x5740;"></a>&#x8BE5;&#x9879;&#x76EE;&#x662F;&#x57FA;&#x4E8E;swoole+redis+msgpack+yaf&#x5F00;&#x53D1;&#x7684;&#x9AD8;&#x6027;&#x80FD;&#x804A;&#x5929;&#x7CFB;&#x7EDF;<a href="https://github.com/Yaoguais/jegarn" target="_blank" rel="external">&#x9879;&#x76EE;&#x5730;&#x5740;</a></h3><blockquote>
+<p>&#x73AF;&#x5883;&#x4F9D;&#x8D56;<a href="https://github.com/Yaoguais/jegarn/blob/master/INSTALL.md" target="_blank" rel="external">&#x5B89;&#x88C5;&#x8BF4;&#x660E;</a></p>
+</blockquote>
+<ul>
+<li>PHP 5.3.10 or later</li>
+<li>Swoole 1.7.20 or newer</li>
+<li>Msgpack 0.5.7</li>
+<li>Redis 2.8.22</li>
+<li>yaf 2.3.5&#xFF08;&#x4F7F;&#x7528;php7&#x8981;&#x7528;yaf 3.0&#x4EE5;&#x4E0A;&#xFF09;</li>
+<li>mysql 5.6.26</li>
+<li>nginx 1.8.0</li>
+</ul>
+<blockquote>
+<p>&#x76F8;&#x5173;&#x8BF4;&#x660E;</p>
+</blockquote>
+<h3 id="&#x8FD0;&#x884C;&#x670D;&#x52A1;"><a href="#&#x8FD0;&#x884C;&#x670D;&#x52A1;" class="headerlink" title="&#x8FD0;&#x884C;&#x670D;&#x52A1;"></a>&#x8FD0;&#x884C;&#x670D;&#x52A1;</h3><p>&#x5F00;&#x542F;reids</p>
+<p>&#x5F00;&#x542F;mysql</p>
+<p>&#x8FD0;&#x884C;</p>
+<p>php server.php 0.0.0.0 9501 &amp;</p>
+<p>php webserver.php 0.0.0.0 9503 &amp;</p>
+<p>php robot_counter.php</p>
+<h3 id="1-&#x5728;&#x6267;&#x884C;-php-install-php-&#x4F1A;&#x63D0;&#x793A;-yaf-config-ini-&#x7C7B;&#x4F3C;&#x9519;&#x8BEF;"><a href="#1-&#x5728;&#x6267;&#x884C;-php-install-php-&#x4F1A;&#x63D0;&#x793A;-yaf-config-ini-&#x7C7B;&#x4F3C;&#x9519;&#x8BEF;" class="headerlink" title="1.&#x5728;&#x6267;&#x884C; php install.php &#x4F1A;&#x63D0;&#x793A; yaf/config/ini &#x7C7B;&#x4F3C;&#x9519;&#x8BEF;"></a>1.&#x5728;&#x6267;&#x884C; <code>php install.php</code> &#x4F1A;&#x63D0;&#x793A; yaf/config/ini &#x7C7B;&#x4F3C;&#x9519;&#x8BEF;</h3><p>&#x89E3;&#x51B3;&#x65B9;&#x5F0F;:&#x4FEE;&#x6539;php.ini&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#xFF0C;&#x52A0;&#x5165;<code>yaf.use_namespace=1</code><a href="http://yaf.laruence.com/manual/yaf.ini.html" target="_blank" rel="external">&#x53C2;&#x7167;</a></p>
+<h3 id="2-&#x542F;&#x52A8;-php-server-php-0-0-0-0-9501-&#x7B49;&#x670D;&#x52A1;&#xFF0C;&#x63D0;&#x793A;-log-&#x6587;&#x4EF6;&#x4E0D;&#x5B58;&#x5728;"><a href="#2-&#x542F;&#x52A8;-php-server-php-0-0-0-0-9501-&#x7B49;&#x670D;&#x52A1;&#xFF0C;&#x63D0;&#x793A;-log-&#x6587;&#x4EF6;&#x4E0D;&#x5B58;&#x5728;" class="headerlink" title="2.&#x542F;&#x52A8; php server.php 0.0.0.0 9501 &#x7B49;&#x670D;&#x52A1;&#xFF0C;&#x63D0;&#x793A; log &#x6587;&#x4EF6;&#x4E0D;&#x5B58;&#x5728;"></a>2.&#x542F;&#x52A8; <code>php server.php 0.0.0.0 9501</code> &#x7B49;&#x670D;&#x52A1;&#xFF0C;&#x63D0;&#x793A; log &#x6587;&#x4EF6;&#x4E0D;&#x5B58;&#x5728;</h3><p>&#x89E3;&#x51B3;&#x65B9;&#x5F0F;&#xFF1A;&#x624B;&#x52A8;&#x521B;&#x5EFA;</p>
+<h3 id="3-&#x9996;&#x9875;&#x62A5;&#x9519;websocket&#x8FDE;&#x63A5;&#x5931;&#x8D25;"><a href="#3-&#x9996;&#x9875;&#x62A5;&#x9519;websocket&#x8FDE;&#x63A5;&#x5931;&#x8D25;" class="headerlink" title="3.&#x9996;&#x9875;&#x62A5;&#x9519;websocket&#x8FDE;&#x63A5;&#x5931;&#x8D25;"></a>3.&#x9996;&#x9875;&#x62A5;&#x9519;websocket&#x8FDE;&#x63A5;&#x5931;&#x8D25;</h3><p>&#x89E3;&#x51B3;&#x65B9;&#x5F0F;&#xFF1A;&#x5168;&#x5C40;&#x641C;&#x7D22;jegarn.com&#x5173;&#x952E;&#x5B57;&#xFF0C;&#x66FF;&#x6362;&#x76F8;&#x5E94;&#x670D;&#x52A1;&#x5668;&#x5730;&#x5740;</p>
+<h3 id="4-webserver-info-log&#x5360;&#x7528;&#x7A7A;&#x95F4;"><a href="#4-webserver-info-log&#x5360;&#x7528;&#x7A7A;&#x95F4;" class="headerlink" title="4.webserver_info.log&#x5360;&#x7528;&#x7A7A;&#x95F4;"></a>4.<code>webserver_info.log</code>&#x5360;&#x7528;&#x7A7A;&#x95F4;</h3><p>&#x89E3;&#x51B3;&#x65B9;&#x5F0F;&#xFF1A;&#x6CE8;&#x91CA;&#x6389;<code>Logger::INFO      =&gt; __DIR__ . &apos;/../logs/server_info.log&apos;,</code></p>
+<h3 id="5-ssl&#x95EE;&#x9898;"><a href="#5-ssl&#x95EE;&#x9898;" class="headerlink" title="5.ssl&#x95EE;&#x9898;"></a>5.ssl&#x95EE;&#x9898;</h3><p>&#x4E0D;&#x5F00;&#x542F;&#x7684;&#x65F6;&#x5019;&#x4F1A;&#x63D0;&#x793A;Use of undefined constant SWOOLE_SSL - assumed &#x2018;SWOOLE_SSL&#x2019;</p>
+<p>&#x4F46;&#x4E0D;&#x5F71;&#x54CD;&#x4F7F;&#x7528;&#xFF0C;&#x53EA;&#x662F;&#x6CA1;&#x6709;&#x4F7F;&#x7528;&#x5B89;&#x5168;&#x8FDE;&#x63A5;,&#x5982;&#x679C;&#x5F00;&#x542F;&#xFF0C;&#x53EF;<a href="/blog/2016/05/01/https-nginx-openssl">&#x53C2;&#x8003;</a>&#x914D;&#x7F6E;&#x8BC1;&#x4E66;</p>
+<blockquote>
+<p>&#x76F8;&#x5173;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x9644;&#x5F55;</p>
+</blockquote>
+<h3 id="1-application-ini"><a href="#1-application-ini" class="headerlink" title="1.application.ini"></a>1.application.ini</h3><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">[common]</div><div class="line">application.directory                         = APPLICATION_PATH  <span class="string">&quot;/application&quot;</span></div><div class="line">application.ext                               = php</div><div class="line">application.view.ext                          = php</div><div class="line">application.modules 	                      = <span class="string">&quot;Api&quot;</span></div><div class="line">application.library 	                      = APPLICATION_PATH <span class="string">&quot;/../src&quot;</span></div><div class="line">application.library.directory 	              = APPLICATION_PATH <span class="string">&quot;/../src&quot;</span></div><div class="line">application.library.namespace 	              =</div><div class="line">application.bootstrap 	                      = APPLICATION_PATH <span class="string">&quot;/application/Bootstrap.php&quot;</span></div><div class="line">application.baseUri 	                      =</div><div class="line">application.dispatcher.defaultRoute           =</div><div class="line">application.dispatcher.throwException         = <span class="number">1</span></div><div class="line">application.dispatcher.catchException         = <span class="number">1</span></div><div class="line">application.dispatcher.defaultModule          = <span class="string">&quot;Api&quot;</span></div><div class="line">application.dispatcher.defaultController      = <span class="string">&quot;index&quot;</span></div><div class="line">application.dispatcher.defaultAction          = <span class="string">&quot;index&quot;</span></div><div class="line"></div><div class="line">[product : common]</div><div class="line"></div><div class="line">application.database.dns                      = <span class="string">&quot;mysql:host=127.0.0.1;dbname=minions&quot;</span></div><div class="line">application.database.username                 = <span class="string">&quot;root&quot;</span></div><div class="line">application.database.password                 = <span class="string">&quot;123456&quot;</span></div><div class="line">application.database.options                  =</div><div class="line">application.database.commands                 = <span class="string">&quot;set names utf8&quot;</span></div><div class="line"></div><div class="line">application.cache.host                        = <span class="string">&apos;127.0.0.1&apos;</span></div><div class="line">application.cache.port                        = <span class="number">6379</span></div><div class="line">application.cache.timeout                     = <span class="number">0.0</span></div><div class="line">application.cache.password                    =</div><div class="line"></div><div class="line">application.chat.localAddress                 = <span class="string">&apos;127.0.0.1&apos;</span></div><div class="line">application.chat.localPort                    = <span class="number">80</span></div><div class="line">application.chat.remoteAddress                = <span class="string">&apos;127.0.0.1&apos;</span></div><div class="line">application.chat.remotePort                   = <span class="number">9501</span></div><div class="line">application.chat.serverId                     = <span class="string">&apos;1acee9d52668ca37f645411f39fce3c0&apos;</span></div><div class="line">application.chat.ssl_cert_file                = APPLICATION_PATH <span class="string">&quot;/../config/ssl.crt&quot;</span></div><div class="line">application.chat.ssl_key_file                 = APPLICATION_PATH <span class="string">&quot;/../config/ssl.key&quot;</span></div><div class="line"></div><div class="line">[develop : common]</div><div class="line"></div><div class="line">application.database.dns                      = <span class="string">&quot;mysql:host=127.0.0.1;dbname=minions&quot;</span></div><div class="line">application.database.username                 = <span class="string">&quot;root&quot;</span></div><div class="line">application.database.password                 = <span class="string">&quot;123456&quot;</span></div><div class="line">application.database.options                  =</div><div class="line">application.database.commands                 = <span class="string">&quot;set names utf8&quot;</span></div><div class="line"></div><div class="line">application.cache.host                        = <span class="string">&apos;127.0.0.1&apos;</span></div><div class="line">application.cache.port                        = <span class="number">6379</span></div><div class="line">application.cache.timeout                     = <span class="number">0.0</span></div><div class="line">application.cache.password                    =</div><div class="line"></div><div class="line">application.chat.localAddress                 = <span class="string">&apos;127.0.0.1&apos;</span></div><div class="line">application.chat.localPort                    = <span class="number">80</span></div><div class="line">application.chat.remoteAddress                = <span class="string">&apos;127.0.0.1&apos;</span></div><div class="line">application.chat.remotePort                   = <span class="number">9501</span></div><div class="line">application.chat.serverId                     = <span class="string">&apos;1acee9d52668ca37f645411f39fce3c0&apos;</span></div><div class="line">application.chat.ssl_cert_file                = APPLICATION_PATH <span class="string">&quot;/../config/ssl.crt&quot;</span></div><div class="line">application.chat.ssl_key_file                 = APPLICATION_PATH <span class="string">&quot;/../config/ssl.key&quot;</span></div></pre></td></tr></table></figure>
+<h3 id="robot-counter-php"><a href="#robot-counter-php" class="headerlink" title="robot_counter.php"></a>robot_counter.php</h3><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="keyword">return</span> [</div><div class="line">    <span class="string">&apos;cache&apos;</span>       =&gt; [</div><div class="line">        <span class="string">&apos;host&apos;</span>     =&gt; <span class="string">&apos;127.0.0.1&apos;</span>,</div><div class="line">        <span class="string">&apos;port&apos;</span>     =&gt; <span class="number">6379</span>,</div><div class="line">        <span class="string">&apos;timeout&apos;</span>  =&gt; <span class="number">0.0</span>,</div><div class="line">        <span class="string">&apos;password&apos;</span> =&gt; <span class="string">&apos;&apos;</span></div><div class="line">    ],</div><div class="line">    <span class="string">&apos;server&apos;</span> =&gt; [</div><div class="line">        <span class="string">&apos;host&apos;</span> =&gt; <span class="string">&apos;127.0.0.1&apos;</span>,</div><div class="line">        <span class="string">&apos;port&apos;</span> =&gt; <span class="number">9501</span>,</div><div class="line">        <span class="string">&apos;reconnectInterval&apos;</span> =&gt; <span class="number">5000</span></div><div class="line">    ],</div><div class="line">    <span class="string">&apos;user&apos;</span> =&gt; [</div><div class="line">        <span class="string">&apos;account&apos;</span> =&gt; <span class="string">&apos;counter&apos;</span>,</div><div class="line">        <span class="string">&apos;password&apos;</span> =&gt; <span class="string">&apos;8cce877956d00ddbaa808a55&apos;</span></div><div class="line">    ],</div><div class="line">    <span class="string">&apos;client&apos;</span> =&gt; [</div><div class="line">        <span class="string">&apos;open_length_check&apos;</span>     =&gt; <span class="number">1</span>,</div><div class="line">        <span class="string">&apos;package_length_type&apos;</span>   =&gt; <span class="string">&apos;N&apos;</span>,</div><div class="line">        <span class="string">&apos;package_length_offset&apos;</span> =&gt; <span class="number">0</span>,</div><div class="line">        <span class="string">&apos;package_body_offset&apos;</span>   =&gt; <span class="number">4</span>,</div><div class="line">        <span class="string">&apos;package_max_length&apos;</span>    =&gt; <span class="number">2048</span>,</div><div class="line">        <span class="string">&apos;socket_buffer_size&apos;</span>    =&gt; <span class="number">1024</span> * <span class="number">1024</span> * <span class="number">2</span>,</div><div class="line">        <span class="string">&apos;daemonize&apos;</span>             =&gt; <span class="number">1</span>,</div><div class="line">        <span class="string">&apos;ssl_cert_file&apos;</span>         =&gt; <span class="keyword">__DIR__</span> . <span class="string">&apos;/ssl.crt&apos;</span>,</div><div class="line">        <span class="string">&apos;ssl_key_file&apos;</span>          =&gt; <span class="keyword">__DIR__</span> . <span class="string">&apos;/ssl.key&apos;</span></div><div class="line">    ]</div><div class="line">];</div></pre></td></tr></table></figure>
+<h3 id="3-server-php"><a href="#3-server-php" class="headerlink" title="3.server.php"></a>3.server.php</h3><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="keyword">use</span> <span class="title">jegarn</span>\<span class="title">log</span>\<span class="title">Logger</span>;</div><div class="line"></div><div class="line"><span class="keyword">return</span> [</div><div class="line">    <span class="string">&apos;cache&apos;</span>       =&gt; [</div><div class="line">        <span class="string">&apos;host&apos;</span>     =&gt; <span class="string">&apos;127.0.0.1&apos;</span>,</div><div class="line">        <span class="string">&apos;port&apos;</span>     =&gt; <span class="number">6379</span>,</div><div class="line">        <span class="string">&apos;timeout&apos;</span>  =&gt; <span class="number">0.0</span>,</div><div class="line">        <span class="string">&apos;password&apos;</span> =&gt; <span class="keyword">null</span></div><div class="line">    ],</div><div class="line">    <span class="string">&apos;server&apos;</span>      =&gt; [</div><div class="line">        <span class="string">&apos;host&apos;</span>          =&gt; <span class="string">&apos;127.0.0.1&apos;</span>,</div><div class="line">        <span class="string">&apos;port&apos;</span>          =&gt; <span class="number">9501</span>,</div><div class="line">        <span class="string">&apos;worker_num&apos;</span>    =&gt; <span class="number">4</span>,</div><div class="line">        <span class="string">&apos;dispatch_mode&apos;</span> =&gt; <span class="number">2</span>,</div><div class="line">        <span class="string">&apos;log_file&apos;</span>      =&gt; <span class="keyword">__DIR__</span> . <span class="string">&apos;/../logs/server_swoole.log&apos;</span>,</div><div class="line">        <span class="comment">//&apos;daemonize&apos;     =&gt; 1,</span></div><div class="line">        <span class="string">&apos;ssl_cert_file&apos;</span> =&gt; <span class="keyword">__DIR__</span> . <span class="string">&apos;/ssl.crt&apos;</span>,</div><div class="line">        <span class="string">&apos;ssl_key_file&apos;</span> =&gt; <span class="keyword">__DIR__</span> . <span class="string">&apos;/ssl.key&apos;</span></div><div class="line">    ],</div><div class="line">    <span class="string">&apos;listener&apos;</span> =&gt; [</div><div class="line">        <span class="string">&apos;jegarn\listener\AuthPacketListener&apos;</span>, <span class="comment">// always add to first, not authorized user would do nothing</span></div><div class="line">        <span class="string">&apos;jegarn\listener\NotificationPacketListener&apos;</span>,</div><div class="line">        <span class="string">&apos;jegarn\listener\ChatPacketListener&apos;</span>,</div><div class="line">        <span class="string">&apos;jegarn\listener\GroupChatPacketListener&apos;</span>,</div><div class="line">        <span class="string">&apos;jegarn\listener\ChatroomPacketListener&apos;</span></div><div class="line">    ],</div><div class="line">    <span class="string">&apos;file_logger&apos;</span> =&gt; [</div><div class="line">        Logger::DEBUG     =&gt; <span class="keyword">__DIR__</span> . <span class="string">&apos;/../logs/server_debug.log&apos;</span>,</div><div class="line">        Logger::INFO      =&gt; <span class="keyword">__DIR__</span> . <span class="string">&apos;/../logs/server_info.log&apos;</span>,</div><div class="line">        Logger::NOTICE    =&gt; <span class="keyword">__DIR__</span> . <span class="string">&apos;/../logs/server_notice.log&apos;</span>,</div><div class="line">        Logger::WARNING   =&gt; <span class="keyword">__DIR__</span> . <span class="string">&apos;/../logs/server_warning.log&apos;</span>,</div><div class="line">        Logger::ERROR     =&gt; <span class="keyword">__DIR__</span> . <span class="string">&apos;/../logs/server_error.log&apos;</span>,</div><div class="line">        Logger::CRITICAL  =&gt; <span class="keyword">__DIR__</span> . <span class="string">&apos;/../logs/server_critical.log&apos;</span>,</div><div class="line">        Logger::ALERT     =&gt; <span class="keyword">__DIR__</span> . <span class="string">&apos;/../logs/server_alter.log&apos;</span>,</div><div class="line">        Logger::EMERGENCY =&gt; <span class="keyword">__DIR__</span> . <span class="string">&apos;/../logs/server_emergency.log&apos;</span>,</div><div class="line">    ]</div><div class="line">];</div></pre></td></tr></table></figure>
+<h3 id="4-webserver-php"><a href="#4-webserver-php" class="headerlink" title="4.webserver.php"></a>4.webserver.php</h3><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="keyword">use</span> <span class="title">jegarn</span>\<span class="title">log</span>\<span class="title">Logger</span>;</div><div class="line"></div><div class="line"><span class="keyword">return</span> [</div><div class="line">    <span class="string">&apos;cache&apos;</span>       =&gt; [</div><div class="line">        <span class="string">&apos;host&apos;</span>     =&gt; <span class="string">&apos;127.0.0.1&apos;</span>,</div><div class="line">        <span class="string">&apos;port&apos;</span>     =&gt; <span class="number">6379</span>,</div><div class="line">        <span class="string">&apos;timeout&apos;</span>  =&gt; <span class="number">0.0</span>,</div><div class="line">        <span class="string">&apos;password&apos;</span> =&gt; <span class="keyword">null</span></div><div class="line">    ],</div><div class="line">    <span class="string">&apos;server&apos;</span>      =&gt; [</div><div class="line">        <span class="string">&apos;host&apos;</span>          =&gt; <span class="string">&apos;127.0.0.1&apos;</span>,</div><div class="line">        <span class="string">&apos;port&apos;</span>          =&gt; <span class="number">9501</span>,</div><div class="line">        <span class="string">&apos;worker_num&apos;</span>    =&gt; <span class="number">4</span>,</div><div class="line">        <span class="string">&apos;dispatch_mode&apos;</span> =&gt; <span class="number">2</span>,</div><div class="line">        <span class="string">&apos;log_file&apos;</span>      =&gt; <span class="keyword">__DIR__</span> . <span class="string">&apos;/../logs/webserver_swoole.log&apos;</span>,</div><div class="line">        <span class="comment">//&apos;daemonize&apos;     =&gt; 1,</span></div><div class="line">        <span class="string">&apos;ssl_cert_file&apos;</span> =&gt; <span class="keyword">__DIR__</span> . <span class="string">&apos;/ssl.crt&apos;</span>,</div><div class="line">        <span class="string">&apos;ssl_key_file&apos;</span> =&gt; <span class="keyword">__DIR__</span> . <span class="string">&apos;/ssl.key&apos;</span></div><div class="line">    ],</div><div class="line">    <span class="string">&apos;listener&apos;</span> =&gt; [</div><div class="line">        <span class="string">&apos;jegarn\listener\AuthPacketListener&apos;</span>, <span class="comment">// always add to first, not authorized user would do nothing</span></div><div class="line">        <span class="string">&apos;jegarn\listener\NotificationPacketListener&apos;</span>,</div><div class="line">        <span class="string">&apos;jegarn\listener\ChatPacketListener&apos;</span>,</div><div class="line">        <span class="string">&apos;jegarn\listener\GroupChatPacketListener&apos;</span>,</div><div class="line">        <span class="string">&apos;jegarn\listener\ChatroomPacketListener&apos;</span></div><div class="line">    ],</div><div class="line">    <span class="string">&apos;file_logger&apos;</span> =&gt; [</div><div class="line">        Logger::DEBUG     =&gt; <span class="keyword">__DIR__</span> . <span class="string">&apos;/../logs/webserver_debug.log&apos;</span>,</div><div class="line">        Logger::INFO      =&gt; <span class="keyword">__DIR__</span> . <span class="string">&apos;/../logs/webserver_info.log&apos;</span>,</div><div class="line">        Logger::NOTICE    =&gt; <span class="keyword">__DIR__</span> . <span class="string">&apos;/../logs/webserver_notice.log&apos;</span>,</div><div class="line">        Logger::WARNING   =&gt; <span class="keyword">__DIR__</span> . <span class="string">&apos;/../logs/webserver_warning.log&apos;</span>,</div><div class="line">        Logger::ERROR     =&gt; <span class="keyword">__DIR__</span> . <span class="string">&apos;/../logs/webserver_error.log&apos;</span>,</div><div class="line">        Logger::CRITICAL  =&gt; <span class="keyword">__DIR__</span> . <span class="string">&apos;/../logs/webserver_critical.log&apos;</span>,</div><div class="line">        Logger::ALERT     =&gt; <span class="keyword">__DIR__</span> . <span class="string">&apos;/../logs/webserver_alter.log&apos;</span>,</div><div class="line">        Logger::EMERGENCY =&gt; <span class="keyword">__DIR__</span> . <span class="string">&apos;/../logs/webserver_emergency.log&apos;</span>,</div><div class="line">    ]</div><div class="line">];</div></pre></td></tr></table></figure>
+<h3 id="&#x7B80;&#x5355;&#x7684;&#x5173;&#x95ED;&#x548C;&#x5F00;&#x542F;&#x670D;&#x52A1;&#x811A;&#x672C;"><a href="#&#x7B80;&#x5355;&#x7684;&#x5173;&#x95ED;&#x548C;&#x5F00;&#x542F;&#x670D;&#x52A1;&#x811A;&#x672C;" class="headerlink" title="&#x7B80;&#x5355;&#x7684;&#x5173;&#x95ED;&#x548C;&#x5F00;&#x542F;&#x670D;&#x52A1;&#x811A;&#x672C;"></a>&#x7B80;&#x5355;&#x7684;&#x5173;&#x95ED;&#x548C;&#x5F00;&#x542F;&#x670D;&#x52A1;&#x811A;&#x672C;</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">#! /bin/sh -</div><div class="line"></div><div class="line">ps -ef |grep server.php|grep -v grep|cut -c 9-15|xargs kill -9</div><div class="line">ps -ef |grep webserver.php|grep -v grep|cut -c 9-15|xargs kill -9</div><div class="line"></div><div class="line">echo &apos;stoped&apos;</div><div class="line"></div><div class="line">php server.php 0.0.0.0 9501 &amp;</div><div class="line">php webserver.php 0.0.0.0 9503 &amp;</div><div class="line"></div><div class="line">echo &apos;started&apos;</div></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/php/" rel="tag">#php</a>
+          
+            <a href="/tags/swoole/" rel="tag">#swoole</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/04/01/2016-04-01-swoole-multi-sql/" rel="next" title="swoole-multi-sql 笔记">
+                <i class="fa fa-chevron-left"></i> swoole-multi-sql 笔记
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/04/01/2016-04-01-swoole-soa/" rel="prev" title="swoole-soa 记录">
+                swoole-soa 记录 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-name">categories</span>
+              
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">60</span>
+                <span class="site-state-item-name">tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#swoole-webchat-minions-安装笔记"><span class="nav-number">1.</span> <span class="nav-text">swoole-webchat-minions 安装笔记</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#该项目是基于swoole-redis-msgpack-yaf开发的高性能聊天系统项目地址"><span class="nav-number">1.0.1.</span> <span class="nav-text">该项目是基于swoole+redis+msgpack+yaf开发的高性能聊天系统项目地址</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#运行服务"><span class="nav-number">1.0.2.</span> <span class="nav-text">运行服务</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-在执行-php-install-php-会提示-yaf-config-ini-类似错误"><span class="nav-number">1.0.3.</span> <span class="nav-text">1.在执行 php install.php 会提示 yaf/config/ini 类似错误</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-启动-php-server-php-0-0-0-0-9501-等服务，提示-log-文件不存在"><span class="nav-number">1.0.4.</span> <span class="nav-text">2.启动 php server.php 0.0.0.0 9501 等服务，提示 log 文件不存在</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-首页报错websocket连接失败"><span class="nav-number">1.0.5.</span> <span class="nav-text">3.首页报错websocket连接失败</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-webserver-info-log占用空间"><span class="nav-number">1.0.6.</span> <span class="nav-text">4.webserver_info.log占用空间</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-ssl问题"><span class="nav-number">1.0.7.</span> <span class="nav-text">5.ssl问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-application-ini"><span class="nav-number">1.0.8.</span> <span class="nav-text">1.application.ini</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#robot-counter-php"><span class="nav-number">1.0.9.</span> <span class="nav-text">robot_counter.php</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-server-php"><span class="nav-number">1.0.10.</span> <span class="nav-text">3.server.php</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-webserver-php"><span class="nav-number">1.0.11.</span> <span class="nav-text">4.webserver.php</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#简单的关闭和开启服务脚本"><span class="nav-number">1.0.12.</span> <span class="nav-text">简单的关闭和开启服务脚本</span></a></li></ol></li></ol></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Neconano</span>
+</div>
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

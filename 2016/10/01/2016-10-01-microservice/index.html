@@ -1,0 +1,720 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="microservice,nio,zookeeper," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="microservice &amp;#x8F7B;&amp;#x91CF;&amp;#x7EA7;&amp;#x5FAE;&amp;#x670D;&amp;#x52A1;
+&amp;#x672C;&amp;#x6587;&amp;#x5185;&amp;#x5BB9;&amp;#x8D34;&amp;#x5408;&amp;#x300A;&amp;#x8F7B;&amp;#x91CF;&amp;#x7EA7;&amp;#x5FAE;&amp;#x670D;&amp;#x52A1;&amp;#x67B6;&amp;#x6784;&amp;#x300B;&amp;#x8FDB;&amp;#">
+<meta property="og:type" content="article">
+<meta property="og:title" content="microservice">
+<meta property="og:url" content="http://yoursite.com/2016/10/01/2016-10-01-microservice/index.html">
+<meta property="og:site_name" content="Neconano's notebook">
+<meta property="og:description" content="microservice &amp;#x8F7B;&amp;#x91CF;&amp;#x7EA7;&amp;#x5FAE;&amp;#x670D;&amp;#x52A1;
+&amp;#x672C;&amp;#x6587;&amp;#x5185;&amp;#x5BB9;&amp;#x8D34;&amp;#x5408;&amp;#x300A;&amp;#x8F7B;&amp;#x91CF;&amp;#x7EA7;&amp;#x5FAE;&amp;#x670D;&amp;#x52A1;&amp;#x67B6;&amp;#x6784;&amp;#x300B;&amp;#x8FDB;&amp;#">
+<meta property="og:updated_time" content="2017-07-05T08:18:45.037Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="microservice">
+<meta name="twitter:description" content="microservice &amp;#x8F7B;&amp;#x91CF;&amp;#x7EA7;&amp;#x5FAE;&amp;#x670D;&amp;#x52A1;
+&amp;#x672C;&amp;#x6587;&amp;#x5185;&amp;#x5BB9;&amp;#x8D34;&amp;#x5408;&amp;#x300A;&amp;#x8F7B;&amp;#x91CF;&amp;#x7EA7;&amp;#x5FAE;&amp;#x670D;&amp;#x52A1;&amp;#x67B6;&amp;#x6784;&amp;#x300B;&amp;#x8FDB;&amp;#">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"right","display":"always"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: 'Author'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2016/10/01/2016-10-01-microservice/"/>
+
+  <title> microservice | Neconano's notebook </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-right page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Neconano's notebook</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                microservice
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2016-10-01T00:00:00+08:00" content="2016-10-01">
+              2016-10-01
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="microservice-&#x8F7B;&#x91CF;&#x7EA7;&#x5FAE;&#x670D;&#x52A1;"><a href="#microservice-&#x8F7B;&#x91CF;&#x7EA7;&#x5FAE;&#x670D;&#x52A1;" class="headerlink" title="microservice &#x8F7B;&#x91CF;&#x7EA7;&#x5FAE;&#x670D;&#x52A1;"></a>microservice &#x8F7B;&#x91CF;&#x7EA7;&#x5FAE;&#x670D;&#x52A1;</h1><hr>
+<p>&#x672C;&#x6587;&#x5185;&#x5BB9;&#x8D34;&#x5408;&#x300A;&#x8F7B;&#x91CF;&#x7EA7;&#x5FAE;&#x670D;&#x52A1;&#x67B6;&#x6784;&#x300B;&#x8FDB;&#x884C;</p>
+<h3 id="1-&#x5FAE;&#x670D;&#x52A1;&#x5F00;&#x53D1;&#x89C4;&#x8303;-gitflow"><a href="#1-&#x5FAE;&#x670D;&#x52A1;&#x5F00;&#x53D1;&#x89C4;&#x8303;-gitflow" class="headerlink" title="1.&#x5FAE;&#x670D;&#x52A1;&#x5F00;&#x53D1;&#x89C4;&#x8303; gitflow"></a>1.&#x5FAE;&#x670D;&#x52A1;&#x5F00;&#x53D1;&#x89C4;&#x8303; gitflow</h3><p><a href="http://blog.jobbole.com/76867/" target="_blank" rel="external">&#x53C2;&#x8003;</a></p>
+<p><a href="https://github.com/nvie/gitflow" target="_blank" rel="external">gitflow&#x5DE5;&#x5177;</a></p>
+<h3 id="2-&#x5FAE;&#x670D;&#x52A1;&#x6280;&#x672F;&#x9009;&#x578B;"><a href="#2-&#x5FAE;&#x670D;&#x52A1;&#x6280;&#x672F;&#x9009;&#x578B;" class="headerlink" title="2.&#x5FAE;&#x670D;&#x52A1;&#x6280;&#x672F;&#x9009;&#x578B;"></a>2.&#x5FAE;&#x670D;&#x52A1;&#x6280;&#x672F;&#x9009;&#x578B;</h3><p>(&#x65B9;&#x6848;1)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">1.&#x4F7F;&#x7528;jenkins&#x90E8;&#x7F72;&#x670D;&#x52A1;</div><div class="line">2.&#x4F7F;&#x7528;spring boot &#x5F00;&#x53D1;&#x670D;&#x52A1;</div><div class="line">3.&#x4F7F;&#x7528;doker&#x5C01;&#x88C5;&#x670D;&#x52A1;</div><div class="line">4.&#x4F7F;&#x7528;zookeeper&#x6CE8;&#x518C;&#x670D;&#x52A1;</div><div class="line">5.&#x4F7F;&#x7528;node.js&#x8C03;&#x7528;&#x670D;&#x52A1;</div></pre></td></tr></table></figure>
+<p>(&#x65B9;&#x6848;2)spring cloud</p>
+<p><a href="http://www.dockone.io/article/510" target="_blank" rel="external">&#x53C2;&#x8003;</a></p>
+<p><a href="https://github.com/kbastani/spring-cloud-microservice-example" target="_blank" rel="external">&#x5B9E;&#x4F8B;</a></p>
+<h3 id="3-spring-boot-maven-pom-xml"><a href="#3-spring-boot-maven-pom-xml" class="headerlink" title="3.spring boot maven pom.xml"></a>3.spring boot maven pom.xml</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">&lt;!-- &#x7EE7;&#x627F;&#x7236;&#x5305; --&gt;</div><div class="line">&lt;parent&gt;</div><div class="line">    &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;</div><div class="line">    &lt;artifactId&gt;spring-boot-starter-parent&lt;/artifactId&gt;</div><div class="line">    &lt;version&gt;1.3.3.RELEASE&lt;/version&gt;</div><div class="line">    &lt;relativePath&gt;&lt;/relativePath&gt;</div><div class="line">&lt;/parent&gt;</div><div class="line">&lt;!-- spring-boot&#x7684;web&#x542F;&#x52A8;&#x7684;jar&#x5305; --&gt;</div><div class="line">&lt;dependencies&gt;</div><div class="line">    &lt;dependency&gt;</div><div class="line">        &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;</div><div class="line">        &lt;artifactId&gt;spring-boot-starter-web&lt;/artifactId&gt;</div><div class="line">    &lt;/dependency&gt;    </div><div class="line">&lt;/dependencies&gt;</div><div class="line">&lt;!--maven&#x7684;&#x63D2;&#x4EF6;--&gt;</div><div class="line">&lt;build&gt;</div><div class="line">    &lt;plugins&gt;</div><div class="line">        &lt;plugin&gt;</div><div class="line">            &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;</div><div class="line">            &lt;artifactId&gt;spring-boot-maven-plugin&lt;/artifactId&gt;</div><div class="line">        &lt;/plugin&gt;</div><div class="line">    &lt;/plugins&gt;</div><div class="line">&lt;/build&gt;</div></pre></td></tr></table></figure>
+<h3 id="4-HelloApplication-java"><a href="#4-HelloApplication-java" class="headerlink" title="4.HelloApplication.java"></a>4.HelloApplication.java</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">package msa;//&#x4E0D;&#x6307;&#x5B9A;&#x5305;&#xFF0C;&#x53EF;&#x80FD;&#x4F1A;&#x62A5;&#x9519;Your ApplicationContext is unlikely to start due to a @ComponentScan of the default package</div><div class="line">import org.springframework.boot.SpringApplication;</div><div class="line">import org.springframework.boot.autoconfigure.SpringBootApplication;</div><div class="line"></div><div class="line">import org.springframework.web.bind.annotation.RequestMapping;</div><div class="line">import org.springframework.web.bind.annotation.RequestMethod;</div><div class="line">import org.springframework.web.bind.annotation.RestController;</div><div class="line"></div><div class="line">@RestController</div><div class="line">@SpringBootApplication</div><div class="line">public class HelloApplication{</div><div class="line">    public static void main(String[] args){</div><div class="line">        SpringApplication.run(HelloApplication.class, args);</div><div class="line">    }</div><div class="line"></div><div class="line">    @RequestMapping(method = RequestMethod.GET, path=&quot;/hello&quot;)</div><div class="line">    public String hello(){</div><div class="line">        return &quot;hello&quot;;</div><div class="line">    }</div><div class="line">}</div></pre></td></tr></table></figure>
+<h3 id="5-&#x751F;&#x6210;jar&#x5305;"><a href="#5-&#x751F;&#x6210;jar&#x5305;" class="headerlink" title="5.&#x751F;&#x6210;jar&#x5305;"></a>5.&#x751F;&#x6210;jar&#x5305;</h3><p>&#x65B9;&#x6848;1&#xFF08;&#x63A8;&#x8350;&#xFF09;</p>
+<p>&#x5728;pom.xml&#x4E2D;&#x914D;&#x7F6E;spring boot &#x6253;&#x5305;&#x63D2;&#x4EF6;</p>
+<p>&#x5728;File-&gt;project structure-&gt;Modules &#x6307;&#x5B9A; Sources &#x76EE;&#x5F55;&#xFF0C;&#x5982;&#x679C;&#x4E0D;&#x5728;src/main/java&#x76EE;&#x5F55;&#x4E0B;&#x4F1A;&#x6709;&#x95EE;&#x9898;</p>
+<p>&#x5728;intellij &#x7684; Terminal&#x4E2D;&#x6267;&#x884C;mvn clean package</p>
+<p>&#x65B9;&#x6848;2</p>
+<p>&#x5728;File-&gt;project structure-&gt;Artifacts-&gt;add-&gt;Main Class-&gt;ok-&gt;&#x9009;&#x4E2D;include in project build</p>
+<p>&#x7136;&#x540E;&#x8FD0;&#x884C;java&#x7C7B;&#x540E;&#x751F;&#x6210;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">&#x4E66;&#x4E2D;&#x6837;&#x4F8B;&#x5728;&#x6267;&#x884C;jar&#x8FD0;&#x884C;&#x62A5;&#x9519;&#xFF0C;&#x8C8C;&#x4F3C;&#x5D4C;&#x5165;&#x63D2;&#x4EF6;&#x95EE;&#x9898;</div><div class="line">&#x65B9;&#x6848;1&#xFF1A;&#x52A0;&#x5165;</div><div class="line">import org.springframework.context.annotation.Bean;</div><div class="line">import org.springframework.boot.context.embedded.EmbeddedServletContainerFactory;</div><div class="line">import org.springframework.boot.context.embedded.tomcat.TomcatEmbeddedServletContainerFactory;</div><div class="line"></div><div class="line">@Bean</div><div class="line">public EmbeddedServletContainerFactory servletContainer() {</div><div class="line">    TomcatEmbeddedServletContainerFactory factory = new TomcatEmbeddedServletContainerFactory();</div><div class="line">    return factory;</div><div class="line">}</div><div class="line">&#x867D;&#x7136;&#x6267;&#x884C;&#x6210;&#x529F;&#xFF0C;&#x4F46;&#x6267;&#x884C;&#x7ED3;&#x679C;&#x9519;&#x8BEF;&#xFF0C;&#x4F30;&#x8BA1;&#x662F;&#x6253;&#x5305;&#x95EE;&#x9898;</div></pre></td></tr></table></figure>
+<p>&#x5B8C;&#x6574;&#x4EE3;&#x7801;</p>
+<p>#HelloApplication.java</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div></pre></td><td class="code"><pre><div class="line">package msa;</div><div class="line"></div><div class="line">import org.springframework.boot.SpringApplication;</div><div class="line">import org.springframework.boot.autoconfigure.SpringBootApplication;</div><div class="line">import org.springframework.boot.autoconfigure.EnableAutoConfiguration;</div><div class="line"></div><div class="line">import org.springframework.web.bind.annotation.RequestMapping;</div><div class="line">import org.springframework.web.bind.annotation.RequestMethod;</div><div class="line">import org.springframework.web.bind.annotation.RestController;</div><div class="line"></div><div class="line">import org.springframework.context.annotation.Bean;</div><div class="line">import org.springframework.boot.context.embedded.EmbeddedServletContainerFactory;</div><div class="line">import org.springframework.boot.context.embedded.tomcat.TomcatEmbeddedServletContainerFactory;</div><div class="line"></div><div class="line">@RestController</div><div class="line">@SpringBootApplication</div><div class="line">@EnableAutoConfiguration</div><div class="line">public class HelloApplication{</div><div class="line">    public static void main(String[] args){</div><div class="line">        SpringApplication.run(HelloApplication.class, args);</div><div class="line">    }</div><div class="line"></div><div class="line">    @RequestMapping(method = RequestMethod.GET, path=&quot;/hello&quot;)</div><div class="line">    public String hello(){</div><div class="line">        return &quot;hello&quot;;</div><div class="line">    }</div><div class="line"></div><div class="line">    @Bean</div><div class="line">    public EmbeddedServletContainerFactory servletContainer() {</div><div class="line">        TomcatEmbeddedServletContainerFactory factory = new TomcatEmbeddedServletContainerFactory();</div><div class="line">        return factory;</div><div class="line">    }</div><div class="line">}</div><div class="line"></div><div class="line">#pom.xml</div></pre></td></tr></table></figure>
+<p>&lt;?xml version=&#x201D;1.0&#x201D; encoding=&#x201D;UTF-8&#x201D;?&gt;</p>
+<p><project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemalocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"><br>    <modelversion>4.0.0</modelversion></project></p>
+<pre><code>&lt;groupId&gt;demo.msa&lt;/groupId&gt;
+&lt;artifactId&gt;msa-hello&lt;/artifactId&gt;
+&lt;version&gt;1.0.0&lt;/version&gt;
+
+&lt;!-- &#x7EE7;&#x627F;&#x7236;&#x5305; --&gt;
+&lt;parent&gt;
+    &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+    &lt;artifactId&gt;spring-boot-starter-parent&lt;/artifactId&gt;
+    &lt;version&gt;1.3.3.RELEASE&lt;/version&gt;
+    &lt;relativePath&gt;&lt;/relativePath&gt;
+&lt;/parent&gt;
+&lt;!-- spring-boot&#x7684;web&#x542F;&#x52A8;&#x7684;jar&#x5305; --&gt;
+&lt;dependencies&gt;
+    &lt;dependency&gt;
+        &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+        &lt;artifactId&gt;spring-boot-starter-web&lt;/artifactId&gt;
+    &lt;/dependency&gt;
+
+    &lt;dependency&gt;
+        &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+        &lt;artifactId&gt;spring-boot-starter-actuator&lt;/artifactId&gt;
+    &lt;/dependency&gt;
+
+    &lt;dependency&gt;
+        &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+        &lt;artifactId&gt;spring-boot-starter-hateoas&lt;/artifactId&gt;
+    &lt;/dependency&gt;
+
+    &lt;dependency&gt;
+        &lt;groupId&gt;org.webjars&lt;/groupId&gt;
+        &lt;artifactId&gt;hal-browser&lt;/artifactId&gt;
+    &lt;/dependency&gt;
+
+    &lt;dependency&gt;
+        &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+        &lt;artifactId&gt;spring-boot-starter-tomcat&lt;/artifactId&gt;
+    &lt;/dependency&gt;
+
+&lt;/dependencies&gt;
+&lt;!--maven&#x7684;&#x63D2;&#x4EF6;--&gt;
+&lt;build&gt;
+    &lt;plugins&gt;
+        &lt;plugin&gt;
+            &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+            &lt;artifactId&gt;spring-boot-maven-plugin&lt;/artifactId&gt;
+            &lt;executions&gt;
+                &lt;execution&gt;
+                    &lt;goals&gt;
+                        &lt;goal&gt;repackage&lt;/goal&gt;
+                    &lt;/goals&gt;
+                    &lt;configuration&gt;
+                        &lt;classifier&gt;exec&lt;/classifier&gt;
+                    &lt;/configuration&gt;
+                &lt;/execution&gt;
+            &lt;/executions&gt;
+        &lt;/plugin&gt;
+    &lt;/plugins&gt;
+&lt;/build&gt;
+</code></pre><p><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">### 6.application.properties &#x914D;&#x7F6E;&#x6587;&#x4EF6;</div><div class="line"></div><div class="line">&#x8BE5;&#x6587;&#x4EF6;&#x81EA;&#x884C;&#x521B;&#x5EFA;&#x653E;&#x5728;&#x9879;&#x76EE;&#x6839;&#x76EE;&#x5F55;&#x4E0B;&#x5373;&#x53EF;</div><div class="line"></div><div class="line">### 7.&#x4F7F;&#x7528;actuator&#x83B7;&#x5F97;&#x5E94;&#x7528;&#x76F8;&#x5173;&#x4FE1;&#x606F;</div></pre></td></tr></table></figure></p>
+<pre><code>&lt;dependency&gt;
+    &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+    &lt;artifactId&gt;spring-boot-starter-actuator&lt;/artifactId&gt;
+&lt;/dependency&gt;
+
+&lt;dependency&gt;
+    &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+    &lt;artifactId&gt;spring-boot-starter-hateoas&lt;/artifactId&gt;
+&lt;/dependency&gt;
+
+&lt;dependency&gt;
+    &lt;groupId&gt;org.webjars&lt;/groupId&gt;
+    &lt;artifactId&gt;hal-browser&lt;/artifactId&gt;
+&lt;/dependency&gt;
+</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">### 8.&#x53CD;&#x5411;&#x4EE3;&#x7406;&#x5B9E;&#x73B0; api gateway</div><div class="line"></div><div class="line">&#x53CD;&#x5411;&#x4EE3;&#x7406;&#x9002;&#x7528;&#x573A;&#x666F;</div></pre></td></tr></table></figure>
+<p>&#x4F7F;&#x9759;&#x6001;&#x8D44;&#x6E90;&#x4E0E;&#x52A8;&#x6001;&#x8D44;&#x6E90;&#x5206;&#x79BB;<br>&#x5B9E;&#x73B0;AJAX&#x8DE8;&#x57DF;&#x8BBF;&#x95EE;<br>&#x642D;&#x5EFA;&#x7EDF;&#x4E00;&#x670D;&#x52A1;&#x7F51;&#x5173;&#x63A5;&#x53E3;<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">node.js&#x7B80;&#x5355;&#x5B9E;&#x73B0;</div><div class="line"></div><div class="line">&#x6DD8;&#x5B9D;npm&#x6E90;</div><div class="line"></div><div class="line">npm install cnpm -g --registry=https://registry.npm.taobao.org</div></pre></td></tr></table></figure></p>
+<p>var http = require(&#x2018;http&#x2019;);<br>var httpProxy = require(&#x2018;http-proxy&#x2019;);//&#x9700;&#x8981;&#x5B89;&#x88C5;npm install http-proxy<br>var PORT = 1234;<br>var proxy = httpProxy.createProxyServer();<br>proxy.on(&#x2018;error&#x2019;,function (err, req, res){<br>    res.end();<br>});<br>var app = http.createServer(function (req, res){<br>    proxy.web(req, res,{<br>        target:&#x2019;<a href="http://localhost:8080/actuator" target="_blank" rel="external">http://localhost:8080/actuator</a>&#x2018;<br>    });<br>});<br>app.listen(PORT, function(){<br>    console.log(&#x2018;running 1234&#x2019;);<br>});<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">### 9.zookeeper &#x4F7F;&#x7528;</div><div class="line"></div><div class="line">&#x4E0D;&#x5EFA;&#x8BAE;&#x4F7F;&#x7528;windows&#x73AF;&#x5883;&#xFF0C;&#x95EE;&#x9898;&#x592A;&#x591A;</div><div class="line"></div><div class="line">linux &#x73AF;&#x5883;&#x9700;&#x8981;jdk&#x652F;&#x6301;,&#x53C2;&#x8003;ubuntu&#x914D;&#x7F6E;</div></pre></td></tr></table></figure></p>
+<p>./zkServer.sh start-foreground<br>Error: Could not find or load main class org.apache.zookeeper.server.quorum.QuorumPeerMain<br>&#x8BE5;&#x95EE;&#x9898;&#x51FA;&#x73B0;&#x5728;3.5.2 &#x4F7F;&#x7528;3.4.9&#x542F;&#x52A8;&#x6B63;&#x5E38;/&#x4F7F;&#x7528;github&#x4E0A;&#x7684;&#x8D44;&#x6E90;&#x6709;&#x53EF;&#x80FD;&#x63D0;&#x793A;&#x9519;&#x8BEF;<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">1.&#x542F;&#x52A8;&#x96C6;&#x7FA4;</div></pre></td></tr></table></figure></p>
+<p>0.&#x5BF9;&#x5E94;&#x8BBE;&#x7F6E;hosts&#x6620;&#x5C04;<br>192.168.1.240 slave-01<br>1.&#x914D;&#x7F6E;zoo.cfg&#xFF08;&#x5982;&#x4E0B;&#x914D;&#x7F6E;&#x6BD4;&#x8F83;&#x7075;&#x6D3B;&#xFF09;<br>server.1=slave-01:3181:4181<br>server.2=slave-02:3181:4181<br>server.3=0.0.0.0:3181:4181<br>2.&#x9700;&#x8981;&#x5728;datadir&#x4E2D;&#x521B;&#x5EFA;myid&#x6587;&#x4EF6;<br>3.&#x6CE8;&#x610F;&#x9632;&#x706B;&#x5899;<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">2.&#x95EE;&#x9898;&#x8C03;&#x8BD5;</div></pre></td></tr></table></figure></p>
+<p>&#x5728;zookeeper&#x6839;&#x76EE;&#x5F55;&#x4E0B;&#x6267;&#x884C;tailf zookeeper.out<br>&#x6B63;&#x5E38;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;1&#x8282;&#x70B9;&#x7684;&#x4FE1;&#x606F;&#x5982;<br>[myid:1] - INFO  [QuorumPeer[myid=1]<br>&#x63D0;&#x793A;&#xFF1A;Cannot open channel to 1 at election &#x4FE1;&#x606F;&#x53EA;&#x80FD;&#x8868;&#x793A;&#x5F53;&#x524D;&#x72B6;&#x6001;&#xFF0C;&#x4E0D;&#x662F;&#x9519;&#x8BEF;<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">### 10.&#x670D;&#x52A1;&#x6CE8;&#x518C;</div><div class="line"></div><div class="line">&#x5F53;&#x63D0;&#x4F9B;&#x63A5;&#x53E3;&#x670D;&#x52A1;&#x7684;SampleAppplication&#x542F;&#x52A8;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x4F1A;&#x8FDE;&#x63A5;zookeeper&#xFF0C;&#x5E76;&#x6CE8;&#x518C;&#x76F8;&#x5E94;&#x7684;&#x670D;&#x52A1;&#x7ED3;&#x70B9;ZNode&#xFF0C;</div><div class="line"></div><div class="line">&#x5F53;SampleAppplication&#x5173;&#x95ED;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x5BF9;&#x5E94;&#x7684;zookeeper&#x6CE8;&#x518C;&#x7ED3;&#x70B9;&#x4E5F;&#x4F1A;&#x6D88;&#x5931;</div><div class="line"></div><div class="line">1.&#x5B9A;&#x4E49;SampleAppplication&#x4F5C;&#x4E3A;API&#x670D;&#x52A1;</div><div class="line"></div><div class="line">2.&#x5B9A;&#x4E49;WebListener&#xFF0C;ServiceRegistryImpl&#xFF0C;ServiceRegistry&#xFF0C;RegistryConfig&#x4F5C;&#x4E3A;&#x670D;&#x52A1;&#x6CE8;&#x518C;</div><div class="line"></div><div class="line">&#x6CE8;&#x610F;&#xFF1A;</div><div class="line"></div><div class="line">1.RegistryConfig &#x4F7F;&#x7528; @Configuration &#x4F5C;&#x4E3A;spring&#x914D;&#x7F6E;&#x542F;&#x52A8;&#xFF0C;&#x8BE5;&#x7C7B;&#x4E3B;&#x8981;&#x7528;&#x4E8E;zk&#x670D;&#x52A1;&#x8FDE;&#x63A5;</div><div class="line"></div><div class="line">2.WebListener &#x4F7F;&#x7528; @Component &#x4F5C;&#x4E3A;spring &#x7EC4;&#x4EF6;&#x542F;&#x52A8;&#xFF0C;&#x7528;&#x4E8E;zk&#x670D;&#x52A1;&#x6CE8;&#x518C;</div><div class="line"></div><div class="line">3.@Autowired&#x81EA;&#x52A8;&#x88C5;&#x914D;Bean,&#x6B64;&#x65F6;ServiceRegistry&#x7C7B;&#x578B;&#x67E5;&#x627E;&#x4E0A;&#x4E0B;&#x6587;&#x4F55;&#x5176;&#x5339;&#x914D;&#x7684;Bean</div></pre></td></tr></table></figure></p>
+<pre><code>@Autowired
+private ServiceRegistry serviceRegistry;
+
+@Bean
+public ServiceRegistry serviceRegistry(){
+    return new ServiceRegistryImpl(servers);
+}
+</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">4.&#x91CD;&#x8F7D;&#x63A5;&#x53E3;ServletContextListener&#x65B9;&#x6CD5;contextInitialized&#xFF0C;&#x5728;&#x521D;&#x59CB;&#x5316;&#x65F6;&#x5B9A;&#x5236;&#x4E1A;&#x52A1;</div><div class="line"></div><div class="line">&#x5B9E;&#x73B0;&#x4E86;&#x8FD9;&#x4E2A;&#x63A5;&#x53E3;&#xFF0C;&#x4EE3;&#x7801;&#x5C31;&#x5D4C;&#x5165;&#x4E86;&#x6846;&#x67B6;</div></pre></td></tr></table></figure>
+<p>@Component<br>public class WebListener implements ServletContextListener {</p>
+<pre><code>@Override
+public void contextInitialized(ServletContextEvent event){
+</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">5.zookeeper&#x8282;&#x70B9;&#x521B;&#x5EFA;</div><div class="line"></div><div class="line">&#x4E34;&#x65F6;&#x8282;&#x70B9;session&#x8FC7;&#x671F;&#x8D85;&#x65F6;&#xFF0C;&#x8FD9;&#x79CD;&#x8282;&#x70B9;&#x4F1A;&#x88AB;&#x81EA;&#x52A8;&#x5220;&#x9664;</div></pre></td></tr></table></figure>
+<p>String addressNode = zk.create(addressPath, serviceAddress.getBytes(), ZooDefs.Ids.OPEN_ACL_UNSAFE, CreateMode.EPHEMERAL_SEQUENTIAL);<br>&#x53C2;&#x6570;&#xFF1A; &#x8DEF;&#x5F84;&#x3001; znode&#x5185;&#x5BB9;&#xFF0C;ACL(&#x8BBF;&#x95EE;&#x63A7;&#x5236;&#x5217;&#x8868;)&#x3001; znode&#x521B;&#x5EFA;&#x7C7B;&#x578B;<br>EPHEMERAL_SEQUENTIAL   &#x4E34;&#x65F6;&#x81EA;&#x52A8;&#x7F16;&#x53F7;&#x8282;&#x70B9;<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">### 11.&#x670D;&#x52A1;&#x53D1;&#x73B0;</div><div class="line"></div><div class="line">1.&#x4F7F;&#x7528;node.js &#x505A;web&#x5E94;&#x7528;</div><div class="line"></div><div class="line">node.js express &#x5B89;&#x88C5;</div></pre></td></tr></table></figure></p>
+<p>npm install express -save<br>npm install -g express-generator<br>npm install<br>express<br>npm start<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">http://localhost:3000/</div></pre></td></tr></table></figure></p>
+<p>npm install ejs &#x2013;save<br>&#x8C03;&#x6574;&#x4EE3;&#x7801;<br>app.js&#x4EE3;&#x7801;<br>// view engine setup<br>app.set(&#x2018;views&#x2019;, path.join(<strong>dirname, &#x2018;views&#x2019;));<br>app.engine(&#x201C;html&#x201D;,require(&#x201C;ejs&#x201D;).</strong>express); // or   app.engine(&#x201C;html&#x201D;,require(&#x201C;ejs&#x201D;).renderFile);<br>//app.set(&#x2018;view engine&#x2019;, &#x2018;jade&#x2019;);<br>app.set(&#x2018;view engine&#x2019;, &#x2018;html&#x2019;);<br>&#x5728;view&#x76EE;&#x5F55;&#x4E2D;&#x653E;&#x5165;index.html&#x5373;&#x53EF;<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">&#x4E0A;&#x9762;&#x90E8;&#x5206;&#x4EC5;&#x7528;&#x4E8E;&#x4F7F;&#x7528;node.js&#x642D;&#x5EFA;web&#x5E94;&#x7528;</div></pre></td></tr></table></figure></p>
+<p>app.use(express.static(&#x2018;public&#x2019;));//&#x5C06;public&#x4F5C;&#x4E3A;&#x6839;&#x76EE;&#x5F55;<br>&#x76F4;&#x63A5;&#x5C06;index.html&#x653E;&#x5165;public&#x76EE;&#x5F55;&#x4E0B;&#x5373;&#x53EF;&#x8BBF;&#x95EE;<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">2.&#x670D;&#x52A1;&#x53D1;&#x73B0;&#x5E94;&#x7528;</div><div class="line"></div><div class="line">npm install node-zookeeper-client -save</div><div class="line"></div><div class="line">&#x6D41;&#x7A0B;&#xFF1A;</div><div class="line"></div><div class="line">1.&#x524D;&#x7AEF;&#x901A;&#x8FC7;ajax&#x8BF7;&#x6C42;hello&#x670D;&#x52A1;</div></pre></td></tr></table></figure></p>
+<pre><code>$.ajax({
+    method:&quot;GET&quot;,
+    url:&quot;/hello&quot;,
+    headers:{
+        &quot;Service-Name&quot;:&quot;HelloService&quot;
+    },
+</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">2.&#x4F7F;&#x7528;node.js&#x5F00;&#x53D1;&#x53CD;&#x5411;&#x4EE3;&#x7406;&#x4F5C;&#x4E3A;api gateway &#x53D1;&#x73B0;&#x670D;&#x52A1;</div><div class="line"></div><div class="line">api gateway &#x8FDE;&#x63A5;zookeeper&#x96C6;&#x7FA4;&#xFF0C;&#x5E76;&#x83B7;&#x5F97;&#x5BF9;&#x5E94;&#x670D;&#x52A1;&#x7684;&#x6CE8;&#x518C;&#x8282;&#x70B9;&#xFF0C;&#x8FD4;&#x56DE;&#x53EF;&#x7528;&#x670D;&#x52A1;&#x5730;&#x5740;&#x5E76;&#x91CD;&#x5B9A;&#x5411;</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"># docker &#x4F7F;&#x7528;</div><div class="line"></div><div class="line">------</div><div class="line"></div><div class="line">[&#x53C2;&#x8003;](https://docs.docker.com/engine/installation/linux/docker-ce/ubuntu/)</div><div class="line"></div><div class="line">[10&#x5F20;&#x56FE;&#x5E26;&#x4F60;&#x6DF1;&#x5165;&#x7406;&#x89E3;Docker&#x5BB9;&#x5668;&#x548C;&#x955C;&#x50CF;](http://dockone.io/article/783)</div></pre></td></tr></table></figure>
+<p>&#x5B89;&#x88C5;<br>apt install docker.io<br>&#x542F;&#x52A8;<br>service docker start<br>&#x914D;&#x7F6E;daocloud&#x52A0;&#x901F;&#x5668;<br>curl -sSL <a href="https://get.daocloud.io/daotools/set_mirror.sh" target="_blank" rel="external">https://get.daocloud.io/daotools/set_mirror.sh</a> | sh -s <a href="http://ac99b335.m.daocloud.io" target="_blank" rel="external">http://ac99b335.m.daocloud.io</a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">&#x5236;&#x4F5C;Dockerfile&#x811A;&#x672C;</div></pre></td></tr></table></figure></p>
+<p>FROM centos:latest<br>MAINTAINER &#x201C;Gao Peng&#x201D;<a href="mailto:??@11.com">??@11.com</a><br>ADD jdk-8u60-linux-x64.tar.gz /opt<br>RUN ln -s /opt/jdk1.8.0_60 /opt/java<br>ENV JAVA_HOME /opt/jdk<br>ENV PATH $JAVA_HOME/bin:$PATH<br>CMD java -version<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">&#x6784;&#x5EFA;&#x955C;&#x50CF;&#x9700;&#x8981;&#x57FA;&#x4E8E;&#x57FA;&#x7840;&#x955C;&#x50CF;&#xFF0C;&#x521B;&#x5EFA;&#x81EA;&#x5DF1;&#x955C;&#x50CF;&#x9700;&#x8981;&#x5148;&#x542F;&#x52A8;&#x57FA;&#x7840;&#x955C;&#x50CF;</div></pre></td></tr></table></figure></p>
+<p>root@ubuntu:/home/software# docker run -i -t centos /bin/bash<br>root@ubuntu:/home/neconano# docker ps<br>CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS              PORTS               NAMES<br>4008cc797641        centos              &#x201C;/bin/bash&#x201D;         30 seconds ago      Up 29 seconds                           lonely_bell<br>root@ubuntu:/home/neconano# docker commit 4941dbed4b4f neconano/demo<br>root@ubuntu:/home/neconano# docker images<br>REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE<br>neconano/demo       latest              5605ef32b2de        10 seconds ago      196.5 MB<br>root@ubuntu:/home/software# docker build -t neconano/demo .<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">### 1.docker registry</div></pre></td></tr></table></figure></p>
+<p>&#x542F;&#x52A8;&#x6CE8;&#x518C;&#x670D;&#x52A1;registry&#xFF08;&#x6620;&#x5C04;root&#x4E0B;docker-registry&#x5230;&#x5BB9;&#x5668;/tmp/registry&#xFF09;<br>docker run -d -p 50000:5000 -v ~/docker-registry:/tmp/registry registry<br>&#x91CD;&#x547D;&#x540D;&#x955C;&#x50CF;&#xFF08;&#x5C06;&#x955C;&#x50CF;&#x63A8;&#x9001;&#x81F3;127.0.0.1:50000&#xFF09;<br>docker tag f3d76ca981b2 127.0.0.1:50000/neconano/demo<br>&#x63A8;&#x9001;&#x955C;&#x50CF;<br>docker push 127.0.0.1:50000/neconano/demo<br>&#x62C9;&#x53D6;&#x955C;&#x50CF;<br>docker pull 127.0.0.1:50000/neconano/demo<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">&#x542F;&#x52A8;&#x6D4F;&#x89C8;&#x5668;http://192.168.1.240:50000/v2/_catalog</div><div class="line"></div><div class="line"></div><div class="line">### 2.&#x4F7F;&#x7528;maven&#x6784;&#x5EFA;docker&#x955C;&#x50CF;</div><div class="line"></div><div class="line">&#x521B;&#x5EFA;&#x5956;&#x9879;&#x5E76;&#x63A8;&#x9001;&#x81F3;registry</div><div class="line"></div><div class="line">Dockerfile &#x653E;&#x5728; resources &#x4E0B;(@project.build.finalName@&#x6CA1;&#x6709;&#x751F;&#x6548;&#x66FF;&#x6362;)</div></pre></td></tr></table></figure></p>
+<p>FROM java<br>MAINTAINER &#x201C;neconano&#x201D;<a href="mailto:??@??.com">??@??.com</a><br>ADD @project.build.finalName@.jar app.jar<br>EXPOSE 8080<br>CMD java -jar app.jar<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">pom.xml</div></pre></td></tr></table></figure></p>
+<plugin><br>  <groupid>com.spotify</groupid><br>  <artifactid>docker-maven-plugin</artifactid><br>  <version>0.4.13</version><br>  <configuration><br>    <imagename>${docker.registry}/${project.groupId}/${project.artifactId}:${project.version}</imagename><br>    <dockerdirectory>${project.build.outputDirectory}</dockerdirectory><br>    <resources><br>      <resource><br>        <directory>${project.build.directory}</directory><br>        <include>${project.build.finalName}.jar</include><br>      </resource><br>    </resources><br>  </configuration><br></plugin>
+
+<properties><br>        <docker.registry>192.168.1.240:50000</docker.registry><br></properties>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">mvn docker:build</div><div class="line"></div><div class="line">&#x624B;&#x52A8;&#x521B;&#x5EFA;&#x955C;&#x50CF;</div></pre></td></tr></table></figure>
+<p>&#x7531;&#x4E8E;&#x5DF2;&#x7ECF;&#x6709;&#x4E86;Dockerfile&#x6587;&#x4EF6;&#x53CA;&#x672C;&#x9879;&#x76EE;&#x7684;.jar&#x6587;&#x4EF6;&#xFF0C;&#x53EF;&#x4EE5;&#x5C06;&#x5176;&#x62F7;&#x8D1D;&#x5230;&#x865A;&#x62DF;&#x673A;Docker&#x73AF;&#x5883;&#x4E2D;&#xFF0C;<br>&#x5E76;&#x8FD0;&#x884C;&#x4F8B;&#x5982;&#xFF1A;docker build -t msa . &#x6307;&#x4EE4;&#xFF0C;&#x5C06;Dockerfile&#x63CF;&#x8FF0;&#x7F16;&#x8BD1;&#x6210;&#x955C;&#x50CF;&#x6587;&#x4EF6;&#xFF0C;&#x5E76;&#x8FDB;&#x5165;&#x672C;&#x5730;Docker registries&#x4ED3;&#x5E93;&#x4E2D;&#x3002;<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">&#x542F;&#x52A8;&#x955C;&#x50CF;</div><div class="line"></div><div class="line">docker run -d -p 58080:8080 msa</div><div class="line"></div><div class="line">&#x8FDC;&#x7A0B;&#x63A8;&#x9001;&#xFF08;&#x672A;&#x6210;&#x529F;&#xFF09;</div><div class="line"></div><div class="line">mvn docker:push</div><div class="line"></div><div class="line"># gitlab</div><div class="line"></div><div class="line">------</div><div class="line"></div><div class="line">docker pull gitlab/gitlab-ce</div><div class="line"></div><div class="line">docker run -d -p 222:22 -p 80:80 -u root -v ~/gitlab/etc:/etc/gitlab -v ~/gitlab/log:/var/log/gitlib -v ~/gitlab/opt:/var/opt/gitlab gitlab/gitlab-ce</div><div class="line"></div><div class="line">&#x542F;&#x52A8;&#x540E;&#x9700;&#x8981;&#x7B49;&#x5F85;&#x4E00;&#x4E9B;&#x65F6;&#x95F4;&#xFF0C;&#x5F00;&#x59CB;&#x7684;&#x65F6;&#x5019;&#x4F1A;&#x663E;&#x793A;502&#xFF0C;&#x7CFB;&#x7EDF;&#x8981;&#x6C42;&#x5185;&#x5B58;&#x6BD4;&#x8F83;&#x5927;</div><div class="line"></div><div class="line">docker logs 87a6675e0310 &#x63D0;&#x793A;&#xFF0C;&#x6682;&#x65E0;&#x89E3;&#x51B3;&#x529E;&#x6CD5;&#xFF0C;&#x4E5F;&#x6CA1;&#x53D1;&#x73B0;&#x76F8;&#x5173;&#x95EE;&#x9898;</div></pre></td></tr></table></figure></p>
+<p>/opt/gitlab/embedded/bin/runsvdir-start: line 24: ulimit: pending signals: cannot modify limit: Operation not permitted<br>/opt/gitlab/embedded/bin/runsvdir-start: line 37: /proc/sys/fs/file-max: Read-only file system</p>
+<p>docker exec -it 87a6675e0310 vim /etc/gitlab/gitlab.rb<br>docker exec -it 87a6675e0310 update-permissions<br>docker restart 87a6675e0310<br>docker exec -it 87a6675e0310 /opt/gitlab/embedded/bin/runsvdir-start<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">ssh-keygen&#x9700;&#x8981;&#x5B89;&#x88C5;git&#xFF0C;&#x5728;&#x73AF;&#x5883;&#x53D8;&#x91CF;&#x4E2D;&#x5F15;&#x5165;usr/bin&#x8DEF;&#x5F84;</div><div class="line"></div><div class="line"></div><div class="line"># jenkins &#x6301;&#x7EED;&#x96C6;&#x6210;</div><div class="line"></div><div class="line">------</div><div class="line"></div><div class="line">&#x6301;&#x7EED;&#x96C6;&#x6210;&#xFF0C;&#x81EA;&#x52A8;&#x5316;&#x53D1;&#x5E03;&#x5E73;&#x53F0;</div></pre></td></tr></table></figure></p>
+<p>1.&#x5F00;&#x53D1;&#x63D0;&#x4EA4;&#x4EE3;&#x7801;&#x81F3;gitlab<br>2.&#x4F7F;&#x7528;jenkins&#x6784;&#x5EFA;&#x5E76;&#x751F;&#x6210;docker&#x6D4B;&#x8BD5;&#x73AF;&#x5883;<br>3.&#x6D4B;&#x8BD5;&#x901A;&#x8FC7;&#x63A8;&#x9001;&#x81F3;&#x7EBF;&#x4E0A;<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">### 1.&#x4F7F;&#x7528;docker&#x955C;&#x50CF;</div></pre></td></tr></table></figure></p>
+<p>&#x65B9;&#x6CD5;1&#xFF1A;<br>docker pull jenkins<br>&#x65B9;&#x6848;2&#xFF1A;<br>&#x4E0B;&#x8F7D; <a href="https://github.com/jenkinsci/docker.git" target="_blank" rel="external">https://github.com/jenkinsci/docker.git</a><br>&#x6267;&#x884C;Dockerfile<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">docker run -d -p 8080:8080 -p 50000:50000 -u root -v ~/jenkins:/var/jenkins_home jenkins</div><div class="line"></div><div class="line">&#x4EFB;&#x52A1;&#x521B;&#x5EFA;</div><div class="line"></div><div class="line">&#x5B89;&#x88C5;&#x63D2;&#x4EF6;(&#x5728;&#x63D2;&#x4EF6;&#x7BA1;&#x7406;&#x4E2D;&#x5B89;&#x88C5;)</div></pre></td></tr></table></figure></p>
+<p>1.maven&#x5B89;&#x88C5;&#xFF08;&#x7CFB;&#x7EDF;&#x7BA1;&#x7406; tool configuration&#xFF09;<br>&#x5728;&#x521B;&#x5EFA;&#x4EFB;&#x52A1;&#x65F6;&#x5019;&#x9009;&#x62E9;maven&#x65B9;&#x5F0F;<br>2.gitlab&#x63D2;&#x4EF6;</p>
+<p>```</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/microservice/" rel="tag">#microservice</a>
+          
+            <a href="/tags/nio/" rel="tag">#nio</a>
+          
+            <a href="/tags/zookeeper/" rel="tag">#zookeeper</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/10/01/2016-10-01-kong-api-gateway/" rel="next" title="kong-api-gateway">
+                <i class="fa fa-chevron-left"></i> kong-api-gateway
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/10/01/2016-10-01-netty-nio/" rel="prev" title="netty-nio">
+                netty-nio <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-name">categories</span>
+              
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">60</span>
+                <span class="site-state-item-name">tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#microservice-轻量级微服务"><span class="nav-number">1.</span> <span class="nav-text">microservice 轻量级微服务</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-微服务开发规范-gitflow"><span class="nav-number">1.0.1.</span> <span class="nav-text">1.微服务开发规范 gitflow</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-微服务技术选型"><span class="nav-number">1.0.2.</span> <span class="nav-text">2.微服务技术选型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-spring-boot-maven-pom-xml"><span class="nav-number">1.0.3.</span> <span class="nav-text">3.spring boot maven pom.xml</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-HelloApplication-java"><span class="nav-number">1.0.4.</span> <span class="nav-text">4.HelloApplication.java</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-生成jar包"><span class="nav-number">1.0.5.</span> <span class="nav-text">5.生成jar包</span></a></li></ol></li></ol></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Neconano</span>
+</div>
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

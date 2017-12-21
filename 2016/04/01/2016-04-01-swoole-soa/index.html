@@ -1,0 +1,628 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="php,swoole,soa," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="swoole-soa &amp;#x8BB0;&amp;#x5F55;
+
+soa_server.php &amp;#x5C31;&amp;#x662F;rpc&amp;#x7684;&amp;#x5B9E;&amp;#x73B0;&amp;#x6837;&amp;#x4F8B;
+
+&amp;#x901A;&amp;#x4FE1;&amp;#x4F7F;&amp;#x7528;&amp;#x7684;&amp;#x662F;socket&amp;#x65B9;&amp;#x5F0F;&amp;#xFF0C;&amp;#x5BA2;&amp;#x6237;&amp;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="swoole-soa 记录">
+<meta property="og:url" content="http://yoursite.com/2016/04/01/2016-04-01-swoole-soa/index.html">
+<meta property="og:site_name" content="Neconano's notebook">
+<meta property="og:description" content="swoole-soa &amp;#x8BB0;&amp;#x5F55;
+
+soa_server.php &amp;#x5C31;&amp;#x662F;rpc&amp;#x7684;&amp;#x5B9E;&amp;#x73B0;&amp;#x6837;&amp;#x4F8B;
+
+&amp;#x901A;&amp;#x4FE1;&amp;#x4F7F;&amp;#x7528;&amp;#x7684;&amp;#x662F;socket&amp;#x65B9;&amp;#x5F0F;&amp;#xFF0C;&amp;#x5BA2;&amp;#x6237;&amp;">
+<meta property="og:updated_time" content="2017-01-09T07:11:10.915Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="swoole-soa 记录">
+<meta name="twitter:description" content="swoole-soa &amp;#x8BB0;&amp;#x5F55;
+
+soa_server.php &amp;#x5C31;&amp;#x662F;rpc&amp;#x7684;&amp;#x5B9E;&amp;#x73B0;&amp;#x6837;&amp;#x4F8B;
+
+&amp;#x901A;&amp;#x4FE1;&amp;#x4F7F;&amp;#x7528;&amp;#x7684;&amp;#x662F;socket&amp;#x65B9;&amp;#x5F0F;&amp;#xFF0C;&amp;#x5BA2;&amp;#x6237;&amp;">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"right","display":"always"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: 'Author'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2016/04/01/2016-04-01-swoole-soa/"/>
+
+  <title> swoole-soa 记录 | Neconano's notebook </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-right page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Neconano's notebook</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                swoole-soa 记录
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2016-04-01T00:00:00+08:00" content="2016-04-01">
+              2016-04-01
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/swoole/" itemprop="url" rel="index">
+                    <span itemprop="name">swoole</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="swoole-soa-&#x8BB0;&#x5F55;"><a href="#swoole-soa-&#x8BB0;&#x5F55;" class="headerlink" title="swoole-soa &#x8BB0;&#x5F55;"></a>swoole-soa &#x8BB0;&#x5F55;</h1><hr>
+<blockquote>
+<p>soa_server.php &#x5C31;&#x662F;rpc&#x7684;&#x5B9E;&#x73B0;&#x6837;&#x4F8B;</p>
+</blockquote>
+<p>&#x901A;&#x4FE1;&#x4F7F;&#x7528;&#x7684;&#x662F;socket&#x65B9;&#x5F0F;&#xFF0C;&#x5BA2;&#x6237;&#x7AEF;soa_client.php&#x8FDE;&#x63A5;soa_server.php&#x540E;&#x6267;&#x884C;task&#x5F02;&#x6B65;&#x53D1;&#x9001;&#x4FE1;&#x606F;&#x5230;soa_server.php&#xFF0C;</p>
+<p>soa_server.php&#x89E3;&#x6790;&#x540E;&#x6267;&#x884C;&#x5BF9;&#x5E94;&#x65B9;&#x6CD5;&#xFF0C;&#x5C06;&#x7ED3;&#x679C;&#x8FD4;&#x56DE;&#x7ED9;soa_client.php</p>
+<h3 id="2-soa&#x670D;&#x52A1;&#x652F;&#x6301;&#x7684;&#x4E1A;&#x52A1;&#x6846;&#x67B6;"><a href="#2-soa&#x670D;&#x52A1;&#x652F;&#x6301;&#x7684;&#x4E1A;&#x52A1;&#x6846;&#x67B6;" class="headerlink" title="2.soa&#x670D;&#x52A1;&#x652F;&#x6301;&#x7684;&#x4E1A;&#x52A1;&#x6846;&#x67B6;"></a>2.soa&#x670D;&#x52A1;&#x652F;&#x6301;&#x7684;&#x4E1A;&#x52A1;&#x6846;&#x67B6;</h3><p>/**</p>
+<ul>
+<li>&#x6CE8;&#x518C;&#x4E00;&#x4E2A;&#x81EA;&#x5B9A;&#x4E49;&#x7684;&#x547D;&#x540D;&#x7A7A;&#x95F4;&#x5230;SOA&#x670D;&#x52A1;&#x5668;</li>
+<li>&#x9ED8;&#x8BA4;&#x4F7F;&#x7528; apps/classes<br>*/<br>$AppSvr-&gt;addNameSpace(&#x2018;BL&#x2019;, <strong>DIR</strong> . &#x2018;/class&#x2019;);<br>//1.&#x5BFB;&#x5740;    examples/class<br>//2.&#x9ED8;&#x8BA4;&#x5BFB;&#x5740;    apps/classes</li>
+</ul>
+<h3 id="1-&#x4E3B;&#x8981;&#x6D41;&#x7A0B;&#x4EE3;&#x7801;"><a href="#1-&#x4E3B;&#x8981;&#x6D41;&#x7A0B;&#x4EE3;&#x7801;" class="headerlink" title="1.&#x4E3B;&#x8981;&#x6D41;&#x7A0B;&#x4EE3;&#x7801;"></a>1.&#x4E3B;&#x8981;&#x6D41;&#x7A0B;&#x4EE3;&#x7801;</h3><p>1.soa_server.php</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">...</div><div class="line">   $AppSvr = <span class="keyword">new</span> Swoole\Protocol\SOAServer;</div><div class="line">   $AppSvr-&gt;setLogger(<span class="keyword">new</span> \Swoole\Log\EchoLog(<span class="keyword">true</span>)); <span class="comment">//Logger</span></div><div class="line"></div><div class="line">   <span class="comment">/**</span></div><div class="line">    * &#x6CE8;&#x518C;&#x4E00;&#x4E2A;&#x81EA;&#x5B9A;&#x4E49;&#x7684;&#x547D;&#x540D;&#x7A7A;&#x95F4;&#x5230;SOA&#x670D;&#x52A1;&#x5668;</div><div class="line">    * &#x9ED8;&#x8BA4;&#x4F7F;&#x7528; apps/classes</div><div class="line">    */</div><div class="line">   $AppSvr-&gt;addNameSpace(<span class="string">&apos;BL&apos;</span>, <span class="keyword">__DIR__</span> . <span class="string">&apos;/class&apos;</span>);</div><div class="line"></div><div class="line">   Swoole\Error::$echo_html = <span class="keyword">false</span>;</div><div class="line">   $server = Swoole\Network\Server::autoCreate(<span class="string">&apos;0.0.0.0&apos;</span>, <span class="number">8888</span>);</div><div class="line">   $server-&gt;setProtocol($AppSvr);</div><div class="line">   ...</div></pre></td></tr></table></figure>
+<p>2.soa_client.php</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">...</div><div class="line">$cloud = Swoole\Client\SOA::getInstance();</div><div class="line">...</div><div class="line">   $ret1 = $cloud-&gt;task(<span class="string">&quot;BL\\Test::test1&quot;</span>, [<span class="string">&quot;hello{$i}_1&quot;</span>], <span class="function"><span class="keyword">function</span><span class="params">($retObj)</span> </span>{</div><div class="line">       <span class="keyword">echo</span> <span class="string">&quot;task1 finish\n&quot;</span>;</div><div class="line">   });</div><div class="line">   ...</div></pre></td></tr></table></figure>
+<p>3.SOA.php</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">...</div><div class="line">   <span class="function"><span class="keyword">function</span> <span class="title">task</span><span class="params">($function, $params = array<span class="params">()</span>, $callback = null)</span></span></div><div class="line">   {</div><div class="line">       $retObj = <span class="keyword">new</span> SOA_Result(<span class="keyword">$this</span>);</div><div class="line">       $send = <span class="keyword">array</span>(<span class="string">&apos;call&apos;</span> =&gt; $function, <span class="string">&apos;params&apos;</span> =&gt; $params);</div><div class="line">       <span class="keyword">if</span> (count(<span class="keyword">$this</span>-&gt;env) &gt; <span class="number">0</span>)</div><div class="line">       {</div><div class="line">           <span class="comment">//&#x8C03;&#x7528;&#x7AEF;&#x73AF;&#x5883;&#x53D8;&#x91CF;</span></div><div class="line">           $send[<span class="string">&apos;env&apos;</span>] = <span class="keyword">$this</span>-&gt;env;</div><div class="line">       }</div><div class="line">       <span class="keyword">$this</span>-&gt;request($send, $retObj);</div><div class="line">       $retObj-&gt;callback = $callback;</div><div class="line">       <span class="keyword">return</span> $retObj;</div><div class="line">   }</div><div class="line">   ...</div></pre></td></tr></table></figure>
+<p>4.SOA.php</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line">...</div><div class="line">   <span class="keyword">protected</span> <span class="function"><span class="keyword">function</span> <span class="title">request</span><span class="params">($send, $retObj)</span></span></div><div class="line">   {</div><div class="line">       $retObj-&gt;send = $send;</div><div class="line">       <span class="keyword">$this</span>-&gt;beforeRequest($retObj);</div><div class="line"></div><div class="line">       $retObj-&gt;index = <span class="keyword">$this</span>-&gt;requestIndex ++;</div><div class="line">       <span class="keyword">if</span> (<span class="keyword">$this</span>-&gt;connectToServer($retObj) === <span class="keyword">false</span>)</div><div class="line">       {</div><div class="line">           $retObj-&gt;code = SOA_Result::ERR_CONNECT;</div><div class="line">           <span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line">       }</div><div class="line">       <span class="comment">//&#x8BF7;&#x6C42;&#x4E32;&#x53F7;</span></div><div class="line">       $retObj-&gt;requestId = <span class="keyword">self</span>::getRequestId();</div><div class="line">       <span class="comment">//&#x53D1;&#x9001;&#x5931;&#x8D25;&#x4E86;</span></div><div class="line">       <span class="keyword">if</span> ($retObj-&gt;socket-&gt;send(SOAServer::encode($retObj-&gt;send, SOAServer::DECODE_PHP, <span class="number">0</span>, $retObj-&gt;requestId)) === <span class="keyword">false</span>)</div><div class="line">       {</div><div class="line">           $retObj-&gt;code = SOA_Result::ERR_SEND;</div><div class="line">           <span class="keyword">unset</span>($retObj-&gt;socket);</div><div class="line">           <span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line">       }</div><div class="line">       <span class="comment">//&#x52A0;&#x5165;wait_list</span></div><div class="line">       <span class="keyword">$this</span>-&gt;waitList[$retObj-&gt;id] = $retObj;</div><div class="line">       <span class="keyword">return</span> <span class="keyword">true</span>;</div><div class="line">   }</div><div class="line">   ...</div></pre></td></tr></table></figure>
+<p>5.SOA.php</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div></pre></td><td class="code"><pre><div class="line">...</div><div class="line">   <span class="keyword">protected</span> <span class="function"><span class="keyword">function</span> <span class="title">connectToServer</span><span class="params">(SOA_Result $retObj)</span></span></div><div class="line">   {</div><div class="line">       $ret = <span class="keyword">false</span>;</div><div class="line">       <span class="comment">//&#x5FAA;&#x73AF;&#x8FDE;&#x63A5;</span></div><div class="line">       <span class="keyword">while</span> (count(<span class="keyword">$this</span>-&gt;servers) &gt; <span class="number">0</span>)</div><div class="line">       {</div><div class="line">           $svr = <span class="keyword">$this</span>-&gt;getServer();</div><div class="line">           <span class="keyword">if</span> (!<span class="keyword">$this</span>-&gt;useSwoole)</div><div class="line">           {</div><div class="line">               $socket = <span class="keyword">new</span> TCP;</div><div class="line">               $socket-&gt;try_reconnect = <span class="keyword">false</span>;</div><div class="line">               $ret = $socket-&gt;connect($svr[<span class="string">&apos;host&apos;</span>], $svr[<span class="string">&apos;port&apos;</span>], <span class="keyword">$this</span>-&gt;timeout);</div><div class="line">               $socketFd = intval($socket-&gt;get_socket());</div><div class="line">           }</div><div class="line">           <span class="keyword">else</span></div><div class="line">           {</div><div class="line">               $key = $svr[<span class="string">&apos;host&apos;</span>].<span class="string">&apos;:&apos;</span>.$svr[<span class="string">&apos;port&apos;</span>].<span class="string">&apos;-&apos;</span>.$retObj-&gt;index;</div><div class="line">               $socket = <span class="keyword">new</span> \swoole_client(SWOOLE_SOCK_TCP | SWOOLE_KEEP, SWOOLE_SOCK_SYNC, $key);</div><div class="line">               $socket-&gt;set(<span class="keyword">array</span>(</div><div class="line">                   <span class="string">&apos;open_length_check&apos;</span> =&gt; <span class="keyword">true</span>,</div><div class="line">                   <span class="string">&apos;package_max_length&apos;</span> =&gt; <span class="keyword">$this</span>-&gt;packet_maxlen,</div><div class="line">                   <span class="string">&apos;package_length_type&apos;</span> =&gt; <span class="string">&apos;N&apos;</span>,</div><div class="line">                   <span class="string">&apos;package_body_offset&apos;</span> =&gt; SOAServer::HEADER_SIZE,</div><div class="line">                   <span class="string">&apos;package_length_offset&apos;</span> =&gt; <span class="number">0</span>,</div><div class="line">               ));</div><div class="line">               $ret = $socket-&gt;connect($svr[<span class="string">&apos;host&apos;</span>], $svr[<span class="string">&apos;port&apos;</span>], <span class="keyword">$this</span>-&gt;timeout);</div><div class="line">               $socketFd = $socket-&gt;sock;</div><div class="line">           }</div><div class="line"></div><div class="line">           <span class="comment">//&#x8FDE;&#x63A5;&#x88AB;&#x62D2;&#x7EDD;&#xFF0C;&#x8BC1;&#x660E;&#x670D;&#x52A1;&#x5668;&#x5DF2;&#x7ECF;&#x6302;&#x4E86;</span></div><div class="line">           <span class="comment">//TODO &#x5982;&#x679C;&#x8FDE;&#x63A5;&#x5931;&#x8D25;&#xFF0C;&#x9700;&#x8981;&#x4E0A;&#x62A5;&#x673A;&#x5668;&#x5B58;&#x6D3B;&#x72B6;&#x6001;</span></div><div class="line">           <span class="keyword">if</span> ($ret === <span class="keyword">false</span> <span class="keyword">and</span> $socket-&gt;errCode == <span class="number">111</span>)</div><div class="line">           {</div><div class="line">               <span class="keyword">$this</span>-&gt;onConnectServerFailed($svr);</div><div class="line">               <span class="keyword">unset</span>($socket);</div><div class="line">           }</div><div class="line">           <span class="keyword">else</span></div><div class="line">           {</div><div class="line">               $retObj-&gt;socket = $socket;</div><div class="line">               $retObj-&gt;server_host = $svr[<span class="string">&apos;host&apos;</span>];</div><div class="line">               $retObj-&gt;server_port = $svr[<span class="string">&apos;port&apos;</span>];</div><div class="line">               <span class="comment">//&#x4F7F;&#x7528;SOCKET&#x7684;&#x7F16;&#x53F7;&#x4F5C;&#x4E3A;ID</span></div><div class="line">               $retObj-&gt;id = $socketFd;</div><div class="line">               <span class="keyword">break</span>;</div><div class="line">           }</div><div class="line">       }</div><div class="line">       <span class="keyword">return</span> $ret;</div><div class="line">   }</div><div class="line">   ...</div></pre></td></tr></table></figure>
+<p>6.SOAServer.php</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div></pre></td><td class="code"><pre><div class="line">...</div><div class="line">   <span class="function"><span class="keyword">function</span> <span class="title">onReceive</span><span class="params">($serv, $fd, $from_id, $data)</span></span></div><div class="line">   {</div><div class="line">       <span class="keyword">if</span> (!<span class="keyword">isset</span>(<span class="keyword">$this</span>-&gt;_buffer[$fd]) <span class="keyword">or</span> <span class="keyword">$this</span>-&gt;_buffer[$fd] === <span class="string">&apos;&apos;</span>)</div><div class="line">       {</div><div class="line">           <span class="comment">//&#x8D85;&#x8FC7;buffer&#x533A;&#x7684;&#x6700;&#x5927;&#x957F;&#x5EA6;&#x4E86;</span></div><div class="line">           <span class="keyword">if</span> (count(<span class="keyword">$this</span>-&gt;_buffer) &gt;= <span class="keyword">$this</span>-&gt;buffer_maxlen)</div><div class="line">           {</div><div class="line">               $n = <span class="number">0</span>;</div><div class="line">               <span class="keyword">foreach</span> (<span class="keyword">$this</span>-&gt;_buffer <span class="keyword">as</span> $k =&gt; $v)</div><div class="line">               {</div><div class="line">                   <span class="keyword">$this</span>-&gt;close($k);</div><div class="line">                   $n++;</div><div class="line">                   <span class="comment">//&#x6E05;&#x7406;&#x5B8C;&#x6BD5;</span></div><div class="line">                   <span class="keyword">if</span> ($n &gt;= <span class="keyword">$this</span>-&gt;buffer_clear_num)</div><div class="line">                   {</div><div class="line">                       <span class="keyword">break</span>;</div><div class="line">                   }</div><div class="line">               }</div><div class="line">               <span class="keyword">$this</span>-&gt;log(<span class="string">&quot;clear $n buffer&quot;</span>);</div><div class="line">           }</div><div class="line">           <span class="comment">//&#x89E3;&#x6790;&#x5305;&#x5934;</span></div><div class="line">           $header = unpack(<span class="keyword">self</span>::HEADER_STRUCT, substr($data, <span class="number">0</span>, <span class="keyword">self</span>::HEADER_SIZE));</div><div class="line">           <span class="comment">//&#x9519;&#x8BEF;&#x7684;&#x5305;&#x5934;</span></div><div class="line">           <span class="keyword">if</span> ($header === <span class="keyword">false</span>)</div><div class="line">           {</div><div class="line">               <span class="keyword">$this</span>-&gt;close($fd);</div><div class="line">           }</div><div class="line">           $header[<span class="string">&apos;fd&apos;</span>] = $fd;</div><div class="line">           <span class="keyword">$this</span>-&gt;_headers[$fd] = $header;</div><div class="line">           <span class="comment">//&#x957F;&#x5EA6;&#x9519;&#x8BEF;</span></div><div class="line">           <span class="keyword">if</span> ($header[<span class="string">&apos;length&apos;</span>] - <span class="keyword">self</span>::HEADER_SIZE &gt; <span class="keyword">$this</span>-&gt;packet_maxlen <span class="keyword">or</span> strlen($data) &gt; <span class="keyword">$this</span>-&gt;packet_maxlen)</div><div class="line">           {</div><div class="line">               <span class="keyword">return</span> <span class="keyword">$this</span>-&gt;sendErrorMessage($fd, <span class="keyword">self</span>::ERR_TOOBIG);</div><div class="line">           }</div><div class="line">           <span class="comment">//&#x52A0;&#x5165;&#x7F13;&#x5B58;&#x533A;</span></div><div class="line">           <span class="keyword">$this</span>-&gt;_buffer[$fd] = substr($data, <span class="keyword">self</span>::HEADER_SIZE);</div><div class="line">       }</div><div class="line">       <span class="keyword">else</span></div><div class="line">       {</div><div class="line">           <span class="keyword">$this</span>-&gt;_buffer[$fd] .= $data;</div><div class="line">       }</div><div class="line"></div><div class="line">       <span class="comment">//&#x957F;&#x5EA6;&#x4E0D;&#x8DB3;</span></div><div class="line">       <span class="keyword">if</span> (strlen(<span class="keyword">$this</span>-&gt;_buffer[$fd]) &lt; <span class="keyword">$this</span>-&gt;_headers[$fd][<span class="string">&apos;length&apos;</span>])</div><div class="line">       {</div><div class="line">           <span class="keyword">return</span> <span class="keyword">true</span>;</div><div class="line">       }</div><div class="line"></div><div class="line">       <span class="comment">//&#x6570;&#x636E;&#x89E3;&#x5305;</span></div><div class="line">       $request = <span class="keyword">self</span>::decode(<span class="keyword">$this</span>-&gt;_buffer[$fd], <span class="keyword">$this</span>-&gt;_headers[$fd][<span class="string">&apos;type&apos;</span>]);</div><div class="line">       <span class="keyword">if</span> ($request === <span class="keyword">false</span>)</div><div class="line">       {</div><div class="line">           <span class="keyword">$this</span>-&gt;sendErrorMessage($fd, <span class="keyword">self</span>::ERR_UNPACK);</div><div class="line">       }</div><div class="line">       <span class="comment">//&#x6267;&#x884C;&#x8FDC;&#x7A0B;&#x8C03;&#x7528;</span></div><div class="line">       <span class="keyword">else</span></div><div class="line">       {</div><div class="line">           <span class="comment">//&#x5F53;&#x524D;&#x8BF7;&#x6C42;&#x7684;&#x5934;</span></div><div class="line">           <span class="keyword">self</span>::$requestHeader = $_header = <span class="keyword">$this</span>-&gt;_headers[$fd];</div><div class="line">           <span class="comment">//&#x8C03;&#x7528;&#x7AEF;&#x73AF;&#x5883;&#x53D8;&#x91CF;</span></div><div class="line">           <span class="keyword">if</span> (!<span class="keyword">empty</span>($request[<span class="string">&apos;env&apos;</span>]))</div><div class="line">           {</div><div class="line">               <span class="keyword">self</span>::$clientEnv = $request[<span class="string">&apos;env&apos;</span>];</div><div class="line">           }</div><div class="line">           <span class="comment">//socket&#x4FE1;&#x606F;</span></div><div class="line">           <span class="keyword">self</span>::$clientEnv[<span class="string">&apos;_socket&apos;</span>] = <span class="keyword">$this</span>-&gt;server-&gt;connection_info($header[<span class="string">&apos;fd&apos;</span>]);</div><div class="line">           $response = <span class="keyword">$this</span>-&gt;call($request, $_header);</div><div class="line">           <span class="comment">//&#x53D1;&#x9001;&#x54CD;&#x5E94;</span></div><div class="line">           <span class="keyword">$this</span>-&gt;server-&gt;send($fd, <span class="keyword">self</span>::encode($response, $_header[<span class="string">&apos;type&apos;</span>], $_header[<span class="string">&apos;uid&apos;</span>], $_header[<span class="string">&apos;serid&apos;</span>]));</div><div class="line">           <span class="comment">//&#x9000;&#x51FA;&#x8FDB;&#x7A0B;</span></div><div class="line">           <span class="keyword">if</span> (<span class="keyword">self</span>::$stop)</div><div class="line">           {</div><div class="line">               <span class="keyword">exit</span>(<span class="number">0</span>);</div><div class="line">           }</div><div class="line">       }</div><div class="line">       <span class="comment">//&#x6E05;&#x7406;&#x7F13;&#x5B58;</span></div><div class="line">       <span class="keyword">unset</span>(<span class="keyword">$this</span>-&gt;_buffer[$fd], <span class="keyword">$this</span>-&gt;_headers[$fd]);</div><div class="line">       <span class="keyword">return</span> <span class="keyword">true</span>;</div><div class="line">   }</div><div class="line">   ...</div></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/php/" rel="tag">#php</a>
+          
+            <a href="/tags/swoole/" rel="tag">#swoole</a>
+          
+            <a href="/tags/soa/" rel="tag">#soa</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/04/01/2016-04-01-swoole-webchat-minions/" rel="next" title="swoole-webchat-minions 笔记">
+                <i class="fa fa-chevron-left"></i> swoole-webchat-minions 笔记
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/04/01/2016-04-01-tp-rw-separate/" rel="prev" title="tp-rw-separate 读写分离笔记">
+                tp-rw-separate 读写分离笔记 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-name">categories</span>
+              
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">60</span>
+                <span class="site-state-item-name">tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#swoole-soa-记录"><span class="nav-number">1.</span> <span class="nav-text">swoole-soa 记录</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-soa服务支持的业务框架"><span class="nav-number">1.0.1.</span> <span class="nav-text">2.soa服务支持的业务框架</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-主要流程代码"><span class="nav-number">1.0.2.</span> <span class="nav-text">1.主要流程代码</span></a></li></ol></li></ol></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Neconano</span>
+</div>
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

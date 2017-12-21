@@ -1,0 +1,631 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="zookeeper &amp;#x7B14;&amp;#x8BB0;
+1.centos&amp;#x5B89;&amp;#x88C5;jdk1.&amp;#x67E5;&amp;#x770B;CentOS&amp;#x81EA;&amp;#x5E26;JDK&amp;#x662F;&amp;#x5426;&amp;#x5DF2;&amp;#x5B89;&amp;#x88C5;&amp;#x3002;
+yum list installed |grep java
+&amp;#x82E5;&amp;#x6709;&amp;#x81EA;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="zookeeper-php">
+<meta property="og:url" content="http://yoursite.com/2016/07/01/2016-07-01-zookeeper-php/index.html">
+<meta property="og:site_name" content="Neconano's notebook">
+<meta property="og:description" content="zookeeper &amp;#x7B14;&amp;#x8BB0;
+1.centos&amp;#x5B89;&amp;#x88C5;jdk1.&amp;#x67E5;&amp;#x770B;CentOS&amp;#x81EA;&amp;#x5E26;JDK&amp;#x662F;&amp;#x5426;&amp;#x5DF2;&amp;#x5B89;&amp;#x88C5;&amp;#x3002;
+yum list installed |grep java
+&amp;#x82E5;&amp;#x6709;&amp;#x81EA;">
+<meta property="og:updated_time" content="2016-11-29T02:54:50.578Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="zookeeper-php">
+<meta name="twitter:description" content="zookeeper &amp;#x7B14;&amp;#x8BB0;
+1.centos&amp;#x5B89;&amp;#x88C5;jdk1.&amp;#x67E5;&amp;#x770B;CentOS&amp;#x81EA;&amp;#x5E26;JDK&amp;#x662F;&amp;#x5426;&amp;#x5DF2;&amp;#x5B89;&amp;#x88C5;&amp;#x3002;
+yum list installed |grep java
+&amp;#x82E5;&amp;#x6709;&amp;#x81EA;">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"right","display":"always"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: 'Author'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2016/07/01/2016-07-01-zookeeper-php/"/>
+
+  <title> zookeeper-php | Neconano's notebook </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-right page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Neconano's notebook</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                zookeeper-php
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2016-07-01T00:00:00+08:00" content="2016-07-01">
+              2016-07-01
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/java/" itemprop="url" rel="index">
+                    <span itemprop="name">java</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="zookeeper-&#x7B14;&#x8BB0;"><a href="#zookeeper-&#x7B14;&#x8BB0;" class="headerlink" title="zookeeper &#x7B14;&#x8BB0;"></a>zookeeper &#x7B14;&#x8BB0;</h1><hr>
+<h3 id="1-centos&#x5B89;&#x88C5;jdk"><a href="#1-centos&#x5B89;&#x88C5;jdk" class="headerlink" title="1.centos&#x5B89;&#x88C5;jdk"></a>1.centos&#x5B89;&#x88C5;jdk</h3><p>1.&#x67E5;&#x770B;CentOS&#x81EA;&#x5E26;JDK&#x662F;&#x5426;&#x5DF2;&#x5B89;&#x88C5;&#x3002;</p>
+<p>yum list installed |grep java</p>
+<p>&#x82E5;&#x6709;&#x81EA;&#x5E26;&#x5B89;&#x88C5;&#x7684;JDK,&#x5378;&#x8F7D;&#xFF0C;&#x4F8B;&#x5982; yum -y remove java-1.7.0-openjdk*</p>
+<p>2.&#x67E5;&#x770B;yum&#x5E93;&#x4E2D;&#x7684;Java&#x5B89;&#x88C5;&#x5305;&#x3002;</p>
+<p>yum -y list java*</p>
+<p>3.&#x4F7F;&#x7528;yum&#x5B89;&#x88C5;Java&#x73AF;&#x5883;</p>
+<p>yum -y install java-1.8.0-openjdk*</p>
+<p>4.&#x67E5;&#x770B;&#x521A;&#x5B89;&#x88C5;&#x7684;Java&#x7248;&#x672C;&#x4FE1;&#x606F;&#x3002;</p>
+<p>java -version</p>
+<h3 id="2-centos&#x5B89;&#x88C5;zookeeper"><a href="#2-centos&#x5B89;&#x88C5;zookeeper" class="headerlink" title="2.centos&#x5B89;&#x88C5;zookeeper"></a>2.centos&#x5B89;&#x88C5;zookeeper</h3><p>1.<a href="http://apache.fayea.com/zookeeper/" target="_blank" rel="external">&#x4E0B;&#x8F7D;</a></p>
+<p>2.&#x590D;&#x5236;conf&#x76EE;&#x5F55;&#x4E0B;&#x7684;zoo_sample.cfg,&#x5E76;&#x547D;&#x540D;&#x4E3A;zoo.cfg</p>
+<p>3.&#x4FEE;&#x6539;zoo.cfg&#x914D;&#x7F6E;&#x6587;&#x4EF6;,&#x8C03;&#x6574;&#x5185;&#x5BB9;</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">dataDir=/datatmp/zookeeper/data</div><div class="line">dataLogDir=/datatmp/zookeeper/logs</div><div class="line">#2888,3888 are election port</div><div class="line">server.1=zookeeper:2888:3888</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">server.A=B&#xFF1A;C&#xFF1A;D&#xFF1A;&#x5176;&#x4E2D; A &#x662F;&#x4E00;&#x4E2A;&#x6570;&#x5B57;&#xFF0C;&#x8868;&#x793A;&#x8FD9;&#x4E2A;&#x662F;&#x7B2C;&#x51E0;&#x53F7;&#x670D;&#x52A1;&#x5668;&#xFF1B;B &#x662F;&#x8FD9;&#x4E2A;&#x670D;&#x52A1;&#x5668;&#x7684; ip &#x5730;&#x5740;&#xFF1B;</div><div class="line">C &#x8868;&#x793A;&#x7684;&#x662F;&#x8FD9;&#x4E2A;&#x670D;&#x52A1;&#x5668;&#x4E0E;&#x96C6;&#x7FA4;&#x4E2D;&#x7684; Leader &#x670D;&#x52A1;&#x5668;&#x4EA4;&#x6362;&#x4FE1;&#x606F;&#x7684;&#x7AEF;&#x53E3;&#xFF1B;D &#x8868;&#x793A;&#x7684;&#x662F;&#x4E07;&#x4E00;&#x96C6;&#x7FA4;&#x4E2D;&#x7684; Leader </div><div class="line">&#x670D;&#x52A1;&#x5668;&#x6302;&#x4E86;&#xFF0C;&#x9700;&#x8981;&#x4E00;&#x4E2A;&#x7AEF;&#x53E3;&#x6765;&#x91CD;&#x65B0;&#x8FDB;&#x884C;&#x9009;&#x4E3E;&#xFF0C;&#x9009;&#x51FA;&#x4E00;&#x4E2A;&#x65B0;&#x7684; Leader&#xFF0C;&#x800C;&#x8FD9;&#x4E2A;&#x7AEF;&#x53E3;&#x5C31;&#x662F;&#x7528;&#x6765;&#x6267;&#x884C;&#x9009;&#x4E3E;&#x65F6;&#x670D;</div><div class="line">&#x52A1;&#x5668;&#x76F8;&#x4E92;&#x901A;&#x4FE1;&#x7684;&#x7AEF;&#x53E3;&#x3002;&#x5982;&#x679C;&#x662F;&#x4F2A;&#x96C6;&#x7FA4;&#x7684;&#x914D;&#x7F6E;&#x65B9;&#x5F0F;&#xFF0C;&#x7531;&#x4E8E; B &#x90FD;&#x662F;&#x4E00;&#x6837;&#xFF0C;&#x6240;&#x4EE5;&#x4E0D;&#x540C;&#x7684; Zookeeper &#x5B9E;&#x4F8B;&#x901A;&#x4FE1;</div><div class="line">&#x7AEF;&#x53E3;&#x53F7;&#x4E0D;&#x80FD;&#x4E00;&#x6837;&#xFF0C;&#x6240;&#x4EE5;&#x8981;&#x7ED9;&#x5B83;&#x4EEC;&#x5206;&#x914D;&#x4E0D;&#x540C;&#x7684;&#x7AEF;&#x53E3;&#x53F7;&#x3002;</div></pre></td></tr></table></figure>
+<p>4.&#x5728;dataDir&#x76EE;&#x5F55;&#x4E0B;&#x521B;&#x5EFA;myid&#x6587;&#x4EF6;&#xFF0C;&#x586B;&#x5165;&#x5185;&#x5BB9;1</p>
+<p>5.&#x4FEE;&#x6539;&#x7CFB;&#x7EDF;&#x73AF;&#x5883;&#x53D8;&#x91CF;</p>
+<p>export ZOOKEEPER_HOME=/home/hadooptest/zookeeper-3.4.3<br>export PATH=$ZOOKEEPER_HOME/bin:$PATH<br>export PATH</p>
+<p>6.&#x542F;&#x52A8;&#x670D;&#x52A1;</p>
+<p>zookeeper-3.4.6/bin/zkServer.sh start</p>
+<p>7.&#x8F93;&#x5165;jps&#x547D;&#x4EE4;&#x67E5;&#x770B;&#x8FDB;&#x7A0B;&#xFF0C;&#x4F8B;&#x5982;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">1573 QuorumPeerMain</div><div class="line">1654 Jps</div></pre></td></tr></table></figure>
+<p>8.&#x67E5;&#x770B;&#x72B6;&#x6001;&#xFF1A;zookeeper-3.4.3/bin/zkServer.sh status</p>
+<p>&#x542F;&#x52A8;&#x5BA2;&#x6237;&#x7AEF;&#x811A;&#x672C;&#xFF1A;zookeeper-3.4.3/bin/zkCli.sh -server locahost:2181</p>
+<p>&#x505C;&#x6B62;zookeeper&#x8FDB;&#x7A0B;&#xFF1A;zookeeper-3.4.3/bin/zkServer.sh stop</p>
+<h3 id="3-&#x5B89;&#x88C5;zookeeper&#x7684;php&#x6269;&#x5C55;&#x53C2;&#x8003;"><a href="#3-&#x5B89;&#x88C5;zookeeper&#x7684;php&#x6269;&#x5C55;&#x53C2;&#x8003;" class="headerlink" title="3.&#x5B89;&#x88C5;zookeeper&#x7684;php&#x6269;&#x5C55;&#x53C2;&#x8003;"></a>3.&#x5B89;&#x88C5;zookeeper&#x7684;php&#x6269;&#x5C55;<a href="http://anykoro.sinaapp.com/2013/04/05/%E4%BD%BF%E7%94%A8apache-zookeeper%E5%88%86%E5%B8%83%E5%BC%8F%E9%83%A8%E7%BD%B2php%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F/" target="_blank" rel="external">&#x53C2;&#x8003;</a></h3><p>1.&#x5B89;&#x88C5;ZooKeeper&#x7684;&#x5E93;&#x548C;&#x5934;&#x6587;&#x4EF6;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$ cd zookeeper-3.4.5/src/c</div><div class="line">$ ./configure --prefix=/usr/</div><div class="line">$ make</div><div class="line">$ sudo make install</div></pre></td></tr></table></figure>
+<p>2.&#x7F16;&#x8BD1;PHP&#x6269;&#x5C55;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">$yum install git</div><div class="line">$ git clone https://github.com/andreiz/php-zookeeper.git</div><div class="line">$ cd php-zookeeper</div><div class="line">$ phpize</div><div class="line">$ ./configure</div><div class="line">$ make</div><div class="line">$ sudo make install</div></pre></td></tr></table></figure>
+<p>&#x4FEE;&#x6539;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#xFF0C;&#x6DFB;&#x52A0;extension=zookeeper.so</p>
+<p>&#x6267;&#x884C; php -m &#x9047;&#x5230;&#x95EE;&#x9898;libzookeeper_mt.so.2: cannot open shared object file</p>
+<p>&#x89E3;&#x51B3;&#x65B9;&#x6CD5;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&#x6267;&#x884C;vim /etc/ld.so.conf</div><div class="line">&#x6DFB;&#x52A0;/newdata/software/php-zookeeper/.libs/</div><div class="line">&#x6267;&#x884C;sudo ldconfig</div></pre></td></tr></table></figure>
+<h3 id="4-php&#x6837;&#x4F8B;&#xFF0C;&#x6A21;&#x62DF;3&#x4E2A;&#x670D;&#x52A1;&#x540C;&#x65F6;&#x8FD0;&#x884C;&#xFF0C;leader&#x5D29;&#x6E83;&#x60C5;&#x51B5;&#x7684;&#x9009;&#x4E3E;"><a href="#4-php&#x6837;&#x4F8B;&#xFF0C;&#x6A21;&#x62DF;3&#x4E2A;&#x670D;&#x52A1;&#x540C;&#x65F6;&#x8FD0;&#x884C;&#xFF0C;leader&#x5D29;&#x6E83;&#x60C5;&#x51B5;&#x7684;&#x9009;&#x4E3E;" class="headerlink" title="4.php&#x6837;&#x4F8B;&#xFF0C;&#x6A21;&#x62DF;3&#x4E2A;&#x670D;&#x52A1;&#x540C;&#x65F6;&#x8FD0;&#x884C;&#xFF0C;leader&#x5D29;&#x6E83;&#x60C5;&#x51B5;&#x7684;&#x9009;&#x4E3E;"></a>4.php&#x6837;&#x4F8B;&#xFF0C;&#x6A21;&#x62DF;3&#x4E2A;&#x670D;&#x52A1;&#x540C;&#x65F6;&#x8FD0;&#x884C;&#xFF0C;leader&#x5D29;&#x6E83;&#x60C5;&#x51B5;&#x7684;&#x9009;&#x4E3E;</h3><p>&#x6A21;&#x62DF;Leader&#x5D29;&#x6E83;&#x7684;&#x60C5;&#x5F62;&#x3002;&#x4F7F;&#x7528;Ctrl+c&#x6216;&#x5176;&#x4ED6;&#x65B9;&#x6CD5;&#x9000;&#x51FA;&#x7B2C;&#x4E00;&#x4E2A;&#x811A;&#x672C;&#x3002;&#x521A;&#x5F00;&#x59CB;&#x4E0D;&#x4F1A;&#x6709;&#x4EFB;&#x4F55;&#x53D8;&#x5316;&#xFF0C;</p>
+<p>worker&#x53EF;&#x4EE5;&#x7EE7;&#x7EED;&#x5DE5;&#x4F5C;&#x3002;&#x540E;&#x6765;&#xFF0C;ZooKeeper&#x4F1A;&#x53D1;&#x73B0;&#x8D85;&#x65F6;&#xFF0C;&#x5E76;&#x9009;&#x4E3E;&#x51FA;&#x65B0;&#x7684;leader&#x3002;</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="meta">&lt;?php</span></div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Worker</span> <span class="keyword">extends</span> <span class="title">Zookeeper</span> </span>{</div><div class="line"> </div><div class="line">  <span class="keyword">const</span> CONTAINER = <span class="string">&apos;/cluster&apos;</span>;</div><div class="line"> </div><div class="line">  <span class="keyword">protected</span> $acl = <span class="keyword">array</span>(</div><div class="line">                    <span class="keyword">array</span>(</div><div class="line">                      <span class="string">&apos;perms&apos;</span> =&gt; Zookeeper::PERM_ALL,</div><div class="line">                      <span class="string">&apos;scheme&apos;</span> =&gt; <span class="string">&apos;world&apos;</span>,</div><div class="line">                      <span class="string">&apos;id&apos;</span> =&gt; <span class="string">&apos;anyone&apos;</span> ) );</div><div class="line"> </div><div class="line">  <span class="keyword">private</span> $isLeader = <span class="keyword">false</span>;</div><div class="line"> </div><div class="line">  <span class="keyword">private</span> $znode;</div><div class="line"> </div><div class="line">  <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">__construct</span><span class="params">( $host = <span class="string">&apos;&apos;</span>, $watcher_cb = null, $recv_timeout = <span class="number">10000</span> )</span> </span>{</div><div class="line">    <span class="keyword">parent</span>::__construct( $host, $watcher_cb, $recv_timeout );</div><div class="line">  }</div><div class="line"> </div><div class="line">  <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">register</span><span class="params">()</span> </span>{</div><div class="line">    <span class="keyword">if</span>( ! <span class="keyword">$this</span>-&gt;exists( <span class="keyword">self</span>::CONTAINER ) ) {</div><div class="line">      <span class="keyword">$this</span>-&gt;create( <span class="keyword">self</span>::CONTAINER, <span class="keyword">null</span>, <span class="keyword">$this</span>-&gt;acl );</div><div class="line">    }</div><div class="line"> </div><div class="line">    <span class="keyword">$this</span>-&gt;znode = <span class="keyword">$this</span>-&gt;create( <span class="keyword">self</span>::CONTAINER . <span class="string">&apos;/w-&apos;</span>,</div><div class="line">                                  <span class="keyword">null</span>,</div><div class="line">                                  <span class="keyword">$this</span>-&gt;acl,</div><div class="line">                                  Zookeeper::EPHEMERAL | Zookeeper::SEQUENCE );</div><div class="line"> </div><div class="line">    <span class="keyword">$this</span>-&gt;znode = str_replace( <span class="keyword">self</span>::CONTAINER .<span class="string">&apos;/&apos;</span>, <span class="string">&apos;&apos;</span>, <span class="keyword">$this</span>-&gt;znode );</div><div class="line"> </div><div class="line">    printf( <span class="string">&quot;I&apos;m registred as: %s\n&quot;</span>, <span class="keyword">$this</span>-&gt;znode );</div><div class="line"></div><div class="line">    <span class="keyword">$this</span>-&gt;_chekc_leader();</div><div class="line"></div><div class="line">  }</div><div class="line"></div><div class="line">  <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">_chekc_leader</span><span class="params">()</span></span>{</div><div class="line">    $watching = <span class="keyword">$this</span>-&gt;watchPrevious();</div><div class="line"> </div><div class="line">    <span class="keyword">if</span>( $watching == <span class="keyword">$this</span>-&gt;znode ) {</div><div class="line">      <span class="comment">//printf( &quot;Nobody here, I&apos;m the leader\n&quot; );</span></div><div class="line">      <span class="keyword">$this</span>-&gt;setLeader( <span class="keyword">true</span> );</div><div class="line">    }</div><div class="line">    <span class="keyword">else</span> {</div><div class="line">      <span class="comment">//printf( &quot;I&apos;m watching %s\n&quot;, $watching );</span></div><div class="line">    }</div><div class="line">  }</div><div class="line"></div><div class="line"> </div><div class="line">  <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">watchPrevious</span><span class="params">()</span> </span>{</div><div class="line">    $workers = <span class="keyword">$this</span>-&gt;getChildren( <span class="keyword">self</span>::CONTAINER );</div><div class="line">    sort( $workers );</div><div class="line">    $size = sizeof( $workers );</div><div class="line">    <span class="keyword">for</span>( $i = <span class="number">0</span> ; $i &lt; $size ; $i++ ) {</div><div class="line">      <span class="keyword">if</span>( <span class="keyword">$this</span>-&gt;znode == $workers[ $i ] ) {</div><div class="line">        <span class="keyword">if</span>( $i &gt; <span class="number">0</span> ) {</div><div class="line">          <span class="keyword">$this</span>-&gt;get( <span class="keyword">self</span>::CONTAINER . <span class="string">&apos;/&apos;</span> . $workers[ $i - <span class="number">1</span> ], <span class="keyword">array</span>( <span class="keyword">$this</span>, <span class="string">&apos;watchNode&apos;</span> ) );</div><div class="line">          <span class="keyword">return</span> $workers[ $i - <span class="number">1</span> ];</div><div class="line">        }</div><div class="line"> </div><div class="line">        <span class="keyword">return</span> $workers[ $i ];</div><div class="line">      }</div><div class="line">    }</div><div class="line"> </div><div class="line">    <span class="keyword">throw</span> <span class="keyword">new</span> <span class="keyword">Exception</span>(  sprintf( <span class="string">&quot;Something went very wrong! I can&apos;t find myself: %s/%s&quot;</span>,</div><div class="line">                          <span class="keyword">self</span>::CONTAINER,</div><div class="line">                          <span class="keyword">$this</span>-&gt;znode ) );</div><div class="line">  }</div><div class="line"> </div><div class="line">  <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">watchNode</span><span class="params">( $i, $type, $name )</span> </span>{</div><div class="line">    $watching = <span class="keyword">$this</span>-&gt;watchPrevious();</div><div class="line">    <span class="keyword">if</span>( $watching == <span class="keyword">$this</span>-&gt;znode ) {</div><div class="line">      printf( <span class="string">&quot;I&apos;m the new leader!\n&quot;</span> );</div><div class="line">      <span class="keyword">$this</span>-&gt;setLeader( <span class="keyword">true</span> );</div><div class="line">    }</div><div class="line">    <span class="keyword">else</span> {</div><div class="line">      printf( <span class="string">&quot;Now I&apos;m watching %s\n&quot;</span>, $watching );</div><div class="line">    }</div><div class="line">  }</div><div class="line"> </div><div class="line">  <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">isLeader</span><span class="params">()</span> </span>{</div><div class="line">    <span class="keyword">$this</span>-&gt;_chekc_leader();</div><div class="line">    <span class="keyword">return</span> <span class="keyword">$this</span>-&gt;isLeader;</div><div class="line">  }</div><div class="line"> </div><div class="line">  <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">setLeader</span><span class="params">($flag)</span> </span>{</div><div class="line">    <span class="keyword">$this</span>-&gt;isLeader = $flag;</div><div class="line">  }</div><div class="line"> </div><div class="line">  <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">run</span><span class="params">()</span> </span>{</div><div class="line">    <span class="keyword">$this</span>-&gt;register();</div><div class="line"> </div><div class="line">    <span class="keyword">while</span>( <span class="keyword">true</span> ) {</div><div class="line">      <span class="keyword">if</span>( <span class="keyword">$this</span>-&gt;isLeader() ) {</div><div class="line">        <span class="keyword">$this</span>-&gt;doLeaderJob();</div><div class="line">    }</div><div class="line">    <span class="keyword">else</span> {</div><div class="line">      <span class="keyword">$this</span>-&gt;doWorkerJob();</div><div class="line">    }</div><div class="line"> </div><div class="line">      sleep( <span class="number">2</span> );</div><div class="line">    }</div><div class="line">  }</div><div class="line"> </div><div class="line">  <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">doLeaderJob</span><span class="params">()</span> </span>{</div><div class="line">    <span class="keyword">echo</span> <span class="string">&quot;Leading\n&quot;</span>;</div><div class="line">  }</div><div class="line"> </div><div class="line">  <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">doWorkerJob</span><span class="params">()</span> </span>{</div><div class="line">    <span class="keyword">echo</span> <span class="string">&quot;Working\n&quot;</span>;</div><div class="line">  }</div><div class="line"> </div><div class="line">}</div><div class="line"> </div><div class="line">$worker = <span class="keyword">new</span> Worker( <span class="string">&apos;127.0.0.1:2181&apos;</span> );</div><div class="line">$worker-&gt;run();</div></pre></td></tr></table></figure>
+<h3 id="5-&#x67B6;&#x6784;&#x601D;&#x8DEF;"><a href="#5-&#x67B6;&#x6784;&#x601D;&#x8DEF;" class="headerlink" title="5.&#x67B6;&#x6784;&#x601D;&#x8DEF;"></a>5.&#x67B6;&#x6784;&#x601D;&#x8DEF;</h3><p>&#x7B2C;&#x4E00;&#x6B21;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">1.&#x4F7F;&#x7528;swoole&#x505A;&#x670D;&#x52A1;&#xFF0C;&#x96C6;&#x6210;zookeeper&#x6269;&#x5C55;&#xFF0C;&#x8FD0;&#x884C;&#x670D;&#x52A1;&#x540E;&#xFF0C;&#x5728;zookeeper&#x4E2D;&#x6CE8;&#x518C;&#x670D;&#x52A1;</div><div class="line">2.&#x670D;&#x52A1;&#x5305;&#x542B;leader&#x548C;woker&#x673A;&#x5236;&#xFF0C;leader&#x76D1;&#x63A7;zookeeper&#x4E2D;&#x6CE8;&#x518C;&#x7684;&#x96C6;&#x7FA4;&#x670D;&#x52A1;&#xFF0C;&#x4FDD;&#x8BC1;&#x670D;&#x52A1;&#x53EF;&#x7528;</div><div class="line">3.&#x670D;&#x52A1;&#x53EF;&#x76D1;&#x63A7;zookeeper&#x4E2D;&#x4E1A;&#x52A1;&#x6570;&#x636E;&#x7684;&#x53D8;&#x5316;&#x6267;&#x884C;&#x4EFB;&#x52A1;</div><div class="line">4.&#x4F7F;&#x7528;kafka&#x4F5C;&#x4E3A;&#x6D88;&#x606F;&#x4E2D;&#x95F4;&#x4EF6;&#xFF0C;&#x524D;&#x7AEF;&#x4F5C;&#x4E3A;&#x751F;&#x4EA7;&#xFF0C;&#x670D;&#x52A1;&#x4F5C;&#x4E3A;&#x6D88;&#x8D39;</div></pre></td></tr></table></figure>
+<p>&#x7B2C;&#x4E8C;&#x6B21;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">1.zookeeper&#x5EFA;&#x7ACB;&#x96C6;&#x7FA4;&#xFF0C;kafka&#x5728;zookeeper&#x96C6;&#x7FA4;&#x4E4B;&#x4E0A;</div><div class="line">2.kafka&#x5B9E;&#x73B0;&#x6D88;&#x606F;&#x961F;&#x5217;&#xFF0C;&#x6216;rpc&#x5BF9;&#x8BF7;&#x6C42;&#x8FDB;&#x884C;&#x5F02;&#x6B65;&#x5904;&#x7406;&#xFF0C;&#x524D;&#x7AEF;&#x9700;&#x8981;&#x957F;&#x8FDE;&#x63A5;&#x5904;&#x7406;&#x7B49;&#x5F85;&#x8BF7;&#x6C42;&#x7ED3;&#x679C;</div><div class="line">3.&#x4F7F;&#x7528;swoole_framework&#x4F5C;&#x4E3A;&#x670D;&#x52A1;&#x7AEF;&#x6846;&#x67B6;&#xFF0C;&#x4E3A;&#x5BA2;&#x6237;&#x7AEF;&#x63D0;&#x4F9B;&#x957F;&#x8FDE;&#x63A5;&#x670D;&#x52A1;&#xFF0C;&#x5E76;&#x5B9E;&#x73B0;kafka&#x6D88;&#x606F;&#x76D1;&#x542C;&#x53CA;&#x5904;&#x7406;</div><div class="line">4.&#x8BB0;&#x5F55;kafka&#x6D88;&#x606F;&#x751F;&#x4EA7;&#x548C;&#x6D88;&#x8D39;&#x65E5;&#x5FD7;</div><div class="line">5.&#x5B9E;&#x73B0;zookeeper&#x548C;kafka&#x96C6;&#x7FA4;&#x76D1;&#x63A7;&#x62A5;&#x8B66;</div></pre></td></tr></table></figure>
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/07/01/2016-07-01-zookeeper-note/" rel="next" title="zookeeper-note">
+                <i class="fa fa-chevron-left"></i> zookeeper-note
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/08/01/2016-08-01-teach-blogs/" rel="prev" title="teach-blogs">
+                teach-blogs <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-name">categories</span>
+              
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">60</span>
+                <span class="site-state-item-name">tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#zookeeper-笔记"><span class="nav-number">1.</span> <span class="nav-text">zookeeper 笔记</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-centos安装jdk"><span class="nav-number">1.0.1.</span> <span class="nav-text">1.centos安装jdk</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-centos安装zookeeper"><span class="nav-number">1.0.2.</span> <span class="nav-text">2.centos安装zookeeper</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-安装zookeeper的php扩展参考"><span class="nav-number">1.0.3.</span> <span class="nav-text">3.安装zookeeper的php扩展参考</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-php样例，模拟3个服务同时运行，leader崩溃情况的选举"><span class="nav-number">1.0.4.</span> <span class="nav-text">4.php样例，模拟3个服务同时运行，leader崩溃情况的选举</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-架构思路"><span class="nav-number">1.0.5.</span> <span class="nav-text">5.架构思路</span></a></li></ol></li></ol></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Neconano</span>
+</div>
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

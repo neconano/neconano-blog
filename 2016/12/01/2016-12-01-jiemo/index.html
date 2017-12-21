@@ -1,0 +1,694 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="php,jiemo," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="&amp;#x7B14;&amp;#x8BB0;
+composer&amp;#x5E94;&amp;#x7528;composer &amp;#x6258;&amp;#x7BA1;&amp;#x5728;&amp;#x672C;&amp;#x5730;git&amp;#x4E0A;
+&amp;#x4F7F;&amp;#x7528;&amp;#x547D;&amp;#x4EE4; composer install &amp;#x62C9;&amp;#x53D6;&amp;#x7B2C;&amp;#x4E09;&amp;#x65B9;&amp;#x5E93;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="jiemo">
+<meta property="og:url" content="http://yoursite.com/2016/12/01/2016-12-01-jiemo/index.html">
+<meta property="og:site_name" content="Neconano's notebook">
+<meta property="og:description" content="&amp;#x7B14;&amp;#x8BB0;
+composer&amp;#x5E94;&amp;#x7528;composer &amp;#x6258;&amp;#x7BA1;&amp;#x5728;&amp;#x672C;&amp;#x5730;git&amp;#x4E0A;
+&amp;#x4F7F;&amp;#x7528;&amp;#x547D;&amp;#x4EE4; composer install &amp;#x62C9;&amp;#x53D6;&amp;#x7B2C;&amp;#x4E09;&amp;#x65B9;&amp;#x5E93;">
+<meta property="og:image" content="http://yoursite.com/2016/12/01/2016-12-01-jiemo/phing.png">
+<meta property="og:updated_time" content="2017-04-24T02:16:10.073Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="jiemo">
+<meta name="twitter:description" content="&amp;#x7B14;&amp;#x8BB0;
+composer&amp;#x5E94;&amp;#x7528;composer &amp;#x6258;&amp;#x7BA1;&amp;#x5728;&amp;#x672C;&amp;#x5730;git&amp;#x4E0A;
+&amp;#x4F7F;&amp;#x7528;&amp;#x547D;&amp;#x4EE4; composer install &amp;#x62C9;&amp;#x53D6;&amp;#x7B2C;&amp;#x4E09;&amp;#x65B9;&amp;#x5E93;">
+<meta name="twitter:image" content="http://yoursite.com/2016/12/01/2016-12-01-jiemo/phing.png">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"right","display":"always"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: 'Author'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2016/12/01/2016-12-01-jiemo/"/>
+
+  <title> jiemo | Neconano's notebook </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-right page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Neconano's notebook</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                jiemo
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2016-12-01T00:00:00+08:00" content="2016-12-01">
+              2016-12-01
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="&#x7B14;&#x8BB0;"><a href="#&#x7B14;&#x8BB0;" class="headerlink" title="&#x7B14;&#x8BB0;"></a>&#x7B14;&#x8BB0;</h1><hr>
+<h3 id="composer&#x5E94;&#x7528;"><a href="#composer&#x5E94;&#x7528;" class="headerlink" title="composer&#x5E94;&#x7528;"></a>composer&#x5E94;&#x7528;</h3><p>composer &#x6258;&#x7BA1;&#x5728;&#x672C;&#x5730;git&#x4E0A;</p>
+<p>&#x4F7F;&#x7528;&#x547D;&#x4EE4; composer install &#x62C9;&#x53D6;&#x7B2C;&#x4E09;&#x65B9;&#x5E93;</p>
+<p>&#x914D;&#x7F6E;git ssh key </p>
+<p>&#x4F7F;&#x7528; ssh-keygen.exe &#x751F;&#x6210;&#x5BA2;&#x6237;&#x7AEF;key</p>
+<p>&#x4F7F;&#x7528; notepad ~/.ssh/id_rsa.pub &#x67E5;&#x770B;&#x751F;&#x6210;&#x7684;key</p>
+<p>&#x5C06;&#x751F;&#x6210;&#x7684;key&#x6DFB;&#x52A0;&#x5230;git&#x4E2D;(user Settings&#x2013;&gt;ssh keys)</p>
+<p>&#x4F7F;&#x7528; ssh -v git@git.jiemodou.net &#x67E5;&#x770B;&#x662F;&#x5426;&#x6709;&#x8BBF;&#x95EE;&#x6743;&#x9650;</p>
+<p>&#x62C9;&#x53D6;&#x5B8C;&#x6210;&#x540E;&#xFF0C;&#x6267;&#x884C;composer jmconfig &#x751F;&#x6210;&#x914D;&#x7F6E;</p>
+<p>&#x7B2C;&#x4E09;&#x65B9;&#x8BC1;&#x4E66;</p>
+<p><a href="https://letsencrypt.org/" target="_blank" rel="external">https://letsencrypt.org/</a></p>
+<h3 id="1-composer-phing"><a href="#1-composer-phing" class="headerlink" title="1.composer/phing"></a>1.composer/phing</h3><p>10.168.1.12 git.jiemodou.net</p>
+<p>composer install &#x2013;prefer-dist -o</p>
+<p>vendor\bin\phing config</p>
+<p><a href="http://innerapi.dev.jiemoquan.net/User/login" target="_blank" rel="external">http://innerapi.dev.jiemoquan.net/User/login</a></p>
+<p><a href="http://manager.dev.jiemoquan.net" target="_blank" rel="external">http://manager.dev.jiemoquan.net</a></p>
+<p><a href="https://git.jiemodou.net/" target="_blank" rel="external">https://git.jiemodou.net/</a></p>
+<p>admin yunshayust</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&#x751F;&#x6210;&#x6D41;&#x7A0B;</div><div class="line">composer(build.xml)-&gt;vendor(bin/phing)-&gt;index.php</div><div class="line">build.xml-&gt;properties.yml-&gt;proc_config.xml-&gt;index.php.dist-&gt;index.php</div></pre></td></tr></table></figure>
+<p><img src="/2016/12/01/2016-12-01-jiemo/phing.png" alt="logo"></p>
+<h1 id="htaccess"><a href="#htaccess" class="headerlink" title=".htaccess"></a>.htaccess</h1><hr>
+<p><a href="http://www.cnphp.info/htaccess-rewrite.html" target="_blank" rel="external">&#x53C2;&#x8003;</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">F(force URL to be forbidden)&#x7981;&#x7528;URL,&#x8FD4;&#x56DE;403HTTP&#x72B6;&#x6001;&#x7801;&#x3002;</div><div class="line"></div><div class="line">L(last rule) &#x8868;&#x660E;&#x5F53;&#x524D;&#x89C4;&#x5219;&#x662F;&#x6700;&#x540E;&#x4E00;&#x6761;&#x89C4;&#x5219;&#xFF0C;&#x505C;&#x6B62;&#x5206;&#x6790;&#x4EE5;&#x540E;&#x89C4;&#x5219;&#x7684;&#x91CD;&#x5199;&#x3002;</div><div class="line"></div><div class="line">R[=code](force redirect) &#x5F3A;&#x5236;&#x5916;&#x90E8;&#x91CD;&#x5B9A;&#x5411;</div><div class="line">&#x5F3A;&#x5236;&#x5728;&#x66FF;&#x4EE3;&#x5B57;&#x7B26;&#x4E32;&#x52A0;&#x4E0A;http://thishost[:thisport]/&#x524D;&#x7F00;&#x91CD;&#x5B9A;&#x5411;&#x5230;&#x5916;&#x90E8;&#x7684;URL.&#x5982;&#x679C;code&#x4E0D;&#x6307;&#x5B9A;&#xFF0C;&#x5C06;&#x7528;&#x7F3A;&#x7701;&#x7684;302 HTTP&#x72B6;&#x6001;&#x7801;&#x3002;</div><div class="line"></div><div class="line">NC(no case) &#x4E0D;&#x533A;&#x5206;&#x5927;&#x5C0F;&#x5199;</div><div class="line"></div><div class="line">L(last rule) &#x8868;&#x660E;&#x5F53;&#x524D;&#x89C4;&#x5219;&#x662F;&#x6700;&#x540E;&#x4E00;&#x6761;&#x89C4;&#x5219;&#xFF0C;&#x505C;&#x6B62;&#x5206;&#x6790;&#x4EE5;&#x540E;&#x89C4;&#x5219;&#x7684;&#x91CD;&#x5199;&#x3002;</div><div class="line"></div><div class="line">&#x53EF;&#x4EE5;&#x5728;pattern&#x4E32;&#x4E2D;&#x4F7F;&#x7528;&#x2019;!&#x2018; &#x5B57;&#x7B26;(&#x60CA;&#x53F9;&#x53F7;)&#x6765;&#x5B9E;&#x73B0;&#x5339;&#x914D;&#x7684;&#x53CD;&#x8F6C;&#x3002;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">&#x4E00;&#x3001;&#x9632;&#x76D7;&#x94FE;&#x529F;&#x80FD;</div><div class="line">&#x53EA;&#x8FD9;&#x56DB;&#x884C;&#x5C31;&#x5B9E;&#x73B0;&#x4E86;&#x9632;&#x76D7;&#x94FE;&#x662F;&#x4E0D;&#x662F;&#x5F88;&#x795E;&#x5947;^_^&#xFF0C;&#x7F16;&#x5199;&#x8D77;&#x6765;&#x662F;&#x4E0D;&#x662F;&#x53C8;&#x89C9;&#x5F97;&#x590D;&#x6742;&#x3002;</div><div class="line">RewriteEngine On</div><div class="line">RewriteCond %{HTTP_REFERER} !^http://(.+.)?mysite.com/ [NC]</div><div class="line">RewriteCond %{HTTP_REFERER} !^$</div><div class="line">RewriteRule .*.(jpe?g|gif|bmp|png)$ /images/nohotlink.jpg [L]</div><div class="line"></div><div class="line"></div><div class="line">&#x4E8C;&#x3001;&#x7F51;&#x5740;&#x89C4;&#x8303;&#x5316;</div><div class="line">&#x8FD9;&#x4E2A;&#x662F;&#x628A;&#x6240;&#x6709;&#x4E8C;&#x7EA7;&#x57DF;&#x540D;&#x90FD;&#x91CD;&#x5B9A;&#x5411;&#x5230;www.yourdomain.com&#x7684;&#x4F8B;&#x5B50;</div><div class="line">Options +FollowSymLinks</div><div class="line">rewriteEngine on</div><div class="line">rewriteCond %{http_host} ^yourdomain.com [NC]</div><div class="line">rewriteRule ^(.*)$ http://www.yourdomain.com/$1 [R=301,L]</div></pre></td></tr></table></figure>
+<h1 id="composer"><a href="#composer" class="headerlink" title="composer"></a>composer</h1><hr>
+<p>Composer &#x662F; PHP &#x7684;&#x4E00;&#x4E2A;&#x4F9D;&#x8D56;&#x7BA1;&#x7406;&#x5DE5;&#x5177;&#x3002;&#x5B83;&#x5141;&#x8BB8;&#x4F60;&#x7533;&#x660E;&#x9879;&#x76EE;&#x6240;&#x4F9D;&#x8D56;&#x7684;&#x4EE3;&#x7801;&#x5E93;&#xFF0C;&#x5B83;&#x4F1A;&#x5728;&#x4F60;&#x7684;&#x9879;&#x76EE;&#x4E2D;&#x4E3A;&#x4F60;&#x5B89;&#x88C5;&#x4ED6;&#x4EEC;&#x3002;</p>
+<p><a href="http://docs.phpcomposer.com/00-intro.html" target="_blank" rel="external">&#x53C2;&#x8003;</a></p>
+<p>composer install &#x2013;prefer-dist -o</p>
+<p>Composer &#x5C06;&#x8FD9;&#x6837;&#x4E3A;&#x4F60;&#x89E3;&#x51B3;&#x95EE;&#x9898;&#xFF1A;</p>
+<p>a) &#x4F60;&#x6709;&#x4E00;&#x4E2A;&#x9879;&#x76EE;&#x4F9D;&#x8D56;&#x4E8E;&#x82E5;&#x5E72;&#x4E2A;&#x5E93;&#x3002;</p>
+<p>b) &#x5176;&#x4E2D;&#x4E00;&#x4E9B;&#x5E93;&#x4F9D;&#x8D56;&#x4E8E;&#x5176;&#x4ED6;&#x5E93;&#x3002;</p>
+<p>c) &#x4F60;&#x58F0;&#x660E;&#x4F60;&#x6240;&#x4F9D;&#x8D56;&#x7684;&#x4E1C;&#x897F;&#x3002;</p>
+<p>d) Composer &#x4F1A;&#x627E;&#x51FA;&#x54EA;&#x4E2A;&#x7248;&#x672C;&#x7684;&#x5305;&#x9700;&#x8981;&#x5B89;&#x88C5;&#xFF0C;&#x5E76;&#x5B89;&#x88C5;&#x5B83;&#x4EEC;&#xFF08;&#x5C06;&#x5B83;&#x4EEC;&#x4E0B;&#x8F7D;&#x5230;&#x4F60;&#x7684;&#x9879;&#x76EE;&#x4E2D;&#xFF09;&#x3002;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">&#x5B89;&#x88C5;&#x4F9D;&#x8D56;&#x5305;</div><div class="line"></div><div class="line">&#x83B7;&#x53D6;&#x5B9A;&#x4E49;&#x7684;&#x4F9D;&#x8D56;&#x5230;&#x4F60;&#x7684;&#x672C;&#x5730;&#x9879;&#x76EE;&#xFF0C;&#x53EA;&#x9700;&#x8981;&#x8C03;&#x7528; composer.phar &#x8FD0;&#x884C; install &#x547D;&#x4EE4;&#x3002;</div><div class="line"></div><div class="line">php composer.phar install</div><div class="line">&#x63A5;&#x7740;&#x524D;&#x9762;&#x7684;&#x4F8B;&#x5B50;&#xFF0C;&#x8FD9;&#x5C06;&#x4F1A;&#x627E;&#x5230; monolog/monolog &#x7684;&#x6700;&#x65B0;&#x7248;&#x672C;&#xFF0C;&#x5E76;&#x5C06;&#x5B83;&#x4E0B;&#x8F7D;&#x5230; vendor &#x76EE;&#x5F55;&#x3002; &#x8FD9;&#x662F;&#x4E00;&#x4E2A;&#x60EF;&#x4F8B;&#x628A;&#x7B2C;&#x4E09;&#x65B9;&#x7684;&#x4EE3;&#x7801;&#x5230;&#x4E00;&#x4E2A;&#x6307;&#x5B9A;&#x7684;&#x76EE;&#x5F55; vendor&#x3002;&#x5982;&#x679C;&#x662F; monolog &#x5C06;&#x4F1A;&#x521B;&#x5EFA; vendor/monolog/monolog &#x76EE;&#x5F55;&#x3002;</div><div class="line"></div><div class="line">&#x5C0F;&#x6280;&#x5DE7;&#xFF1A; &#x5982;&#x679C;&#x4F60;&#x6B63;&#x5728;&#x4F7F;&#x7528;Git&#x6765;&#x7BA1;&#x7406;&#x4F60;&#x7684;&#x9879;&#x76EE;&#xFF0C; &#x4F60;&#x53EF;&#x80FD;&#x8981;&#x6DFB;&#x52A0; vendor &#x5230;&#x4F60;&#x7684; .gitignore &#x6587;&#x4EF6;&#x4E2D;&#x3002; &#x4F60;&#x4E0D;&#x4F1A;&#x5E0C;&#x671B;&#x5C06;&#x6240;&#x6709;&#x7684;&#x4EE3;&#x7801;&#x90FD;&#x6DFB;&#x52A0;&#x5230;&#x4F60;&#x7684;&#x7248;&#x672C;&#x5E93;&#x4E2D;&#x3002;</div><div class="line"></div><div class="line">&#x53E6;&#x4E00;&#x4EF6;&#x4E8B;&#x662F; install &#x547D;&#x4EE4;&#x5C06;&#x521B;&#x5EFA;&#x4E00;&#x4E2A; composer.lock &#x6587;&#x4EF6;&#x5230;&#x4F60;&#x9879;&#x76EE;&#x7684;&#x6839;&#x76EE;&#x5F55;&#x4E2D;&#x3002;</div><div class="line"></div><div class="line"></div><div class="line">composer.lock - &#x9501;&#x6587;&#x4EF6;</div><div class="line"></div><div class="line">&#x5728;&#x5B89;&#x88C5;&#x4F9D;&#x8D56;&#x540E;&#xFF0C;Composer &#x5C06;&#x628A;&#x5B89;&#x88C5;&#x65F6;&#x786E;&#x5207;&#x7684;&#x7248;&#x672C;&#x53F7;&#x5217;&#x8868;&#x5199;&#x5165; composer.lock &#x6587;&#x4EF6;&#x3002;&#x8FD9;&#x5C06;&#x9501;&#x5B9A;&#x6539;&#x9879;&#x76EE;&#x7684;&#x7279;&#x5B9A;&#x7248;&#x672C;&#x3002;</div><div class="line"></div><div class="line">&#x8BF7;&#x63D0;&#x4EA4;&#x4F60;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x7684; composer.lock &#xFF08;&#x5305;&#x62EC; composer.json&#xFF09;&#x5230;&#x4F60;&#x7684;&#x7248;&#x672C;&#x5E93;&#x4E2D;</div><div class="line"></div><div class="line">&#x8FD9;&#x662F;&#x975E;&#x5E38;&#x91CD;&#x8981;&#x7684;&#xFF0C;&#x56E0;&#x4E3A; install &#x547D;&#x4EE4;&#x5C06;&#x4F1A;&#x68C0;&#x67E5;&#x9501;&#x6587;&#x4EF6;&#x662F;&#x5426;&#x5B58;&#x5728;&#xFF0C;&#x5982;&#x679C;&#x5B58;&#x5728;&#xFF0C;&#x5B83;&#x5C06;&#x4E0B;&#x8F7D;&#x6307;&#x5B9A;&#x7684;&#x7248;&#x672C;&#xFF08;&#x5FFD;&#x7565; composer.json &#x6587;&#x4EF6;&#x4E2D;&#x7684;&#x5B9A;&#x4E49;&#xFF09;&#x3002;</div><div class="line"></div><div class="line">&#x8FD9;&#x610F;&#x5473;&#x7740;&#xFF0C;&#x4EFB;&#x4F55;&#x4EBA;&#x5EFA;&#x7ACB;&#x9879;&#x76EE;&#x90FD;&#x5C06;&#x4E0B;&#x8F7D;&#x4E0E;&#x6307;&#x5B9A;&#x7248;&#x672C;&#x5B8C;&#x5168;&#x76F8;&#x540C;&#x7684;&#x4F9D;&#x8D56;&#x3002;&#x4F60;&#x7684;&#x6301;&#x7EED;&#x96C6;&#x6210;&#x670D;&#x52A1;&#x5668;&#x3001;&#x751F;&#x4EA7;&#x73AF;&#x5883;&#x3001;&#x4F60;&#x56E2;&#x961F;&#x4E2D;&#x7684;&#x5176;&#x4ED6;&#x5F00;&#x53D1;&#x4EBA;&#x5458;&#x3001;&#x6BCF;&#x4EF6;&#x4E8B;&#x3001;&#x6BCF;&#x4E2A;&#x4EBA;&#x90FD;&#x4F7F;&#x7528;&#x76F8;&#x540C;&#x7684;&#x4F9D;&#x8D56;&#xFF0C;&#x4ECE;&#x800C;&#x51CF;&#x8F7B;&#x6F5C;&#x5728;&#x7684;&#x9519;&#x8BEF;&#x5BF9;&#x90E8;&#x7F72;&#x7684;&#x5F71;&#x54CD;&#x3002;&#x5373;&#x4F7F;&#x4F60;&#x72EC;&#x81EA;&#x5F00;&#x53D1;&#x9879;&#x76EE;&#xFF0C;&#x5728;&#x516D;&#x4E2A;&#x6708;&#x5185;&#x91CD;&#x65B0;&#x5B89;&#x88C5;&#x9879;&#x76EE;&#x65F6;&#xFF0C;&#x4F60;&#x4E5F;&#x53EF;&#x4EE5;&#x653E;&#x5FC3;&#x7684;&#x7EE7;&#x7EED;&#x5DE5;&#x4F5C;&#xFF0C;&#x5373;&#x4F7F;&#x4ECE;&#x90A3;&#x65F6;&#x8D77;&#x4F60;&#x7684;&#x4F9D;&#x8D56;&#x5DF2;&#x7ECF;&#x53D1;&#x5E03;&#x4E86;&#x8BB8;&#x591A;&#x65B0;&#x7684;&#x7248;&#x672C;&#x3002;</div><div class="line"></div><div class="line">&#x5982;&#x679C;&#x4E0D;&#x5B58;&#x5728; composer.lock &#x6587;&#x4EF6;&#xFF0C;Composer &#x5C06;&#x8BFB;&#x53D6; composer.json &#x5E76;&#x521B;&#x5EFA;&#x9501;&#x6587;&#x4EF6;&#x3002;</div><div class="line"></div><div class="line">&#x8FD9;&#x610F;&#x5473;&#x7740;&#x5982;&#x679C;&#x4F60;&#x7684;&#x4F9D;&#x8D56;&#x66F4;&#x65B0;&#x4E86;&#x65B0;&#x7684;&#x7248;&#x672C;&#xFF0C;&#x4F60;&#x5C06;&#x4E0D;&#x4F1A;&#x83B7;&#x5F97;&#x4EFB;&#x4F55;&#x66F4;&#x65B0;&#x3002;&#x6B64;&#x65F6;&#x8981;&#x66F4;&#x65B0;&#x4F60;&#x7684;&#x4F9D;&#x8D56;&#x7248;&#x672C;&#x8BF7;&#x4F7F;&#x7528; update &#x547D;&#x4EE4;&#x3002;&#x8FD9;&#x5C06;&#x83B7;&#x53D6;&#x6700;&#x65B0;&#x5339;&#x914D;&#x7684;&#x7248;&#x672C;&#xFF08;&#x6839;&#x636E;&#x4F60;&#x7684; composer.json &#x6587;&#x4EF6;&#xFF09;&#x5E76;&#x5C06;&#x65B0;&#x7248;&#x672C;&#x66F4;&#x65B0;&#x8FDB;&#x9501;&#x6587;&#x4EF6;&#x3002;</div><div class="line"></div><div class="line">php composer.phar update</div><div class="line">&#x5982;&#x679C;&#x53EA;&#x60F3;&#x5B89;&#x88C5;&#x6216;&#x66F4;&#x65B0;&#x4E00;&#x4E2A;&#x4F9D;&#x8D56;&#xFF0C;&#x4F60;&#x53EF;&#x4EE5;&#x767D;&#x540D;&#x5355;&#x5B83;&#x4EEC;&#xFF1A;</div><div class="line"></div><div class="line">php composer.phar update monolog/monolog [...]</div></pre></td></tr></table></figure>
+<h3 id="&#x4F9D;&#x8D56;&#x8C03;&#x6574;"><a href="#&#x4F9D;&#x8D56;&#x8C03;&#x6574;" class="headerlink" title="&#x4F9D;&#x8D56;&#x8C03;&#x6574;"></a>&#x4F9D;&#x8D56;&#x8C03;&#x6574;</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&#x62C9;&#x51FA;&#x5206;&#x652F;&#xFF0C;&#x6267;&#x884C;</div><div class="line">composer update --prefer-dist</div><div class="line">&#x751F;&#x6210;.lock&#x540E;&#x5408;&#x5E76;&#x81F3;master</div></pre></td></tr></table></figure>
+<h1 id="Phing"><a href="#Phing" class="headerlink" title="Phing"></a>Phing</h1><hr>
+<h3 id="Phing-&#x662F;&#x4E00;&#x4E2A;&#x57FA;&#x4E8E;Apache-ANT-&#x7684;&#x9879;&#x76EE;&#x6784;&#x5EFA;&#x7CFB;&#x7EDF;&#x3002;"><a href="#Phing-&#x662F;&#x4E00;&#x4E2A;&#x57FA;&#x4E8E;Apache-ANT-&#x7684;&#x9879;&#x76EE;&#x6784;&#x5EFA;&#x7CFB;&#x7EDF;&#x3002;" class="headerlink" title="Phing &#x662F;&#x4E00;&#x4E2A;&#x57FA;&#x4E8E;Apache ANT &#x7684;&#x9879;&#x76EE;&#x6784;&#x5EFA;&#x7CFB;&#x7EDF;&#x3002;"></a>Phing &#x662F;&#x4E00;&#x4E2A;&#x57FA;&#x4E8E;Apache ANT &#x7684;&#x9879;&#x76EE;&#x6784;&#x5EFA;&#x7CFB;&#x7EDF;&#x3002;</h3><p>phing&#x901A;&#x8FC7; xml &#x6587;&#x4EF6;&#x914D;&#x7F6E;&#x6267;&#x884C;&#x4EFB;&#x52A1;</p>
+<p><a href="https://segmentfault.com/a/1190000002570318" target="_blank" rel="external">&#x53C2;&#x8003;</a></p>
+<p>phing.bat</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">@ECHO OFF</div><div class="line">setlocal DISABLEDELAYEDEXPANSION</div><div class="line">SET BIN_TARGET=%~dp0/ phing</div><div class="line">php &quot;%BIN_TARGET%&quot; %*</div></pre></td></tr></table></figure>
+<p>xml</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</div><div class="line">&lt;project name=&quot;HelloWorld&quot; default=&quot;dist&quot;&gt;</div><div class="line">    &lt;property file=&quot;deploy.properties&quot;/&gt;</div><div class="line">    &lt;target name=&quot;dist&quot;&gt;</div><div class="line">        &lt;echo msg=&quot;${string}&quot; /&gt;</div><div class="line">    &lt;/target&gt;</div><div class="line">&lt;/project&gt;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&#x5B9A;&#x4E49;&#x4E86;&#x4E00;&#x4E2A; project&#xFF0C;&#x9ED8;&#x8BA4;&#x6267;&#x884C;dist&#x4EFB;&#x52A1;&#xFF0C; dist&#x4EFB;&#x52A1;&#x901A;&#x8FC7;target&#x6807;&#x7B7E;&#x5B9A;&#x4E49;&#xFF0C;</div><div class="line">&#x800C;echo&#x6807;&#x7B7E;&#x53EA;&#x662F;&#x7B80;&#x5355;&#x7684;&#x8F93;&#x51FA;msg&#x5C5E;&#x6027;&#x4E2D;&#x7684;&#x503C;</div><div class="line">&#x6267;&#x884C;./vendor/phing/phing/bin/phing -f ./deploy.xml</div><div class="line">&#x5C06;&#x5E38;&#x89C1;&#x53D8;&#x91CF;&#x653E;&#x5165;&#x5355;&#x72EC;&#x7684;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#xFF0C;&#x4FBF;&#x4E8E;&#x7EF4;&#x62A4;&#x3002;&#x521B;&#x5EFA; deploy.properties &#x6587;&#x4EF6;&#xFF0C;&#x5B9A;&#x4E49;&#x4E00;&#x4E2A;&#x53D8;&#x91CF;:string,</div><div class="line">&#x6587;&#x4EF6;&#x5185;&#x5BB9;&#x53EA;&#x6709;&#x4E00;&#x884C;: string=Echo HelloWorld By Config File&#x3002;</div><div class="line">&#x4FEE;&#x6539;deploy.xml&#xFF0C;&#x6DFB;&#x52A0;&lt;property&gt;&#x6807;&#x7B7E;&#xFF0C;&#x4FBF;&#x53EF;&#x8BFB;&#x53D6;&#x5916;&#x90E8;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x4F5C;&#x4E3A;&#x53D8;&#x91CF;:</div></pre></td></tr></table></figure>
+<p>&#x6267;&#x884C;&#x6784;&#x5EFA;/phing dist</p>
+<h1 id="ThinkPHP&#x5347;&#x7EA7;"><a href="#ThinkPHP&#x5347;&#x7EA7;" class="headerlink" title="ThinkPHP&#x5347;&#x7EA7;"></a>ThinkPHP&#x5347;&#x7EA7;</h1><hr>
+<h3 id="&#x547D;&#x540D;&#x7A7A;&#x95F4;&#x8C03;&#x6574;"><a href="#&#x547D;&#x540D;&#x7A7A;&#x95F4;&#x8C03;&#x6574;" class="headerlink" title="&#x547D;&#x540D;&#x7A7A;&#x95F4;&#x8C03;&#x6574;"></a>&#x547D;&#x540D;&#x7A7A;&#x95F4;&#x8C03;&#x6574;</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">namespace Admin\Controller;</div><div class="line">&#x5220;&#x9664;</div><div class="line">use Think\Controller;(&#x975E;&#x7EE7;&#x627F;Common,&#x7EE7;&#x627F;BaseController)</div><div class="line">Common&#x63A7;&#x5236;&#x5668;&#x7EE7;&#x627F; BaseController</div></pre></td></tr></table></figure>
+<h3 id="M&#x524D;&#x7F00;&#x8C03;&#x6574;"><a href="#M&#x524D;&#x7F00;&#x8C03;&#x6574;" class="headerlink" title="M&#x524D;&#x7F00;&#x8C03;&#x6574;"></a>M&#x524D;&#x7F00;&#x8C03;&#x6574;</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">&#x4F8B;&#x5982;</div><div class="line">M(&apos;t_college_professional&apos;, &apos; &apos;); &#x66FF;&#x6362; M(&apos;t_college_professional&apos;, null);</div><div class="line">,&apos; &apos;);&#x66FF;&#x6362;, null);</div><div class="line"></div><div class="line"></div><div class="line">&#x5982;&#x4E0B;&#x65B9;&#x6848;&#x7531;&#x4E8E;&#x5185;&#x5BB9;&#x8F83;&#x591A;&#xFF0C;&#x4EE5;&#x540E;&#x5B9E;&#x73B0;</div><div class="line"></div><div class="line">&#x6D89;&#x53CA;&#x5230;&#x5176;&#x4ED6;&#x4E00;&#x4E9B;&#x95EE;&#x9898;&#xFF0C;&#x6240;&#x4EE5;&#x76F4;&#x63A5;&#x521B;&#x5EFA;&#x5BF9;&#x5E94;&#x6A21;&#x578B;</div><div class="line">t_online_crm</div><div class="line">t_online_jiemo_qqtype</div><div class="line">t_online_jiemo_qq</div><div class="line">t_online_channel</div><div class="line">t_service</div><div class="line">t_order_entry</div><div class="line">jiemo_dic</div><div class="line">cms_admin_role</div><div class="line">cms_member_detail</div><div class="line">t_online_roletype</div><div class="line">t_online_offer_school_name</div><div class="line">t_ch_province</div><div class="line">t_college_school</div><div class="line">cms_member</div><div class="line">t_online_write_message</div><div class="line">t_online_teacher_team_allot</div><div class="line">t_online_dict</div><div class="line">cms_online_renwu_notes</div><div class="line">t_online_data_check_alog</div><div class="line">t_online_plantask</div><div class="line">t_online_assessment_info</div><div class="line">t_online_channeldict</div><div class="line">t_online_student_actions TOnlineStudentActions</div><div class="line">t_online_change_student</div><div class="line">t_online_assessment_score</div><div class="line">t_online_visit</div><div class="line">t_online_offer</div><div class="line">t_college_ck_binding</div><div class="line">uc_members</div><div class="line">t_online_crm_see_message</div><div class="line">t_online_crm_message_comment</div><div class="line">t_online_moneybag</div><div class="line">t_college_professional</div></pre></td></tr></table></figure>
+<h3 id="W&#x65B9;&#x6CD5;&#x517C;&#x5BB9;&#x8C03;&#x6574;"><a href="#W&#x65B9;&#x6CD5;&#x517C;&#x5BB9;&#x8C03;&#x6574;" class="headerlink" title="W&#x65B9;&#x6CD5;&#x517C;&#x5BB9;&#x8C03;&#x6574;"></a>W&#x65B9;&#x6CD5;&#x517C;&#x5BB9;&#x8C03;&#x6574;</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&#x65B0;&#x589E;&#x51FD;&#x6570;</div><div class="line">function W2($a,$b)</div><div class="line">{</div><div class="line">    return W($a.&apos;/render&apos;,array($b));</div><div class="line">}</div><div class="line">&#x66FF;&#x6362;&#x6240;&#x6709;W&#x65B9;&#x6CD5;&#x4E3A;W2</div><div class="line">&#x8C03;&#x6574;wget&#x91CC;&#x9762;&#x63A7;&#x5236;&#x5668;</div></pre></td></tr></table></figure>
+<h3 id="&#x4FEE;&#x6539;&#x6837;&#x5F0F;&#x6587;&#x4EF6;&#x5730;&#x5740;"><a href="#&#x4FEE;&#x6539;&#x6837;&#x5F0F;&#x6587;&#x4EF6;&#x5730;&#x5740;" class="headerlink" title="&#x4FEE;&#x6539;&#x6837;&#x5F0F;&#x6587;&#x4EF6;&#x5730;&#x5740;"></a>&#x4FEE;&#x6539;&#x6837;&#x5F0F;&#x6587;&#x4EF6;&#x5730;&#x5740;</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&#x5C06;&#x65E7;tpl&#x4E2D;public&#x6837;&#x5F0F;&#x6587;&#x4EF6;&#x5939;&#x79FB;&#x52A8;&#x5230;public&#x4E2D;&#xFF0C;&#x5E76;&#x547D;&#x540D;PublicTPL</div><div class="line">&#x8C03;&#x6574;</div><div class="line">../Public &#x4E3A; __PUBLIC__/PublicTPL</div></pre></td></tr></table></figure>
+<h3 id="use-Stub-&#x53BB;&#x6389;"><a href="#use-Stub-&#x53BB;&#x6389;" class="headerlink" title="use Stub &#x53BB;&#x6389;"></a>use Stub &#x53BB;&#x6389;</h3><h3 id="new-&#x66FF;&#x6362;"><a href="#new-&#x66FF;&#x6362;" class="headerlink" title="new &#x66FF;&#x6362;"></a>new &#x66FF;&#x6362;</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">new OperationalLogAction()</div><div class="line">A(&apos;OperationalLog&apos;)</div><div class="line"></div><div class="line">new RenwuNotesAction()</div><div class="line">A(&apos;RenwuNotes&apos;)</div><div class="line"></div><div class="line">new TelAction()</div><div class="line">A(&apos;Tel&apos;)</div></pre></td></tr></table></figure>
+<h3 id="sql&#x6267;&#x884C;&#x9519;&#x8BEF;-SQLSTATE-HY000-General-error"><a href="#sql&#x6267;&#x884C;&#x9519;&#x8BEF;-SQLSTATE-HY000-General-error" class="headerlink" title="sql&#x6267;&#x884C;&#x9519;&#x8BEF; SQLSTATE[HY000]: General error"></a>sql&#x6267;&#x884C;&#x9519;&#x8BEF; SQLSTATE[HY000]: General error</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">&#x901A;&#x8FC7;Model&#x7C7B;&#x76F4;&#x63A5;&#x8FDB;&#x884C;&#x5904;&#x7406;</div><div class="line">&#x539F;&#x56E0;this-&gt;query&#x6267;&#x884C;&#x5199;sql&#x5F02;&#x5E38;&#xFF0C;&#x53EF;&#x66FF;&#x6362;&#x6210;$this-&gt;execute</div><div class="line">&#x4FEE;&#x6539;</div><div class="line">    public function query($str,$fetchSql=false) {</div><div class="line"></div><div class="line">        /*query&#x6267;&#x884C;&#x5199;&#x64CD;&#x4F5C;&#x7684;&#x65F6;&#x5019;&#x4F1A;&#x629B;&#x51FA;SQLSTATE[HY000]: General error &#x5F02;&#x5E38;*/</div><div class="line">        $filter_list[] = &apos;update&apos;;</div><div class="line">        $filter_list[] = &apos;insert&apos;;</div><div class="line">        foreach($filter_list as $val){</div><div class="line">            if (stristr($str, $val) !== false) {</div><div class="line">                return $this-&gt;execute($str);</div><div class="line">            }</div><div class="line">        }</div></pre></td></tr></table></figure>
+<h3 id="sql&#x6267;&#x884C;&#x9519;&#x8BEF;-Incorrect-date-value-&#x2018;&#x2019;-for-column-&#x2018;signing-date&#x2019;-at-row-1"><a href="#sql&#x6267;&#x884C;&#x9519;&#x8BEF;-Incorrect-date-value-&#x2018;&#x2019;-for-column-&#x2018;signing-date&#x2019;-at-row-1" class="headerlink" title="sql&#x6267;&#x884C;&#x9519;&#x8BEF; Incorrect date value: &#x2018;&#x2019; for column &#x2018;signing_date&#x2019; at row 1"></a>sql&#x6267;&#x884C;&#x9519;&#x8BEF; Incorrect date value: &#x2018;&#x2019; for column &#x2018;signing_date&#x2019; at row 1</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">&#x901A;&#x8FC7;Model&#x57FA;&#x7C7B;&#x76F4;&#x63A5;&#x8FDB;&#x884C;&#x5904;&#x7406;&#xFF0C;&#x5904;&#x7406;add&#x548C;save</div><div class="line"></div><div class="line">&#x5982;&#x4E0B;&#x5E9F;&#x5F03;</div><div class="line"></div><div class="line">&#x64CD;&#x4F5C;&#x524D;&#x52A0;&#x5165;create&#x8FC7;&#x6EE4;&#x6570;&#x636E;&#x9519;&#x8BEF;&#x5185;&#x5BB9;</div><div class="line">// Incorrect date value: &apos;&apos; for column xxx</div><div class="line"></div><div class="line">&#x4F8B;&#x5982;</div><div class="line">$Offer-&gt;create($info_data_p);</div><div class="line">$Offer-&gt;where(&quot;id = &quot;.$offer_id)-&gt;save();</div><div class="line"></div><div class="line">&#x65B0;&#x589E;M&#x5BF9;&#x5E94;&#x7684;&#x6A21;&#x578B;&#xFF0C;&#x7EE7;&#x627F;Base&#x7C7B;</div><div class="line"></div><div class="line">&#x5982;&#x4E0B;&#x65B9;&#x6CD5;&#x5FFD;&#x7565;</div><div class="line">&#x5168;&#x5C40;&#x67E5;&#x627E;&#x66FF;&#x6362;&#x4E0B;add &#x548C; save &#x65B9;&#x6CD5;(&#x5F88;&#x591A;M&#x65B9;&#x6CD5;&#x6CA1;&#x6709;&#x5BF9;&#x5E94;&#x5B9E;&#x73B0;&#x6A21;&#x578B;)</div><div class="line"> </div><div class="line">StudentController.class.php(644): Think\Model-&gt;save(Array)</div><div class="line">CopyWriteUkController.class.php(181): Think\Model-&gt;save(Array)</div><div class="line">CopyWriteController.class.php(51): Think\Model-&gt;save(Array)</div><div class="line">CopyWriteUkController.class.php(229): Think\Model-&gt;save(Array)</div><div class="line">CopyWriteUkController.class.php(251): Think\Model-&gt;save(Array)</div></pre></td></tr></table></figure>
+<h3 id="U-&#x65B9;&#x6CD5;&#x751F;&#x6210;&#x5730;&#x5740;&#x8C03;&#x6574;"><a href="#U-&#x65B9;&#x6CD5;&#x751F;&#x6210;&#x5730;&#x5740;&#x8C03;&#x6574;" class="headerlink" title="U()&#x65B9;&#x6CD5;&#x751F;&#x6210;&#x5730;&#x5740;&#x8C03;&#x6574;"></a>U()&#x65B9;&#x6CD5;&#x751F;&#x6210;&#x5730;&#x5740;&#x8C03;&#x6574;</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">&#x5982;&#x4E0B;&#x4E24;&#x79CD;</div><div class="line">{:U(&apos;copy_write_uk/index&apos;)}/crm_id/{$v[&apos;crm_id&apos;]}</div><div class="line">{:U(&apos;Bin/showRoom&apos;)}/roomId={$item.nickname}</div><div class="line">&#x8C03;&#x6574;&#x4E3A;&#x4F7F;&#x7528;URL_MODEL=1&#x65B9;&#x5F0F;</div><div class="line">&#x5C06;=&#x7EDF;&#x4E00;&#x6539;&#x6210;/</div><div class="line"></div><div class="line">&#x53EA;&#x9488;&#x5BF9;U&#x65B9;&#x6CD5;&#x8C03;&#x6574;</div><div class="line">)}?&#x66FF;&#x6362;&#x6210;)}/</div><div class="line">={$&#x66FF;&#x6362;&#x6210;/{$ </div><div class="line">=&quot;+&#x66FF;&#x6362;&#x6210;/&quot;+</div></pre></td></tr></table></figure>
+<p>&#x914D;&#x7F6E;<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&apos;URL_HTML_SUFFIX&apos;=&gt;&apos;&apos;,//&#x4F2A;&#x9759;&#x6001;</div><div class="line">&apos;URL_MODEL&apos;          =&gt; &apos;1&apos;, //URL&#x6A21;&#x5F0F;</div><div class="line">&apos;URL_CASE_INSENSITIVE&apos; =&gt; false,</div></pre></td></tr></table></figure></p>
+<h3 id="&#x4E0A;&#x4F20;&#x95EE;&#x9898;U-&#x53C2;&#x6570;&#x8C03;&#x6574;"><a href="#&#x4E0A;&#x4F20;&#x95EE;&#x9898;U-&#x53C2;&#x6570;&#x8C03;&#x6574;" class="headerlink" title="&#x4E0A;&#x4F20;&#x95EE;&#x9898;U()&#x53C2;&#x6570;&#x8C03;&#x6574;"></a>&#x4E0A;&#x4F20;&#x95EE;&#x9898;U()&#x53C2;&#x6570;&#x8C03;&#x6574;</h3><p><a href="http://fib.dev.jiemoquan.net/newsystem.php/copy_write_uk/index/crm_id/131879" target="_blank" rel="external">http://fib.dev.jiemoquan.net/newsystem.php/copy_write_uk/index/crm_id/131879</a></p>
+<p>URL&#x5927;&#x5C0F;&#x5199;&#x533A;&#x5206;&#x7684;&#x95EE;&#x9898;</p>
+<p><a href="http://fib.dev.jiemoquan.net/newsystem.php/fileupload/fileupload_offer_school" target="_blank" rel="external">http://fib.dev.jiemoquan.net/newsystem.php/fileupload/fileupload_offer_school</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">&#x8BBE;&#x7F6E;&#x4E2D;&apos;URL_CASE_INSENSITIVE&apos; =&gt; true &#x8868;&#x793A;&#x63A7;&#x5236;&#x5668;&#x4E0D;&#x533A;&#x5206;&#x5927;&#x5C0F;&#x5199;&#xFF0C;</div><div class="line">&#x5E76;&#x4F7F;U&#x65B9;&#x6CD5;&#x751F;&#x6210;&#x7684;&#x5730;&#x5740;&#x90FD;&#x662F;&#x5C0F;&#x5199;&#xFF0C;&#x4F46;&#x5BF9;&#x4E8E;&#x9A7C;&#x5CF0;&#x547D;&#x540D;&#x7684;&#x63A7;&#x5236;&#x5668;&#x5219;&#x4E0D;&#x8BC6;&#x522B;&#xFF0C;&#x4F8B;&#x5982;&#x4E0A;&#x9762;&#x5730;&#x5740;</div><div class="line">&#x66FF;&#x6362;&#x6240;&#x6709;U&#x65B9;&#x6CD5;&#x4E2D;&#x7684;&#x63A7;&#x5236;&#x5668;&#x540D;&#x79F0;</div><div class="line"></div><div class="line">U(&apos;/ &#x66FF;&#x6362; U(&apos;</div><div class="line">U(&apos;copy_process_uk   &#x66FF;&#x6362;  U(&apos;CopyProcessUk</div><div class="line">U(&apos;copy_process_language_jp &#x66FF;&#x6362; U(&apos;CopyProcessLanguageJp</div><div class="line">U(&apos;student &#x66FF;&#x6362; U(&apos;Student</div><div class="line">U(&apos;bin &#x66FF;&#x6362; U(&apos;Bin</div><div class="line">U(&apos;copy_write_aus &#x66FF;&#x6362; U(&apos;CopyWriteAus</div><div class="line">U(&apos;copy_write_jp &#x66FF;&#x6362; U(&apos;CopyWriteJp</div><div class="line">U(&apos;knowledge &#x66FF;&#x6362; U(&apos;Knowledge</div><div class="line">U(&apos;offerManage &#x66FF;&#x6362; U(&apos;OfferManage</div><div class="line">U(&apos;main &#x66FF;&#x6362; U(&apos;Main</div><div class="line">U(&apos;plantask &#x66FF;&#x6362; U(&apos;Plantask</div><div class="line">U(&apos;offer &#x66FF;&#x6362; U(&apos;Offer</div><div class="line">U(&apos;wwajax &#x66FF;&#x6362; U(&apos;Wwajax</div><div class="line">U(&apos;channel &#x66FF;&#x6362; U(&apos;Channel</div><div class="line">U(&apos;moneybag &#x66FF;&#x6362; U(&apos;Moneybag</div><div class="line">U(&apos;directional &#x66FF;&#x6362; U(&apos;Directional</div><div class="line">U(&apos;distribution &#x66FF;&#x6362; U(&apos;Distribution</div><div class="line">U(&apos;supplier &#x66FF;&#x6362; U(&apos;Supplier</div><div class="line">U(&apos;resume &#x66FF;&#x6362; U(&apos;Resume</div><div class="line">U(&apos;copy_write_uk &#x66FF;&#x6362; U(&apos;CopyWriteUk</div></pre></td></tr></table></figure>
+<h3 id="&#x5934;&#x50CF;&#x4E0A;&#x4F20;&#x95EE;&#x9898;"><a href="#&#x5934;&#x50CF;&#x4E0A;&#x4F20;&#x95EE;&#x9898;" class="headerlink" title="&#x5934;&#x50CF;&#x4E0A;&#x4F20;&#x95EE;&#x9898;"></a>&#x5934;&#x50CF;&#x4E0A;&#x4F20;&#x95EE;&#x9898;</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">            $sServerDir = &apos;../img_home/Upload/teacher&apos;;</div><div class="line">            &#x6539;</div><div class="line">            $sServerDir = WEB_ROOT . &apos;/../img_home/Upload/teacher&apos;;</div><div class="line"></div><div class="line">&#x8F93;&#x51FA;&#x7684;&#x5185;&#x5BB9;&#x975E;json&#x5BF9;&#x8C61;</div><div class="line"></div><div class="line">&#x5728;echo json_encode&#x540E;&#x9762;&#x6DFB;&#x52A0;exit;</div></pre></td></tr></table></figure>
+<h3 id="&#x5B9E;&#x4F8B;&#x5316;&#x6A21;&#x578B;"><a href="#&#x5B9E;&#x4F8B;&#x5316;&#x6A21;&#x578B;" class="headerlink" title="&#x5B9E;&#x4F8B;&#x5316;&#x6A21;&#x578B;"></a>&#x5B9E;&#x4F8B;&#x5316;&#x6A21;&#x578B;</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">        $this-&gt;bin = new BinModel();</div><div class="line">&#x5B9E;&#x4F8B;&#x5316;&#x5931;&#x8D25;</div><div class="line">&#x589E;&#x52A0;</div><div class="line">use Admin\Model\BinModel;</div></pre></td></tr></table></figure>
+<h3 id="&#x9ED8;&#x8BA4;&#x5B57;&#x6BB5;&#x586B;&#x5145;&#x9519;&#x8BEF;"><a href="#&#x9ED8;&#x8BA4;&#x5B57;&#x6BB5;&#x586B;&#x5145;&#x9519;&#x8BEF;" class="headerlink" title="&#x9ED8;&#x8BA4;&#x5B57;&#x6BB5;&#x586B;&#x5145;&#x9519;&#x8BEF;"></a>&#x9ED8;&#x8BA4;&#x5B57;&#x6BB5;&#x586B;&#x5145;&#x9519;&#x8BEF;</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">OnlineServicesController.class.php(308): Think\Model-&gt;add(Array)</div><div class="line"></div><div class="line">&#x4FEE;&#x6539;&#x5BF9;&#x5E94;Model</div><div class="line">class PicModel extends BaseModel</div></pre></td></tr></table></figure>
+<h3 id="&#x67E5;&#x8BE2;&#x9519;&#x8BEF;"><a href="#&#x67E5;&#x8BE2;&#x9519;&#x8BEF;" class="headerlink" title="&#x67E5;&#x8BE2;&#x9519;&#x8BEF;"></a>&#x67E5;&#x8BE2;&#x9519;&#x8BEF;</h3><p><a href="http://www.thinkphp.cn/document/314.html" target="_blank" rel="external">http://www.thinkphp.cn/document/314.html</a></p>
+<p>&#x8868;&#x8FBE;&#x5F0F;&#x4E0D;&#x5206;&#x5927;&#x5C0F;&#x5199;&#xFF0C;&#x652F;&#x6301;&#x7684;&#x67E5;&#x8BE2;&#x8868;&#x8FBE;&#x5F0F;&#x6709;&#x4E0B;&#x9762;&#x51E0;&#x79CD;&#xFF0C;&#x5206;&#x522B;&#x8868;&#x793A;&#x7684;&#x542B;&#x4E49;&#x662F;&#xFF1A;<br>&#x8868;&#x8FBE;&#x5F0F;    &#x542B;&#x4E49;<br>EQ    &#x7B49;&#x4E8E;&#xFF08;=&#xFF09;<br>NEQ    &#x4E0D;&#x7B49;&#x4E8E;&#xFF08;&lt;&gt;&#xFF09;<br>GT    &#x5927;&#x4E8E;&#xFF08;&gt;&#xFF09;<br>EGT    &#x5927;&#x4E8E;&#x7B49;&#x4E8E;&#xFF08;&gt;=&#xFF09;<br>LT    &#x5C0F;&#x4E8E;&#xFF08;&lt;&#xFF09;<br>ELT    &#x5C0F;&#x4E8E;&#x7B49;&#x4E8E;&#xFF08;&lt;=&#xFF09;<br>LIKE    &#x6A21;&#x7CCA;&#x67E5;&#x8BE2;<br>[NOT] BETWEEN    &#xFF08;&#x4E0D;&#x5728;&#xFF09;&#x533A;&#x95F4;&#x67E5;&#x8BE2;<br>[NOT] IN    &#xFF08;&#x4E0D;&#x5728;&#xFF09;IN &#x67E5;&#x8BE2;<br>EXP    &#x8868;&#x8FBE;&#x5F0F;&#x67E5;&#x8BE2;&#xFF0C;&#x652F;&#x6301;SQL&#x8BED;&#x6CD5;</p>
+<p>$w[&#x2018;crm_id&#x2019;] = $crm_id;</p>
+<p>$w[&#x2018;offer_hope_country&#x2019;] = array(&#x2018;gt&#x2019;,100);<br>$w[&#x2018;offer_hope_country&#x2019;] = array(&#x2018;exp&#x2019;,&#x201D; &gt; 100 and <code>offer_hope_country</code> &lt; 200&#x201D;);<br>$w[&#x2018;aaa&#x2019;] = array(&#x2018;like&#x2019;,&#x2019;%&#x2019;.$aa);</p>
+<pre><code>$rs_offer_school = $OfferSchoolName-&gt;where($w)-&gt;select();
+</code></pre><p>$d[&#x2018;offer_hope_country&#x2019;] = 31;<br>$d[&#x2018;offer_hope_country&#x2019;] = 31;<br>        $OfferSchoolName-&gt;create($d);</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">&#x9AD8;&#x7248;&#x672C;&#x5BF9;&#x9519;&#x8BEF;&#x63A7;&#x5236;&#x6BD4;&#x8F83;&#x4E25;&#x683C;</div><div class="line">CopyWriteAusController.class.php(46): Think\Model-&gt;select()</div><div class="line">&#x5728;&#x5982;&#x4E0B;36&#x884C;</div><div class="line">        $rs_offer_school = $OfferSchoolName-&gt;where(&apos;crm_id=&apos; . $crm_id . &quot; and offer_hope_country = 31&quot;)-&gt;select();</div><div class="line">&#x52A0;&#x5165;&#x5224;&#x65AD;&#x5373;&#x53EF;</div><div class="line">        if(!$rs_offer_school){</div><div class="line">            $data[&apos;crm_id&apos;] = $crm_id;</div><div class="line">            $data[&apos;rs_custom&apos;] = $rs_custom;</div><div class="line">            $data[&apos;country_id&apos;] = $this-&gt;getTeacherCountry($rs_custom[&apos;crm_sayer&apos;]);</div><div class="line">            $data[&quot;rs_offer&quot;] = $rs_offer;</div><div class="line"></div><div class="line">            $this-&gt;assign(&quot;data&quot;, $data);</div><div class="line">            $this-&gt;display();</div><div class="line">            exit;</div><div class="line">        }</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">StatController.class.php(533): Think\Model-&gt;query(&apos;SELECT truename...&apos;)</div><div class="line">&#x4FEE;&#x6539;</div><div class="line">        $sql = &quot;SELECT truename,userid FROM cms_member_detail where userid in(&quot; . implode(&apos;,&apos;, $sayer_array) . &quot;)&quot;;</div><div class="line">&#x52A0;&#x5224;&#x65AD;</div><div class="line">        $sql = &quot;SELECT truename,userid FROM cms_member_detail &quot;;</div><div class="line">        if(!empty($sayer_array))</div><div class="line">        $sql = &quot;SELECT truename,userid FROM cms_member_detail where userid in(&quot; . implode(&apos;,&apos;, $sayer_array) . &quot;)&quot;;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">OnlineServicesController.class.php(40): Think\Model-&gt;find()</div><div class="line">SELECT `rid` FROM `t_online_task_zidong` WHERE ( leixingid = 51 and rid = ) LIMIT 1</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">TasksController.class.php(555): Think\Model-&gt;add(Array)</div></pre></td></tr></table></figure>
+<h3 id="D&#x65B9;&#x6CD5;&#x6A21;&#x578B;&#x9519;&#x8BEF;"><a href="#D&#x65B9;&#x6CD5;&#x6A21;&#x578B;&#x9519;&#x8BEF;" class="headerlink" title="D&#x65B9;&#x6CD5;&#x6A21;&#x578B;&#x9519;&#x8BEF;"></a>D&#x65B9;&#x6CD5;&#x6A21;&#x578B;&#x9519;&#x8BEF;</h3><p>&#x4F8B;&#x5982;<br>Fatal error: Cannot redeclare class Admin\Model\StudentAlog</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">class StudentAlog extends Model</div><div class="line">&#x6539;</div><div class="line">class StudentAlogModel extends Model</div><div class="line"></div><div class="line">&#x68C0;&#x67E5;&#x66FF;&#x6362;&#x5176;&#x4ED6;&#x6A21;&#x578B;&#x5373;&#x53EF;</div></pre></td></tr></table></figure>
+<h3 id="&#x63D2;&#x5165;&#x9519;&#x8BEF;"><a href="#&#x63D2;&#x5165;&#x9519;&#x8BEF;" class="headerlink" title="&#x63D2;&#x5165;&#x9519;&#x8BEF;"></a>&#x63D2;&#x5165;&#x9519;&#x8BEF;</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">WwModel.class.php(2968): Think\Model-&gt;add(Array)</div><div class="line"></div><div class="line">&#x5982;&#x4E0B;</div><div class="line">M(&apos;t_online_data_check_alog&apos;, null)-&gt;add($data);</div><div class="line">&#x6570;&#x636E;&#x5B58;&#x5728;&#x4E3B;&#x952E;&#xFF0C;&#x63D2;&#x5165;&#x5931;&#x8D25;</div><div class="line">&#x5728;&#x5982;&#x4E0A;&#x4EE3;&#x7801;&#x52A0;&#x5165;unset($data[&apos;id&apos;]);</div></pre></td></tr></table></figure>
+<h3 id="&#x67E5;&#x8BE2;&#x9519;&#x8BEF;-1"><a href="#&#x67E5;&#x8BE2;&#x9519;&#x8BEF;-1" class="headerlink" title="&#x67E5;&#x8BE2;&#x9519;&#x8BEF;"></a>&#x67E5;&#x8BE2;&#x9519;&#x8BEF;</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">WwModel.class.php(130): Think\Model-&gt;select()</div><div class="line"></div><div class="line">SELECT * FROM `t_online_visit` WHERE ( userid=132721 and del=1 and type != 4 ) ORDER BY id desc LIMIT -5,5</div><div class="line"></div><div class="line">&#x9519;&#x8BEF;&#x539F;&#x56E0;limit &#x5DE6;&#x503C;&#x4E0D;&#x80FD;&#x4E3A;&#x8D1F;</div><div class="line"></div><div class="line">            $res = $m-&gt;where($where)-&gt;order($order)-&gt;limit($limitfor, $pagelimit)-&gt;select();</div><div class="line">&#x6539;&#x4E3A;</div><div class="line">            $res = $m-&gt;where($where)-&gt;order($order)-&gt;limit($limitfor&lt;0?0:$limitfor, $pagelimit)-&gt;select();</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">OfferController.class.php(1468): Think\Model-&gt;select()</div><div class="line">sql&#x6CE8;&#x5165;&#x95EE;&#x9898;</div><div class="line">$name = $this-&gt;_post(&apos;name&apos;);</div><div class="line">&#x4E34;&#x65F6;&#x5904;&#x7406;</div><div class="line">$name = addslashes($this-&gt;_post(&apos;name&apos;));</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">MaterialController.class.php(137): Think\Model-&gt;select()</div><div class="line">&#x5904;&#x7406;&#x540E;</div><div class="line">$rs_school = $CollegeSchool-&gt;where(&apos;sh_id = &apos; . implode(&quot;,&quot;, $school_name_array) )-&gt;field(&apos;sh_name_cn,sh_id&apos;)-&gt;select();</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">OfferController.class.php(813): Think\Model-&gt;add(Array)</div></pre></td></tr></table></figure>
+<h3 id="&#x6269;&#x5C55;&#x7C7B;&#x627E;&#x4E0D;&#x5230;"><a href="#&#x6269;&#x5C55;&#x7C7B;&#x627E;&#x4E0D;&#x5230;" class="headerlink" title="&#x6269;&#x5C55;&#x7C7B;&#x627E;&#x4E0D;&#x5230;"></a>&#x6269;&#x5C55;&#x7C7B;&#x627E;&#x4E0D;&#x5230;</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Class &apos;Admin\Controller\Excel_XML&apos; not found</div><div class="line"></div><div class="line">&#x4FEE;&#x6539;&#x5F15;&#x5165;</div></pre></td></tr></table></figure>
+<p>import(&#x201C;Category&#x201D;); &#x6539; import(&#x201C;Common.Lib.Category&#x201D;);<br>import(&#x2018;QRCode&#x2019;); import(&#x2018;Common.Lib.QRCode&#x2019;);<br>import(&#x201C;ORG.Util.Page&#x201D;); import(&#x201C;Common.Lib.Page&#x201D;);<br>import(&#x2018;ORG.Util.RBAC&#x2019;); import(&#x2018;Common.Lib.Util.RBAC&#x2019;);<br>import(&#x201C;ORG.Util.MyPage&#x201D;); import(&#x201C;Common.Lib.Util.MyPage&#x201D;);</p>
+<p>require_once dirname(<strong>FILE</strong>) . &#x2018;/../Extends/PHPExcel.php&#x2019;;    require_once WEB_ROOT . &#x2018;/Application/Common/Lib/PHPExcel.php&#x2019;;<br>require_once &#x2018;Admin/Lib/Extends/WildDog/TokenException.php&#x2019;;   require_once WEB_ROOT . &#x2018;/Application/Common/Lib/WildDog/TokenException.php&#x2019;;<br>require_once &#x2018;Admin/Lib/Extends/WildDog/TokenGenerator.php&#x2019;;    require_once WEB_ROOT . &#x2018;/Application/Common/Lib/WildDog/TokenGenerator.php&#x2019;;</p>
+<p>require_once &#x2018;Common/Extend/phpExcelReader/Excel/Spreadsheet_Excel_Reader.class.php&#x2019;;<br>require_once WEB_ROOT . &#x2018;/Application/Common/Lib/phpExcelReader/Excel/Spreadsheet_Excel_Reader.class.php&#x2019;;</p>
+<p>require_once &#x2018;Common/Extend/PHPZip/zip.class.php&#x2019;;  require_once WEB_ROOT . &#x2018;/Application/Common/Lib/PHPZip/zip.class.php&#x2019;;<br>require_once &#x2018;Common/Extend/excel_xml.php&#x2019;;     require_once WEB_ROOT . &#x2018;/Application/Common/Lib/excel_xml.php&#x2019;;<br>require_once &#x2018;Common/Extend/pinyin.php&#x2019;;    require_once WEB_ROOT . &#x2018;/Application/Common/Lib/pinyin.php&#x2019;;<br>require_once &#x2018;Common/Extend/NewPHPMailer/Ucpaas.class.php&#x2019;;     require_once WEB_ROOT . &#x2018;/Application/Common/Lib/NewPHPMailer/Ucpaas.class.php&#x2019;;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"></div><div class="line">&#x4FEE;&#x6539;new</div><div class="line">&#x4F8B;&#x5982;</div><div class="line">        $xls = new Excel_XML();</div><div class="line">        &#x6539;</div><div class="line">        $xls = new \Excel_XML();</div></pre></td></tr></table></figure>
+<h3 id="sql&#x9519;&#x8BEF;"><a href="#sql&#x9519;&#x8BEF;" class="headerlink" title="sql&#x9519;&#x8BEF;"></a>sql&#x9519;&#x8BEF;</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">Duplicate entry &apos;&apos; for key &apos;username&apos; [ SQL&#x8BED;&#x53E5; ] : UPDATE `cms_member` SET `tel`=&apos;13009433097&apos;,`email`=&apos;jiemo7409940@jiemo.net&apos;,`username`=&apos;&apos; WHERE ( userid = 74102 )</div><div class="line"></div><div class="line">MemberController.class.php(569): Think\Model-&gt;save(Array)</div><div class="line">&#x76F4;&#x63A5;&#x6539;&#x6210;</div><div class="line">if($username)</div><div class="line">$data_Member[&apos;username&apos;] = $username;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">PowerController.class.php(95): Think\Model-&gt;find()</div><div class="line">&#x76F4;&#x63A5;&#x4FEE;&#x6539;&#x4E3A;</div><div class="line">            if(!empty($row[&quot;department&quot;]))</div><div class="line">            $rolers[$k][&apos;department&apos;] = M(&apos;t_online_department&apos;, null)-&gt;where(&apos;id =&apos; . $row[&quot;department&quot;])-&gt;field(&apos;department&apos;)-&gt;find();</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Unknown column &apos;a&apos; in &apos;where clause&apos;</div><div class="line">PowerController.class.php(190): Think\Model-&gt;count()</div><div class="line">&#x67E5;&#x627E;&#x4FEE;&#x6539;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">Field &apos;error_text&apos; doesn&apos;t have a default value </div><div class="line">OfferController.class.php(1490): Think\Controller-&gt;display()</div><div class="line">OnlineServicesController.class.php(147): Think\Model-&gt;add(Array)</div><div class="line">PowerController.class.php(323): Think\Model-&gt;find()</div></pre></td></tr></table></figure>
+<h3 id="WEB-ROOT&#x7684;&#x5B9A;&#x4E49;&#x9519;&#x8BEF;"><a href="#WEB-ROOT&#x7684;&#x5B9A;&#x4E49;&#x9519;&#x8BEF;" class="headerlink" title="WEB_ROOT&#x7684;&#x5B9A;&#x4E49;&#x9519;&#x8BEF;"></a>WEB_ROOT&#x7684;&#x5B9A;&#x4E49;&#x9519;&#x8BEF;</h3><p>&#x7531;&#x4E8E;&#x5927;&#x90E8;&#x5206;&#x4EE3;&#x7801;&#x5BF9;&#x4E8E;WEB_ROOT&#x7684;&#x4F7F;&#x7528;&#x90FD;&#x662F;&#x6CA1;&#x6709;/&#x540E;&#x7F00;&#xFF0C;&#x6240;&#x4EE5;WEB_ROOT&#x5B9A;&#x4E49;&#x52A0;&#x540E;&#x7F00;/</p>
+<p>&#x90E8;&#x5206;&#x4EE3;&#x7801;&#x9700;&#x8981;&#x8C03;&#x6574;</p>
+<h3 id="config-php&#x914D;&#x7F6E;&#x95EE;&#x9898;"><a href="#config-php&#x914D;&#x7F6E;&#x95EE;&#x9898;" class="headerlink" title="config.php&#x914D;&#x7F6E;&#x95EE;&#x9898;"></a>config.php&#x914D;&#x7F6E;&#x95EE;&#x9898;</h3><p>&#x7CFB;&#x7EDF;&#x4F7F;&#x7528;&#x7684;&#x6B63;&#x5F0F;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x662F;config_t.php&#xFF0C;&#x66FF;&#x6362;&#x6210;config.php&#x5373;&#x53EF;</p>
+<p>###</p>
+<p>/MessageController.class.php(99): Think\Model-&gt;add(Array)</p>
+<h1>1364:Field &#x2018;page_id&#x2019; doesn&#x2019;t have a default value<br> [ SQL&#x8BED;&#x53E5; ] : INSERT INTO <code>t_online_crm_see_message</code> (<code>teacher_id</code>,<code>crm_id</code>) VALUES (&#x2018;1&#x2019;,&#x2019;183907&#x2019;)</h1>
+
+
+
+
+
+
+
+
+
+
+
+<h1 id="&#x5347;&#x7EA7;&#x95EE;&#x9898;&#x6536;&#x96C6;"><a href="#&#x5347;&#x7EA7;&#x95EE;&#x9898;&#x6536;&#x96C6;" class="headerlink" title="&#x5347;&#x7EA7;&#x95EE;&#x9898;&#x6536;&#x96C6;"></a>&#x5347;&#x7EA7;&#x95EE;&#x9898;&#x6536;&#x96C6;</h1><hr>
+<h3 id="&#x7CFB;&#x7EDF;&#x7BA1;&#x7406;-&#x793C;&#x7269;&#x77ED;&#x4FE1;"><a href="#&#x7CFB;&#x7EDF;&#x7BA1;&#x7406;-&#x793C;&#x7269;&#x77ED;&#x4FE1;" class="headerlink" title="&#x7CFB;&#x7EDF;&#x7BA1;&#x7406;-&#x793C;&#x7269;&#x77ED;&#x4FE1;"></a>&#x7CFB;&#x7EDF;&#x7BA1;&#x7406;-&#x793C;&#x7269;&#x77ED;&#x4FE1;</h3><p>&#x6CA1;&#x6536;&#x5230;</p>
+<h3 id="&#x5B66;&#x751F;&#x7BA1;&#x7406;-&#x4F9B;&#x5E94;&#x5546;&#x5BF9;&#x8D26;"><a href="#&#x5B66;&#x751F;&#x7BA1;&#x7406;-&#x4F9B;&#x5E94;&#x5546;&#x5BF9;&#x8D26;" class="headerlink" title="&#x5B66;&#x751F;&#x7BA1;&#x7406;-&#x4F9B;&#x5E94;&#x5546;&#x5BF9;&#x8D26;"></a>&#x5B66;&#x751F;&#x7BA1;&#x7406;-&#x4F9B;&#x5E94;&#x5546;&#x5BF9;&#x8D26;</h3><p>&#x5BF9;&#x4E8E;&#x6A21;&#x677F;&#x6587;&#x4EF6;&#x4EE3;&#x7801;&#x5982;&#x4E0B;&#xFF0C;&#x9519;&#x8BEF;&#x539F;&#x56E0;&#x4E0D;&#x5B58;&#x5728;id&#x4E3A;custom_from_0&#x7684;&#x6807;&#x7B7E;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">//&#x6E20;&#x9053;&#x6765;&#x6E90;&#x7F16;&#x8F91;</div><div class="line">function getChannelVal(){</div><div class="line">	var custom_from_0 = parseInt({$info.custom_from});</div><div class="line">	var custom_from_1 = parseInt({$info.custom_from_sub});</div><div class="line">	var custom_from_2 = parseInt({$info.custom_from_thrid});</div><div class="line">	var custom_from_3 = parseInt({$info.custom_from_fourth});</div><div class="line">	var custom_from_4 = parseInt({$info.custom_from_fifth});</div><div class="line">	if(custom_from_0&gt;0){</div><div class="line">		$(&quot;#custom_from_0&quot;).val(custom_from_0);</div><div class="line">		getNextChannel($(&quot;#custom_from_0&quot;));</div><div class="line">	}</div></pre></td></tr></table></figure>
+<p>/supplier/read_city&#x4E5F;&#x4E0D;&#x5B58;&#x5728;</p>
+<p>WwModel.class.php(2968): Think\Model-&gt;add(Array) &#x6267;&#x884C;&#x63D2;&#x5165;id&#x91CD;&#x590D;</p>
+<h3 id="&#x8BA1;&#x5212;&#x4EFB;&#x52A1;"><a href="#&#x8BA1;&#x5212;&#x4EFB;&#x52A1;" class="headerlink" title="&#x8BA1;&#x5212;&#x4EFB;&#x52A1;"></a>&#x8BA1;&#x5212;&#x4EFB;&#x52A1;</h3><p>&#x4FDD;&#x5B58;&#x540E;&#x63D0;&#x793A;undefined</p>
+<p>js&#x89E3;&#x6790;&#x95EE;&#x9898;&#xFF0C;&#x540E;&#x53F0;&#x6B63;&#x5E38;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">function commonAjaxSubmit(url,formObj){</div><div class="line">    if(!formObj||formObj==&apos;&apos;){</div><div class="line">        var formObj=&quot;form&quot;;</div><div class="line">    }</div><div class="line">    if(!url||url==&apos;&apos;){</div><div class="line">        var url=document.URL;</div><div class="line">    }</div><div class="line">    $(formObj).ajaxSubmit({</div><div class="line">        url:url,</div><div class="line">        type:&quot;POST&quot;,</div><div class="line">	async:false,</div><div class="line">        success:function(data, st) {</div><div class="line">                         //  var data = eval(&quot;(&quot; + data + &quot;)&quot;);</div><div class="line">						 //  alert(data);</div><div class="line">            if(data.status==1){</div><div class="line">				alert(data.info);</div><div class="line">    </div><div class="line">               </div><div class="line">            }else{</div><div class="line">               alert(data.info);</div></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/php/" rel="tag">#php</a>
+          
+            <a href="/tags/jiemo/" rel="tag">#jiemo</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/12/01/2016-12-01-corenlp-shour/" rel="next" title="corenlp-shour">
+                <i class="fa fa-chevron-left"></i> corenlp-shour
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/12/01/2016-12-01-lucene-nlp/" rel="prev" title="lucene-npl">
+                lucene-npl <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-name">categories</span>
+              
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">60</span>
+                <span class="site-state-item-name">tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#笔记"><span class="nav-number">1.</span> <span class="nav-text">笔记</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#composer应用"><span class="nav-number">1.0.1.</span> <span class="nav-text">composer应用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-composer-phing"><span class="nav-number">1.0.2.</span> <span class="nav-text">1.composer/phing</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#htaccess"><span class="nav-number">2.</span> <span class="nav-text">.htaccess</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#composer"><span class="nav-number">3.</span> <span class="nav-text">composer</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#依赖调整"><span class="nav-number">3.0.1.</span> <span class="nav-text">依赖调整</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Phing"><span class="nav-number">4.</span> <span class="nav-text">Phing</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Phing-是一个基于Apache-ANT-的项目构建系统。"><span class="nav-number">4.0.1.</span> <span class="nav-text">Phing 是一个基于Apache ANT 的项目构建系统。</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#ThinkPHP升级"><span class="nav-number">5.</span> <span class="nav-text">ThinkPHP升级</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#命名空间调整"><span class="nav-number">5.0.1.</span> <span class="nav-text">命名空间调整</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#M前缀调整"><span class="nav-number">5.0.2.</span> <span class="nav-text">M前缀调整</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#W方法兼容调整"><span class="nav-number">5.0.3.</span> <span class="nav-text">W方法兼容调整</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#修改样式文件地址"><span class="nav-number">5.0.4.</span> <span class="nav-text">修改样式文件地址</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#use-Stub-去掉"><span class="nav-number">5.0.5.</span> <span class="nav-text">use Stub 去掉</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#new-替换"><span class="nav-number">5.0.6.</span> <span class="nav-text">new 替换</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#sql执行错误-SQLSTATE-HY000-General-error"><span class="nav-number">5.0.7.</span> <span class="nav-text">sql执行错误 SQLSTATE[HY000]: General error</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#sql执行错误-Incorrect-date-value-‘’-for-column-‘signing-date’-at-row-1"><span class="nav-number">5.0.8.</span> <span class="nav-text">sql执行错误 Incorrect date value: ‘’ for column ‘signing_date’ at row 1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#U-方法生成地址调整"><span class="nav-number">5.0.9.</span> <span class="nav-text">U()方法生成地址调整</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#上传问题U-参数调整"><span class="nav-number">5.0.10.</span> <span class="nav-text">上传问题U()参数调整</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#头像上传问题"><span class="nav-number">5.0.11.</span> <span class="nav-text">头像上传问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实例化模型"><span class="nav-number">5.0.12.</span> <span class="nav-text">实例化模型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#默认字段填充错误"><span class="nav-number">5.0.13.</span> <span class="nav-text">默认字段填充错误</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#查询错误"><span class="nav-number">5.0.14.</span> <span class="nav-text">查询错误</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#D方法模型错误"><span class="nav-number">5.0.15.</span> <span class="nav-text">D方法模型错误</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#插入错误"><span class="nav-number">5.0.16.</span> <span class="nav-text">插入错误</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#查询错误-1"><span class="nav-number">5.0.17.</span> <span class="nav-text">查询错误</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#扩展类找不到"><span class="nav-number">5.0.18.</span> <span class="nav-text">扩展类找不到</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#sql错误"><span class="nav-number">5.0.19.</span> <span class="nav-text">sql错误</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#WEB-ROOT的定义错误"><span class="nav-number">5.0.20.</span> <span class="nav-text">WEB_ROOT的定义错误</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#config-php配置问题"><span class="nav-number">5.0.21.</span> <span class="nav-text">config.php配置问题</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">6.</span> <span class="nav-text">1364:Field ‘page_id’ doesn’t have a default value [ SQL语句 ] : INSERT INTO t_online_crm_see_message (teacher_id,crm_id) VALUES (‘1’,’183907’)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#升级问题收集"><span class="nav-number">7.</span> <span class="nav-text">升级问题收集</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#系统管理-礼物短信"><span class="nav-number">7.0.1.</span> <span class="nav-text">系统管理-礼物短信</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#学生管理-供应商对账"><span class="nav-number">7.0.2.</span> <span class="nav-text">学生管理-供应商对账</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#计划任务"><span class="nav-number">7.0.3.</span> <span class="nav-text">计划任务</span></a></li></ol></li></ol></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Neconano</span>
+</div>
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

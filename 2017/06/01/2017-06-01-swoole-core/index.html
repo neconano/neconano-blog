@@ -1,0 +1,588 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="swoole,core," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="buildSwoole&amp;#x6269;&amp;#x5C55;&amp;#x662F;&amp;#x6309;&amp;#x7167;php&amp;#x6807;&amp;#x51C6;&amp;#x6269;&amp;#x5C55;&amp;#x6784;&amp;#x5EFA;&amp;#x7684;&amp;#x3002;&amp;#x4F7F;&amp;#x7528;phpize&amp;#x6765;&amp;#x751F;&amp;#x6210;php&amp;#x7F16;&amp;#x8BD1;&amp;#x914D;&amp;#x7F6E;&amp;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="swoole-core">
+<meta property="og:url" content="http://yoursite.com/2017/06/01/2017-06-01-swoole-core/index.html">
+<meta property="og:site_name" content="Neconano's notebook">
+<meta property="og:description" content="buildSwoole&amp;#x6269;&amp;#x5C55;&amp;#x662F;&amp;#x6309;&amp;#x7167;php&amp;#x6807;&amp;#x51C6;&amp;#x6269;&amp;#x5C55;&amp;#x6784;&amp;#x5EFA;&amp;#x7684;&amp;#x3002;&amp;#x4F7F;&amp;#x7528;phpize&amp;#x6765;&amp;#x751F;&amp;#x6210;php&amp;#x7F16;&amp;#x8BD1;&amp;#x914D;&amp;#x7F6E;&amp;">
+<meta property="og:updated_time" content="2017-09-04T02:07:05.091Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="swoole-core">
+<meta name="twitter:description" content="buildSwoole&amp;#x6269;&amp;#x5C55;&amp;#x662F;&amp;#x6309;&amp;#x7167;php&amp;#x6807;&amp;#x51C6;&amp;#x6269;&amp;#x5C55;&amp;#x6784;&amp;#x5EFA;&amp;#x7684;&amp;#x3002;&amp;#x4F7F;&amp;#x7528;phpize&amp;#x6765;&amp;#x751F;&amp;#x6210;php&amp;#x7F16;&amp;#x8BD1;&amp;#x914D;&amp;#x7F6E;&amp;">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"right","display":"always"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: 'Author'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/06/01/2017-06-01-swoole-core/"/>
+
+  <title> swoole-core | Neconano's notebook </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-right page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Neconano's notebook</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                swoole-core
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2017-06-01T00:00:00+08:00" content="2017-06-01">
+              2017-06-01
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="build"><a href="#build" class="headerlink" title="build"></a>build</h1><p>Swoole&#x6269;&#x5C55;&#x662F;&#x6309;&#x7167;php&#x6807;&#x51C6;&#x6269;&#x5C55;&#x6784;&#x5EFA;&#x7684;&#x3002;&#x4F7F;&#x7528;phpize&#x6765;&#x751F;&#x6210;php&#x7F16;&#x8BD1;&#x914D;&#x7F6E;&#xFF0C;./configure&#x6765;&#x505A;&#x7F16;&#x8BD1;&#x914D;&#x7F6E;&#x68C0;&#x6D4B;&#xFF0C;make&#x8FDB;&#x884C;&#x7F16;&#x8BD1;&#xFF0C;make install&#x8FDB;&#x884C;&#x5B89;&#x88C5;&#x3002;</p>
+<h1 id="config-m4"><a href="#config-m4" class="headerlink" title="config.m4"></a>config.m4</h1><p>&#x5229;&#x7528;config.m4&#x6587;&#x4EF6;&#xFF0C;&#x6267;&#x884C;phpize&#x5373;&#x53EF;&#x751F;&#x6210;configure&#x548C;make&#x6587;&#x4EF6;&#xFF0C;&#x6267;&#x884C;./configure -help&#x53EF;&#x4EE5;&#x67E5;&#x8BE2;&#x5728;config.m4&#x4E2D;&#x5B9A;&#x4E49;&#x7684;&#x9009;&#x9879;</p>
+<p><a href="http://www.php.net/manual/zh/internals2.buildsys.configunix.php" target="_blank" rel="external">http://www.php.net/manual/zh/internals2.buildsys.configunix.php</a></p>
+<p>config.m4&#x6587;&#x4EF6;&#x7528;&#x4E8E;&#x6307;&#x5B9A;&#x6B63;&#x5728;&#x5F00;&#x53D1;&#x7684;&#x6269;&#x5C55;&#x5728;&#x7C7B;unix&#x7CFB;&#x7EDF;&#x4E0B;&#x6784;&#x5EFA;&#x65F6;&#x652F;&#x6301;&#x7684;&#x9009;&#x9879;&#xFF0C;&#x6307;&#x5B9A;&#x6B64;&#x6269;&#x5C55;&#x9700;&#x8981;&#x54EA;&#x4E9B;&#x5E93;&#x4EE5;&#x53CA;&#x54EA;&#x4E9B;&#x6E90;&#x6587;&#x4EF6;&#xFF1B;&#x4F7F;&#x7528; GNU autoconf &#x8BED;&#x6CD5;&#x7F16;&#x5199;&#x3002;<br>&#x6CE8;&#x610F;&#x9700;&#x8981;&#x91CD;&#x65B0;&#x6267;&#x884C;phpize&#xFF0C;config.m4&#x7684;&#x4FEE;&#x6539;&#x624D;&#x4F1A;&#x751F;&#x6548;&#xFF1B;<br>&#x5728;&#x6267;&#x884C;./configure&#x65F6;&#xFF0C;&#x6240;&#x6709;&#x7684;&#x8F93;&#x51FA;&#x5C06;&#x8BB0;&#x5F55;&#x5230;config.log&#x91CC;&#xFF0C;&#x901A;&#x8FC7;&#x67E5;&#x770B;&#x6B64;&#x6587;&#x4EF6;&#x53EF;&#x4EE5;&#x8C03;&#x8BD5;config.m4&#x3002;</p>
+<p>m4&#x547D;&#x4EE4;</p>
+<p><a href="https://www.ibm.com/support/knowledgecenter/zh/ssw_aix_61/com.ibm.aix.cmds3/m4.htm" target="_blank" rel="external">https://www.ibm.com/support/knowledgecenter/zh/ssw_aix_61/com.ibm.aix.cmds3/m4.htm</a></p>
+<h3 id="autoconf&#x8BED;&#x6CD5;"><a href="#autoconf&#x8BED;&#x6CD5;" class="headerlink" title="autoconf&#x8BED;&#x6CD5;"></a>autoconf&#x8BED;&#x6CD5;</h3><p><a href="http://www.cnblogs.com/fengwei/p/4394165.html#SEC14" target="_blank" rel="external">http://www.cnblogs.com/fengwei/p/4394165.html#SEC14</a></p>
+<p>&#x5B98;&#x65B9;&#x624B;&#x518C;</p>
+<p><a href="http://www.gnu.org/software/autoconf/manual/autoconf.html" target="_blank" rel="external">http://www.gnu.org/software/autoconf/manual/autoconf.html</a></p>
+<h1 id="CMakeLists-txt"><a href="#CMakeLists-txt" class="headerlink" title="CMakeLists.txt"></a>CMakeLists.txt</h1><p>CMakeLists.txt&#x7684;&#x5927;&#x90E8;&#x5206;&#x7BC7;&#x5E45;&#x90FD;&#x662F;&#x5728;&#x68C0;&#x6D4B;&#x5404;&#x79CD;&#x4F9D;&#x8D56;&#x5E93;&#x662F;&#x5426;&#x5B89;&#x88C5;&#x4E86;&#xFF0C;&#x5982;&#x679C;&#x6D89;&#x53CA;&#x5230;&#x8DE8;&#x5E73;&#x53F0;&#xFF0C;&#x8FD8;&#x8981;&#x5206;&#x5E73;&#x53F0;&#x68C0;&#x6D4B;&#x3002;</p>
+<p>&#x8BED;&#x6CD5;<a href="http://blog.csdn.net/z_h_s/article/details/50699905" target="_blank" rel="external">http://blog.csdn.net/z_h_s/article/details/50699905</a></p>
+<h1 id="travis-ci"><a href="#travis-ci" class="headerlink" title="travis ci"></a>travis ci</h1><p>Travis&#x662F;&#x4E00;&#x4E2A;&#x4E3A;GitHub&#x670D;&#x52A1;&#x7684;CI&#xFF0C;&#x652F;&#x6301;&#x591A;&#x6570;&#x4E3B;&#x6D41;&#x8BED;&#x8A00;&#xFF0C;&#x4E3B;&#x8981;&#x7528;&#x6765;&#x505A;&#x591A;&#x5E73;&#x53F0;&#x81EA;&#x52A8;&#x6D4B;&#x8BD5;&#x548C;&#x8FDC;&#x7A0B;&#x90E8;&#x7F72;&#x3002;</p>
+<p>&#x4F7F;&#x7528;&#x4E5F;&#x5F88;&#x7B80;&#x5355;&#xFF0C;&#x5728;<a href="https://www.travis-ci.org&#x5B98;&#x7F51;&#x4F7F;&#x7528;github&#x5173;&#x8054;&#x540E;&#xFF0C;&#x767B;&#x9646;travis&#x5F00;&#x542F;&#x76F8;&#x5E94;&#x9879;&#x76EE;&#x5373;&#x53EF;" target="_blank" rel="external">https://www.travis-ci.org&#x5B98;&#x7F51;&#x4F7F;&#x7528;github&#x5173;&#x8054;&#x540E;&#xFF0C;&#x767B;&#x9646;travis&#x5F00;&#x542F;&#x76F8;&#x5E94;&#x9879;&#x76EE;&#x5373;&#x53EF;</a></p>
+<p>&#x914D;&#x7F6E;&#x65B9;&#x6CD5;</p>
+<p><a href="https://docs.travis-ci.com/user/languages/php" target="_blank" rel="external">https://docs.travis-ci.com/user/languages/php</a></p>
+<h3 id="gdb&#x8C03;&#x8BD5;"><a href="#gdb&#x8C03;&#x8BD5;" class="headerlink" title="gdb&#x8C03;&#x8BD5;"></a>gdb&#x8C03;&#x8BD5;</h3><h3 id="swoole"><a href="#swoole" class="headerlink" title="swoole"></a>swoole</h3><p><a href="http://tech.youzan.com/yi-bu-wang-luo-mo-xing/" target="_blank" rel="external">http://tech.youzan.com/yi-bu-wang-luo-mo-xing/</a></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/swoole/" rel="tag">#swoole</a>
+          
+            <a href="/tags/core/" rel="tag">#core</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/06/01/2017-06-01-psr/" rel="next" title="psr">
+                <i class="fa fa-chevron-left"></i> psr
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/06/01/2017-06-01-neco-framework/" rel="prev" title="neco-framework">
+                neco-framework <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-name">categories</span>
+              
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">60</span>
+                <span class="site-state-item-name">tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#build"><span class="nav-number">1.</span> <span class="nav-text">build</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#config-m4"><span class="nav-number">2.</span> <span class="nav-text">config.m4</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#autoconf语法"><span class="nav-number">2.0.1.</span> <span class="nav-text">autoconf语法</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#CMakeLists-txt"><span class="nav-number">3.</span> <span class="nav-text">CMakeLists.txt</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#travis-ci"><span class="nav-number">4.</span> <span class="nav-text">travis ci</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#gdb调试"><span class="nav-number">4.0.1.</span> <span class="nav-text">gdb调试</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#swoole"><span class="nav-number">4.0.2.</span> <span class="nav-text">swoole</span></a></li></ol></li></ol></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Neconano</span>
+</div>
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

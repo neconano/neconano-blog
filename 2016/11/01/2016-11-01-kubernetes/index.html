@@ -1,0 +1,628 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="docker,k8s," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="&amp;#x5E38;&amp;#x7528;&amp;#x547D;&amp;#x4EE4;
+delete&amp;#x5220;&amp;#x9664;pods&amp;#x7B49;resource
+kubectl delete -f xxx.yaml
+&amp;#x4F7F;&amp;#x7528;-f&amp;#x6587;&amp;#x4EF6;&amp;#x5220;&amp;#x9664;&amp;#x8D44;&amp;#x6E90;&amp;#x662F;&amp;#x6700;&amp;#x597D;&amp;#x7684">
+<meta property="og:type" content="article">
+<meta property="og:title" content="kubernetes">
+<meta property="og:url" content="http://yoursite.com/2016/11/01/2016-11-01-kubernetes/index.html">
+<meta property="og:site_name" content="Neconano's notebook">
+<meta property="og:description" content="&amp;#x5E38;&amp;#x7528;&amp;#x547D;&amp;#x4EE4;
+delete&amp;#x5220;&amp;#x9664;pods&amp;#x7B49;resource
+kubectl delete -f xxx.yaml
+&amp;#x4F7F;&amp;#x7528;-f&amp;#x6587;&amp;#x4EF6;&amp;#x5220;&amp;#x9664;&amp;#x8D44;&amp;#x6E90;&amp;#x662F;&amp;#x6700;&amp;#x597D;&amp;#x7684">
+<meta property="og:updated_time" content="2017-03-03T08:08:04.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="kubernetes">
+<meta name="twitter:description" content="&amp;#x5E38;&amp;#x7528;&amp;#x547D;&amp;#x4EE4;
+delete&amp;#x5220;&amp;#x9664;pods&amp;#x7B49;resource
+kubectl delete -f xxx.yaml
+&amp;#x4F7F;&amp;#x7528;-f&amp;#x6587;&amp;#x4EF6;&amp;#x5220;&amp;#x9664;&amp;#x8D44;&amp;#x6E90;&amp;#x662F;&amp;#x6700;&amp;#x597D;&amp;#x7684">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"right","display":"always"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: 'Author'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2016/11/01/2016-11-01-kubernetes/"/>
+
+  <title> kubernetes | Neconano's notebook </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-right page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Neconano's notebook</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                kubernetes
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2016-11-01T00:00:00+08:00" content="2016-11-01">
+              2016-11-01
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="&#x5E38;&#x7528;&#x547D;&#x4EE4;"><a href="#&#x5E38;&#x7528;&#x547D;&#x4EE4;" class="headerlink" title="&#x5E38;&#x7528;&#x547D;&#x4EE4;"></a>&#x5E38;&#x7528;&#x547D;&#x4EE4;</h1><hr>
+<h3 id="delete"><a href="#delete" class="headerlink" title="delete"></a>delete</h3><p>&#x5220;&#x9664;pods&#x7B49;resource</p>
+<p>kubectl delete -f xxx.yaml</p>
+<p>&#x4F7F;&#x7528;-f&#x6587;&#x4EF6;&#x5220;&#x9664;&#x8D44;&#x6E90;&#x662F;&#x6700;&#x597D;&#x7684;&#x65B9;&#x6CD5;</p>
+<h1 id="ubuntu-&#x6682;&#x672A;&#x6210;&#x529F;"><a href="#ubuntu-&#x6682;&#x672A;&#x6210;&#x529F;" class="headerlink" title="ubuntu (&#x6682;&#x672A;&#x6210;&#x529F; )"></a>ubuntu (&#x6682;&#x672A;&#x6210;&#x529F; )</h1><hr>
+<p><a href="http://kubernetes.io/docs/getting-started-guides/kubeadm/" target="_blank" rel="external">&#x5B98;&#x65B9;&#x5B89;&#x88C5;&#x6587;&#x6863;</a></p>
+<p>apt-get install -y docker.io</p>
+<p>apt-get install golang</p>
+<p>//ubuntu 16 &#x8C8C;&#x4F3C;&#x4E0D;&#x884C;<br>curl -sSL <a href="https://get.daocloud.io/daotools/set_mirror.sh" target="_blank" rel="external">https://get.daocloud.io/daotools/set_mirror.sh</a> | sh -s <a href="http://ac99b335.m.daocloud.io" target="_blank" rel="external">http://ac99b335.m.daocloud.io</a></p>
+<p>docker pull feisky/kube-cross</p>
+<h3 id="1-docker&#x5347;&#x7EA7;&#x5230;&#x6700;&#x65B0;&#x7248;&#x672C;"><a href="#1-docker&#x5347;&#x7EA7;&#x5230;&#x6700;&#x65B0;&#x7248;&#x672C;" class="headerlink" title="1.docker&#x5347;&#x7EA7;&#x5230;&#x6700;&#x65B0;&#x7248;&#x672C;"></a>1.docker&#x5347;&#x7EA7;&#x5230;&#x6700;&#x65B0;&#x7248;&#x672C;</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"># sudo apt-get install apt-transport-https  </div><div class="line"># sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 36A1D7869245C8950F966E92D8576A8BA88D21E9 </div><div class="line"># sudo sh -c &quot;echo deb https://get.docker.io/ubuntu docker main &gt; /etc/apt/sources.list.d/docker.list&quot; </div><div class="line"># sudo apt-get update  </div><div class="line"># apt-get install -y lxc-docker </div><div class="line"># ln -sf /usr/bin/docker /usr/local/bin/docker  </div><div class="line"># docker -v</div></pre></td></tr></table></figure>
+<h1 id="centos"><a href="#centos" class="headerlink" title="centos"></a>centos</h1><hr>
+<p>&#x5173;&#x95ED;&#x9632;&#x706B;&#x5899;</p>
+<p>sudo systemctl stop firewalld.service &amp;&amp; sudo systemctl disable firewalld.service</p>
+<p>&#x5B89;&#x88C5; etcd kubernetes</p>
+<p>yum install -y etcd kubernetes</p>
+<p>&#x914D;&#x7F6E;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">vi /etc/sysconfig/docker</div><div class="line">OPTIONS=&apos;--selinux-enabled=false --insecure-registry grc.io --log-driver=journald&apos;</div><div class="line"></div><div class="line">vi /etc/kubernetes/apiserver</div><div class="line">KUBE_ADMISSION_CONTROL=&quot;--admission-control=NamespaceLifecycle,NamespaceExists,LimitRanger,SecurityContextDeny,ResourceQuota&quot;</div></pre></td></tr></table></figure>
+<p>&#x542F;&#x52A8;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">systemctl start etcd</div><div class="line">systemctl start docker</div><div class="line">systemctl start kube-apiserver</div><div class="line">systemctl start kube-controller-manager</div><div class="line">systemctl start kube-scheduler</div><div class="line">systemctl start kubelet</div><div class="line">systemctl start kube-proxy</div></pre></td></tr></table></figure>
+<p>&#x6CE8;&#x610F;docker pull &#x62C9;&#x53D6;&#x955C;&#x50CF;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x867D;&#x7136;search&#x5217;&#x8868;&#x4E2D;&#x5B58;&#x5728;&#xFF0C;&#x4F46;&#x63D0;&#x793A; Tag latest not found in repository &#xFF0C;&#x53EF;&#x4EE5;&#x4F7F;&#x7528; -a &#x53C2;&#x6570;</p>
+<h1 id="yaml&#x6837;&#x4F8B;"><a href="#yaml&#x6837;&#x4F8B;" class="headerlink" title="yaml&#x6837;&#x4F8B;"></a>yaml&#x6837;&#x4F8B;</h1><hr>
+<h3 id="mysql-rc-yaml"><a href="#mysql-rc-yaml" class="headerlink" title="mysql-rc.yaml"></a>mysql-rc.yaml</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">apiVersion: v1</div><div class="line">kind: ReplicationController</div><div class="line">metadata:</div><div class="line">  name: mysql</div><div class="line">spec:</div><div class="line">  replicas: 1</div><div class="line">  selector:</div><div class="line">    app: mysql</div><div class="line">  template:</div><div class="line">    metadata:</div><div class="line">      labels:</div><div class="line">        app: mysql</div><div class="line">    spec:</div><div class="line">      containers:</div><div class="line">        - name: mysql</div><div class="line">          image: mysql</div><div class="line">          ports:</div><div class="line">            - containerPort: 3306</div><div class="line">          env:</div><div class="line">          - name: MYSQL_ROOT_PASSWORD</div><div class="line">            value: &quot;123456&quot;</div></pre></td></tr></table></figure>
+<h3 id="mysql-svc-yaml"><a href="#mysql-svc-yaml" class="headerlink" title="mysql-svc.yaml"></a>mysql-svc.yaml</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">apiVersion: v1</div><div class="line">kind: Service</div><div class="line">metadata:</div><div class="line">  name: mysql</div><div class="line">spec:</div><div class="line">  type: NodePort</div><div class="line">  ports:</div><div class="line">    - port: 3306</div><div class="line">      nodePort: 30002</div><div class="line">  selector:</div><div class="line">    app: mysql</div></pre></td></tr></table></figure>
+<h3 id="myweb-rc-yaml"><a href="#myweb-rc-yaml" class="headerlink" title="myweb-rc.yaml"></a>myweb-rc.yaml</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">apiVersion: v1</div><div class="line">kind: ReplicationController</div><div class="line">metadata:</div><div class="line">  name: myweb</div><div class="line">spec:</div><div class="line">  replicas: 1</div><div class="line">  selector:</div><div class="line">    app: myweb</div><div class="line">  template:</div><div class="line">    metadata:</div><div class="line">      labels:</div><div class="line">        app: myweb</div><div class="line">    spec:</div><div class="line">      containers:</div><div class="line">        - name: myweb</div><div class="line">          image: kubeguide/tomcat-app:v1</div><div class="line">          ports:</div><div class="line">            - containerPort: 8080</div><div class="line">          env:</div><div class="line">          - name: MYSQL_SERVICE_HOST</div><div class="line">            value: mysql</div><div class="line">          - name: MYSQL_SERVICE_PORT</div><div class="line">            value: &quot;3306&quot;</div></pre></td></tr></table></figure>
+<h3 id="myweb-svc-yaml"><a href="#myweb-svc-yaml" class="headerlink" title="myweb-svc.yaml"></a>myweb-svc.yaml</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">apiVersion: v1</div><div class="line">kind: Service</div><div class="line">metadata:</div><div class="line">  name: myweb</div><div class="line">spec:</div><div class="line">  type: NodePort</div><div class="line">  ports:</div><div class="line">    - port: 8080</div><div class="line">      nodePort: 30001</div><div class="line">  selector:</div><div class="line">    app: myweb</div></pre></td></tr></table></figure>
+<h3 id="tomcat-deployment-yaml"><a href="#tomcat-deployment-yaml" class="headerlink" title="tomcat-deployment.yaml"></a>tomcat-deployment.yaml</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">apiVersion: extensions/v1beta1</div><div class="line">kind: Deployment</div><div class="line">metadata:</div><div class="line">  name: frontend</div><div class="line">spec:</div><div class="line">  replicas: 1</div><div class="line">  selector:</div><div class="line">    matchLabels:</div><div class="line">      tier: frontend</div><div class="line">    matchExpressions:</div><div class="line">      - {key: tier, operator: In, values: [frontend]}</div><div class="line">  template:</div><div class="line">    metadata:</div><div class="line">      labels:</div><div class="line">        app: app-demo</div><div class="line">        tier: frontend</div><div class="line">    spec:</div><div class="line">      containers:</div><div class="line">      - name: tomcat-demo</div><div class="line">        image: tomcat</div><div class="line">        imagePullPolicy: IfNotPresent</div><div class="line">        ports:</div><div class="line">        - containerPort: 8080</div></pre></td></tr></table></figure>
+<h3 id="tomcat-service-yaml"><a href="#tomcat-service-yaml" class="headerlink" title="tomcat-service.yaml"></a>tomcat-service.yaml</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">apiVersion: v1</div><div class="line">kind: Service</div><div class="line">metadata:</div><div class="line">  name: tomcat-service</div><div class="line">spec:</div><div class="line">  ports:</div><div class="line">  - port: 8080</div><div class="line">  selector:</div><div class="line">    tier: frontend</div></pre></td></tr></table></figure>
+<h1 id="php-redis&#x7559;&#x8A00;&#x677F;"><a href="#php-redis&#x7559;&#x8A00;&#x677F;" class="headerlink" title="php+redis&#x7559;&#x8A00;&#x677F;"></a>php+redis&#x7559;&#x8A00;&#x677F;</h1><hr>
+<h3 id="redis-master-controller-yaml"><a href="#redis-master-controller-yaml" class="headerlink" title="redis-master-controller.yaml"></a>redis-master-controller.yaml</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">apiVersion: v1</div><div class="line">kind: ReplicationController</div><div class="line">metadata:</div><div class="line">  name: redis-master</div><div class="line">  labels:</div><div class="line">    name: redis-master</div><div class="line">spec:</div><div class="line">  replicas: 1</div><div class="line">  selector:</div><div class="line">    name: redis-master</div><div class="line">  template:</div><div class="line">    metadata:</div><div class="line">      labels:</div><div class="line">        name: redis-master</div><div class="line">    spec:</div><div class="line">      containers:</div><div class="line">      - name: master</div><div class="line">        image: kubeguide/redis-master</div><div class="line">        ports:</div><div class="line">        - containerPort: 6379</div></pre></td></tr></table></figure>
+<h3 id="redis-master-service-yaml"><a href="#redis-master-service-yaml" class="headerlink" title="redis-master-service.yaml"></a>redis-master-service.yaml</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">apiVersion: v1</div><div class="line">kind: Service</div><div class="line">metadata:</div><div class="line">  name: redis-master</div><div class="line">  labels:</div><div class="line">    name: redis-master</div><div class="line">spec:</div><div class="line">  ports:</div><div class="line">  - port: 6379</div><div class="line">    targetPort: 6379</div><div class="line">  selector:</div><div class="line">    name: redis-master</div></pre></td></tr></table></figure>
+<h3 id="redis-slave-controller-yaml"><a href="#redis-slave-controller-yaml" class="headerlink" title="redis-slave-controller.yaml"></a>redis-slave-controller.yaml</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">apiVersion: v1</div><div class="line">kind: ReplicationController</div><div class="line">metadata:</div><div class="line">  name: redis-slave</div><div class="line">  labels:</div><div class="line">    name: redis-slave</div><div class="line">spec:</div><div class="line">  replicas: 2</div><div class="line">  selector:</div><div class="line">    name: redis-slave</div><div class="line">  template:</div><div class="line">    metadata:</div><div class="line">      labels:</div><div class="line">        name: redis-slave</div><div class="line">    spec:</div><div class="line">      containers:</div><div class="line">      - name: slave</div><div class="line">        image: kubeguide/guestbook-redis-slave</div><div class="line">        env:</div><div class="line">        - name: GET_HOSTS_FROM</div><div class="line">          value: env</div><div class="line">        ports:</div><div class="line">        - containerPort: 6379</div></pre></td></tr></table></figure>
+<h3 id="redis-slave-service-yaml"><a href="#redis-slave-service-yaml" class="headerlink" title="redis-slave-service.yaml"></a>redis-slave-service.yaml</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">apiVersion: v1</div><div class="line">kind: Service</div><div class="line">metadata:</div><div class="line">  name: redis-slave</div><div class="line">  labels:</div><div class="line">    name: redis-slave</div><div class="line">spec:</div><div class="line">  ports:</div><div class="line">  - port: 6379</div><div class="line">  selector:</div><div class="line">    name: redis-slave</div></pre></td></tr></table></figure>
+<h3 id="frontend-controller-yaml"><a href="#frontend-controller-yaml" class="headerlink" title="frontend-controller.yaml"></a>frontend-controller.yaml</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">apiVersion: v1</div><div class="line">kind: ReplicationController</div><div class="line">metadata:</div><div class="line">  name: frontend</div><div class="line">  labels:</div><div class="line">    name: frontend</div><div class="line">spec:</div><div class="line">  replicas: 3</div><div class="line">  selector:</div><div class="line">    name: frontend</div><div class="line">  template:</div><div class="line">    metadata:</div><div class="line">      labels:</div><div class="line">        name: frontend</div><div class="line">    spec:</div><div class="line">      containers:</div><div class="line">      - name: frontend</div><div class="line">        image: kubeguide/guestbook-php-frontend</div><div class="line">        env:</div><div class="line">        - name: GET_HOSTS_FROM</div><div class="line">          value: env</div><div class="line">        ports:</div><div class="line">        - containerPort: 80</div></pre></td></tr></table></figure>
+<h3 id="frontend-service-yaml"><a href="#frontend-service-yaml" class="headerlink" title="frontend-service.yaml"></a>frontend-service.yaml</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">apiVersion: v1</div><div class="line">kind: Service</div><div class="line">metadata:</div><div class="line">  name: frontend</div><div class="line">  labels:</div><div class="line">    name: frontend</div><div class="line">spec:</div><div class="line">  type: NodePort</div><div class="line">  ports:</div><div class="line">  - port: 80</div><div class="line">    nodePort: 30001</div><div class="line">  selector:</div><div class="line">    name: frontend</div></pre></td></tr></table></figure>
+<h3 id="pod-volume-applogs-yaml"><a href="#pod-volume-applogs-yaml" class="headerlink" title="pod-volume-applogs.yaml"></a>pod-volume-applogs.yaml</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">apiVersion: v1</div><div class="line">kind: Pod</div><div class="line">metadata:</div><div class="line">  name: volume-pod</div><div class="line">spec:</div><div class="line">  containers:</div><div class="line">  - name: tomcat</div><div class="line">    image: tomcat</div><div class="line">    ports:</div><div class="line">    - containerPort: 8080</div><div class="line">    volumeMounts:</div><div class="line">    - name: app-logs</div><div class="line">      mountPath: /usr/local/tomcat/logs</div><div class="line">  - name: busybox</div><div class="line">    image: busybox</div><div class="line">    command: [&quot;sh&quot;, &quot;-c&quot;, &quot;tail -f /logs/catalina*.log&quot;]</div><div class="line">    volumeMounts:</div><div class="line">    - name: app-logs</div><div class="line">      mountPath: /logs</div><div class="line">  volumes:</div><div class="line">  - name: app-logs</div><div class="line">    emptyDir: {}</div></pre></td></tr></table></figure>
+<h3 id="liveness-exec-yaml"><a href="#liveness-exec-yaml" class="headerlink" title="liveness-exec.yaml"></a>liveness-exec.yaml</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">apiVersion: v1</div><div class="line">kind: Pod</div><div class="line">metadata:</div><div class="line">  labels:</div><div class="line">    test: liveness</div><div class="line">  name: liveness-exec</div><div class="line">spec:</div><div class="line">  containers:</div><div class="line">  - name: liveness</div><div class="line">    image: busybox</div><div class="line">    args:</div><div class="line">    - /bin/sh</div><div class="line">    - -c</div><div class="line">    - echo 0k &gt; /tmp/health; sleep 10; rm -rf /tmp/health; sleep 600</div><div class="line">    livenessProbe:</div><div class="line">      exec:</div><div class="line">        command:</div><div class="line">        - cat</div><div class="line">        - /tmp/health</div><div class="line">      initialDelaySeconds: 15</div><div class="line">      timeoutSeconds: 1</div></pre></td></tr></table></figure>
+<h3 id="pod-with-healthcheck-yaml"><a href="#pod-with-healthcheck-yaml" class="headerlink" title="pod-with-healthcheck.yaml"></a>pod-with-healthcheck.yaml</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">apiVersion: v1</div><div class="line">kind: Pod</div><div class="line">metadata:</div><div class="line">  name: pod-with-healthcheck</div><div class="line">spec:</div><div class="line">  containers:</div><div class="line">  - name: nginx</div><div class="line">    image: nginx</div><div class="line">    ports:</div><div class="line">    - containerPort: 80</div><div class="line">    livenessProbe:</div><div class="line">      tcpSocket:</div><div class="line">        port: 80</div><div class="line">      initialDelaySeconds: 30</div><div class="line">      timeoutSeconds: 1</div></pre></td></tr></table></figure>
+<h1 id="php-redis&#x7559;&#x8A00;&#x677F;&#x89E3;&#x6790;"><a href="#php-redis&#x7559;&#x8A00;&#x677F;&#x89E3;&#x6790;" class="headerlink" title="php+redis&#x7559;&#x8A00;&#x677F;&#x89E3;&#x6790;"></a>php+redis&#x7559;&#x8A00;&#x677F;&#x89E3;&#x6790;</h1><hr>
+<h3 id="1-redis-master-controller-redis-master-service"><a href="#1-redis-master-controller-redis-master-service" class="headerlink" title="1.redis-master-controller / redis-master-service"></a>1.redis-master-controller / redis-master-service</h3><p>&#x63D0;&#x4F9B;&#x5199;&#x670D;&#x52A1;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$kubectl get svc</div><div class="line">redis-master   10.254.232.225   &lt;none&gt;        6379/TCP   1h</div><div class="line">10.254.232.225 &#x4E3A;cluster ip ,redis&#x63D0;&#x4F9B;&#x670D;&#x52A1;&#x7684;ip</div><div class="line">$kubectl describe po redis-master-0aoe4</div><div class="line">IP:		172.17.0.2 &#xFF08;pod id&#x65E2;docker&#x955C;&#x50CF;ip&#xFF09;</div></pre></td></tr></table></figure>
+<p>&#x670D;&#x52A1;&#x53D1;&#x73B0;&#xFF1A;&#x4F7F;&#x7528;&#x7684;&#x662F;&#x73AF;&#x5883;&#x53D8;&#x91CF;&#x6CE8;&#x5165;&#x7684;&#x65B9;&#x5F0F;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div></pre></td><td class="code"><pre><div class="line">$docker exec -it e28a17c61f58 /bin/bash</div><div class="line">$env</div><div class="line">FRONTEND_PORT_80_TCP_ADDR=10.254.15.234</div><div class="line">REDIS_SLAVE_PORT_6379_TCP=tcp://10.254.79.10:6379</div><div class="line">REDIS_SLAVE_SERVICE_HOST=10.254.79.10</div><div class="line">HOSTNAME=frontend-zr68o</div><div class="line">KUBERNETES_PORT_443_TCP_PORT=443</div><div class="line">KUBERNETES_PORT=tcp://10.254.0.1:443</div><div class="line">PHP_INI_DIR=/usr/local/etc/php</div><div class="line">FRONTEND_PORT_80_TCP_PORT=80</div><div class="line">REDIS_SLAVE_PORT=tcp://10.254.79.10:6379</div><div class="line">KUBERNETES_SERVICE_PORT=443</div><div class="line">KUBERNETES_SERVICE_HOST=10.254.0.1</div><div class="line">GET_HOSTS_FROM=env</div><div class="line">FRONTEND_PORT_80_TCP_PROTO=tcp</div><div class="line">REDIS_MASTER_PORT_6379_TCP_ADDR=10.254.232.225</div><div class="line">REDIS_MASTER_PORT_6379_TCP=tcp://10.254.232.225:6379</div><div class="line">PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin</div><div class="line">REDIS_SLAVE_PORT_6379_TCP_PROTO=tcp</div><div class="line">GPG_KEYS=0BD78B5F97500D450838F95DFE857D9A90D90EC1 6E4F6AB321FDC07F2C332E3AC2BF0BC433CFC8B3</div><div class="line">REDIS_MASTER_SERVICE_PORT=6379</div><div class="line">PWD=/var/www/html</div><div class="line">REDIS_SLAVE_SERVICE_PORT=6379</div><div class="line">FRONTEND_PORT=tcp://10.254.15.234:80</div><div class="line">FRONTEND_SERVICE_PORT=80</div><div class="line">REDIS_MASTER_SERVICE_HOST=10.254.232.225</div><div class="line">SHLVL=1</div><div class="line">HOME=/root</div><div class="line">REDIS_SLAVE_PORT_6379_TCP_ADDR=10.254.79.10</div><div class="line">FRONTEND_SERVICE_HOST=10.254.15.234</div><div class="line">KUBERNETES_PORT_443_TCP_PROTO=tcp</div><div class="line">KUBERNETES_SERVICE_PORT_HTTPS=443</div><div class="line">REDIS_MASTER_PORT_6379_TCP_PORT=6379</div><div class="line">FRONTEND_PORT_80_TCP=tcp://10.254.15.234:80</div><div class="line">REDIS_SLAVE_PORT_6379_TCP_PORT=6379</div><div class="line">REDIS_MASTER_PORT_6379_TCP_PROTO=tcp</div><div class="line">PHP_EXTRA_BUILD_DEPS=apache2-dev</div><div class="line">REDIS_MASTER_PORT=tcp://10.254.232.225:6379</div><div class="line">KUBERNETES_PORT_443_TCP_ADDR=10.254.0.1</div><div class="line">KUBERNETES_PORT_443_TCP=tcp://10.254.0.1:443</div><div class="line">PHP_VERSION=5.6.12</div><div class="line">PHP_EXTRA_CONFIGURE_ARGS=--with-apxs2</div><div class="line">_=/usr/bin/env</div></pre></td></tr></table></figure>
+<h3 id="2-redis-slave-controller-redis-slave-service"><a href="#2-redis-slave-controller-redis-slave-service" class="headerlink" title="2.redis-slave-controller / redis-slave-service"></a>2.redis-slave-controller / redis-slave-service</h3><p>redis&#x96C6;&#x7FA4;&#xFF0C;&#x63D0;&#x4F9B;&#x8BFB;&#x670D;&#x52A1;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$kubectl get svc</div><div class="line">redis-slave    10.254.79.10     &lt;none&gt;        6379/TCP   1h</div><div class="line">10.254.79.10 &#x5185;&#x7F6E;&#x8D1F;&#x8F7D;&#x5747;&#x8861;&#xFF0C;&#x5C06;&#x670D;&#x52A1;&#x5206;&#x914D;&#x81F3;pod&#x8282;&#x70B9;</div></pre></td></tr></table></figure>
+<h3 id="3-frontend-controller-frontend-service"><a href="#3-frontend-controller-frontend-service" class="headerlink" title="3.frontend-controller / frontend-service"></a>3.frontend-controller / frontend-service</h3><p>&#x6839;&#x636E;frontend-service&#x63D0;&#x4F9B;&#x7684;&#x670D;&#x52A1;&#xFF0C;&#x5206;&#x914D;&#x4EFB;&#x4E00;Pod&#x6253;&#x5F00;&#x7F51;&#x7AD9;</p>
+<h1 id="pod-&#x7684;&#x52A8;&#x6001;&#x8C03;&#x6574;&#xFF08;HPA&#xFF09;"><a href="#pod-&#x7684;&#x52A8;&#x6001;&#x8C03;&#x6574;&#xFF08;HPA&#xFF09;" class="headerlink" title="pod &#x7684;&#x52A8;&#x6001;&#x8C03;&#x6574;&#xFF08;HPA&#xFF09;"></a>pod &#x7684;&#x52A8;&#x6001;&#x8C03;&#x6574;&#xFF08;HPA&#xFF09;</h1><hr>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/docker/" rel="tag">#docker</a>
+          
+            <a href="/tags/k8s/" rel="tag">#k8s</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/10/01/2016-10-01-python-web-note/" rel="next" title="python-web-note">
+                <i class="fa fa-chevron-left"></i> python-web-note
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/11/01/2016-11-01-centos/" rel="prev" title="centos">
+                centos <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-name">categories</span>
+              
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">60</span>
+                <span class="site-state-item-name">tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#常用命令"><span class="nav-number">1.</span> <span class="nav-text">常用命令</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#delete"><span class="nav-number">1.0.1.</span> <span class="nav-text">delete</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#ubuntu-暂未成功"><span class="nav-number">2.</span> <span class="nav-text">ubuntu (暂未成功 )</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-docker升级到最新版本"><span class="nav-number">2.0.1.</span> <span class="nav-text">1.docker升级到最新版本</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#centos"><span class="nav-number">3.</span> <span class="nav-text">centos</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#yaml样例"><span class="nav-number">4.</span> <span class="nav-text">yaml样例</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#mysql-rc-yaml"><span class="nav-number">4.0.1.</span> <span class="nav-text">mysql-rc.yaml</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#mysql-svc-yaml"><span class="nav-number">4.0.2.</span> <span class="nav-text">mysql-svc.yaml</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#myweb-rc-yaml"><span class="nav-number">4.0.3.</span> <span class="nav-text">myweb-rc.yaml</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#myweb-svc-yaml"><span class="nav-number">4.0.4.</span> <span class="nav-text">myweb-svc.yaml</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#tomcat-deployment-yaml"><span class="nav-number">4.0.5.</span> <span class="nav-text">tomcat-deployment.yaml</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#tomcat-service-yaml"><span class="nav-number">4.0.6.</span> <span class="nav-text">tomcat-service.yaml</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#php-redis留言板"><span class="nav-number">5.</span> <span class="nav-text">php+redis留言板</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#redis-master-controller-yaml"><span class="nav-number">5.0.1.</span> <span class="nav-text">redis-master-controller.yaml</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#redis-master-service-yaml"><span class="nav-number">5.0.2.</span> <span class="nav-text">redis-master-service.yaml</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#redis-slave-controller-yaml"><span class="nav-number">5.0.3.</span> <span class="nav-text">redis-slave-controller.yaml</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#redis-slave-service-yaml"><span class="nav-number">5.0.4.</span> <span class="nav-text">redis-slave-service.yaml</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#frontend-controller-yaml"><span class="nav-number">5.0.5.</span> <span class="nav-text">frontend-controller.yaml</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#frontend-service-yaml"><span class="nav-number">5.0.6.</span> <span class="nav-text">frontend-service.yaml</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#pod-volume-applogs-yaml"><span class="nav-number">5.0.7.</span> <span class="nav-text">pod-volume-applogs.yaml</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#liveness-exec-yaml"><span class="nav-number">5.0.8.</span> <span class="nav-text">liveness-exec.yaml</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#pod-with-healthcheck-yaml"><span class="nav-number">5.0.9.</span> <span class="nav-text">pod-with-healthcheck.yaml</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#php-redis留言板解析"><span class="nav-number">6.</span> <span class="nav-text">php+redis留言板解析</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-redis-master-controller-redis-master-service"><span class="nav-number">6.0.1.</span> <span class="nav-text">1.redis-master-controller / redis-master-service</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-redis-slave-controller-redis-slave-service"><span class="nav-number">6.0.2.</span> <span class="nav-text">2.redis-slave-controller / redis-slave-service</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-frontend-controller-frontend-service"><span class="nav-number">6.0.3.</span> <span class="nav-text">3.frontend-controller / frontend-service</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#pod-的动态调整（HPA）"><span class="nav-number">7.</span> <span class="nav-text">pod 的动态调整（HPA）</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Neconano</span>
+</div>
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

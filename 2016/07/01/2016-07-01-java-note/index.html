@@ -1,0 +1,609 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="java-note
+1.&amp;#x5B57;&amp;#x8282;&amp;#x7801;java-&amp;gt;&amp;#x7F16;&amp;#x8BD1;-&amp;gt;&amp;#x5B57;&amp;#x8282;&amp;#x7801;-&amp;gt;jvm-&amp;gt;&amp;#x6267;&amp;#x884C;
+2.applet&amp;#x6D4F;&amp;#x89C8;&amp;#x5668;&amp;#x6269;&amp;#x5C55;&amp;#x7A0B;&amp;#x5E8F;
+3.servlet&amp;#x670">
+<meta property="og:type" content="article">
+<meta property="og:title" content="java-note">
+<meta property="og:url" content="http://yoursite.com/2016/07/01/2016-07-01-java-note/index.html">
+<meta property="og:site_name" content="Neconano's notebook">
+<meta property="og:description" content="java-note
+1.&amp;#x5B57;&amp;#x8282;&amp;#x7801;java-&amp;gt;&amp;#x7F16;&amp;#x8BD1;-&amp;gt;&amp;#x5B57;&amp;#x8282;&amp;#x7801;-&amp;gt;jvm-&amp;gt;&amp;#x6267;&amp;#x884C;
+2.applet&amp;#x6D4F;&amp;#x89C8;&amp;#x5668;&amp;#x6269;&amp;#x5C55;&amp;#x7A0B;&amp;#x5E8F;
+3.servlet&amp;#x670">
+<meta property="og:updated_time" content="2016-11-29T02:54:50.578Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="java-note">
+<meta name="twitter:description" content="java-note
+1.&amp;#x5B57;&amp;#x8282;&amp;#x7801;java-&amp;gt;&amp;#x7F16;&amp;#x8BD1;-&amp;gt;&amp;#x5B57;&amp;#x8282;&amp;#x7801;-&amp;gt;jvm-&amp;gt;&amp;#x6267;&amp;#x884C;
+2.applet&amp;#x6D4F;&amp;#x89C8;&amp;#x5668;&amp;#x6269;&amp;#x5C55;&amp;#x7A0B;&amp;#x5E8F;
+3.servlet&amp;#x670">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"right","display":"always"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: 'Author'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2016/07/01/2016-07-01-java-note/"/>
+
+  <title> java-note | Neconano's notebook </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-right page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Neconano's notebook</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                java-note
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2016-07-01T00:00:00+08:00" content="2016-07-01">
+              2016-07-01
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/java/" itemprop="url" rel="index">
+                    <span itemprop="name">java</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="java-note"><a href="#java-note" class="headerlink" title="java-note"></a>java-note</h1><hr>
+<h3 id="1-&#x5B57;&#x8282;&#x7801;"><a href="#1-&#x5B57;&#x8282;&#x7801;" class="headerlink" title="1.&#x5B57;&#x8282;&#x7801;"></a>1.&#x5B57;&#x8282;&#x7801;</h3><p>java-&gt;&#x7F16;&#x8BD1;-&gt;&#x5B57;&#x8282;&#x7801;-&gt;jvm-&gt;&#x6267;&#x884C;</p>
+<h3 id="2-applet"><a href="#2-applet" class="headerlink" title="2.applet"></a>2.applet</h3><p>&#x6D4F;&#x89C8;&#x5668;&#x6269;&#x5C55;&#x7A0B;&#x5E8F;</p>
+<h3 id="3-servlet"><a href="#3-servlet" class="headerlink" title="3.servlet"></a>3.servlet</h3><p>&#x670D;&#x52A1;&#x5668;&#x6269;&#x5C55;&#x7A0B;&#x5E8F;</p>
+<h3 id="4-&#x65E0;&#x6307;&#x9488;"><a href="#4-&#x65E0;&#x6307;&#x9488;" class="headerlink" title="4.&#x65E0;&#x6307;&#x9488;"></a>4.&#x65E0;&#x6307;&#x9488;</h3><p>&#x9632;&#x6B62;&#x8BBF;&#x95EE;jvm&#x5916;&#x8D44;&#x6E90;</p>
+<h3 id="5-&#x591A;&#x7EBF;&#x7A0B;"><a href="#5-&#x591A;&#x7EBF;&#x7A0B;" class="headerlink" title="5.&#x591A;&#x7EBF;&#x7A0B;"></a>5.&#x591A;&#x7EBF;&#x7A0B;</h3><p>&#x5355;&#x8FDB;&#x7A0B;&#xFF0C;&#x591A;&#x7EBF;&#x7A0B;&#xFF0C;&#x7EE7;&#x627F;Thread&#xFF0C;&#x6216;&#xFF0C;&#x5B9E;&#x73B0;Runnable&#xFF0C;&#x5B9E;&#x4F8B;Thread</p>
+<p>synchornized&#x540C;&#x6B65;&#xFF0C;wait&#x6302;&#x8D77;&#xFF08;&#x91CA;&#x653E;&#x9501;&#xFF0C;&#x5BF9;&#x8C61;&#x53EF;&#x8BBF;&#x95EE;&#xFF09;&#xFF0C;notify&#x5524;&#x9192;&#xFF0C;sleep&#xFF08;&#x4FDD;&#x7559;&#x9501;&#xFF0C;&#x5BF9;&#x8C61;&#x4E0D;&#x53EF;&#x8BBF;&#x95EE;&#xFF09;</p>
+<h3 id="6-&#x6CE8;&#x89E3;"><a href="#6-&#x6CE8;&#x89E3;" class="headerlink" title="6.&#x6CE8;&#x89E3;"></a>6.&#x6CE8;&#x89E3;</h3><p>&#x7C7B;&#x578B;&#x6CE8;&#x89E3;&#xFF0C;&#x5141;&#x8BB8;&#x5728;&#x7F16;&#x8BD1;&#x9636;&#x6BB5;javac&#x6267;&#x884C;&#x68C0;&#x67E5;&#xFF0C;&#x907F;&#x514D;&#x8FD0;&#x884C;&#x65F6;&#x9519;&#x8BEF;</p>
+<h3 id="7-&#x65AD;&#x8A00;assert"><a href="#7-&#x65AD;&#x8A00;assert" class="headerlink" title="7.&#x65AD;&#x8A00;assert"></a>7.&#x65AD;&#x8A00;assert</h3><p>&#x5728;&#x8C03;&#x8BD5;&#x6A21;&#x5F0F;&#x4E0B;&#x5F88;&#x65B9;&#x4FBF;</p>
+<h3 id="8-&#x6CDB;&#x578B;"><a href="#8-&#x6CDB;&#x578B;" class="headerlink" title="8.&#x6CDB;&#x578B;"></a>8.&#x6CDB;&#x578B;</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">&#x6CDB;&#x578B;&#x7C7B;</div><div class="line">class class-name&lt;type-param-list&gt;</div><div class="line">&#x6CDB;&#x578B;&#x7C7B;&#x5F15;&#x7528;</div><div class="line">class-name&lt;type-arg-list&gt; var-name = new class-name&lt;type-arg-list&gt;(cons-arg-list)</div><div class="line">class-name&lt;type-arg-list&gt; var-name = class-name&lt;type-arg-list&gt;::new</div><div class="line">&#x7528;&#x4E8E;&#x4FEE;&#x9970;&#x53C2;&#x6570;&#xFF0C;&#x754C;&#x5B9A;&#x53C2;&#x6570;&#x7C7B;&#x578B;</div><div class="line">&lt;type-param-list&gt; ret-type meth-name (param-list)</div><div class="line">&#x6CDB;&#x578B;&#x63A5;&#x53E3;</div><div class="line">interface interface-name&lt;type-param-list&gt;</div><div class="line">&#x5B9E;&#x73B0;&#x6CDB;&#x578B;&#x63A5;&#x53E3;</div><div class="line">class class-name&lt;type-param-list&gt; implements interface-name&lt;type-param-list&gt;</div><div class="line">&#x7C7B;&#x578B;&#x63A8;&#x65AD;</div><div class="line">class-name&lt;type-arg-list&gt; var-name = new class-name&lt;&gt;(cons-arg-list)</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">1.&#x4E0D;&#x80FD;&#x521B;&#x5EFA;&#x6CDB;&#x578B;&#x7684;&#x5B9E;&#x4F8B;</div><div class="line">ob = new T();//wrong</div><div class="line">ob = new T[10];//wrong</div><div class="line">2.&#x9759;&#x6001;&#x53D8;&#x91CF;&#x4E0D;&#x80FD;&#x4F7F;&#x7528;&#x6CDB;&#x578B;&#x7C7B;&#x578B;</div><div class="line">static T ob;//wrong</div><div class="line">3.&#x4E0D;&#x80FD;&#x521B;&#x5EFA;&#x7279;&#x5B9A;&#x7C7B;&#x578B;&#x7684;&#x6CDB;&#x578B;&#x5F15;&#x7528;&#x6570;&#x7EC4; </div><div class="line">Gen&lt;Integer&gt; gens[] = new Gen&lt;Integer&gt;[10];//wrong</div><div class="line">Gen&lt;?&gt; gens[] = new Gen&lt;?&gt;[10];//ok</div></pre></td></tr></table></figure>
+<h3 id="9-lambda&#x8868;&#x8FBE;&#x5F0F;"><a href="#9-lambda&#x8868;&#x8FBE;&#x5F0F;" class="headerlink" title="9.lambda&#x8868;&#x8FBE;&#x5F0F;"></a>9.lambda&#x8868;&#x8FBE;&#x5F0F;</h3><p>1.&#x5728;&#x4F7F;&#x7528;&#x5916;&#x5C42;&#x7684;&#x5C40;&#x90E8;&#x53D8;&#x91CF;&#x65F6;&#xFF0C;&#x53D8;&#x91CF;&#x4F1A;final&#x5316;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">int num = 10; </div><div class="line">MyFunc myLambda = (n) -&gt;  { </div><div class="line">    int v = num + n; //num is final</div><div class="line">    return v; </div><div class="line">}; </div><div class="line">num = 9; //wrong</div></pre></td></tr></table></figure>
+<p>2.&#x6784;&#x9020;&#x51FD;&#x6570;&#x5F15;&#x7528;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&#x53C2;&#x8003;15.8&#x6837;&#x4F8B;</div><div class="line">MyFunc myClassCons = MyClass::new; </div><div class="line">//MyFunc&#x4E3A;&#x63A5;&#x53E3;&#x51FD;&#x6570;&#x8FD4;&#x56DE;MyClass&#x5BF9;&#x8C61;</div><div class="line">//myClassCons&#x4E3A;MyFunc&#x7684;&#x5F15;&#x7528;</div><div class="line">MyClass mc = myClassCons.func(100);</div></pre></td></tr></table></figure>
+<h3 id="10-String&#x7C7B;"><a href="#10-String&#x7C7B;" class="headerlink" title="10.String&#x7C7B;"></a>10.String&#x7C7B;</h3><p>String&#x5BF9;&#x8C61;&#x90FD;&#x662F;final&#x7C7B;&#x578B;,&#x5355;&#x5F15;&#x53F7;&#x5F15;&#x7684;&#x6570;&#x636E; &#x662F;char&#x7C7B;&#x578B;&#x7684;&#xFF0C;&#x53CC;&#x5F15;&#x53F7;&#x5F15;&#x7684;&#x6570;&#x636E; &#x662F;String&#x7C7B;&#x578B;&#x7684;</p>
+<h3 id="11-&#x96C6;&#x5408;&#x6846;&#x67B6;"><a href="#11-&#x96C6;&#x5408;&#x6846;&#x67B6;" class="headerlink" title="11.&#x96C6;&#x5408;&#x6846;&#x67B6;"></a>11.&#x96C6;&#x5408;&#x6846;&#x67B6;</h3><p>&#x901A;&#x7528;&#x5B58;&#x50A8;&#x548C;&#x68C0;&#x7D22;&#x4FE1;&#x606F;&#x652F;&#x6301;</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/06/01/2016-06-01-swoole-webchat-minions-note/" rel="next" title="swoole-webchat-minions-note 解析">
+                <i class="fa fa-chevron-left"></i> swoole-webchat-minions-note 解析
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/07/01/2016-07-01-kafka-note/" rel="prev" title="kafka note">
+                kafka note <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-name">categories</span>
+              
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">60</span>
+                <span class="site-state-item-name">tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#java-note"><span class="nav-number">1.</span> <span class="nav-text">java-note</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-字节码"><span class="nav-number">1.0.1.</span> <span class="nav-text">1.字节码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-applet"><span class="nav-number">1.0.2.</span> <span class="nav-text">2.applet</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-servlet"><span class="nav-number">1.0.3.</span> <span class="nav-text">3.servlet</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-无指针"><span class="nav-number">1.0.4.</span> <span class="nav-text">4.无指针</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-多线程"><span class="nav-number">1.0.5.</span> <span class="nav-text">5.多线程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-注解"><span class="nav-number">1.0.6.</span> <span class="nav-text">6.注解</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-断言assert"><span class="nav-number">1.0.7.</span> <span class="nav-text">7.断言assert</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-泛型"><span class="nav-number">1.0.8.</span> <span class="nav-text">8.泛型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#9-lambda表达式"><span class="nav-number">1.0.9.</span> <span class="nav-text">9.lambda表达式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#10-String类"><span class="nav-number">1.0.10.</span> <span class="nav-text">10.String类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#11-集合框架"><span class="nav-number">1.0.11.</span> <span class="nav-text">11.集合框架</span></a></li></ol></li></ol></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Neconano</span>
+</div>
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

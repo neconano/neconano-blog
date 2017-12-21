@@ -1,0 +1,605 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="java,corenlp,中文分词,智能客服," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="shour
+git
+&amp;#x5B89;&amp;#x88C5;&amp;#x4F7F;&amp;#x7528;idea&amp;#x6253;&amp;#x5F00;
+&amp;#x4FEE;&amp;#x6539;&amp;#x914D;&amp;#x7F6E;&amp;#x6587;&amp;#x4EF6;pom.xml
+&amp;#x6DFB;&amp;#x52A0;
+123&amp;lt;packaging&amp;gt;war&amp;lt;/packaging&amp;gt;&amp;lt;properties&amp;gt;    &amp;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="corenlp-shour">
+<meta property="og:url" content="http://yoursite.com/2016/12/01/2016-12-01-corenlp-shour/index.html">
+<meta property="og:site_name" content="Neconano's notebook">
+<meta property="og:description" content="shour
+git
+&amp;#x5B89;&amp;#x88C5;&amp;#x4F7F;&amp;#x7528;idea&amp;#x6253;&amp;#x5F00;
+&amp;#x4FEE;&amp;#x6539;&amp;#x914D;&amp;#x7F6E;&amp;#x6587;&amp;#x4EF6;pom.xml
+&amp;#x6DFB;&amp;#x52A0;
+123&amp;lt;packaging&amp;gt;war&amp;lt;/packaging&amp;gt;&amp;lt;properties&amp;gt;    &amp;">
+<meta property="og:updated_time" content="2016-12-13T02:16:47.863Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="corenlp-shour">
+<meta name="twitter:description" content="shour
+git
+&amp;#x5B89;&amp;#x88C5;&amp;#x4F7F;&amp;#x7528;idea&amp;#x6253;&amp;#x5F00;
+&amp;#x4FEE;&amp;#x6539;&amp;#x914D;&amp;#x7F6E;&amp;#x6587;&amp;#x4EF6;pom.xml
+&amp;#x6DFB;&amp;#x52A0;
+123&amp;lt;packaging&amp;gt;war&amp;lt;/packaging&amp;gt;&amp;lt;properties&amp;gt;    &amp;">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"right","display":"always"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: 'Author'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2016/12/01/2016-12-01-corenlp-shour/"/>
+
+  <title> corenlp-shour | Neconano's notebook </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-right page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Neconano's notebook</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                corenlp-shour
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2016-12-01T00:00:00+08:00" content="2016-12-01">
+              2016-12-01
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="shour"><a href="#shour" class="headerlink" title="shour"></a>shour</h1><hr>
+<p><a href="https://github.com/p308715744/Shour" target="_blank" rel="external">git</a></p>
+<h3 id="&#x5B89;&#x88C5;"><a href="#&#x5B89;&#x88C5;" class="headerlink" title="&#x5B89;&#x88C5;"></a>&#x5B89;&#x88C5;</h3><p>&#x4F7F;&#x7528;idea&#x6253;&#x5F00;</p>
+<p>&#x4FEE;&#x6539;&#x914D;&#x7F6E;&#x6587;&#x4EF6;pom.xml</p>
+<p>&#x6DFB;&#x52A0;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;packaging&gt;war&lt;/packaging&gt;</div><div class="line">&lt;properties&gt;</div><div class="line">    &lt;project.build.sourceEncoding&gt;UTF-8&lt;/project.build.sourceEncoding&gt;</div></pre></td></tr></table></figure>
+<p>QAServlet&#x4E2D;//server.setHandler(context);&#xFF0C;&#x627E;&#x4E0D;&#x5230;&#x53EF;&#x4EE5;&#x5148;&#x4E0D;&#x5904;&#x7406;</p>
+<p>&#x6B63;&#x5E38;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x4F7F;&#x7528;junit&#x8C03;&#x8BD5;&#x662F;&#x53EF;&#x4EE5;&#x987A;&#x5229;&#x901A;&#x8FC7;&#x7684;</p>
+<p>&#x4EE5;&#x4E0A;&#x6CA1;&#x95EE;&#x9898;&#x7684;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x914D;&#x7F6E;tomcat</p>
+<p>&#x53F3;&#x4E0A;&#x89D2;&#x627E;&#x5230;run/debug&#x9009;&#x9879;&#xFF0C;&#x6DFB;&#x52A0;tomcat server &#xFF0C;&#x5728;server&#x6807;&#x7B7E;&#x4E0B;&#x914D;&#x7F6E;tomcat&#x5730;&#x5740;&#xFF0C;&#x53D6;&#x6D88;&#x52FE;&#x9009; after launch,&#x5728;deployment&#x6807;&#x7B7E;</p>
+<p>&#x6DFB;&#x52A0; chatbot:war exploded&#xFF08;&#x5FC5;&#x987B;pom.xml&#x4E2D;&#x6DFB;&#x52A0;&#x4E0A;&#x9762;&#x7684;<packaging>war</packaging>&#xFF09;</p>
+<p>&#x6DFB;&#x52A0;servlet&#x7684;&#x670D;&#x52A1;&#x63A5;&#x53E3;&#x7C7B;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line">package org.nerdboy.chatbot;</div><div class="line"></div><div class="line">import javax.servlet.ServletException;</div><div class="line">import javax.servlet.annotation.WebServlet;</div><div class="line">import javax.servlet.http.HttpServlet;</div><div class="line">import javax.servlet.http.HttpServletRequest;</div><div class="line">import javax.servlet.http.HttpServletResponse;</div><div class="line">import java.io.IOException;</div><div class="line">import java.io.PrintWriter;</div><div class="line"></div><div class="line">/**</div><div class="line"> * Created by Admin on 2016/12/12.</div><div class="line"> */</div><div class="line">@WebServlet(&quot;/shour&quot;)</div><div class="line">public class Test  extends HttpServlet {</div><div class="line"></div><div class="line">    public static String property = &quot;Shour.properties&quot;;</div><div class="line">    private static Shour shour;</div><div class="line"></div><div class="line">    @Override</div><div class="line">    protected void doGet(HttpServletRequest request, HttpServletResponse response)</div><div class="line">            throws ServletException, IOException {</div><div class="line"></div><div class="line">        shour = new Shour(property);</div><div class="line">        String question=request.getParameter(&quot;question&quot;);</div><div class="line">        String result=shour.response(question);</div><div class="line">        response.setContentType(&quot;text/html; charset=UTF-8&quot;);</div><div class="line">        response.setStatus(HttpServletResponse.SC_OK);</div><div class="line">        PrintWriter writer=response.getWriter();</div><div class="line">        writer.write(result);</div><div class="line">    }</div><div class="line"></div><div class="line">}</div></pre></td></tr></table></figure>
+<p>&#x542F;&#x52A8;tomcat&#x670D;&#x52A1;&#xFF0C;&#x5728;&#x6D4F;&#x89C8;&#x5668;&#x4E2D;&#x8BBF;&#x95EE;&#x5373;&#x53EF;</p>
+<h3 id="&#x89E3;&#x6790;"><a href="#&#x89E3;&#x6790;" class="headerlink" title="&#x89E3;&#x6790;"></a>&#x89E3;&#x6790;</h3>
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/java/" rel="tag">#java</a>
+          
+            <a href="/tags/corenlp/" rel="tag">#corenlp</a>
+          
+            <a href="/tags/中文分词/" rel="tag">#中文分词</a>
+          
+            <a href="/tags/智能客服/" rel="tag">#智能客服</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/12/01/2016-12-01-vscode/" rel="next" title="vscode">
+                <i class="fa fa-chevron-left"></i> vscode
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/12/01/2016-12-01-jiemo/" rel="prev" title="jiemo">
+                jiemo <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-name">categories</span>
+              
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">60</span>
+                <span class="site-state-item-name">tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#shour"><span class="nav-number">1.</span> <span class="nav-text">shour</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#安装"><span class="nav-number">1.0.1.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解析"><span class="nav-number">1.0.2.</span> <span class="nav-text">解析</span></a></li></ol></li></ol></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Neconano</span>
+</div>
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

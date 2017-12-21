@@ -1,0 +1,608 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="php,yeild," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="yeild&amp;#x534F;&amp;#x7A0B;&amp;#x4F7F;&amp;#x7528;&amp;#x534F;&amp;#x7A0B;&amp;#x6765;&amp;#x5B9E;&amp;#x65BD;&amp;#x4EFB;&amp;#x52A1;&amp;#x8C03;&amp;#x5EA6;,&amp;#x53CC;&amp;#x5411;&amp;#x901A;&amp;#x4FE1;
+yield&amp;#x6307;&amp;#x4EE4;&amp;#x63D0;&amp;#x4F9B;&amp;#x4E86;&amp;#x4EFB;&amp;#x5">
+<meta property="og:type" content="article">
+<meta property="og:title" content="php-yeild">
+<meta property="og:url" content="http://yoursite.com/2017/04/01/2017-04-01-php-yeild/index.html">
+<meta property="og:site_name" content="Neconano's notebook">
+<meta property="og:description" content="yeild&amp;#x534F;&amp;#x7A0B;&amp;#x4F7F;&amp;#x7528;&amp;#x534F;&amp;#x7A0B;&amp;#x6765;&amp;#x5B9E;&amp;#x65BD;&amp;#x4EFB;&amp;#x52A1;&amp;#x8C03;&amp;#x5EA6;,&amp;#x53CC;&amp;#x5411;&amp;#x901A;&amp;#x4FE1;
+yield&amp;#x6307;&amp;#x4EE4;&amp;#x63D0;&amp;#x4F9B;&amp;#x4E86;&amp;#x4EFB;&amp;#x5">
+<meta property="og:image" content="http://yoursite.com/2017/04/01/2017-04-01-php-yeild/callcc.png">
+<meta property="og:updated_time" content="2017-05-23T06:24:28.481Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="php-yeild">
+<meta name="twitter:description" content="yeild&amp;#x534F;&amp;#x7A0B;&amp;#x4F7F;&amp;#x7528;&amp;#x534F;&amp;#x7A0B;&amp;#x6765;&amp;#x5B9E;&amp;#x65BD;&amp;#x4EFB;&amp;#x52A1;&amp;#x8C03;&amp;#x5EA6;,&amp;#x53CC;&amp;#x5411;&amp;#x901A;&amp;#x4FE1;
+yield&amp;#x6307;&amp;#x4EE4;&amp;#x63D0;&amp;#x4F9B;&amp;#x4E86;&amp;#x4EFB;&amp;#x5">
+<meta name="twitter:image" content="http://yoursite.com/2017/04/01/2017-04-01-php-yeild/callcc.png">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"right","display":"always"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: 'Author'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/04/01/2017-04-01-php-yeild/"/>
+
+  <title> php-yeild | Neconano's notebook </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-right page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Neconano's notebook</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                php-yeild
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2017-04-01T00:00:00+08:00" content="2017-04-01">
+              2017-04-01
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="yeild&#x534F;&#x7A0B;"><a href="#yeild&#x534F;&#x7A0B;" class="headerlink" title="yeild&#x534F;&#x7A0B;"></a>yeild&#x534F;&#x7A0B;</h1><p>&#x4F7F;&#x7528;&#x534F;&#x7A0B;&#x6765;&#x5B9E;&#x65BD;&#x4EFB;&#x52A1;&#x8C03;&#x5EA6;,&#x53CC;&#x5411;&#x901A;&#x4FE1;</p>
+<p>yield&#x6307;&#x4EE4;&#x63D0;&#x4F9B;&#x4E86;&#x4EFB;&#x52A1;&#x4E2D;&#x65AD;&#x81EA;&#x8EAB;&#x7684;&#x4E00;&#x79CD;&#x65B9;&#x6CD5;&#xFF0C;yield&#x8FD8;&#x53EF;&#x4EE5;&#x7528;&#x6765;&#x5728;&#x4EFB;&#x52A1;&#x548C;&#x8C03;&#x5EA6;&#x5668;&#x4E4B;&#x95F4;&#x8FDB;&#x884C;&#x901A;&#x4FE1;.</p>
+<p>&#x6709;&#x8D5E;&#x6587;&#x7AE0;</p>
+<p><a href="https://goghcrow.gitbooks.io/php-co-koa/content/" target="_blank" rel="external">&#x53C2;&#x8003;</a></p>
+<p>php 5.6&#x4EE5;&#x4E0A;</p>
+<p><a href="http://www.laruence.com/2015/05/28/3038.html" target="_blank" rel="external">&#x53C2;&#x8003;</a></p>
+<p>&#x534F;&#x7A0B;&#x7684;&#x652F;&#x6301;&#x662F;&#x5728;&#x8FED;&#x4EE3;&#x751F;&#x6210;&#x5668;&#x7684;&#x57FA;&#x7840;&#x4E0A;, &#x589E;&#x52A0;&#x4E86;&#x53EF;&#x4EE5;&#x56DE;&#x9001;&#x6570;&#x636E;&#x7ED9;&#x751F;&#x6210;&#x5668;&#x7684;&#x529F;&#x80FD;&#x3002;</p>
+<p>&#x6D89;&#x53CA;&#x6982;&#x5FF5;&#xFF1A;</p>
+<p>&#x961F;&#x5217;&#xFF0C;&#x5148;&#x5165;&#x5148;&#x51FA;</p>
+<p>&#x6808;&#xFF0C;&#x5148;&#x5165;&#x540E;&#x51FA;</p>
+<h3 id="&#x7B80;&#x5355;&#x4F7F;&#x7528;"><a href="#&#x7B80;&#x5355;&#x4F7F;&#x7528;" class="headerlink" title="&#x7B80;&#x5355;&#x4F7F;&#x7528;"></a>&#x7B80;&#x5355;&#x4F7F;&#x7528;</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">function debug(){</div><div class="line">    yield 1;</div><div class="line">    yield 2;</div><div class="line">}</div><div class="line">$a = debug();// &#x751F;&#x6210;&#x8FED;&#x4EE3;&#x5BF9;&#x8C61;&#x7684;&#x65F6;&#x5019;&#x5DF2;&#x7ECF;&#x9690;&#x542B;&#x5730;&#x6267;&#x884C;&#x4E86;rewind&#x64CD;&#x4F5C;.</div><div class="line">var_dump($a);// object(Generator)</div><div class="line">var_dump($a-&gt;current());// int(1)</div><div class="line">var_dump($a-&gt;send(null));// int(2)</div></pre></td></tr></table></figure>
+<p>&#x76F4;&#x63A5;&#x8C03;&#x7528;&#x51FD;&#x6570;&#x8FD4;&#x56DE;&#x7684;&#x662F;yield&#x5BF9;&#x8C61;&#x672C;&#x8EAB;&#xFF0C;&#x5176;&#x7C7B;&#x578B;&#x5373;&#x4E3A;Generator</p>
+<p>&#x8C03;&#x7528;send()&#x65B9;&#x6CD5;&#xFF0C;&#x8FD4;&#x56DE;&#x7684;&#x5C06;&#x662F;yield&#x4F5C;&#x7528;&#x7684;&#x5BF9;&#x8C61;&#xFF0C;&#x4F8B;&#x5982;yield 1;&#x7C7B;&#x578B;&#x662F;int</p>
+<h3 id="&#x4EFB;&#x52A1;&#x8C03;&#x5EA6;&#x6A21;&#x578B;A"><a href="#&#x4EFB;&#x52A1;&#x8C03;&#x5EA6;&#x6A21;&#x578B;A" class="headerlink" title="&#x4EFB;&#x52A1;&#x8C03;&#x5EA6;&#x6A21;&#x578B;A"></a>&#x4EFB;&#x52A1;&#x8C03;&#x5EA6;&#x6A21;&#x578B;A</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div></pre></td><td class="code"><pre><div class="line">&lt;?php</div><div class="line"></div><div class="line">// &#x8C03;&#x5EA6;</div><div class="line">class Schedule{</div><div class="line">    protected $taskQueue;</div><div class="line">    protected $tids = 0;</div><div class="line">    public function __construct() {</div><div class="line">        $this-&gt;taskQueue = new SplQueue();</div><div class="line">    }</div><div class="line">    // &#x6DFB;&#x52A0;&#x4EFB;&#x52A1;</div><div class="line">    public function addTask(Generator $coroutine){</div><div class="line">        $task = new Task($coroutine);</div><div class="line">        $task-&gt;taskId = ++$this-&gt;tids;</div><div class="line">        $this-&gt;enQueue($task);</div><div class="line">    }</div><div class="line">    // &#x5165;&#x961F;</div><div class="line">    public function enQueue(Task $task){</div><div class="line">        $this-&gt;taskQueue-&gt;enqueue($task);</div><div class="line">        // echo &quot;queue &quot;.$task-&gt;taskId.&quot;\n&quot;;</div><div class="line">    }</div><div class="line">    // &#x6267;&#x884C;</div><div class="line">    public function run(){</div><div class="line">        while (!$this-&gt;taskQueue-&gt;isEmpty()) {</div><div class="line">            // &#x51FA;&#x961F;</div><div class="line">            $task = $this-&gt;taskQueue-&gt;dequeue();</div><div class="line">            // echo &quot;dequeue &quot;.$task-&gt;taskId.&quot;\n&quot;;</div><div class="line">            $retval = $task-&gt;run();</div><div class="line">            if( !$task-&gt;isFinished() )</div><div class="line">                $this-&gt;enQueue($task);</div><div class="line">        }</div><div class="line">    }</div><div class="line">}</div><div class="line"></div><div class="line">// &#x4EFB;&#x52A1;</div><div class="line">class Task{</div><div class="line">    public $taskId;</div><div class="line">    protected $task;</div><div class="line">    protected $beforeFirstYield = true;</div><div class="line">    public function __construct(Generator $coroutine) {</div><div class="line">        $this-&gt;task = $coroutine;</div><div class="line">    }</div><div class="line">    // &#x6267;&#x884C;</div><div class="line">    public function run(){</div><div class="line">        // &#x8FD9;&#x5757;&#x9700;&#x8981;&#x4E86;&#x89E3;current()&#x4E0E;send()&#x7684;&#x533A;&#x522B;,&#x5982;&#x679C;&#x4E0D;&#x4F7F;&#x7528;send()&#xFF0C;&#x5C31;&#x4E0D;&#x4F1A;&#x6267;&#x884C;yield&#x540E;&#x9762;&#x4EE3;&#x7801;</div><div class="line">        // &#x8FD4;&#x56DE;&#x7ED9;yield&#x8C03;&#x7528;</div><div class="line">        $this-&gt;task-&gt;send($this-&gt;taskId);</div><div class="line">    }</div><div class="line">    // &#x5224;&#x65AD;&#x7ED3;&#x675F;</div><div class="line">    public function isFinished() {</div><div class="line">        return !$this-&gt;task-&gt;valid();</div><div class="line">    }</div><div class="line">}</div><div class="line"></div><div class="line">// &#x5177;&#x4F53;&#x4EFB;&#x52A1;</div><div class="line">function task(){</div><div class="line">    echo &quot;task id &quot;.yield.&quot;\n&quot;;</div><div class="line">    for ($i = 1; $i &lt;= 3; ++$i) {</div><div class="line">        echo &quot;Parent task &quot;.yield.&quot; iteration $i.\n&quot;;</div><div class="line">    }</div><div class="line">}</div><div class="line"></div><div class="line">$schedule = new Schedule();</div><div class="line">$schedule-&gt;addTask(task());</div><div class="line">$schedule-&gt;addTask(task());</div><div class="line">$schedule-&gt;addTask(task());</div><div class="line">$schedule-&gt;run();</div><div class="line"></div><div class="line">?&gt;</div></pre></td></tr></table></figure>
+<p>&#x8F93;&#x51FA;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">task id 1</div><div class="line">task id 2</div><div class="line">task id 3</div><div class="line">Parent task 1 iteration 1.</div><div class="line">Parent task 2 iteration 1.</div><div class="line">Parent task 3 iteration 1.</div><div class="line">Parent task 1 iteration 2.</div><div class="line">Parent task 2 iteration 2.</div><div class="line">Parent task 3 iteration 2.</div><div class="line">Parent task 1 iteration 3.</div><div class="line">Parent task 2 iteration 3.</div><div class="line">Parent task 3 iteration 3.</div></pre></td></tr></table></figure>
+<h3 id="&#x4EFB;&#x52A1;&#x8C03;&#x5EA6;&#x6A21;&#x578B;B"><a href="#&#x4EFB;&#x52A1;&#x8C03;&#x5EA6;&#x6A21;&#x578B;B" class="headerlink" title="&#x4EFB;&#x52A1;&#x8C03;&#x5EA6;&#x6A21;&#x578B;B"></a>&#x4EFB;&#x52A1;&#x8C03;&#x5EA6;&#x6A21;&#x578B;B</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div></pre></td><td class="code"><pre><div class="line">&lt;?php</div><div class="line"></div><div class="line">// &#x8C03;&#x5EA6;</div><div class="line">class Schedule{</div><div class="line">    protected $taskQueue;</div><div class="line">    protected $tids = 0;</div><div class="line">    public function __construct() {</div><div class="line">        $this-&gt;taskQueue = new SplQueue();</div><div class="line">    }</div><div class="line">    // &#x6DFB;&#x52A0;&#x4EFB;&#x52A1;</div><div class="line">    public function addTask(Generator $coroutine){</div><div class="line">        $task = new Task($coroutine);</div><div class="line">        $task-&gt;taskId = ++$this-&gt;tids;</div><div class="line">        $this-&gt;enQueue($task);</div><div class="line">    }</div><div class="line">    // &#x5165;&#x961F;</div><div class="line">    public function enQueue(Task $task){</div><div class="line">        $this-&gt;taskQueue-&gt;enqueue($task);</div><div class="line">        // echo &quot;queue &quot;.$task-&gt;taskId.&quot;\n&quot;;</div><div class="line">    }</div><div class="line">    // &#x6267;&#x884C;</div><div class="line">    public function run(){</div><div class="line">        while (!$this-&gt;taskQueue-&gt;isEmpty()) {</div><div class="line">            // &#x51FA;&#x961F;</div><div class="line">            $task = $this-&gt;taskQueue-&gt;dequeue();</div><div class="line">            // echo &quot;dequeue &quot;.$task-&gt;taskId.&quot;\n&quot;;</div><div class="line">            $retval = $task-&gt;run();</div><div class="line">            if ($retval instanceof SystemCall) {</div><div class="line">                // &#x6267;&#x884C;SystemCall</div><div class="line">                $retval($task, $this);</div><div class="line">                continue;</div><div class="line">            }</div><div class="line">            if( !$task-&gt;isFinished() )</div><div class="line">                $this-&gt;enQueue($task);</div><div class="line">        }</div><div class="line">    }</div><div class="line">}</div><div class="line"></div><div class="line">// &#x4EFB;&#x52A1;</div><div class="line">class Task{</div><div class="line">    public $taskId;</div><div class="line">    protected $task;</div><div class="line">    protected $beforeFirstYield = true;</div><div class="line">    public function __construct(Generator $coroutine) {</div><div class="line">        $this-&gt;task = $coroutine;</div><div class="line">    }</div><div class="line">    // &#x6267;&#x884C;</div><div class="line">    public function run() {</div><div class="line">        // &#x8FD9;&#x5757;&#x9700;&#x8981;&#x4E86;&#x89E3;current()&#x4E0E;send()&#x7684;&#x533A;&#x522B;,&#x5982;&#x679C;&#x4E0D;&#x4F7F;&#x7528;send()&#xFF0C;&#x5C31;&#x4E0D;&#x4F1A;&#x6267;&#x884C;yield&#x540E;&#x9762;&#x4EE3;&#x7801;</div><div class="line">        if ($this-&gt;beforeFirstYield) {</div><div class="line">            $this-&gt;beforeFirstYield = false;</div><div class="line">            return $this-&gt;task-&gt;current();</div><div class="line">        } else {</div><div class="line">            // &#x8FD4;&#x56DE;&#x7ED9;yield&#x8C03;&#x7528;</div><div class="line">            return $this-&gt;task-&gt;send($this-&gt;taskId);</div><div class="line">        }</div><div class="line">    }</div><div class="line">    // &#x5224;&#x65AD;&#x7ED3;&#x675F;</div><div class="line">    public function isFinished() {</div><div class="line">        return !$this-&gt;task-&gt;valid();</div><div class="line">    }</div><div class="line">}</div><div class="line"></div><div class="line">// &#x7CFB;&#x7EDF;&#x8C03;&#x7528;</div><div class="line">class SystemCall {</div><div class="line">    protected $callback;</div><div class="line">    public function __construct(callable $callback) {</div><div class="line">        $this-&gt;callback = $callback;</div><div class="line">    }</div><div class="line">    public function __invoke(Task $task, Schedule $schedule) {</div><div class="line">        $callback = $this-&gt;callback;</div><div class="line">        return $callback($task, $schedule);</div><div class="line">    }</div><div class="line">}</div><div class="line"></div><div class="line">function newTask(Generator $coroutine) {</div><div class="line">    return new SystemCall(</div><div class="line">        function(Task $task, Schedule $schedule) use ($coroutine) {</div><div class="line">            // &#x521B;&#x5EFA;&#x65B0;&#x4EFB;&#x52A1;&#xFF0C;&#x5165;&#x961F;</div><div class="line">            $schedule-&gt;addTask($coroutine);</div><div class="line">            // &#x7236;&#x4EFB;&#x52A1;&#xFF0C;&#x5165;&#x961F;</div><div class="line">            $schedule-&gt;enQueue($task);</div><div class="line">        }</div><div class="line">    );</div><div class="line">}</div><div class="line"></div><div class="line">// &#x83B7;&#x5F97;tid</div><div class="line">function getTid(){</div><div class="line">    return new SystemCall(function(Task $task, Schedule $schedule){</div><div class="line">        // &#x5165;&#x961F;</div><div class="line">        // &#x6267;&#x884C;&#x51FA;&#x961F;&#x540E;&#x8C03;&#x7528;send()&#x8FD4;&#x56DE;tid&#x7ED9;yield</div><div class="line">        $schedule-&gt;enQueue($task);</div><div class="line">    });</div><div class="line">}</div><div class="line"></div><div class="line">// &#x5177;&#x4F53;&#x4EFB;&#x52A1;</div><div class="line">function task(){</div><div class="line">    // &#x8C03;&#x7528;&#x751F;&#x6210;&#x5668;&#xFF08;&#x6216;&#x8005;&#x534F;&#x7A0B;&#xFF09;&#x5C06;&#x6CA1;&#x6709;&#x771F;&#x6B63;&#x5730;&#x505A;&#x4EFB;&#x4F55;&#x4E8B;&#x60C5;, &#x5B83;&#x4EC5;&#x4EC5;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;</div><div class="line">    // childTask();&#x76F4;&#x63A5;&#x8C03;&#x7528;&#x4E0D;&#x4F1A;&#x6267;&#x884C;&#x4EFB;&#x4F55;&#x5185;&#x5BB9;</div><div class="line">    $childTid = ( yield newTask(childTask()) ) ;</div><div class="line">    for ($i = 1; $i &lt;= 3; ++$i) {</div><div class="line">        echo &quot;Parent task &quot;.yield.&quot; iteration $i.\n&quot;;</div><div class="line">    }</div><div class="line">}</div><div class="line"></div><div class="line">// &#x5B50;&#x4EFB;&#x52A1;</div><div class="line">function childTask(){</div><div class="line">    for ($i = 1; $i &lt;= 3; ++$i) {</div><div class="line">        echo &quot;Child task &quot;.yield.&quot; iteration $i.\n&quot;;</div><div class="line">    }</div><div class="line">}</div><div class="line"></div><div class="line">$schedule = new Schedule();</div><div class="line">$schedule-&gt;addTask(task());</div><div class="line">$schedule-&gt;run();</div><div class="line"></div><div class="line">?&gt;</div></pre></td></tr></table></figure>
+<p>&#x8F93;&#x51FA;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">Child task 2 iteration 1.</div><div class="line">Parent task 1 iteration 1.</div><div class="line">Child task 2 iteration 2.</div><div class="line">Parent task 1 iteration 2.</div><div class="line">Child task 2 iteration 3.</div><div class="line">Parent task 1 iteration 3.</div></pre></td></tr></table></figure>
+<h3 id="&#x8FED;&#x4EE3;&#x5668;&#x5F02;&#x5E38;&#x6A21;&#x578B;"><a href="#&#x8FED;&#x4EE3;&#x5668;&#x5F02;&#x5E38;&#x6A21;&#x578B;" class="headerlink" title="&#x8FED;&#x4EE3;&#x5668;&#x5F02;&#x5E38;&#x6A21;&#x578B;"></a>&#x8FED;&#x4EE3;&#x5668;&#x5F02;&#x5E38;&#x6A21;&#x578B;</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div></pre></td><td class="code"><pre><div class="line">&lt;?php</div><div class="line"></div><div class="line">// &#x4E3A;Gen&#x5F15;&#x5165;throw&#x65B9;&#x6CD5;</div><div class="line">class Gen</div><div class="line">{</div><div class="line">    public $isfirst = true;</div><div class="line">    public function __construct(\Generator $generator)</div><div class="line">    {</div><div class="line">        $this-&gt;generator = $generator;</div><div class="line">    }</div><div class="line">    public function valid()</div><div class="line">    {</div><div class="line">        return $this-&gt;generator-&gt;valid();</div><div class="line">    }</div><div class="line">    public function send($value = null)</div><div class="line">    {</div><div class="line">        if ($this-&gt;isfirst) {</div><div class="line">            $this-&gt;isfirst = false;</div><div class="line">            return $this-&gt;generator-&gt;current();</div><div class="line">        } else {</div><div class="line">            return $this-&gt;generator-&gt;send($value);</div><div class="line">        }</div><div class="line">    }</div><div class="line">    // PHP7 &#x4E4B;&#x524D; &#x5173;&#x952E;&#x8BCD;&#x4E0D;&#x80FD;&#x7528;&#x4F5C;&#x540D;&#x5B57;</div><div class="line">    public function throw_(\Exception $ex)</div><div class="line">    {</div><div class="line">        return $this-&gt;generator-&gt;throw($ex);</div><div class="line">    }</div><div class="line">}</div><div class="line"></div><div class="line">final class AsyncTask</div><div class="line">{</div><div class="line">    public $gen;</div><div class="line">    </div><div class="line">    public function __construct(\Generator $gen)</div><div class="line">    {</div><div class="line">        $this-&gt;gen = new Gen($gen);</div><div class="line">    }</div><div class="line">    public function begin()</div><div class="line">    {</div><div class="line">        return $this-&gt;next();</div><div class="line">    }</div><div class="line"></div><div class="line">    public function next($result = null, \Exception $ex = null)</div><div class="line">    {</div><div class="line">        try {</div><div class="line">            if ($ex) {</div><div class="line">                echo &quot;c -&gt; &quot;;</div><div class="line">                $value = $this-&gt;gen-&gt;throw_($ex);</div><div class="line">            } else {</div><div class="line">                echo &quot;a2 -&gt; &quot;;</div><div class="line">                $value = $this-&gt;gen-&gt;send($result);</div><div class="line">            }</div><div class="line">            if ($this-&gt;gen-&gt;valid()) {</div><div class="line">                if ($value instanceof \Generator) {</div><div class="line">                    echo &quot;a3 -&gt; &quot;;</div><div class="line">                    $value = (new self($value))-&gt;begin();</div><div class="line">                }</div><div class="line">                echo &quot;a4 -&gt; &quot;;</div><div class="line">                return $this-&gt;next($value);</div><div class="line">            } else {</div><div class="line">                return $result;</div><div class="line">            }</div><div class="line">        } catch (\Exception $ex) {</div><div class="line">            if ($this-&gt;gen-&gt;valid()) {</div><div class="line">                echo &quot;b1 -&gt; &quot;;</div><div class="line">                return $this-&gt;next(null, $ex);</div><div class="line">            } else {</div><div class="line">                echo &quot;b2 -&gt; &quot;;</div><div class="line">                throw $ex;</div><div class="line">            }</div><div class="line">        }</div><div class="line">    }</div><div class="line">}</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div></pre></td><td class="code"><pre><div class="line">function g1()</div><div class="line">{</div><div class="line">    throw new \Exception();</div><div class="line">    yield;</div><div class="line">}</div><div class="line">// a2 -&gt; b2 -&gt;</div><div class="line">(new AsyncTask(g1()))-&gt;begin();</div><div class="line"></div><div class="line"></div><div class="line">function g2()</div><div class="line">{</div><div class="line">    yield;</div><div class="line">    throw new \Exception();</div><div class="line">}</div><div class="line">// a2 (-&gt; a4 -&gt; a2) -&gt; b2 -&gt; b2 -&gt;</div><div class="line">(new AsyncTask(g2()))-&gt;begin();</div><div class="line"></div><div class="line">function g4()</div><div class="line">{</div><div class="line">    yield;</div><div class="line">    yield;</div><div class="line">    throw new \Exception();</div><div class="line">}</div><div class="line">// a2 (-&gt; a4 -&gt; a2) (-&gt; a4 -&gt; a2) -&gt; b2 -&gt; b2 -&gt; b2 -&gt;</div><div class="line">(new AsyncTask(g4()))-&gt;begin();</div><div class="line"></div><div class="line"></div><div class="line">function g5()</div><div class="line">{</div><div class="line">    throw new \Exception();</div><div class="line">    /** @noinspection PhpUnreachableStatementInspection */</div><div class="line">    yield;</div><div class="line">}</div><div class="line">function g7()</div><div class="line">{</div><div class="line">    yield g5();</div><div class="line">}</div><div class="line">// (a2 -&gt; a3) -&gt; a2 (-&gt; b2 -&gt; b1 -&gt; c) -&gt; b2 -&gt;</div><div class="line">(new AsyncTask(g7()))-&gt;begin();</div><div class="line"></div><div class="line"></div><div class="line">function g6()</div><div class="line">{</div><div class="line">    yield;</div><div class="line">    throw new \Exception();</div><div class="line">}</div><div class="line">function g8()</div><div class="line">{</div><div class="line">    yield g6();</div><div class="line">}</div><div class="line">// (a2 -&gt; a3) -&gt; a2 -&gt; a4 -&gt; a2 -&gt; b2 -&gt; b2 -&gt; b1 -&gt; c -&gt; b2 -&gt;</div><div class="line">(new AsyncTask(g8()))-&gt;begin();</div><div class="line"></div><div class="line"></div><div class="line">function g9()</div><div class="line">{</div><div class="line">    try {</div><div class="line">        yield g5();</div><div class="line">    } catch (\Exception $ex) {</div><div class="line"></div><div class="line">    }</div><div class="line">}</div><div class="line">// a2 -&gt; a3 -&gt; a2 -&gt; b2 -&gt; b1 -&gt; c -&gt;</div><div class="line">(new AsyncTask(g9()))-&gt;begin();</div></pre></td></tr></table></figure>
+<p>&#x7406;&#x89E3;&#x91CD;&#x70B9;&#xFF1A;<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">$this-&gt;gen-&gt;send()&#x7684;&#x4F7F;&#x7528;&#xFF1A;&#x9996;&#x6B21;&#x6267;&#x884C;&#x4F7F;&#x7528;current(),&#x4EE5;&#x540E;&#x4F7F;&#x7528;send()</div><div class="line"></div><div class="line">$this-&gt;gen-&gt;valid()&#x8FD4;&#x56DE;false&#xFF1A;&#x5F53;send&#x6267;&#x884C;&#x5230;&#x6700;&#x540E;&#x65E2;&#x4E3A;false</div><div class="line"></div><div class="line">$value = (new self($value))-&gt;begin();&#x8FD9;&#x91CC;&#x662F;&#x521B;&#x5EFA;&#x5B50;&#x751F;&#x6210;&#x5668;</div><div class="line"></div><div class="line">throw $ex;&#x5F02;&#x5E38;&#x8FD4;&#x56DE;&#xFF0C;&#x4F9D;&#x5C42;&#x7EA7;&#x5411;&#x4E0A;&#x8FD4;&#x56DE;&#x6355;&#x83B7;&#xFF0C;&#x5B50;&#x751F;&#x6210;&#x5668;&#x5411;&#x4E0A;&#x629B;&#xFF0C;&#x9012;&#x5F52;&#x51FD;&#x6570;&#x5411;&#x5916;&#x629B;</div></pre></td></tr></table></figure></p>
+<h3 id="callcc&#xFF0C;race&#x4E0E;timeout"><a href="#callcc&#xFF0C;race&#x4E0E;timeout" class="headerlink" title="callcc&#xFF0C;race&#x4E0E;timeout"></a>callcc&#xFF0C;race&#x4E0E;timeout</h3><p>asyncGen.php</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div></pre></td><td class="code"><pre><div class="line">&lt;?php</div><div class="line">class Gen</div><div class="line">{</div><div class="line">    public $isfirst = true;</div><div class="line">    public $generator;</div><div class="line">    public function __construct(\Generator $generator)</div><div class="line">    {</div><div class="line">        $this-&gt;generator = $generator;</div><div class="line">    }</div><div class="line">    public function valid()</div><div class="line">    {</div><div class="line">        return $this-&gt;generator-&gt;valid();</div><div class="line">    }</div><div class="line">    public function send($value = null)</div><div class="line">    {</div><div class="line">        if ($this-&gt;isfirst) {</div><div class="line">            $this-&gt;isfirst = false;</div><div class="line">            return $this-&gt;generator-&gt;current();</div><div class="line">        } else {</div><div class="line">            return $this-&gt;generator-&gt;send($value);</div><div class="line">        }</div><div class="line">    }</div><div class="line">}</div><div class="line"></div><div class="line">interface Async</div><div class="line">{</div><div class="line">    public function begin(callable $callback);</div><div class="line">}</div><div class="line"></div><div class="line">final class AsyncTask implements Async</div><div class="line">{</div><div class="line">    public $gen;</div><div class="line">    public $continuation;</div><div class="line">    public function __construct(\Generator $gen)</div><div class="line">    {</div><div class="line">        $this-&gt;gen = new Gen($gen);</div><div class="line">    }</div><div class="line">    public function begin(callable $continuation)</div><div class="line">    {</div><div class="line">        $this-&gt;continuation = $continuation;</div><div class="line">        $this-&gt;next();</div><div class="line">    }</div><div class="line">    public function next($result = null)</div><div class="line">    {</div><div class="line">        $value = $this-&gt;gen-&gt;send($result);</div><div class="line">        if ($this-&gt;gen-&gt;valid()) {</div><div class="line">            if ($value instanceof Async) {</div><div class="line">                $continuation = [$this, &quot;next&quot;];</div><div class="line">                $value-&gt;begin($continuation);</div><div class="line">            } else {</div><div class="line">                $this-&gt;next($value);</div><div class="line">            }</div><div class="line">        } else {</div><div class="line">            $cc = $this-&gt;continuation;</div><div class="line">            $cc($result);</div><div class="line">        }</div><div class="line">    }</div><div class="line">}</div><div class="line">// CallCC instanceof Async</div><div class="line">class CallCC implements Async</div><div class="line">{</div><div class="line">    public $fun;</div><div class="line">    public function __construct(callable $fun)</div><div class="line">    {</div><div class="line">        $this-&gt;fun = $fun;</div><div class="line">    }</div><div class="line">    public function begin(callable $continuation)</div><div class="line">    {</div><div class="line">        $fun = $this-&gt;fun;</div><div class="line">        $fun($continuation);</div><div class="line">    }</div><div class="line">}</div><div class="line"></div><div class="line"></div><div class="line">// helper function</div><div class="line">function once(callable $fun)</div><div class="line">{</div><div class="line">    $has = false;</div><div class="line">    return function(...$args) use($fun, &amp;$has) {</div><div class="line">        if ($has === false) {</div><div class="line">            echo 333;</div><div class="line">            $fun(...$args);</div><div class="line">            $has = true;</div><div class="line">        }</div><div class="line">    };</div><div class="line">}</div><div class="line"></div><div class="line">// helper function</div><div class="line">function timeoutWrapper(callable $fun, $timeout)</div><div class="line">{</div><div class="line">    return function($k) use($fun, $timeout) {</div><div class="line">        // $k array</div><div class="line">        $k = once($k); //&#x8FD4;&#x56DE;&#x5B9E;&#x4F8B;&#xFF0C;&#x5E76;&#x975E;&#x6267;&#x884C;&#x5B9E;&#x4F8B;</div><div class="line">        // $k object</div><div class="line">        // $fun object async_dns_lookup</div><div class="line">        $fun($k); //&#x5B9E;&#x9645;&#x662F;&#x5C06;$fun&#x5C01;&#x88C5;&#x540E;&#x518D;&#x8C03;&#x7528;&#x4E00;&#x6B21;&#xFF0C;&#x7531;&#x4E8E;&#x8C03;&#x7528;&#x5F02;&#x6B65;dns&#x65B9;&#x6CD5;&#xFF0C;&#x6240;&#x4EE5;&#x8FD4;&#x56DE;&#x4E0A;&#x975E;&#x987A;&#x5E8F;&#x8FD4;&#x56DE;</div><div class="line">        echo 111;</div><div class="line">        swoole_timer_after($timeout, function() use($k) {</div><div class="line">            // &#x8FD9;&#x91CC;&#x5F02;&#x5E38;&#x53EF;&#x4EE5;&#x4ECE;&#x5916;&#x90E8;&#x4F20;&#x5165;</div><div class="line">            $k(null, new \Exception(&quot;timeout&quot;));</div><div class="line">        });</div><div class="line">    };</div><div class="line">}</div><div class="line"></div><div class="line"></div><div class="line">// &#x4E3A;callcc&#x6DFB;&#x52A0;&#x8D85;&#x65F6;&#x5904;&#x7406;</div><div class="line">function callcc(callable $fun, $timeout = 0)</div><div class="line">{</div><div class="line">    if ($timeout &gt; 0) {</div><div class="line">        $fun = timeoutWrapper($fun, $timeout);</div><div class="line">    }</div><div class="line">    return new CallCC($fun);</div><div class="line">}</div></pre></td></tr></table></figure>
+<p>callcc.php</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line">&lt;?php</div><div class="line">// &#x6267;&#x884C;&#x5668;</div><div class="line">include_once(&apos;spawn.php&apos;);</div><div class="line">// &#x5F02;&#x6B65;&#x8C03;&#x5EA6;&#x53CA;&#x8FED;&#x4EE3;&#x5668;&#x65B9;&#x6CD5;</div><div class="line">include_once(&apos;asyncGen.php&apos;);</div><div class="line"></div><div class="line">// &#x6211;&#x4EEC;&#x7684;dns&#x67E5;&#x8BE2;&#x6709;&#x4E86;&#x8D85;&#x65F6;&#x900F;&#x4F20;&#x5F02;&#x5E38;&#x7684;&#x80FD;&#x529B;&#x4E86;</div><div class="line">function async_dns($host, $timeout = 100)</div><div class="line">{</div><div class="line">    return callcc(function($k) use($host) {</div><div class="line">        swoole_async_dns_lookup($host, function($host, $ip) use($k) {</div><div class="line">            // AsyncTask-&gt;begin($ip)</div><div class="line">            echo 222;</div><div class="line">            $k($ip);</div><div class="line">        });</div><div class="line">    }, $timeout);</div><div class="line">}</div><div class="line"></div><div class="line">function debug() {</div><div class="line">    try {</div><div class="line">        $ip = (yield async_dns(&quot;www.baidu.com&quot;, 1));</div><div class="line">        echo $ip;</div><div class="line">    } catch (\Exception $ex) {</div><div class="line">        echo $ex-&gt;getMessage(); // ex!</div><div class="line">    }}</div><div class="line"></div><div class="line">// spawn(debug());</div><div class="line"></div><div class="line">$continuation = function() {};</div><div class="line">(new AsyncTask(debug()))-&gt;begin($continuation);</div></pre></td></tr></table></figure>
+<p>&#x8F93;&#x51FA;</p>
+<p>11122233361.135.169.125</p>
+<p><img src="/2017/04/01/2017-04-01-php-yeild/callcc.png" alt="logo"></p>
+<h3 id="promise&#x65B9;&#x5F0F;timeout"><a href="#promise&#x65B9;&#x5F0F;timeout" class="headerlink" title="promise&#x65B9;&#x5F0F;timeout"></a>promise&#x65B9;&#x5F0F;timeout</h3><p><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Promise" target="_blank" rel="external">promise</a></p>
+<p>&#x6837;&#x4F8B;&#x53C2;&#x8003;<a href="https://github.com/neconano/php-co-koa" target="_blank" rel="external">github</a></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/php/" rel="tag">#php</a>
+          
+            <a href="/tags/yeild/" rel="tag">#yeild</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/04/01/2017-04-01-swoole-distributed/" rel="next" title="swoole-distributed">
+                <i class="fa fa-chevron-left"></i> swoole-distributed
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/04/01/2017-04-01-web-notification/" rel="prev" title="web-notification">
+                web-notification <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-name">categories</span>
+              
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">60</span>
+                <span class="site-state-item-name">tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#yeild协程"><span class="nav-number">1.</span> <span class="nav-text">yeild协程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#简单使用"><span class="nav-number">1.0.1.</span> <span class="nav-text">简单使用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#任务调度模型A"><span class="nav-number">1.0.2.</span> <span class="nav-text">任务调度模型A</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#任务调度模型B"><span class="nav-number">1.0.3.</span> <span class="nav-text">任务调度模型B</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#迭代器异常模型"><span class="nav-number">1.0.4.</span> <span class="nav-text">迭代器异常模型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#callcc，race与timeout"><span class="nav-number">1.0.5.</span> <span class="nav-text">callcc，race与timeout</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#promise方式timeout"><span class="nav-number">1.0.6.</span> <span class="nav-text">promise方式timeout</span></a></li></ol></li></ol></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Neconano</span>
+</div>
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

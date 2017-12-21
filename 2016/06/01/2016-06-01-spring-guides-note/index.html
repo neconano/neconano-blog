@@ -1,0 +1,643 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="spring-guides-note &amp;#x7B14;&amp;#x8BB0;
+Java &amp;#x6CE8;&amp;#x89E3;&amp;#x6307;&amp;#x5BFC;&amp;#x624B;&amp;#x518C;Java 8&amp;#x7B80;&amp;#x660E;&amp;#x6559;&amp;#x7A0B;spring&amp;#x4E0A;&amp;#x624B;&amp;#x6837;&amp;#x4F8B;spring&amp;#x624B;&amp;#x518C;&amp;#x7535;&amp;#x5B">
+<meta property="og:type" content="article">
+<meta property="og:title" content="spring-guides-note 笔记">
+<meta property="og:url" content="http://yoursite.com/2016/06/01/2016-06-01-spring-guides-note/index.html">
+<meta property="og:site_name" content="Neconano's notebook">
+<meta property="og:description" content="spring-guides-note &amp;#x7B14;&amp;#x8BB0;
+Java &amp;#x6CE8;&amp;#x89E3;&amp;#x6307;&amp;#x5BFC;&amp;#x624B;&amp;#x518C;Java 8&amp;#x7B80;&amp;#x660E;&amp;#x6559;&amp;#x7A0B;spring&amp;#x4E0A;&amp;#x624B;&amp;#x6837;&amp;#x4F8B;spring&amp;#x624B;&amp;#x518C;&amp;#x7535;&amp;#x5B">
+<meta property="og:updated_time" content="2016-11-29T02:54:50.563Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="spring-guides-note 笔记">
+<meta name="twitter:description" content="spring-guides-note &amp;#x7B14;&amp;#x8BB0;
+Java &amp;#x6CE8;&amp;#x89E3;&amp;#x6307;&amp;#x5BFC;&amp;#x624B;&amp;#x518C;Java 8&amp;#x7B80;&amp;#x660E;&amp;#x6559;&amp;#x7A0B;spring&amp;#x4E0A;&amp;#x624B;&amp;#x6837;&amp;#x4F8B;spring&amp;#x624B;&amp;#x518C;&amp;#x7535;&amp;#x5B">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"right","display":"always"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: 'Author'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2016/06/01/2016-06-01-spring-guides-note/"/>
+
+  <title> spring-guides-note 笔记 | Neconano's notebook </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-right page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Neconano's notebook</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                spring-guides-note 笔记
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2016-06-01T00:00:00+08:00" content="2016-06-01">
+              2016-06-01
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/java/" itemprop="url" rel="index">
+                    <span itemprop="name">java</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="spring-guides-note-&#x7B14;&#x8BB0;"><a href="#spring-guides-note-&#x7B14;&#x8BB0;" class="headerlink" title="spring-guides-note &#x7B14;&#x8BB0;"></a>spring-guides-note &#x7B14;&#x8BB0;</h1><hr>
+<p><a href="http://www.importnew.com/14227.html" target="_blank" rel="external">Java &#x6CE8;&#x89E3;&#x6307;&#x5BFC;&#x624B;&#x518C;</a><br><a href="http://www.importnew.com/10360.html" target="_blank" rel="external">Java 8&#x7B80;&#x660E;&#x6559;&#x7A0B;</a><br><a href="https://spring.io/guides" target="_blank" rel="external">spring&#x4E0A;&#x624B;&#x6837;&#x4F8B;</a><br><a href="http://docs.spring.io/spring/docs/current/spring-framework-reference/htmlsingle" target="_blank" rel="external">spring&#x624B;&#x518C;</a><br><a href="http://www.importnew.com/4578.html" target="_blank" rel="external">&#x7535;&#x5B50;&#x4E66;</a></p>
+<h3 id="1-Building-a-RESTful-Web-Service"><a href="#1-Building-a-RESTful-Web-Service" class="headerlink" title="1.Building a RESTful Web Service"></a>1.Building a RESTful Web Service</h3><p>&#x7B2C;&#x4E00;&#x4E2A;&#x7B80;&#x5355;&#x6837;&#x4F8B;&#xFF0C;&#x662F;rest&#x5F62;&#x5F0F;&#x7684;&#x670D;&#x52A1;&#xFF0C;intellij ide &#x8C8C;&#x4F3C;&#x96C6;&#x6210;&#x4E86;tomcat&#x7B49;&#x670D;&#x52A1;&#xFF0C;&#x5728;github&#x4E0A;&#x4E0B;&#x8F7D;&#xFF0C;&#x4F7F;&#x7528;ide&#x6253;&#x5F00;&#x9879;&#x76EE;&#xFF0C;&#x5728;complete&#x4E0B;&#x9762;&#x627E;&#x5230;pom.xml</p>
+<p>&#x9009;&#x62E9;&#x6DFB;&#x52A0;maven&#x9879;&#x76EE;&#x5B89;&#x88C5;&#x540E;&#xFF0C;&#x8FD0;&#x884C;&#x5373;&#x53EF;&#x5728;&#x6D4F;&#x89C8;&#x5668;&#x4E2D;&#x8BBF;&#x95EE;<a href="http://localhost:8080/greeting?name=User" target="_blank" rel="external">http://localhost:8080/greeting?name=User</a> &#x663E;&#x793A;&#x6267;&#x884C;&#x7ED3;&#x679C;</p>
+<p>@RequestMapping(&#x201C;/greeting&#x201D;)&#x6CE8;&#x89E3;&#xFF0C;&#x6307;&#x5B9A;&#x5730;&#x5740;/greeting,&#x6267;&#x884C;greeting&#x65B9;&#x6CD5;</p>
+<p>Map <k, v=""><a href="https://examples.javacodegeeks.com/java-basics/java-map-example/" target="_blank" rel="external">&#x53C2;&#x8003;</a></k,></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@RestController</span> <span class="comment">//Types that carry this annotation are treated as controllers where @RequestMapping methods assume @ResponseBody semantics by default.</span></div></pre></td></tr></table></figure>
+<h3 id="2-Scheduling-Tasks"><a href="#2-Scheduling-Tasks" class="headerlink" title="2.Scheduling Tasks"></a>2.Scheduling Tasks</h3><p>&#x5B9A;&#x65F6;&#x5668;&#x6837;&#x4F8B;&#xFF0C;&#x7EAF;java</p>
+<p>@Scheduled(fixedRate = 5000) <a href="http://docs.spring.io/spring/docs/current/spring-framework-reference/htmlsingle/#scheduling-annotation-support-scheduled" target="_blank" rel="external">&#x53C2;&#x8003;</a></p>
+<p>@SpringBootApplication &#x9ED8;&#x8BA4;&#x6DFB;&#x52A0;&#x4E86;&#x5982;&#x4E0B;&#x6CE8;&#x89E3;</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Target</span>({ElementType.TYPE})</div><div class="line"><span class="meta">@Retention</span>(RetentionPolicy.RUNTIME)</div><div class="line"><span class="meta">@Documented</span></div><div class="line"><span class="meta">@Inherited</span></div><div class="line"><span class="meta">@Configuration</span><span class="comment">// tags the class as a source of bean definitions for the application context.</span></div><div class="line"><span class="meta">@EnableAutoConfiguration</span><span class="comment">//&#x81EA;&#x52A8;&#x52A0;&#x8F7D;&#x7CFB;&#x7EDF;&#x8DEF;&#x5F84;bean&#xFF0C;settings&#x7B49;</span></div><div class="line"><span class="meta">@ComponentScan</span><span class="comment">//tells Spring to look for other components, configurations, and services in the current package,</span></div></pre></td></tr></table></figure>
+<h3 id="3-Detecting-a-Device"><a href="#3-Detecting-a-Device" class="headerlink" title="3.Detecting a Device"></a>3.Detecting a Device</h3><p>&#x8FA8;&#x8BC6;&#x8BBF;&#x95EE;&#x8BBE;&#x5907;&#x7684;&#x6837;&#x4F8B;</p>
+<h3 id="4-Consuming-a-RESTful-Web-Service"><a href="#4-Consuming-a-RESTful-Web-Service" class="headerlink" title="4.Consuming a RESTful Web Service"></a>4.Consuming a RESTful Web Service</h3><p>simple REST client using Spring.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@JsonIgnoreProperties</span>(ignoreUnknown = <span class="keyword">true</span>)<span class="comment">//&#x8868;&#x793A;&#x5FFD;&#x7565;&#xFF08;REST&#x7684;Json&#x54CD;&#x5E94;&#x9875;&#x4E2D;&#xFF09;&#x6CA1;&#x6709;&#x7ED1;&#x5B9A;&#x5230;&#x8FD9;&#x4E2A;&#x7C7B;&#x7684;&#x5C5E;&#x6027;&#x3002;</span></div><div class="line">RestTemplate<span class="comment">//Spring&apos;s central class for synchronous client-side HTTP access</span></div><div class="line"><span class="comment">//[&#x53C2;&#x8003;](http://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/web/client/RestTemplate.html)</span></div><div class="line"><span class="comment">//&#x8FD9;&#x91CC;&#x4F7F;&#x7528;RestTemplate&#x5BF9;&#x8C61;&#x7684;getForObject()&#x65B9;&#x6CD5;&#xFF0C;&#x4F9D;&#x9760;jackson Json&#x5B8C;&#x6210;Json&#x5BF9;&#x8C61;&#x7684;&#x76F4;&#x63A5;&#x89E3;&#x6790;&#x3002;</span></div><div class="line">Quote quote = restTemplate.getForObject(<span class="string">&quot;http://gturnquist-quoters.cfapps.io/api/random&quot;</span>, Quote.class);</div><div class="line"><span class="comment">//&#x5BF9;&#x5E94;&#x7684;&#x5C5E;&#x6027;&#x901A;&#x8FC7;getter&#x89E3;&#x6790;json&#x540E;&#x83B7;&#x5F97;&#xFF0C;type&#x901A;&#x8FC7;getType&#x83B7;&#x5F97;</span></div><div class="line"><span class="function"><span class="keyword">public</span> String <span class="title">toString</span><span class="params">()</span> </span>{</div><div class="line">    <span class="keyword">return</span> <span class="string">&quot;Quote{&quot;</span> +</div><div class="line">            <span class="string">&quot;type=&apos;&quot;</span> + type + <span class="string">&apos;\&apos;&apos;</span> +</div><div class="line">            <span class="string">&quot;, value=&quot;</span> + value +</div><div class="line">            <span class="string">&apos;}&apos;</span>;</div><div class="line">}</div><div class="line"><span class="comment">//setter&#x65B9;&#x6CD5;&#x90FD;&#x6CA1;&#x6709;&#x7528;&#x5230;&#xFF0C;&#x5176;&#x5B9E;&#x53EA;&#x8981;&#x65B9;&#x6CD5;&#x5B58;&#x5728;&#x5C31;&#x53EF;&#x4EE5;&#xFF0C;&#x662F;&#x5426;return&#x5C5E;&#x6027;&#x90FD;&#x4E00;&#x6837;</span></div><div class="line"><span class="function"><span class="keyword">public</span> String <span class="title">getType</span><span class="params">()</span> </span>{</div><div class="line">    <span class="keyword">return</span> <span class="string">&quot;44&quot;</span>;</div><div class="line">    <span class="comment">// return type+&quot;333&quot;;</span></div><div class="line">}</div></pre></td></tr></table></figure>
+<h3 id="5-Building-Java-Projects-with-Gradle"><a href="#5-Building-Java-Projects-with-Gradle" class="headerlink" title="5.Building Java Projects with Gradle"></a>5.Building Java Projects with Gradle</h3><p>&#x4E0B;&#x8F7D;gradle&#x7684;bin&#x538B;&#x7F29;&#x5305;&#xFF0C;&#x52A0;&#x5165;&#x7CFB;&#x7EDF;&#x53D8;&#x91CF;&#xFF0C;&#x5728;&#x547D;&#x4EE4;&#x884C;&#x6267;&#x884C;gradle</p>
+<p>&#x5F15;&#x5165;gradle&#x9879;&#x76EE;&#xFF0C;Go to File &gt; Import Project, select and import your *.gradle file. </p>
+<h3 id="6-Building-Java-Projects-with-Maven"><a href="#6-Building-Java-Projects-with-Maven" class="headerlink" title="6.Building Java Projects with Maven"></a>6.Building Java Projects with Maven</h3><p>&#x548C;gradle&#x7C7B;&#x4F3C;</p>
+<h3 id="7-Accessing-Relational-Data-using-JDBC-with-Spring"><a href="#7-Accessing-Relational-Data-using-JDBC-with-Spring" class="headerlink" title="7.Accessing Relational Data using JDBC with Spring"></a>7.Accessing Relational Data using JDBC with Spring</h3><p>lambda&#x8868;&#x8FBE;&#x5F0F;<a href="http://news.oneapm.com/java-8-oneapm-lambda/" target="_blank" rel="external">&#x53C2;&#x8003;</a>&#xFF0C;&#x5BF9;&#x4E8E;&#x7406;&#x89E3;&#x6837;&#x4F8B;&#x5185;&#x5BB9;&#x9700;&#x8981;&#x7EC6;&#x8BFB;</p>
+<p>&#x672C;&#x4F8B;&#x4F7F;&#x7528;&#x7684;&#x662F;H2&#x5185;&#x5B58;&#x6570;&#x636E;&#x5E93;&#xFF0C;&#x53EF;&#x53C2;&#x9605;&#x4EE5;&#x4E0B;&#x6587;&#x5B57;</p>
+<p>Spring Boot spots H2, an in-memory relational database engine, and automatically creates a connection. </p>
+<p>Because we are using spring-jdbc, Spring Boot automatically creates a JdbcTemplate. </p>
+<p>The @Autowired JdbcTemplate field automatically loads it and makes it available.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// List[&#x53C2;&#x8003;]&#xFF08;http://tutorials.jenkov.com/java-collections/list.html&#xFF09;</span></div><div class="line"><span class="comment">// Arrays[&#x53C2;&#x8003;](https://docs.oracle.com/javase/tutorial/java/nutsandbolts/arrays.html)[&#x53C2;&#x8003;2](http://www.tutorialspoint.com/java/util/arrays_aslist.htm)</span></div><div class="line"><span class="comment">// Array.prototype.map()[&#x53C2;&#x8003;](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map)</span></div><div class="line"><span class="comment">// Split up the array of whole names into an array of first/last names</span></div><div class="line">List&lt;Object[]&gt; splitUpNames = Arrays.asList(<span class="string">&quot;John Woo&quot;</span>, <span class="string">&quot;Jeff Dean&quot;</span>, <span class="string">&quot;Josh Bloch&quot;</span>, <span class="string">&quot;Josh Long&quot;</span>).stream()</div><div class="line">        .map(name -&gt; name.split(<span class="string">&quot; &quot;</span>))</div><div class="line">        .collect(Collectors.toList());</div></pre></td></tr></table></figure>
+<h3 id="8-Uploading-Files"><a href="#8-Uploading-Files" class="headerlink" title="8.Uploading Files"></a>8.Uploading Files</h3><p>@Bean &#x6CE8;&#x89E3; <a href="http://docs.spring.io/spring-javaconfig/docs/1.0.0.M4/reference/html/ch02s02.html" target="_blank" rel="external">&#x53C2;&#x8003;</a></p>
+<p>lambda&#x4EE5;&#x53CA;java8&#x7279;&#x6027;<a href="http://www.importnew.com/14841.html" target="_blank" rel="external">&#x53C2;&#x8003;</a></p>
+<p>The entire class is marked up with <code>@Controller</code> so Spring MVC can pick it up and look for routes.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@RequestMapping</span>(method = RequestMethod.GET, value = <span class="string">&quot;/&quot;</span>)<span class="comment">//&#x6839;&#x636E;&#x6CE8;&#x89E3;&#xFF0C;&#x9ED8;&#x8BA4;&#x663E;&#x793A;provideUploadInfo&#xFF0C;&#x9875;&#x9762;&#x663E;&#x793A;&#x76F4;&#x63A5;return &quot;uploadForm&quot;;&#x6D4B;&#x8BD5;&#x8BC1;&#x660E;&#x5176;&#x4ED6;&#x4EE3;&#x7801;&#x5E76;&#x6CA1;&#x6709;&#x4EC0;&#x4E48;&#x4F5C;&#x7528;</span></div><div class="line"><span class="meta">@RequestMapping</span>(method = RequestMethod.POST, value = <span class="string">&quot;/&quot;</span>)<span class="comment">//&#x63D0;&#x4EA4;&#x540E;&#x5904;&#x7406;</span></div><div class="line"><span class="comment">//multipart.maxFileSize is set to 128KB, meaning total file size cannot exceed 128KB.</span></div><div class="line"><span class="comment">//multipart.maxRequestSize is set to 128KB, meaning total request size for a multipart/form-data cannot exceed 128KB.</span></div></pre></td></tr></table></figure>
+<h3 id="9-Authenticating-a-User-with-LDAP"><a href="#9-Authenticating-a-User-with-LDAP" class="headerlink" title="9.Authenticating a User with LDAP"></a>9.Authenticating a User with LDAP</h3><p>&#x5177;&#x4F53;&#x8FD8;&#x662F;&#x4E0D;&#x6E05;&#x695A;</p>
+<p>The @EnableWebSecurity turns on a variety of beans needed to use Spring Security.</p>
+<p><a href="http://blog.csdn.net/whuqin/article/details/7448136" target="_blank" rel="external">LDAP&#x6982;&#x5FF5;&#x53C2;&#x8003;</a></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">.userDnPatterns(<span class="string">&quot;uid={0},ou=people&quot;</span>)<span class="comment">//{0} such that it searches uid={0},ou=people,dc=springframework,dc=org in the LDAP server</span></div></pre></td></tr></table></figure>
+<p>Using an LDIF file isn&#x2019;t standard configuration for a production system. However, it&#x2019;s very useful for testing purposes or guides.</p>
+<h3 id="10-Registering-an-Application-with-Facebook"><a href="#10-Registering-an-Application-with-Facebook" class="headerlink" title="10.Registering an Application with Facebook"></a>10.Registering an Application with Facebook</h3><p>facebook&#x5F00;&#x53D1;&#x8005;&#x6CA1;&#x6709;&#x5B9E;&#x8DF5;</p>
+<h3 id="11-Messaging-with-Redis"><a href="#11-Messaging-with-Redis" class="headerlink" title="11.Messaging with Redis"></a>11.Messaging with Redis</h3><p>&#x76F8;&#x5173;&#x7406;&#x89E3;&#xFF0C;&#x6CA1;&#x6709;&#x914D;&#x7F6E;redis&#x8FDE;&#x63A5;&#xFF0C;&#x5E94;&#x8BE5;&#x4F7F;&#x7528;&#x4E86;&#x9ED8;&#x8BA4;&#x8FDE;&#x63A5;&#x65B9;&#x5F0F;&#xFF0C;&#x5728;main&#x4E2D;&#x53EA;&#x6709;&#x4E00;&#x4E2A;&#x53D1;&#x9001;&#x4FE1;&#x606F;&#x4EE3;&#x7801;&#xFF0C;&#x76D1;&#x542C;&#x548C;&#x5904;&#x7406;&#x65B9;&#x6CD5;&#x4F7F;&#x7528;&#x4E86;Bean&#x6CE8;&#x89E3;&#x91CD;&#x65B0;&#x5C01;&#x88C5;</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">RedisConnectionFactory<span class="comment">//The connection factory drives both the template and the message listener container, enabling them to connect to the Redis server.</span></div><div class="line">RedisMessageListenerContainer<span class="comment">//you will register the Receiver with the message listener container so that it will receive messages</span></div><div class="line">StringRedisTemplate<span class="comment">//You&#x2019;ll use the Redis template to send messages</span></div></pre></td></tr></table></figure>
+<p>CountDownLatch&#xFF0C;&#x4E00;&#x4E2A;&#x540C;&#x6B65;&#x8F85;&#x52A9;&#x7C7B;&#xFF0C;&#x5728;&#x5B8C;&#x6210;&#x4E00;&#x7EC4;&#x6B63;&#x5728;&#x5176;&#x4ED6;&#x7EBF;&#x7A0B;&#x4E2D;&#x6267;&#x884C;&#x7684;&#x64CD;&#x4F5C;&#x4E4B;&#x524D;&#xFF0C;&#x5B83;&#x5141;&#x8BB8;&#x4E00;&#x4E2A;&#x6216;&#x591A;&#x4E2A;&#x7EBF;&#x7A0B;&#x4E00;&#x76F4;&#x7B49;&#x5F85;&#x3002;</p>
+<p>@Bean &#x6CE8;&#x89E3;&#x9700;&#x8981;&#x91CD;&#x65B0;&#x5C01;&#x88C5;&#x5BF9;&#x5E94;POJO&#x7C7B;&#x7684;&#x65B9;&#x6CD5;&#xFF0C;&#x76D1;&#x542C;&#x4E0D;&#x7528;&#x5728;main&#x4E2D;&#x8C03;&#x7528;</p>
+<h3 id="12-Registering-an-Application-with-Twitter"><a href="#12-Registering-an-Application-with-Twitter" class="headerlink" title="12.Registering an Application with Twitter"></a>12.Registering an Application with Twitter</h3><p>Twitter&#x5F00;&#x53D1;&#x8005;&#xFF0C;&#x7565;&#x8FC7;</p>
+<h3 id="13-Messaging-with-RabbitMQ"><a href="#13-Messaging-with-RabbitMQ" class="headerlink" title="13.Messaging with RabbitMQ"></a>13.Messaging with RabbitMQ</h3><p>&#x4EE3;&#x7801;&#x7ED3;&#x6784;&#x548C;redis&#x6837;&#x4F8B;&#x5DEE;&#x4E0D;&#x591A;&#xFF0C;&#x4E0D;&#x8FC7;&#x7528;&#x6CD5;&#x66F4;&#x4E3A;&#x590D;&#x6742;&#x4E9B;</p>
+<p>you need to configure:</p>
+<p>A message listener container</p>
+<p>Declare the queue, the exchange, and the binding between them</p>
+<p>The queue() method creates an AMQP queue. </p>
+<p>The exchange() method creates a topic exchange. </p>
+<p>The binding() method binds these two together, </p>
+<p>defining the behavior that occurs when RabbitTemplate publishes to an exchange.</p>
+<h3 id="14-Accessing-Twitter-Data"><a href="#14-Accessing-Twitter-Data" class="headerlink" title="14.Accessing Twitter Data"></a>14.Accessing Twitter Data</h3><p>Twitter&#x5F00;&#x53D1;&#x8005;&#xFF0C;&#x7565;&#x8FC7;</p>
+<h3 id="15-Accessing-Facebook-Data"><a href="#15-Accessing-Facebook-Data" class="headerlink" title="15.Accessing Facebook Data"></a>15.Accessing Facebook Data</h3><p>Facebook&#x5F00;&#x53D1;&#x8005;&#xFF0C;&#x7565;&#x8FC7;</p>
+<h3 id="16-Accessing-Data-with-Neo4j"><a href="#16-Accessing-Data-with-Neo4j" class="headerlink" title="16.Accessing Data with Neo4j"></a>16.Accessing Data with Neo4j</h3><p>&#x8FD9;&#x4E2A;&#x6837;&#x4F8B;&#x4E0D;&#x597D;&#x7406;&#x89E3;&#xFF0C;&#x591A;&#x770B;&#x5427;</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">CrudRepository</div><div class="line">`findByName`, which seeks nodes of type Person and finds the one that matches on name. </div><div class="line">`findByTeammatesName`, which looks <span class="keyword">for</span> a Person node, drills into each entry of the teammates field, and matches based on the teammate&#x2019;s name.</div></pre></td></tr></table></figure>
+<p>&#x4FEE;&#x6539;&#x6210;findByTeammatesName1&#xFF0C;&#x63D0;&#x793A;&#x9519;&#x8BEF;No property teammatesName1 found for type Person!</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@RelatedTo</span>. This means that every member of <span class="keyword">this</span> set is expected to also exist as a separate Person node. </div><div class="line">BOTH. This means that when you query the TEAMMATE relationship, Spring Data Neo4j will ignore the direction of the relationship.</div><div class="line"><span class="meta">@Fetch</span>. This causes the teammates to be eagerly retrieved. Otherwise you would have to use neo4jTemplate.fetch().</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//&#x4E24;&#x6BB5;&#x4EE3;&#x7801;&#x90FD;&#x53EF;&#x4EE5;&#x8BB2;greg&#x653E;&#x5165;roy&#x7684;temmate&#x4E2D;</span></div><div class="line">roy.worksWith(greg);</div><div class="line">roy = personRepository.findByName(roy.getName());</div></pre></td></tr></table></figure>
+<h3 id="17-Validating-Form-Input"><a href="#17-Validating-Form-Input" class="headerlink" title="17.Validating Form Input"></a>17.Validating Form Input</h3><p>&#x6BD4;&#x8F83;&#x7B80;&#x5355;&#x7684;&#x8F93;&#x5165;&#x9A8C;&#x8BC1;&#xFF0C;&#x4F7F;&#x7528;@NotNull&#xFF0C;@Min(18)&#xFF0C;@Size(min=2, max=30)&#x6CE8;&#x89E3;&#x5BF9;&#x8F93;&#x5165;&#x9879;&#x8FDB;&#x884C;&#x7ED1;&#x5B9A;&#x548C;&#x68C0;&#x9A8C;&#xFF0C;</p>
+<p>&#x5982;&#x679C;&#x51FA;&#x73B0;&#x5F02;&#x5E38;&#xFF0C;&#x5237;&#x65B0;&#x63D0;&#x4EA4;&#x9875;&#x9762;&#xFF0C;&#x5E76;&#x663E;&#x793A;&#x5F02;&#x5E38;&#x4FE1;&#x606F;</p>
+<h3 id="18-Building-a-RESTful-Web-Service-with-Spring-Boot-Actuator"><a href="#18-Building-a-RESTful-Web-Service-with-Spring-Boot-Actuator" class="headerlink" title="18.Building a RESTful Web Service with Spring Boot Actuator"></a>18.Building a RESTful Web Service with Spring Boot Actuator</h3><p>The @ResponseBody annotation tells Spring MVC not to render a model into a view</p>
+<h3 id="19-Messaging-with-JMS"><a href="#19-Messaging-with-JMS" class="headerlink" title="19.Messaging with JMS"></a>19.Messaging with JMS</h3><p>JMS&#x5373;Java&#x6D88;&#x606F;&#x670D;&#x52A1;&#xFF08;Java Message Service&#xFF09;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x63A5;&#x53E3;</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/05/01/2016-05-01-tp-uc/" rel="next" title="tp-uc笔记">
+                <i class="fa fa-chevron-left"></i> tp-uc笔记
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/06/01/2016-06-01-swoole-webchat-minions-note/" rel="prev" title="swoole-webchat-minions-note 解析">
+                swoole-webchat-minions-note 解析 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-name">categories</span>
+              
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">60</span>
+                <span class="site-state-item-name">tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#spring-guides-note-笔记"><span class="nav-number">1.</span> <span class="nav-text">spring-guides-note 笔记</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-Building-a-RESTful-Web-Service"><span class="nav-number">1.0.1.</span> <span class="nav-text">1.Building a RESTful Web Service</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-Scheduling-Tasks"><span class="nav-number">1.0.2.</span> <span class="nav-text">2.Scheduling Tasks</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-Detecting-a-Device"><span class="nav-number">1.0.3.</span> <span class="nav-text">3.Detecting a Device</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-Consuming-a-RESTful-Web-Service"><span class="nav-number">1.0.4.</span> <span class="nav-text">4.Consuming a RESTful Web Service</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-Building-Java-Projects-with-Gradle"><span class="nav-number">1.0.5.</span> <span class="nav-text">5.Building Java Projects with Gradle</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-Building-Java-Projects-with-Maven"><span class="nav-number">1.0.6.</span> <span class="nav-text">6.Building Java Projects with Maven</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-Accessing-Relational-Data-using-JDBC-with-Spring"><span class="nav-number">1.0.7.</span> <span class="nav-text">7.Accessing Relational Data using JDBC with Spring</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-Uploading-Files"><span class="nav-number">1.0.8.</span> <span class="nav-text">8.Uploading Files</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#9-Authenticating-a-User-with-LDAP"><span class="nav-number">1.0.9.</span> <span class="nav-text">9.Authenticating a User with LDAP</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#10-Registering-an-Application-with-Facebook"><span class="nav-number">1.0.10.</span> <span class="nav-text">10.Registering an Application with Facebook</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#11-Messaging-with-Redis"><span class="nav-number">1.0.11.</span> <span class="nav-text">11.Messaging with Redis</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#12-Registering-an-Application-with-Twitter"><span class="nav-number">1.0.12.</span> <span class="nav-text">12.Registering an Application with Twitter</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#13-Messaging-with-RabbitMQ"><span class="nav-number">1.0.13.</span> <span class="nav-text">13.Messaging with RabbitMQ</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#14-Accessing-Twitter-Data"><span class="nav-number">1.0.14.</span> <span class="nav-text">14.Accessing Twitter Data</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#15-Accessing-Facebook-Data"><span class="nav-number">1.0.15.</span> <span class="nav-text">15.Accessing Facebook Data</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#16-Accessing-Data-with-Neo4j"><span class="nav-number">1.0.16.</span> <span class="nav-text">16.Accessing Data with Neo4j</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#17-Validating-Form-Input"><span class="nav-number">1.0.17.</span> <span class="nav-text">17.Validating Form Input</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#18-Building-a-RESTful-Web-Service-with-Spring-Boot-Actuator"><span class="nav-number">1.0.18.</span> <span class="nav-text">18.Building a RESTful Web Service with Spring Boot Actuator</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#19-Messaging-with-JMS"><span class="nav-number">1.0.19.</span> <span class="nav-text">19.Messaging with JMS</span></a></li></ol></li></ol></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Neconano</span>
+</div>
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

@@ -1,0 +1,649 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="s&amp;#x670D;&amp;#x52A1;&amp;#x5668;&amp;#x7B80;&amp;#x5355;&amp;#x540C;&amp;#x6B65;&amp;#x6837;&amp;#x4F8B;
+1.&amp;#x4EE3;&amp;#x7801;&amp;#x540C;&amp;#x6B65;&amp;#x914D;&amp;#x7F6E;&amp;#x670D;&amp;#x52A1;&amp;#x7AEF;&amp;#xFF1A;121.41.49.233
+1.&amp;#x521B;&amp;#x5EFA;&amp;#x4E3B;&amp;#x9">
+<meta property="og:type" content="article">
+<meta property="og:title" content="file-sync 服务器简单同步样例">
+<meta property="og:url" content="http://yoursite.com/2016/05/01/2016-05-01-file-sync/index.html">
+<meta property="og:site_name" content="Neconano's notebook">
+<meta property="og:description" content="s&amp;#x670D;&amp;#x52A1;&amp;#x5668;&amp;#x7B80;&amp;#x5355;&amp;#x540C;&amp;#x6B65;&amp;#x6837;&amp;#x4F8B;
+1.&amp;#x4EE3;&amp;#x7801;&amp;#x540C;&amp;#x6B65;&amp;#x914D;&amp;#x7F6E;&amp;#x670D;&amp;#x52A1;&amp;#x7AEF;&amp;#xFF1A;121.41.49.233
+1.&amp;#x521B;&amp;#x5EFA;&amp;#x4E3B;&amp;#x9">
+<meta property="og:updated_time" content="2016-11-29T02:54:50.563Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="file-sync 服务器简单同步样例">
+<meta name="twitter:description" content="s&amp;#x670D;&amp;#x52A1;&amp;#x5668;&amp;#x7B80;&amp;#x5355;&amp;#x540C;&amp;#x6B65;&amp;#x6837;&amp;#x4F8B;
+1.&amp;#x4EE3;&amp;#x7801;&amp;#x540C;&amp;#x6B65;&amp;#x914D;&amp;#x7F6E;&amp;#x670D;&amp;#x52A1;&amp;#x7AEF;&amp;#xFF1A;121.41.49.233
+1.&amp;#x521B;&amp;#x5EFA;&amp;#x4E3B;&amp;#x9">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"right","display":"always"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: 'Author'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2016/05/01/2016-05-01-file-sync/"/>
+
+  <title> file-sync 服务器简单同步样例 | Neconano's notebook </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-right page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Neconano's notebook</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                file-sync 服务器简单同步样例
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2016-05-01T00:00:00+08:00" content="2016-05-01">
+              2016-05-01
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/linux/" itemprop="url" rel="index">
+                    <span itemprop="name">linux</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="s&#x670D;&#x52A1;&#x5668;&#x7B80;&#x5355;&#x540C;&#x6B65;&#x6837;&#x4F8B;"><a href="#s&#x670D;&#x52A1;&#x5668;&#x7B80;&#x5355;&#x540C;&#x6B65;&#x6837;&#x4F8B;" class="headerlink" title="s&#x670D;&#x52A1;&#x5668;&#x7B80;&#x5355;&#x540C;&#x6B65;&#x6837;&#x4F8B;"></a>s&#x670D;&#x52A1;&#x5668;&#x7B80;&#x5355;&#x540C;&#x6B65;&#x6837;&#x4F8B;</h1><hr>
+<h3 id="1-&#x4EE3;&#x7801;&#x540C;&#x6B65;&#x914D;&#x7F6E;"><a href="#1-&#x4EE3;&#x7801;&#x540C;&#x6B65;&#x914D;&#x7F6E;" class="headerlink" title="1.&#x4EE3;&#x7801;&#x540C;&#x6B65;&#x914D;&#x7F6E;"></a>1.&#x4EE3;&#x7801;&#x540C;&#x6B65;&#x914D;&#x7F6E;</h3><p>&#x670D;&#x52A1;&#x7AEF;&#xFF1A;121.41.49.233</p>
+<p>1.&#x521B;&#x5EFA;&#x4E3B;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x201D;rsyncd.conf&#x201D;&#x5E76;&#x5199;&#x5165;&#x6807;&#x51C6;&#x914D;&#x7F6E;&#x53C2;&#x6570;</p>
+<h1 id="vim-etc-rsyncd-conf"><a href="#vim-etc-rsyncd-conf" class="headerlink" title="vim /etc/rsyncd.conf"></a>vim /etc/rsyncd.conf</h1><p>&#x201C;##rsync server##<br>uid = www<br>gid = www<br>use chroot = no<br>max connection = 2000<br>timeout = 600<br>pid file = /var/run/rsync.pid<br>lock file = /var/run/rsync.lock<br>log file = /var/log/rsyncd.log<br>ignore errors<br>read only = false<br>list = false<br>hosts allow = 10.47.68.95<br>hosts deny = 0.0.0.0/32<br>auth users= rsync_backup<br>secrets file= /etc/rsync.password</p>
+<p>#############################<br>[backup1]<br>comment = izaodao<br>path = /newdata/www/&#x201C;                                                                                                           </p>
+<p>2.&#x521B;&#x5EFA;&#x5BC6;&#x7801;&#x6587;&#x4EF6;</p>
+<h1 id="echo-&#x201C;rsync-backup-Rsyncizaodao2016&#x201D;-gt-etc-rsync-password"><a href="#echo-&#x201C;rsync-backup-Rsyncizaodao2016&#x201D;-gt-etc-rsync-password" class="headerlink" title="echo &#x201C;rsync_backup:Rsyncizaodao2016&#x201D; &gt; /etc/rsync.password"></a>echo &#x201C;rsync_backup:Rsyncizaodao2016&#x201D; &gt; /etc/rsync.password</h1><h1 id="chmod-600-etc-rsync-password"><a href="#chmod-600-etc-rsync-password" class="headerlink" title="chmod 600 /etc/rsync.password"></a>chmod 600 /etc/rsync.password</h1><h1 id="ll-etc-rsync-password"><a href="#ll-etc-rsync-password" class="headerlink" title="ll /etc/rsync.password"></a>ll /etc/rsync.password</h1><h1 id="cat-etc-rsync-password"><a href="#cat-etc-rsync-password" class="headerlink" title="cat /etc/rsync.password"></a>cat /etc/rsync.password</h1><p>3.&#x542F;&#x52A8;rsync</p>
+<h1 id="rsync-&#x2013;daemon"><a href="#rsync-&#x2013;daemon" class="headerlink" title="rsync &#x2013;daemon"></a>rsync &#x2013;daemon</h1><h1 id="ps-ef-grep-rsync"><a href="#ps-ef-grep-rsync" class="headerlink" title="ps -ef|grep rsync"></a>ps -ef|grep rsync</h1><h1 id="netstat-lntup-grep-rsync"><a href="#netstat-lntup-grep-rsync" class="headerlink" title="netstat -lntup|grep rsync"></a>netstat -lntup|grep rsync</h1><p>4.&#x52A0;&#x5165;&#x5F00;&#x673A;&#x81EA;&#x542F;&#x52A8;</p>
+<h1 id="echo-&#x201C;rsync-&#x2013;daemon&#x201D;-gt-gt-etc-rc-local"><a href="#echo-&#x201C;rsync-&#x2013;daemon&#x201D;-gt-gt-etc-rc-local" class="headerlink" title="echo &#x201C;rsync &#x2013;daemon&#x201D; &gt;&gt; /etc/rc.local"></a>echo &#x201C;rsync &#x2013;daemon&#x201D; &gt;&gt; /etc/rc.local</h1><p>&#x5BA2;&#x6237;&#x7AEF;&#xFF1A;114.55.38.232</p>
+<p>1.&#x521B;&#x5EFA;&#x5BC6;&#x7801;&#x6587;&#x4EF6;</p>
+<h1 id="echo-&#x201C;Rsyncizaodao2016&#x201D;-gt-etc-rsync-password-lt-&#x8BE5;&#x5BC6;&#x7801;&#x5FC5;&#x987B;&#x4E0E;&#x670D;&#x52A1;&#x7AEF;&#x7684;&#x4E00;&#x81F4;"><a href="#echo-&#x201C;Rsyncizaodao2016&#x201D;-gt-etc-rsync-password-lt-&#x8BE5;&#x5BC6;&#x7801;&#x5FC5;&#x987B;&#x4E0E;&#x670D;&#x52A1;&#x7AEF;&#x7684;&#x4E00;&#x81F4;" class="headerlink" title="echo &#x201C;Rsyncizaodao2016&#x201D; &gt; /etc/rsync.password     &lt;==&#x8BE5;&#x5BC6;&#x7801;&#x5FC5;&#x987B;&#x4E0E;&#x670D;&#x52A1;&#x7AEF;&#x7684;&#x4E00;&#x81F4;"></a>echo &#x201C;Rsyncizaodao2016&#x201D; &gt; /etc/rsync.password     &lt;==&#x8BE5;&#x5BC6;&#x7801;&#x5FC5;&#x987B;&#x4E0E;&#x670D;&#x52A1;&#x7AEF;&#x7684;&#x4E00;&#x81F4;</h1><h1 id="chmod-600-etc-rsync-password-1"><a href="#chmod-600-etc-rsync-password-1" class="headerlink" title="chmod 600 /etc/rsync.password"></a>chmod 600 /etc/rsync.password</h1><h1 id="ll-etc-rsync-password-1"><a href="#ll-etc-rsync-password-1" class="headerlink" title="ll /etc/rsync.password"></a>ll /etc/rsync.password</h1><h1 id="cat-etc-rsync-password-1"><a href="#cat-etc-rsync-password-1" class="headerlink" title="cat /etc/rsync.password"></a>cat /etc/rsync.password</h1><p>2.&#x68C0;&#x67E5;&#x73AF;&#x5883;</p>
+<h1 id="uname-r"><a href="#uname-r" class="headerlink" title="uname -r"></a>uname -r</h1><p>2.6.32-431.el6.x86_64</p>
+<h1 id="ls-proc-sys-fs-inotify"><a href="#ls-proc-sys-fs-inotify" class="headerlink" title="ls /proc/sys/fs/inotify/"></a>ls /proc/sys/fs/inotify/</h1><p>max_queued_events  max_user_instances  max_user_watches</p>
+<p>3.&#x5B89;&#x88C5;</p>
+<h1 id="cd-home-tools"><a href="#cd-home-tools" class="headerlink" title="cd /home/tools"></a>cd /home/tools</h1><h1 id="wget-http-github-com-downloads-rvoicilas-inotify-tools-inotify-tools-3-14-tar-gz"><a href="#wget-http-github-com-downloads-rvoicilas-inotify-tools-inotify-tools-3-14-tar-gz" class="headerlink" title="wget http://github.com/downloads/rvoicilas/inotify-tools/inotify-tools-3.14.tar.gz"></a>wget <a href="http://github.com/downloads/rvoicilas/inotify-tools/inotify-tools-3.14.tar.gz" target="_blank" rel="external">http://github.com/downloads/rvoicilas/inotify-tools/inotify-tools-3.14.tar.gz</a></h1><h1 id="tar-zxf-inotify-tools-3-14-tar-gz"><a href="#tar-zxf-inotify-tools-3-14-tar-gz" class="headerlink" title="tar -zxf inotify-tools-3.14.tar.gz"></a>tar -zxf inotify-tools-3.14.tar.gz</h1><h1 id="cd-inotify-tools-3-14"><a href="#cd-inotify-tools-3-14" class="headerlink" title="cd inotify-tools-3.14"></a>cd inotify-tools-3.14</h1><p>./configure &#x2013;prefix=/usr/local/inotify-tools-3.14</p>
+<h1 id="make-amp-amp-make-install"><a href="#make-amp-amp-make-install" class="headerlink" title="make &amp;&amp; make install"></a>make &amp;&amp; make install</h1><h1 id="ln-s-usr-local-inotify-tools-3-14-usr-local-inotify-tools"><a href="#ln-s-usr-local-inotify-tools-3-14-usr-local-inotify-tools" class="headerlink" title="ln -s /usr/local/inotify-tools-3.14/ /usr/local/inotify-tools"></a>ln -s /usr/local/inotify-tools-3.14/ /usr/local/inotify-tools</h1><p>/usr/local/inotify-tools/bin/</p>
+<p>inotifywait&#xFF1A;</p>
+<p>inotifywatch&#xFF1A;</p>
+<p>4.&#x7F16;&#x8F91;&#x6D4B;&#x8BD5;&#x811A;&#x672C;</p>
+<h1 id="vim-usr-jiaoben-inotify-1-sh"><a href="#vim-usr-jiaoben-inotify-1-sh" class="headerlink" title="vim /usr/jiaoben/inotify-1.sh"></a>vim /usr/jiaoben/inotify-1.sh</h1><p>&#x5199;&#x5165;&#x4EE5;&#x4E0B;&#x5185;&#x5BB9;&#xFF1A;</p>
+<p>&#x201C;#!/bin/bash<br>inotify=/usr/local/inotify-tools/bin/inotifywait<br>$inotify -mrq &#x2013;format &#x2018;%w%f&#x2019; -e create,delete,modify,attrib,move,close_write /newdata/www/www.izaodao.com/ \<br>|while read file<br>do</p>
+<p> rsync -az /newdata/www/www.izaodao.com &#x2013;delete &#x2013;exclude-from=/usr/jiaoben/exclude.list \<br>rsync://rsync_backup@10.168.176.99/backup1/ &#x2013;password-file=/etc/rsync.password<br>done&#x201D;</p>
+<h1 id="vim-usr-jiaoben-exclude-list-lt-&#x521B;&#x5EFA;&#x6392;&#x9664;&#x6587;&#x4EF6;-&#x5E76;&#x5199;&#x5165;&#x9700;&#x8981;&#x6392;&#x9664;&#x7684;&#x76EE;&#x5F55;"><a href="#vim-usr-jiaoben-exclude-list-lt-&#x521B;&#x5EFA;&#x6392;&#x9664;&#x6587;&#x4EF6;-&#x5E76;&#x5199;&#x5165;&#x9700;&#x8981;&#x6392;&#x9664;&#x7684;&#x76EE;&#x5F55;" class="headerlink" title="vim /usr/jiaoben/exclude.list   &lt;==&#x521B;&#x5EFA;&#x6392;&#x9664;&#x6587;&#x4EF6;,&#x5E76;&#x5199;&#x5165;&#x9700;&#x8981;&#x6392;&#x9664;&#x7684;&#x76EE;&#x5F55;"></a>vim /usr/jiaoben/exclude.list   &lt;==&#x521B;&#x5EFA;&#x6392;&#x9664;&#x6587;&#x4EF6;,&#x5E76;&#x5199;&#x5165;&#x9700;&#x8981;&#x6392;&#x9664;&#x7684;&#x76EE;&#x5F55;</h1><p>&#x5199;&#x5165;&#x4E00;&#x4E0B;&#x5185;&#x5BB9;&#xFF1A;</p>
+<p>&#x201C;data<br>zdschool/data<br>uc/data&#x201D;</p>
+<h1 id="vim-usr-jiaoben-inotify-2-sh"><a href="#vim-usr-jiaoben-inotify-2-sh" class="headerlink" title="vim /usr/jiaoben/inotify-2.sh"></a>vim /usr/jiaoben/inotify-2.sh</h1><p>&#x5199;&#x5165;&#x4EE5;&#x4E0B;&#x5185;&#x5BB9;&#xFF1A;</p>
+<p>&#x201C;#!/bin/bash<br>inotify=/usr/local/inotify-tools/bin/inotifywait<br>$inotify -mrq &#x2013;format &#x2018;%w%f&#x2019; -e create,delete,modify,attrib,move,close_write /newdata/www/ServiceSystem/ \<br>|while read file<br>do</p>
+<p> rsync -az /newdata/www/ServiceSystem &#x2013;delete rsync://rsync_backup@10.168.176.99/backup1/ &#x2013;password-file=/etc/rsync.password<br>done&#x201D;</p>
+<h1 id="vim-usr-jiaoben-inotify-3-sh"><a href="#vim-usr-jiaoben-inotify-3-sh" class="headerlink" title="vim /usr/jiaoben/inotify-3.sh"></a>vim /usr/jiaoben/inotify-3.sh</h1><p>&#x5199;&#x5165;&#x4EE5;&#x4E0B;&#x5185;&#x5BB9;&#xFF1A;</p>
+<p>&#x201C;#!/bin/bash<br>inotify=/usr/local/inotify-tools/bin/inotifywait<br>$inotify -mrq &#x2013;format &#x2018;%w%f&#x2019; -e create,delete,modify,attrib,move,close_write /newdata/www/ThinkPHP/ \<br>|while read file<br>do</p>
+<p> rsync -az /newdata/www/ThinkPHP &#x2013;delete rsync://rsync_backup@10.168.176.99/backup1/ &#x2013;password-file=/etc/rsync.password<br>done&#x201D;</p>
+<h1 id="chmod-x-inotify-1-sh-lt-&#x6DFB;&#x52A0;&#x6267;&#x884C;&#x6743;&#x9650;"><a href="#chmod-x-inotify-1-sh-lt-&#x6DFB;&#x52A0;&#x6267;&#x884C;&#x6743;&#x9650;" class="headerlink" title="chmod +x inotify-1.sh           &lt;==&#x6DFB;&#x52A0;&#x6267;&#x884C;&#x6743;&#x9650;"></a>chmod +x inotify-1.sh           &lt;==&#x6DFB;&#x52A0;&#x6267;&#x884C;&#x6743;&#x9650;</h1><h1 id="chmod-x-inotify-2-sh"><a href="#chmod-x-inotify-2-sh" class="headerlink" title="chmod +x inotify-2.sh"></a>chmod +x inotify-2.sh</h1><h1 id="chmod-x-inotify-3-sh"><a href="#chmod-x-inotify-3-sh" class="headerlink" title="chmod +x inotify-3.sh"></a>chmod +x inotify-3.sh</h1><h1 id="sh-x-inotify-1-sh-lt-&#x6D4B;&#x8BD5;&#x811A;&#x672C;"><a href="#sh-x-inotify-1-sh-lt-&#x6D4B;&#x8BD5;&#x811A;&#x672C;" class="headerlink" title="sh -x inotify-1.sh              &lt;==&#x6D4B;&#x8BD5;&#x811A;&#x672C;"></a>sh -x inotify-1.sh              &lt;==&#x6D4B;&#x8BD5;&#x811A;&#x672C;</h1><h1 id="sh-x-inotify-2-sh"><a href="#sh-x-inotify-2-sh" class="headerlink" title="sh -x inotify-2.sh"></a>sh -x inotify-2.sh</h1><h1 id="sh-x-inotify-3-sh"><a href="#sh-x-inotify-3-sh" class="headerlink" title="sh -x inotify-3.sh"></a>sh -x inotify-3.sh</h1><p>5.&#x6267;&#x884C;&#x811A;&#x672C;&#x5E76;&#x52A0;&#x5165;&#x5F00;&#x673A;&#x81EA;&#x542F;&#x52A8;</p>
+<h1 id="nohup-usr-jiaoben-inotify-1-sh-amp"><a href="#nohup-usr-jiaoben-inotify-1-sh-amp" class="headerlink" title="nohup /usr/jiaoben/inotify-1.sh &amp;"></a>nohup /usr/jiaoben/inotify-1.sh &amp;</h1><h1 id="nohup-usr-jiaoben-inotify-2-sh-amp"><a href="#nohup-usr-jiaoben-inotify-2-sh-amp" class="headerlink" title="nohup /usr/jiaoben/inotify-2.sh &amp;"></a>nohup /usr/jiaoben/inotify-2.sh &amp;</h1><h1 id="nohup-usr-jiaoben-inotify-3-sh-amp"><a href="#nohup-usr-jiaoben-inotify-3-sh-amp" class="headerlink" title="nohup /usr/jiaoben/inotify-3.sh &amp;"></a>nohup /usr/jiaoben/inotify-3.sh &amp;</h1><h1 id="vim-etc-rc-local"><a href="#vim-etc-rc-local" class="headerlink" title="vim /etc/rc.local"></a>vim /etc/rc.local</h1><p>&#x52A0;&#x5165;&#x4EE5;&#x4E0B;&#x5185;&#x5BB9;&#xFF1A;</p>
+<p>nohup /usr/jiaoben/inotify-1.sh &amp;</p>
+<p>nohup /usr/jiaoben/inotify-2.sh &amp;</p>
+<p>nohup /usr/jiaoben/inotify-3.sh &amp;</p>
+<h3 id="2-NFS&#x914D;&#x7F6E;"><a href="#2-NFS&#x914D;&#x7F6E;" class="headerlink" title="2.NFS&#x914D;&#x7F6E;"></a>2.NFS&#x914D;&#x7F6E;</h3><p>&#x3010;&#x670D;&#x52A1;&#x7AEF;232&#x914D;&#x7F6E;&#x3011;</p>
+<p>1.&#x5B89;&#x88C5;&#x8F6F;&#x4EF6;</p>
+<h1 id="yum-install-nfs-utils-rpcbind-y"><a href="#yum-install-nfs-utils-rpcbind-y" class="headerlink" title="yum install nfs-utils rpcbind -y"></a>yum install nfs-utils rpcbind -y</h1><p>2.&#x542F;&#x52A8;&#x670D;&#x52A1;</p>
+<h1 id="etc-init-d-rpcbind-start"><a href="#etc-init-d-rpcbind-start" class="headerlink" title="/etc/init.d/rpcbind start"></a>/etc/init.d/rpcbind start</h1><h1 id="rpcinfo-p-localhost"><a href="#rpcinfo-p-localhost" class="headerlink" title="rpcinfo -p localhost"></a>rpcinfo -p localhost</h1><h1 id="etc-init-d-nfs-start"><a href="#etc-init-d-nfs-start" class="headerlink" title="/etc/init.d/nfs start"></a>/etc/init.d/nfs start</h1><h1 id="rpcinfo-p-localhost-1"><a href="#rpcinfo-p-localhost-1" class="headerlink" title="rpcinfo -p localhost"></a>rpcinfo -p localhost</h1><p>(&#x63D0;&#x793A;&#xFF1A;&#x542F;&#x52A8;&#x987A;&#x5E8F;&#x5F88;&#x91CD;&#x8981;&#x5E94;&#x6700;&#x5148;&#x542F;&#x52A8;rpcbind)</p>
+<p>3.&#x8BBE;&#x7F6E;&#x5F00;&#x673A;&#x81EA;&#x542F;&#x52A8;</p>
+<h1 id="chkconfig-rpcbind-on"><a href="#chkconfig-rpcbind-on" class="headerlink" title="chkconfig rpcbind on"></a>chkconfig rpcbind on</h1><h1 id="chkconfig-nfs-on"><a href="#chkconfig-nfs-on" class="headerlink" title="chkconfig nfs on"></a>chkconfig nfs on</h1><p>4.&#x914D;&#x7F6E;nfs&#x670D;&#x52A1;</p>
+<h1 id="id-www"><a href="#id-www" class="headerlink" title="id www"></a>id www</h1><p>uid=501(www) gid=501(www) groups=501(www)</p>
+<h1 id="vim-etc-exports-lt-&#x7F16;&#x8F91;&#x4E3B;&#x914D;&#x7F6E;&#x6587;&#x4EF6;"><a href="#vim-etc-exports-lt-&#x7F16;&#x8F91;&#x4E3B;&#x914D;&#x7F6E;&#x6587;&#x4EF6;" class="headerlink" title="vim /etc/exports   &lt;==&#x7F16;&#x8F91;&#x4E3B;&#x914D;&#x7F6E;&#x6587;&#x4EF6;"></a>vim /etc/exports   &lt;==&#x7F16;&#x8F91;&#x4E3B;&#x914D;&#x7F6E;&#x6587;&#x4EF6;</h1><p>&#x6DFB;&#x52A0;&#x5982;&#x4E0B;&#x5185;&#x5BB9;:</p>
+<p>&#x201C;/newdata/www/www.izaodao.com/zdschool/data  10.168.176.99(rw,sync,all_squash,anonuid=501,anongid=501,insecure)<br>/newdata/www/www.izaodao.com/uc/data  10.168.176.99(rw,sync,all_squash,anonuid=501,anongid=501,insecure)<br>/newdata/www/www.izaodao.com/data  10.168.176.99(rw,sync,all_squash,anonuid=501,anongid=501,insecure)<br>&#x201C;</p>
+<p>(&#x89E3;&#x91CA;&#xFF1A;rw&#x8BFB;&#x5199;, sync&#x5C06;&#x6570;&#x636E;&#x540C;&#x6B65;&#x5199;&#x5165;&#x5185;&#x5B58;&#x7F13;&#x51B2;&#x533A;&#x4E0E;&#x78C1;&#x76D8;&#x4E2D;, all_squash&#x5C06;&#x8FDC;&#x7A0B;&#x8BBF;&#x95EE;&#x7684;&#x7528;&#x6237;&#x8EAB;&#x4EFD;&#x5168;&#x90E8;&#x6620;&#x5C04;&#x6210;&#x533F;&#x540D;&#x7528;&#x6237;&#x9ED8;&#x8BA4;&#x4E3A;nfsnobody, insecure&#x5141;&#x8BB8;&#x5BA2;&#x6237;&#x7AEF;&#x4ECE;&#x5927;&#x4E8E;1024&#x7684;TCP/IP&#x7AEF;&#x53E3;&#x8FDE;&#x63A5;&#x670D;&#x52A1;&#x5668;)</p>
+<p> anonuid&#x6307;&#x5B9A;&#x6620;&#x5C04;&#x7684;&#x533F;&#x540D;&#x7528;&#x6237;&#x9700;&#x8981;&#x4F7F;&#x7528;&#x8BE5;&#x7528;&#x6237;UID&#x4F8B;&#x5982;&#x201D;anonuid=501&#x201D;,anongid&#x6307;&#x5B9A;GID (&#x8FD9;&#x4E24;&#x4E2A;&#x53C2;&#x6570;&#x4F7F;&#x7528;&#x7684;&#x524D;&#x63D0;&#x662F;&#x201D;all_squash&#x201D;)</p>
+<h1 id="cat-var-lib-nfs-etab-lt-&#x53EF;&#x67E5;&#x770B;nfs&#x9ED8;&#x8BA4;&#x4F7F;&#x7528;&#x7684;&#x7528;&#x6237;&#x53CA;&#x5171;&#x4EAB;&#x53C2;&#x6570;"><a href="#cat-var-lib-nfs-etab-lt-&#x53EF;&#x67E5;&#x770B;nfs&#x9ED8;&#x8BA4;&#x4F7F;&#x7528;&#x7684;&#x7528;&#x6237;&#x53CA;&#x5171;&#x4EAB;&#x53C2;&#x6570;" class="headerlink" title="cat /var/lib/nfs/etab   &lt;==&#x53EF;&#x67E5;&#x770B;nfs&#x9ED8;&#x8BA4;&#x4F7F;&#x7528;&#x7684;&#x7528;&#x6237;&#x53CA;&#x5171;&#x4EAB;&#x53C2;&#x6570;"></a>cat /var/lib/nfs/etab   &lt;==&#x53EF;&#x67E5;&#x770B;nfs&#x9ED8;&#x8BA4;&#x4F7F;&#x7528;&#x7684;&#x7528;&#x6237;&#x53CA;&#x5171;&#x4EAB;&#x53C2;&#x6570;</h1><p>5.&#x91CD;&#x65B0;&#x52A0;&#x8F7D;&#x670D;&#x52A1;</p>
+<h1 id="etc-init-d-nfs-reload"><a href="#etc-init-d-nfs-reload" class="headerlink" title="/etc/init.d/nfs reload"></a>/etc/init.d/nfs reload</h1><p>6.&#x68C0;&#x67E5;&#x548C;&#x6D4B;&#x8BD5;&#x6302;&#x8F7D;</p>
+<h1 id="showmount-e-localhost"><a href="#showmount-e-localhost" class="headerlink" title="showmount -e localhost"></a>showmount -e localhost</h1><p>&#x3010;&#x5BA2;&#x6237;&#x7AEF;233&#x914D;&#x7F6E;&#x3011;</p>
+<p>1.&#x5B89;&#x88C5;&#x8F6F;&#x4EF6;</p>
+<h1 id="yum-install-nfs-utils-rpcbind-y-1"><a href="#yum-install-nfs-utils-rpcbind-y-1" class="headerlink" title="yum install nfs-utils rpcbind -y"></a>yum install nfs-utils rpcbind -y</h1><p>(&#x63D0;&#x793A;&#xFF1A;&#x5BA2;&#x6237;&#x7AEF;&#x5B89;&#x88C5;nfs-utils&#x662F;&#x4E3A;&#x4E86;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;showmount)</p>
+<p>2.&#x542F;&#x52A8;&#x670D;&#x52A1;</p>
+<h1 id="etc-init-d-rpcbind-start-1"><a href="#etc-init-d-rpcbind-start-1" class="headerlink" title="/etc/init.d/rpcbind start"></a>/etc/init.d/rpcbind start</h1><p>3.&#x8BBE;&#x7F6E;&#x5F00;&#x673A;&#x81EA;&#x542F;&#x52A8;</p>
+<h1 id="chkconfig-rpcbind-on-1"><a href="#chkconfig-rpcbind-on-1" class="headerlink" title="chkconfig rpcbind on"></a>chkconfig rpcbind on</h1><p>4.&#x6D4B;&#x8BD5;&#x670D;&#x52A1;&#x7AEF;&#x5171;&#x4EAB;&#x60C5;&#x51B5;</p>
+<h1 id="rpcinfo-p-10-47-68-95"><a href="#rpcinfo-p-10-47-68-95" class="headerlink" title="rpcinfo -p 10.47.68.95"></a>rpcinfo -p 10.47.68.95</h1><h1 id="showmount-e-10-47-68-95"><a href="#showmount-e-10-47-68-95" class="headerlink" title="showmount -e 10.47.68.95"></a>showmount -e 10.47.68.95</h1><p>5.&#x6302;&#x8F7D;</p>
+<h1 id="mount-t-nfs-10-47-68-95-newdata-www-www-izaodao-com-zdschool-data-newdata-www-www-izaodao-com-zdschool-data"><a href="#mount-t-nfs-10-47-68-95-newdata-www-www-izaodao-com-zdschool-data-newdata-www-www-izaodao-com-zdschool-data" class="headerlink" title="mount -t nfs 10.47.68.95:/newdata/www/www.izaodao.com/zdschool/data /newdata/www/www.izaodao.com/zdschool/data"></a>mount -t nfs 10.47.68.95:/newdata/www/www.izaodao.com/zdschool/data /newdata/www/www.izaodao.com/zdschool/data</h1><h1 id="mount-t-nfs-10-47-68-95-newdata-www-www-izaodao-com-uc-data-newdata-www-www-izaodao-com-uc-data"><a href="#mount-t-nfs-10-47-68-95-newdata-www-www-izaodao-com-uc-data-newdata-www-www-izaodao-com-uc-data" class="headerlink" title="mount -t nfs 10.47.68.95:/newdata/www/www.izaodao.com/uc/data /newdata/www/www.izaodao.com/uc/data"></a>mount -t nfs 10.47.68.95:/newdata/www/www.izaodao.com/uc/data /newdata/www/www.izaodao.com/uc/data</h1><h1 id="mount-t-nfs-10-47-68-95-newdata-www-www-izaodao-com-data-newdata-www-www-izaodao-com-data"><a href="#mount-t-nfs-10-47-68-95-newdata-www-www-izaodao-com-data-newdata-www-www-izaodao-com-data" class="headerlink" title="mount -t nfs 10.47.68.95:/newdata/www/www.izaodao.com/data /newdata/www/www.izaodao.com/data"></a>mount -t nfs 10.47.68.95:/newdata/www/www.izaodao.com/data /newdata/www/www.izaodao.com/data</h1><p>6.&#x5B9E;&#x73B0;&#x5F00;&#x673A;&#x81EA;&#x52A8;&#x6302;&#x8F7D;</p>
+<h1 id="vim-etc-rc-local-1"><a href="#vim-etc-rc-local-1" class="headerlink" title="vim /etc/rc.local"></a>vim /etc/rc.local</h1><p>&#x52A0;&#x5165;&#x4E00;&#x4E0B;&#x5185;&#x5BB9;</p>
+<p>/bin/mount -t nfs 10.47.68.95:/newdata/www/www.izaodao.com/zdschool/data /newdata/www/www.izaodao.com/zdschool/data</p>
+<p>/bin/mount -t nfs 10.47.68.95:/newdata/www/www.izaodao.com/uc/data /newdata/www/www.izaodao.com/uc/data</p>
+<p>/bin/mount -t nfs 10.47.68.95:/newdata/www/www.izaodao.com/data /newdata/www/www.izaodao.com/data</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/05/01/2016-05-01-dubbo-windows/" rel="next" title="dubbo-windows dubbo部署(windows)">
+                <i class="fa fa-chevron-left"></i> dubbo-windows dubbo部署(windows)
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/05/01/2016-05-01-https-nginx-openssl/" rel="prev" title="https-nginx-openssl 笔记">
+                https-nginx-openssl 笔记 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-name">categories</span>
+              
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">60</span>
+                <span class="site-state-item-name">tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#s服务器简单同步样例"><span class="nav-number">1.</span> <span class="nav-text">s服务器简单同步样例</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-代码同步配置"><span class="nav-number">1.0.1.</span> <span class="nav-text">1.代码同步配置</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#vim-etc-rsyncd-conf"><span class="nav-number">2.</span> <span class="nav-text">vim /etc/rsyncd.conf</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#echo-“rsync-backup-Rsyncizaodao2016”-gt-etc-rsync-password"><span class="nav-number">3.</span> <span class="nav-text">echo “rsync_backup:Rsyncizaodao2016” > /etc/rsync.password</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#chmod-600-etc-rsync-password"><span class="nav-number">4.</span> <span class="nav-text">chmod 600 /etc/rsync.password</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#ll-etc-rsync-password"><span class="nav-number">5.</span> <span class="nav-text">ll /etc/rsync.password</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#cat-etc-rsync-password"><span class="nav-number">6.</span> <span class="nav-text">cat /etc/rsync.password</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#rsync-–daemon"><span class="nav-number">7.</span> <span class="nav-text">rsync –daemon</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#ps-ef-grep-rsync"><span class="nav-number">8.</span> <span class="nav-text">ps -ef|grep rsync</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#netstat-lntup-grep-rsync"><span class="nav-number">9.</span> <span class="nav-text">netstat -lntup|grep rsync</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#echo-“rsync-–daemon”-gt-gt-etc-rc-local"><span class="nav-number">10.</span> <span class="nav-text">echo “rsync –daemon” >> /etc/rc.local</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#echo-“Rsyncizaodao2016”-gt-etc-rsync-password-lt-该密码必须与服务端的一致"><span class="nav-number">11.</span> <span class="nav-text">echo “Rsyncizaodao2016” > /etc/rsync.password     <==该密码必须与服务端的一致</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#chmod-600-etc-rsync-password-1"><span class="nav-number">12.</span> <span class="nav-text">chmod 600 /etc/rsync.password</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#ll-etc-rsync-password-1"><span class="nav-number">13.</span> <span class="nav-text">ll /etc/rsync.password</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#cat-etc-rsync-password-1"><span class="nav-number">14.</span> <span class="nav-text">cat /etc/rsync.password</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#uname-r"><span class="nav-number">15.</span> <span class="nav-text">uname -r</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#ls-proc-sys-fs-inotify"><span class="nav-number">16.</span> <span class="nav-text">ls /proc/sys/fs/inotify/</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#cd-home-tools"><span class="nav-number">17.</span> <span class="nav-text">cd /home/tools</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#wget-http-github-com-downloads-rvoicilas-inotify-tools-inotify-tools-3-14-tar-gz"><span class="nav-number">18.</span> <span class="nav-text">wget http://github.com/downloads/rvoicilas/inotify-tools/inotify-tools-3.14.tar.gz</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#tar-zxf-inotify-tools-3-14-tar-gz"><span class="nav-number">19.</span> <span class="nav-text">tar -zxf inotify-tools-3.14.tar.gz</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#cd-inotify-tools-3-14"><span class="nav-number">20.</span> <span class="nav-text">cd inotify-tools-3.14</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#make-amp-amp-make-install"><span class="nav-number">21.</span> <span class="nav-text">make && make install</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#ln-s-usr-local-inotify-tools-3-14-usr-local-inotify-tools"><span class="nav-number">22.</span> <span class="nav-text">ln -s /usr/local/inotify-tools-3.14/ /usr/local/inotify-tools</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#vim-usr-jiaoben-inotify-1-sh"><span class="nav-number">23.</span> <span class="nav-text">vim /usr/jiaoben/inotify-1.sh</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#vim-usr-jiaoben-exclude-list-lt-创建排除文件-并写入需要排除的目录"><span class="nav-number">24.</span> <span class="nav-text">vim /usr/jiaoben/exclude.list   <==创建排除文件,并写入需要排除的目录</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#vim-usr-jiaoben-inotify-2-sh"><span class="nav-number">25.</span> <span class="nav-text">vim /usr/jiaoben/inotify-2.sh</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#vim-usr-jiaoben-inotify-3-sh"><span class="nav-number">26.</span> <span class="nav-text">vim /usr/jiaoben/inotify-3.sh</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#chmod-x-inotify-1-sh-lt-添加执行权限"><span class="nav-number">27.</span> <span class="nav-text">chmod +x inotify-1.sh           <==添加执行权限</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#chmod-x-inotify-2-sh"><span class="nav-number">28.</span> <span class="nav-text">chmod +x inotify-2.sh</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#chmod-x-inotify-3-sh"><span class="nav-number">29.</span> <span class="nav-text">chmod +x inotify-3.sh</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#sh-x-inotify-1-sh-lt-测试脚本"><span class="nav-number">30.</span> <span class="nav-text">sh -x inotify-1.sh              <==测试脚本</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#sh-x-inotify-2-sh"><span class="nav-number">31.</span> <span class="nav-text">sh -x inotify-2.sh</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#sh-x-inotify-3-sh"><span class="nav-number">32.</span> <span class="nav-text">sh -x inotify-3.sh</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#nohup-usr-jiaoben-inotify-1-sh-amp"><span class="nav-number">33.</span> <span class="nav-text">nohup /usr/jiaoben/inotify-1.sh &</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#nohup-usr-jiaoben-inotify-2-sh-amp"><span class="nav-number">34.</span> <span class="nav-text">nohup /usr/jiaoben/inotify-2.sh &</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#nohup-usr-jiaoben-inotify-3-sh-amp"><span class="nav-number">35.</span> <span class="nav-text">nohup /usr/jiaoben/inotify-3.sh &</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#vim-etc-rc-local"><span class="nav-number">36.</span> <span class="nav-text">vim /etc/rc.local</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-NFS配置"><span class="nav-number">36.0.1.</span> <span class="nav-text">2.NFS配置</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#yum-install-nfs-utils-rpcbind-y"><span class="nav-number">37.</span> <span class="nav-text">yum install nfs-utils rpcbind -y</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#etc-init-d-rpcbind-start"><span class="nav-number">38.</span> <span class="nav-text">/etc/init.d/rpcbind start</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#rpcinfo-p-localhost"><span class="nav-number">39.</span> <span class="nav-text">rpcinfo -p localhost</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#etc-init-d-nfs-start"><span class="nav-number">40.</span> <span class="nav-text">/etc/init.d/nfs start</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#rpcinfo-p-localhost-1"><span class="nav-number">41.</span> <span class="nav-text">rpcinfo -p localhost</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#chkconfig-rpcbind-on"><span class="nav-number">42.</span> <span class="nav-text">chkconfig rpcbind on</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#chkconfig-nfs-on"><span class="nav-number">43.</span> <span class="nav-text">chkconfig nfs on</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#id-www"><span class="nav-number">44.</span> <span class="nav-text">id www</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#vim-etc-exports-lt-编辑主配置文件"><span class="nav-number">45.</span> <span class="nav-text">vim /etc/exports   <==编辑主配置文件</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#cat-var-lib-nfs-etab-lt-可查看nfs默认使用的用户及共享参数"><span class="nav-number">46.</span> <span class="nav-text">cat /var/lib/nfs/etab   <==可查看nfs默认使用的用户及共享参数</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#etc-init-d-nfs-reload"><span class="nav-number">47.</span> <span class="nav-text">/etc/init.d/nfs reload</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#showmount-e-localhost"><span class="nav-number">48.</span> <span class="nav-text">showmount -e localhost</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#yum-install-nfs-utils-rpcbind-y-1"><span class="nav-number">49.</span> <span class="nav-text">yum install nfs-utils rpcbind -y</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#etc-init-d-rpcbind-start-1"><span class="nav-number">50.</span> <span class="nav-text">/etc/init.d/rpcbind start</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#chkconfig-rpcbind-on-1"><span class="nav-number">51.</span> <span class="nav-text">chkconfig rpcbind on</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#rpcinfo-p-10-47-68-95"><span class="nav-number">52.</span> <span class="nav-text">rpcinfo -p 10.47.68.95</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#showmount-e-10-47-68-95"><span class="nav-number">53.</span> <span class="nav-text">showmount -e 10.47.68.95</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#mount-t-nfs-10-47-68-95-newdata-www-www-izaodao-com-zdschool-data-newdata-www-www-izaodao-com-zdschool-data"><span class="nav-number">54.</span> <span class="nav-text">mount -t nfs 10.47.68.95:/newdata/www/www.izaodao.com/zdschool/data /newdata/www/www.izaodao.com/zdschool/data</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#mount-t-nfs-10-47-68-95-newdata-www-www-izaodao-com-uc-data-newdata-www-www-izaodao-com-uc-data"><span class="nav-number">55.</span> <span class="nav-text">mount -t nfs 10.47.68.95:/newdata/www/www.izaodao.com/uc/data /newdata/www/www.izaodao.com/uc/data</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#mount-t-nfs-10-47-68-95-newdata-www-www-izaodao-com-data-newdata-www-www-izaodao-com-data"><span class="nav-number">56.</span> <span class="nav-text">mount -t nfs 10.47.68.95:/newdata/www/www.izaodao.com/data /newdata/www/www.izaodao.com/data</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#vim-etc-rc-local-1"><span class="nav-number">57.</span> <span class="nav-text">vim /etc/rc.local</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Neconano</span>
+</div>
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

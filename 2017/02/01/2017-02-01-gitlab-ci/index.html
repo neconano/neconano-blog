@@ -1,0 +1,610 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="docker,gitlab,持续集成," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="gitlab-ce&amp;#x5B89;&amp;#x88C5;&amp;#x53C2;&amp;#x8003;
+&amp;#x4F7F;&amp;#x7528;ubuntu16.04.02 server lts&amp;#x7248;&amp;#x672C;&amp;#xFF08;17&amp;#x7248;&amp;#x672C;&amp;#x5931;&amp;#x8D25;&amp;#xFF0C;16.04&amp;#x5B58;&amp;#x5728;lxcfs&amp;#x6743;&amp;#x9650;&amp;#x95EE;&amp;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="gitlab-ci">
+<meta property="og:url" content="http://yoursite.com/2017/02/01/2017-02-01-gitlab-ci/index.html">
+<meta property="og:site_name" content="Neconano's notebook">
+<meta property="og:description" content="gitlab-ce&amp;#x5B89;&amp;#x88C5;&amp;#x53C2;&amp;#x8003;
+&amp;#x4F7F;&amp;#x7528;ubuntu16.04.02 server lts&amp;#x7248;&amp;#x672C;&amp;#xFF08;17&amp;#x7248;&amp;#x672C;&amp;#x5931;&amp;#x8D25;&amp;#xFF0C;16.04&amp;#x5B58;&amp;#x5728;lxcfs&amp;#x6743;&amp;#x9650;&amp;#x95EE;&amp;">
+<meta property="og:updated_time" content="2017-07-08T08:17:44.501Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="gitlab-ci">
+<meta name="twitter:description" content="gitlab-ce&amp;#x5B89;&amp;#x88C5;&amp;#x53C2;&amp;#x8003;
+&amp;#x4F7F;&amp;#x7528;ubuntu16.04.02 server lts&amp;#x7248;&amp;#x672C;&amp;#xFF08;17&amp;#x7248;&amp;#x672C;&amp;#x5931;&amp;#x8D25;&amp;#xFF0C;16.04&amp;#x5B58;&amp;#x5728;lxcfs&amp;#x6743;&amp;#x9650;&amp;#x95EE;&amp;">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"right","display":"always"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: 'Author'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/02/01/2017-02-01-gitlab-ci/"/>
+
+  <title> gitlab-ci | Neconano's notebook </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-right page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Neconano's notebook</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                gitlab-ci
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2017-02-01T00:00:00+08:00" content="2017-02-01">
+              2017-02-01
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="gitlab-ce&#x5B89;&#x88C5;"><a href="#gitlab-ce&#x5B89;&#x88C5;" class="headerlink" title="gitlab-ce&#x5B89;&#x88C5;"></a>gitlab-ce&#x5B89;&#x88C5;</h1><p><a href="https://www.gitlab.cc/downloads/#ubuntu1604" target="_blank" rel="external">&#x53C2;&#x8003;</a></p>
+<p>&#x4F7F;&#x7528;ubuntu16.04.02 server lts&#x7248;&#x672C;&#xFF08;17&#x7248;&#x672C;&#x5931;&#x8D25;&#xFF0C;16.04&#x5B58;&#x5728;lxcfs&#x6743;&#x9650;&#x95EE;&#x9898;&#xFF09;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">sudo apt-get install curl openssh-server ca-certificates postfix</div><div class="line">curl -sS http://packages.gitlab.cc/install/gitlab-ce/script.deb.sh | sudo bash</div><div class="line">sudo apt-get install gitlab-ce</div><div class="line">sudo gitlab-ctl reconfigure</div></pre></td></tr></table></figure>
+<p>&#x8BBF;&#x95EE;&#x5730;&#x5740;&#xFF1A;&#xFF08;&#x914D;&#x7F6E;ip&#x5730;&#x5740;&#x5373;&#x53EF;&#xFF0C;&#x57DF;&#x540D;&#x53EF;&#x4EE5;&#x91CD;&#x5B9A;&#x5411;&#x5230;ip&#xFF09;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ vi /etc/gitlab/gitlab.rb</div><div class="line">external_url</div><div class="line">$ sudo gitlab-ctl reconfigure</div></pre></td></tr></table></figure>
+<p>&#x9ED8;&#x8BA4;root &#x5BC6;&#x7801; 5iveL!fe&#xFF08;&#x65B0;&#x7248;&#x9ED8;&#x8BA4;&#x91CD;&#x65B0;&#x8BBE;&#x7F6E;&#xFF09;</p>
+<p>&#x9ED8;&#x8BA4;&#x7684;&#x4ED3;&#x5E93;&#x76EE;&#x5F55;&#xFF1A;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ vi /etc/gitlab/gitlab.rb</div><div class="line">git_data_dirs</div></pre></td></tr></table></figure>
+<h1 id="GitLab-Runner&#x5B89;&#x88C5;"><a href="#GitLab-Runner&#x5B89;&#x88C5;" class="headerlink" title="GitLab Runner&#x5B89;&#x88C5;"></a>GitLab Runner&#x5B89;&#x88C5;</h1><p><a href="https://docs.gitlab.com/runner/install/linux-repository.html" target="_blank" rel="external">&#x53C2;&#x8003;</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$ curl -sSL https://get.docker.com/ | sh</div><div class="line"></div><div class="line">$ curl -L https://packages.gitlab.com/install/repositories/runner/gitlab-ci-multi-runner/script.deb.sh | sudo bash</div><div class="line"></div><div class="line">$ sudo apt-get install gitlab-ci-multi-runner</div></pre></td></tr></table></figure>
+<h1 id="gitlab-ci&#x6301;&#x7EED;&#x96C6;&#x6210;"><a href="#gitlab-ci&#x6301;&#x7EED;&#x96C6;&#x6210;" class="headerlink" title="gitlab-ci&#x6301;&#x7EED;&#x96C6;&#x6210;"></a>gitlab-ci&#x6301;&#x7EED;&#x96C6;&#x6210;</h1><h3 id="&#x5B89;&#x88C5;docker-ce"><a href="#&#x5B89;&#x88C5;docker-ce" class="headerlink" title="&#x5B89;&#x88C5;docker-ce"></a>&#x5B89;&#x88C5;docker-ce</h3><p><a href="https://docs.docker.com/engine/installation/linux/docker-ce/ubuntu/" target="_blank" rel="external">&#x53C2;&#x8003;</a></p>
+<p><a href="http://dockone.io/article/783" target="_blank" rel="external">10&#x5F20;&#x56FE;&#x5E26;&#x4F60;&#x6DF1;&#x5165;&#x7406;&#x89E3;Docker&#x5BB9;&#x5668;&#x548C;&#x955C;&#x50CF;</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">$ curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -</div><div class="line">$ sudo add-apt-repository \</div><div class="line">   &quot;deb [arch=amd64] https://download.docker.com/linux/ubuntu \</div><div class="line">   $(lsb_release -cs) \</div><div class="line">   stable&quot;</div><div class="line">$ sudo apt-get install docker-ce</div><div class="line">&#x6216;</div><div class="line">$ apt-get install docker-ce=&lt;VERSION&gt;</div><div class="line"></div><div class="line">sudo docker run hello-world</div></pre></td></tr></table></figure>
+<h3 id="docker-&#x7248;&#x672C;&#x5347;&#x7EA7;-&#x6700;&#x65B0;"><a href="#docker-&#x7248;&#x672C;&#x5347;&#x7EA7;-&#x6700;&#x65B0;" class="headerlink" title="docker &#x7248;&#x672C;&#x5347;&#x7EA7;(&#x6700;&#x65B0;)"></a>docker &#x7248;&#x672C;&#x5347;&#x7EA7;(&#x6700;&#x65B0;)</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">&#x5378;&#x8F7D;&#x5230;&#x5DF2;&#x6709;&#x7684;&#x7248;&#x672C;</div><div class="line">sudo apt-get purge docker.io</div><div class="line">&#x6839;&#x636E;&#x63D0;&#x793A;&#x5220;&#x9664;&#x975E;&#x7A7A;&#x76EE;&#x5F55;</div><div class="line">rm -rf ??</div><div class="line">sudo apt-get autoremove</div><div class="line">&#x6DFB;&#x52A0;&#x6E90;&#xFF08;ubuntu 16.4&#xFF09;</div><div class="line">echo &quot;deb https://apt.dockerproject.org/repo ubuntu-xenial main&quot; | sudo tee /etc/apt/sources.list.d/docker.list</div><div class="line">sudo apt-get update</div><div class="line">apt-cache policy docker-engine</div></pre></td></tr></table></figure>
+<h3 id="docker-compose&#x5B89;&#x88C5;"><a href="#docker-compose&#x5B89;&#x88C5;" class="headerlink" title="docker-compose&#x5B89;&#x88C5;"></a>docker-compose&#x5B89;&#x88C5;</h3><p><a href="https://docs.docker.com/compose/compose-file/" target="_blank" rel="external">&#x53C2;&#x8003;&#x8BED;&#x6CD5;</a></p>
+<p><a href="https://docs.docker.com/compose/install/" target="_blank" rel="external">&#x5B89;&#x88C5;</a></p>
+<p>&#x5B89;&#x88C5; 1.14.0&#x7248;&#x672C;</p>
+<p>curl -L <a href="https://github.com/docker/compose/releases/download/1.14.0/docker-compose-`uname" target="_blank" rel="external">https://github.com/docker/compose/releases/download/1.14.0/docker-compose-`uname</a> -s<code>-</code>uname -m` &gt; /usr/local/bin/docker-compose</p>
+<h3 id="&#x6CE8;&#x518C;runner"><a href="#&#x6CE8;&#x518C;runner" class="headerlink" title="&#x6CE8;&#x518C;runner"></a>&#x6CE8;&#x518C;runner</h3><p><a href="http://docs.gitlab.com/runner/register/#docker" target="_blank" rel="external">&#x53C2;&#x8003;</a></p>
+<p>&#x83B7;&#x5F97;token &#xFF1A;Settings &#x2794; Pipelines</p>
+<p>&#x521B;&#x5EFA;runner</p>
+<p>&#x65B9;&#x5F0F;1&#xFF1A;&#x5B98;&#x65B9;&#x63A8;&#x8350;<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">$ docker run -d --name gitlab-runner --restart always \</div><div class="line">-v /var/run/docker.sock:/var/run/docker.sock \</div><div class="line">-v /srv/gitlab-runner/config:/etc/gitlab-runner \</div><div class="line">gitlab/gitlab-runner:latest</div><div class="line"></div><div class="line">$ docker exec -it gitlab-runner gitlab-runner register</div><div class="line"></div><div class="line">&#x5728;&#x63D0;&#x793A;Please enter the default Docker image (e.g. ruby:2.1):</div><div class="line">&#x8F93;&#x5165;&#x81EA;&#x5DF1;&#x521B;&#x5EFA;&#x7684;docker&#x955C;&#x50CF;</div></pre></td></tr></table></figure></p>
+<p>&#x65B9;&#x5F0F;2&#xFF1A;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ docker pull gitlab/gitlab-runner</div><div class="line">$ docker run -it gitlab/gitlab-runner register</div></pre></td></tr></table></figure>
+<p>&#x65B9;&#x5F0F;3&#xFF1A;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ sudo gitlab-ci-multi-runner register</div></pre></td></tr></table></figure>
+<p>shell&#x65B9;&#x5F0F;&#x4F1A;&#x9ED8;&#x8BA4;&#x5728;/home/gitlab-runner/&#x4E0B;&#x9762;&#x6784;&#x5EFA;&#xFF0C;&#x9002;&#x7528;&#x672C;&#x5730;&#x90E8;&#x7F72;</p>
+<p>docker&#x65B9;&#x5F0F;&#x5219;&#x5728;&#x5BF9;&#x5E94;&#x5BB9;&#x5668;&#x5377;&#x5185;&#x6784;&#x5EFA;&#xFF0C;&#x9002;&#x7528;&#x901A;&#x8FC7;IP&#x8FDC;&#x7A0B;&#x90E8;&#x7F72;</p>
+<h3 id="&#x6301;&#x7EED;&#x96C6;&#x6210;&#x6587;&#x4EF6;-gitlab-ci-yml"><a href="#&#x6301;&#x7EED;&#x96C6;&#x6210;&#x6587;&#x4EF6;-gitlab-ci-yml" class="headerlink" title="&#x6301;&#x7EED;&#x96C6;&#x6210;&#x6587;&#x4EF6;.gitlab-ci.yml"></a>&#x6301;&#x7EED;&#x96C6;&#x6210;&#x6587;&#x4EF6;.gitlab-ci.yml</h3><p><a href="https://docs.gitlab.com/ee/ci/yaml/README.html" target="_blank" rel="external">&#x8BED;&#x6CD5;</a></p>
+<p><a href="https://docs.gitlab.com/ee/ci/examples/php.html" target="_blank" rel="external">PHP&#x6837;&#x4F8B;</a></p>
+<p>&#x901A;&#x8FC7;gitlab&#x6CE8;&#x5165;&#x73AF;&#x5883;&#x53D8;&#x91CF;&#x5B8C;&#x6210;&#x6784;&#x5EFA;</p>
+<h3 id="&#x7ED3;&#x679C;&#x56DE;&#x4F20;"><a href="#&#x7ED3;&#x679C;&#x56DE;&#x4F20;" class="headerlink" title="&#x7ED3;&#x679C;&#x56DE;&#x4F20;"></a>&#x7ED3;&#x679C;&#x56DE;&#x4F20;</h3><p>&#x4F7F;&#x7528;phing&#x6267;&#x884C;&#x6784;&#x5EFA;&#x53CA;&#x56DE;&#x4F20;,&#x56DE;&#x4F20;&#x65B9;&#x5F0F;&#x53EF;&#x4EE5;&#x7528;&#x7F51;&#x7EDC;&#x4F20;&#x8F93;(rsync)</p>
+<p>&#x6700;&#x540E;&#x8FD8;&#x8981;&#x8003;&#x8651;&#x6570;&#x636E;&#x4E00;&#x81F4;&#x6027;&#x7684;&#x60C5;&#x51B5;&#xFF0C;&#x4F7F;&#x7528;rsync&#x7684;&#x8BDD;&#x53EF;&#x4EE5;&#x8FDB;&#x884C;&#x6BD4;&#x5BF9;&#x5220;&#x9664;&#x591A;&#x4F59;&#x6587;&#x4EF6;&#xFF0C;&#x5E76;&#x8BBE;&#x7F6E;&#x8FC7;&#x6EE4;&#x5217;&#x8868;&#x5BF9;&#x7528;&#x6237;&#x4E0A;&#x4F20;&#x6587;&#x4EF6;&#x8FDB;&#x884C;&#x4FDD;&#x7559;</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/docker/" rel="tag">#docker</a>
+          
+            <a href="/tags/gitlab/" rel="tag">#gitlab</a>
+          
+            <a href="/tags/持续集成/" rel="tag">#持续集成</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/01/01/2017-01-01-zookeeper/" rel="next" title="zookeeper">
+                <i class="fa fa-chevron-left"></i> zookeeper
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/02/01/2017-02-01-thinkphp-rule/" rel="prev" title="thinkphp-rule">
+                thinkphp-rule <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-name">categories</span>
+              
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">60</span>
+                <span class="site-state-item-name">tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#gitlab-ce安装"><span class="nav-number">1.</span> <span class="nav-text">gitlab-ce安装</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#GitLab-Runner安装"><span class="nav-number">2.</span> <span class="nav-text">GitLab Runner安装</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#gitlab-ci持续集成"><span class="nav-number">3.</span> <span class="nav-text">gitlab-ci持续集成</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#安装docker-ce"><span class="nav-number">3.0.1.</span> <span class="nav-text">安装docker-ce</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#docker-版本升级-最新"><span class="nav-number">3.0.2.</span> <span class="nav-text">docker 版本升级(最新)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#docker-compose安装"><span class="nav-number">3.0.3.</span> <span class="nav-text">docker-compose安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#注册runner"><span class="nav-number">3.0.4.</span> <span class="nav-text">注册runner</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#持续集成文件-gitlab-ci-yml"><span class="nav-number">3.0.5.</span> <span class="nav-text">持续集成文件.gitlab-ci.yml</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#结果回传"><span class="nav-number">3.0.6.</span> <span class="nav-text">结果回传</span></a></li></ol></li></ol></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Neconano</span>
+</div>
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

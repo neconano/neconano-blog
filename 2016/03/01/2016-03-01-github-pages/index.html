@@ -1,0 +1,615 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="&amp;#x5728;github&amp;#x4E0A;&amp;#x642D;&amp;#x5EFA;&amp;#x81EA;&amp;#x5DF1;&amp;#x7684;&amp;#x535A;&amp;#x5BA2;
+
+
+&amp;#x521B;&amp;#x5EFA;&amp;#x4E00;&amp;#x4E2A;&amp;#x72EC;&amp;#x7ACB;&amp;#x57DF;&amp;#x540D;&amp;#x7684;&amp;#x535A;&amp;#x5BA2;&amp;#x7A7A;&amp;#x95F4;&amp;#xFF0C;&amp;#x5982">
+<meta property="og:type" content="article">
+<meta property="og:title" content="在github上搭建自己的博客">
+<meta property="og:url" content="http://yoursite.com/2016/03/01/2016-03-01-github-pages/index.html">
+<meta property="og:site_name" content="Neconano's notebook">
+<meta property="og:description" content="&amp;#x5728;github&amp;#x4E0A;&amp;#x642D;&amp;#x5EFA;&amp;#x81EA;&amp;#x5DF1;&amp;#x7684;&amp;#x535A;&amp;#x5BA2;
+
+
+&amp;#x521B;&amp;#x5EFA;&amp;#x4E00;&amp;#x4E2A;&amp;#x72EC;&amp;#x7ACB;&amp;#x57DF;&amp;#x540D;&amp;#x7684;&amp;#x535A;&amp;#x5BA2;&amp;#x7A7A;&amp;#x95F4;&amp;#xFF0C;&amp;#x5982">
+<meta property="og:updated_time" content="2016-11-29T02:54:50.563Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="在github上搭建自己的博客">
+<meta name="twitter:description" content="&amp;#x5728;github&amp;#x4E0A;&amp;#x642D;&amp;#x5EFA;&amp;#x81EA;&amp;#x5DF1;&amp;#x7684;&amp;#x535A;&amp;#x5BA2;
+
+
+&amp;#x521B;&amp;#x5EFA;&amp;#x4E00;&amp;#x4E2A;&amp;#x72EC;&amp;#x7ACB;&amp;#x57DF;&amp;#x540D;&amp;#x7684;&amp;#x535A;&amp;#x5BA2;&amp;#x7A7A;&amp;#x95F4;&amp;#xFF0C;&amp;#x5982">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"right","display":"always"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: 'Author'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2016/03/01/2016-03-01-github-pages/"/>
+
+  <title> 在github上搭建自己的博客 | Neconano's notebook </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-right page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Neconano's notebook</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                在github上搭建自己的博客
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2016-03-01T00:00:00+08:00" content="2016-03-01">
+              2016-03-01
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/other/" itemprop="url" rel="index">
+                    <span itemprop="name">other</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="&#x5728;github&#x4E0A;&#x642D;&#x5EFA;&#x81EA;&#x5DF1;&#x7684;&#x535A;&#x5BA2;"><a href="#&#x5728;github&#x4E0A;&#x642D;&#x5EFA;&#x81EA;&#x5DF1;&#x7684;&#x535A;&#x5BA2;" class="headerlink" title="&#x5728;github&#x4E0A;&#x642D;&#x5EFA;&#x81EA;&#x5DF1;&#x7684;&#x535A;&#x5BA2;"></a>&#x5728;github&#x4E0A;&#x642D;&#x5EFA;&#x81EA;&#x5DF1;&#x7684;&#x535A;&#x5BA2;</h1><hr>
+<blockquote>
+<ul>
+<li>&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x72EC;&#x7ACB;&#x57DF;&#x540D;&#x7684;&#x535A;&#x5BA2;&#x7A7A;&#x95F4;&#xFF0C;&#x5982;&#x672C;&#x535A;&#x5BA2;&#x57DF;&#x540D; <a href="https://neconnao.github.io" target="_blank" rel="external">neconnao.github.io</a></li>
+</ul>
+</blockquote>
+<p>&#x63A8;&#x8350;&#x6587;&#x7AE0;<br><a href="https://pages.github.com/" target="_blank" rel="external">&#x5B98;&#x65B9;&#x8BF4;&#x660E;</a></p>
+<p><strong>&#x672C;&#x4EBA;&#x5728;&#x751F;&#x6210;&#x7684;gh-pages&#x5206;&#x652F;&#x4E0B;&#x663E;&#x793A;&#x5931;&#x8D25;&#xFF0C;&#x4F7F;&#x7528;master&#x5206;&#x652F;&#x53EF;&#x663E;&#x793A;</strong></p>
+<blockquote>
+<ul>
+<li>&#x914D;&#x7F6E;&#x4F7F;&#x7528;jekyll <a href="http://jekyll.bootcss.com/" target="_blank" rel="external">jekyll&#x662F;&#x4EC0;&#x4E48;</a></li>
+</ul>
+</blockquote>
+<p>&#x63A8;&#x8350;&#x6700;&#x8FD1;fork&#x4E00;&#x4EFD;&#x522B;&#x4EBA;&#x7684;&#x73AF;&#x5883;&#x5373;&#x53EF; <a href="https://neconnao.github.io" target="_blank" rel="external">neconnao.github.io</a></p>
+<p><strong>&#x5728;github&#x4F7F;&#x7528;jekyll&#x65F6;&#x5019;&#xFF0C;&#x6587;&#x7AE0;&#x7684;&#x540E;&#x7F00;<code>md</code>&#x5373;&#x53EF;&#xFF0C;&#x4E0D;&#x8981;&#x5199;&#x6210;<code>MARKUP</code></strong></p>
+<blockquote>
+<ul>
+<li><p>jekyll&#x652F;&#x6301;markdown&#xFF0C;<a href="https://www.zybuluo.com/mdeditor" target="_blank" rel="external">markdown&#x6837;&#x4F8B;</a></p>
+</li>
+<li><p>&#x521B;&#x5EFA;Deploy Keys</p>
+</li>
+</ul>
+</blockquote>
+<h3 id="1-&#x6253;&#x5F00;git-shell"><a href="#1-&#x6253;&#x5F00;git-shell" class="headerlink" title="1.&#x6253;&#x5F00;git shell"></a>1.&#x6253;&#x5F00;git shell</h3><h3 id="2-&#x4F7F;&#x7528;&#x547D;&#x4EE4;ssh-keygen-&#x2013;C-&#x201C;&#x90AE;&#x7BB1;&#x5730;&#x5740;&#x201D;-&#x2013;t-rsa&#x751F;&#x6210;key"><a href="#2-&#x4F7F;&#x7528;&#x547D;&#x4EE4;ssh-keygen-&#x2013;C-&#x201C;&#x90AE;&#x7BB1;&#x5730;&#x5740;&#x201D;-&#x2013;t-rsa&#x751F;&#x6210;key" class="headerlink" title="2.&#x4F7F;&#x7528;&#x547D;&#x4EE4;ssh-keygen &#x2013;C &#x201C;&#x90AE;&#x7BB1;&#x5730;&#x5740;&#x201D; &#x2013;t rsa&#x751F;&#x6210;key"></a>2.&#x4F7F;&#x7528;&#x547D;&#x4EE4;<code>ssh-keygen &#x2013;C &#x201C;&#x90AE;&#x7BB1;&#x5730;&#x5740;&#x201D; &#x2013;t rsa</code>&#x751F;&#x6210;key</h3><h3 id="3-&#x6253;&#x5F00;&#x751F;&#x6210;&#x7684;key-&#x590D;&#x5236;&#x5185;&#x5BB9;&#xFF0C;&#x6253;&#x5F00;github-com&#x4E0A;&#x521B;&#x5EFA;&#x7684;repository&#xFF0C;&#x70B9;&#x65C1;&#x8FB9;&#x7684;edit&#xFF0C;&#x5728;Deploy-Keys&#x91CC;&#x70B9;add-another-deploy-key&#xFF0C;&#x540D;&#x5B57;&#x968F;&#x4FBF;&#x8D77;&#xFF0C;&#x628A;&#x521A;&#x624D;&#x590D;&#x5236;&#x7684;&#x5185;&#x5BB9;&#x7C98;&#x8D34;&#x5728;&#x4E0A;&#x9762;&#x3002;"><a href="#3-&#x6253;&#x5F00;&#x751F;&#x6210;&#x7684;key-&#x590D;&#x5236;&#x5185;&#x5BB9;&#xFF0C;&#x6253;&#x5F00;github-com&#x4E0A;&#x521B;&#x5EFA;&#x7684;repository&#xFF0C;&#x70B9;&#x65C1;&#x8FB9;&#x7684;edit&#xFF0C;&#x5728;Deploy-Keys&#x91CC;&#x70B9;add-another-deploy-key&#xFF0C;&#x540D;&#x5B57;&#x968F;&#x4FBF;&#x8D77;&#xFF0C;&#x628A;&#x521A;&#x624D;&#x590D;&#x5236;&#x7684;&#x5185;&#x5BB9;&#x7C98;&#x8D34;&#x5728;&#x4E0A;&#x9762;&#x3002;" class="headerlink" title="3.&#x6253;&#x5F00;&#x751F;&#x6210;&#x7684;key,&#x590D;&#x5236;&#x5185;&#x5BB9;&#xFF0C;&#x6253;&#x5F00;github.com&#x4E0A;&#x521B;&#x5EFA;&#x7684;repository&#xFF0C;&#x70B9;&#x65C1;&#x8FB9;&#x7684;edit&#xFF0C;&#x5728;Deploy Keys&#x91CC;&#x70B9;add another deploy key&#xFF0C;&#x540D;&#x5B57;&#x968F;&#x4FBF;&#x8D77;&#xFF0C;&#x628A;&#x521A;&#x624D;&#x590D;&#x5236;&#x7684;&#x5185;&#x5BB9;&#x7C98;&#x8D34;&#x5728;&#x4E0A;&#x9762;&#x3002;"></a>3.&#x6253;&#x5F00;&#x751F;&#x6210;&#x7684;key,&#x590D;&#x5236;&#x5185;&#x5BB9;&#xFF0C;&#x6253;&#x5F00;github.com&#x4E0A;&#x521B;&#x5EFA;&#x7684;repository&#xFF0C;&#x70B9;&#x65C1;&#x8FB9;&#x7684;edit&#xFF0C;&#x5728;Deploy Keys&#x91CC;&#x70B9;add another deploy key&#xFF0C;&#x540D;&#x5B57;&#x968F;&#x4FBF;&#x8D77;&#xFF0C;&#x628A;&#x521A;&#x624D;&#x590D;&#x5236;&#x7684;&#x5185;&#x5BB9;&#x7C98;&#x8D34;&#x5728;&#x4E0A;&#x9762;&#x3002;</h3><h3 id="4-&#x5728;&#x9879;&#x76EE;&#x7684;setting&#x91CC;&#x9762;&#xFF0C;&#x53EF;&#x4EE5;&#x770B;&#x5230;&#x9875;&#x9762;&#x662F;&#x5426;&#x88AB;&#x6B63;&#x786E;&#x7F16;&#x8BD1;&#xFF0C;&#x5728;&#x6587;&#x4EF6;&#x7684;history&#x4E2D;&#x4E5F;&#x53EF;&#x4EE5;&#x770B;&#x5230;"><a href="#4-&#x5728;&#x9879;&#x76EE;&#x7684;setting&#x91CC;&#x9762;&#xFF0C;&#x53EF;&#x4EE5;&#x770B;&#x5230;&#x9875;&#x9762;&#x662F;&#x5426;&#x88AB;&#x6B63;&#x786E;&#x7F16;&#x8BD1;&#xFF0C;&#x5728;&#x6587;&#x4EF6;&#x7684;history&#x4E2D;&#x4E5F;&#x53EF;&#x4EE5;&#x770B;&#x5230;" class="headerlink" title="4.&#x5728;&#x9879;&#x76EE;&#x7684;setting&#x91CC;&#x9762;&#xFF0C;&#x53EF;&#x4EE5;&#x770B;&#x5230;&#x9875;&#x9762;&#x662F;&#x5426;&#x88AB;&#x6B63;&#x786E;&#x7F16;&#x8BD1;&#xFF0C;&#x5728;&#x6587;&#x4EF6;&#x7684;history&#x4E2D;&#x4E5F;&#x53EF;&#x4EE5;&#x770B;&#x5230;"></a>4.&#x5728;&#x9879;&#x76EE;&#x7684;setting&#x91CC;&#x9762;&#xFF0C;&#x53EF;&#x4EE5;&#x770B;&#x5230;&#x9875;&#x9762;&#x662F;&#x5426;&#x88AB;&#x6B63;&#x786E;&#x7F16;&#x8BD1;&#xFF0C;&#x5728;&#x6587;&#x4EF6;&#x7684;history&#x4E2D;&#x4E5F;&#x53EF;&#x4EE5;&#x770B;&#x5230;</h3>
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/03/01/2016-03-01-cookie-abc/" rel="next" title="cookie 在php中应用的问题">
+                <i class="fa fa-chevron-left"></i> cookie 在php中应用的问题
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/03/01/2016-03-01-swoole-framework/" rel="prev" title="swoole-framework 使用笔记">
+                swoole-framework 使用笔记 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-name">categories</span>
+              
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">60</span>
+                <span class="site-state-item-name">tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#在github上搭建自己的博客"><span class="nav-number">1.</span> <span class="nav-text">在github上搭建自己的博客</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-打开git-shell"><span class="nav-number">1.0.1.</span> <span class="nav-text">1.打开git shell</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-使用命令ssh-keygen-–C-“邮箱地址”-–t-rsa生成key"><span class="nav-number">1.0.2.</span> <span class="nav-text">2.使用命令ssh-keygen –C “邮箱地址” –t rsa生成key</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-打开生成的key-复制内容，打开github-com上创建的repository，点旁边的edit，在Deploy-Keys里点add-another-deploy-key，名字随便起，把刚才复制的内容粘贴在上面。"><span class="nav-number">1.0.3.</span> <span class="nav-text">3.打开生成的key,复制内容，打开github.com上创建的repository，点旁边的edit，在Deploy Keys里点add another deploy key，名字随便起，把刚才复制的内容粘贴在上面。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-在项目的setting里面，可以看到页面是否被正确编译，在文件的history中也可以看到"><span class="nav-number">1.0.4.</span> <span class="nav-text">4.在项目的setting里面，可以看到页面是否被正确编译，在文件的history中也可以看到</span></a></li></ol></li></ol></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Neconano</span>
+</div>
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

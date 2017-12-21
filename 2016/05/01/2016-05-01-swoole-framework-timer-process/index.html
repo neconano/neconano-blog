@@ -1,0 +1,599 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="&amp;#x4F7F;&amp;#x7528;swoole-framework&amp;#x7684;&amp;#x5F02;&amp;#x6B65;&amp;#x8FDB;&amp;#x7A0B;&amp;#x6837;&amp;#x4F8B;
+&amp;#x8FD9;&amp;#x4E2A;&amp;#x662F;&amp;#x65E7;&amp;#x7248;&amp;#x672C;
+1.apps_timer.php &amp;#x670D;&amp;#x52A1;&amp;#x5165;&amp;#x53E3;
+123456789101">
+<meta property="og:type" content="article">
+<meta property="og:title" content="swoole-framework-timer-process 样例">
+<meta property="og:url" content="http://yoursite.com/2016/05/01/2016-05-01-swoole-framework-timer-process/index.html">
+<meta property="og:site_name" content="Neconano's notebook">
+<meta property="og:description" content="&amp;#x4F7F;&amp;#x7528;swoole-framework&amp;#x7684;&amp;#x5F02;&amp;#x6B65;&amp;#x8FDB;&amp;#x7A0B;&amp;#x6837;&amp;#x4F8B;
+&amp;#x8FD9;&amp;#x4E2A;&amp;#x662F;&amp;#x65E7;&amp;#x7248;&amp;#x672C;
+1.apps_timer.php &amp;#x670D;&amp;#x52A1;&amp;#x5165;&amp;#x53E3;
+123456789101">
+<meta property="og:updated_time" content="2017-03-29T05:26:28.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="swoole-framework-timer-process 样例">
+<meta name="twitter:description" content="&amp;#x4F7F;&amp;#x7528;swoole-framework&amp;#x7684;&amp;#x5F02;&amp;#x6B65;&amp;#x8FDB;&amp;#x7A0B;&amp;#x6837;&amp;#x4F8B;
+&amp;#x8FD9;&amp;#x4E2A;&amp;#x662F;&amp;#x65E7;&amp;#x7248;&amp;#x672C;
+1.apps_timer.php &amp;#x670D;&amp;#x52A1;&amp;#x5165;&amp;#x53E3;
+123456789101">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"right","display":"always"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: 'Author'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2016/05/01/2016-05-01-swoole-framework-timer-process/"/>
+
+  <title> swoole-framework-timer-process 样例 | Neconano's notebook </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-right page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Neconano's notebook</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                swoole-framework-timer-process 样例
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2016-05-01T00:00:00+08:00" content="2016-05-01">
+              2016-05-01
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/swoole/" itemprop="url" rel="index">
+                    <span itemprop="name">swoole</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="&#x4F7F;&#x7528;swoole-framework&#x7684;&#x5F02;&#x6B65;&#x8FDB;&#x7A0B;&#x6837;&#x4F8B;"><a href="#&#x4F7F;&#x7528;swoole-framework&#x7684;&#x5F02;&#x6B65;&#x8FDB;&#x7A0B;&#x6837;&#x4F8B;" class="headerlink" title="&#x4F7F;&#x7528;swoole-framework&#x7684;&#x5F02;&#x6B65;&#x8FDB;&#x7A0B;&#x6837;&#x4F8B;"></a>&#x4F7F;&#x7528;swoole-framework&#x7684;&#x5F02;&#x6B65;&#x8FDB;&#x7A0B;&#x6837;&#x4F8B;</h1><hr>
+<p>&#x8FD9;&#x4E2A;&#x662F;&#x65E7;&#x7248;&#x672C;</p>
+<p>1.apps_timer.php &#x670D;&#x52A1;&#x5165;&#x53E3;</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="meta">&lt;?php</span></div><div class="line">define(<span class="string">&apos;DEBUG&apos;</span>, <span class="string">&apos;on&apos;</span>);</div><div class="line"></div><div class="line">define(<span class="string">&apos;_APP_DIR_&apos;</span>, realpath(<span class="keyword">__DIR__</span>).<span class="string">&apos;/framework&apos;</span>);</div><div class="line">define(<span class="string">&apos;WEBPATH&apos;</span>, _APP_DIR_ . <span class="string">&apos;/&apos;</span>);</div><div class="line"><span class="keyword">require</span> _APP_DIR_ . <span class="string">&apos;/libs/lib_config.php&apos;</span>;</div><div class="line"></div><div class="line">Swoole\Config::$debug = <span class="keyword">true</span>;</div><div class="line">Swoole\Error::$echo_html = <span class="keyword">false</span>;</div><div class="line"></div><div class="line">swoole_process::daemon(<span class="number">0</span>, <span class="number">1</span>);</div><div class="line">swoole_process::signal(SIGCHLD, <span class="function"><span class="keyword">function</span> <span class="params">($signo)</span></span>{</div><div class="line">    $ret = \swoole_process::wait(<span class="keyword">false</span>);</div><div class="line">    <span class="comment">//echo &quot;Worker#{$ret[&apos;pid&apos;]} wait....\n&quot;;</span></div><div class="line">});</div><div class="line"></div><div class="line"><span class="comment">//&#x6BCF;&#x5206;&#x949F;&#x6267;&#x884C;&#xFF0C;&#x6BCF;60&#x79D2;&#x68C0;&#x67E5;&#x4E00;&#x6B21;</span></div><div class="line">$timer1 = swoole_timer_tick(<span class="number">60000</span>, <span class="string">&apos;run_task&apos;</span>);</div><div class="line"><span class="comment">//run_task();</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">run_task</span><span class="params">()</span></span></div><div class="line">{</div><div class="line">    Swoole::$php-&gt;router(<span class="function"><span class="keyword">function</span><span class="params">()</span></span>{ </div><div class="line">        <span class="keyword">return</span> <span class="keyword">array</span>(<span class="string">&apos;controller&apos;</span> =&gt; <span class="string">&apos;zdmis&apos;</span>, <span class="string">&apos;view&apos;</span> =&gt; <span class="string">&apos;run_task&apos;</span>); </div><div class="line">    }); </div><div class="line">    $response = Swoole::$php-&gt;runMVC();</div><div class="line">}</div></pre></td></tr></table></figure>
+<p>2.Zdmis.php &#x4E1A;&#x52A1;&#x5904;&#x7406;&#x63A7;&#x5236;&#x5668;</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="meta">&lt;?php</span></div><div class="line"><span class="keyword">namespace</span> <span class="title">App</span>\<span class="title">Controller</span>;</div><div class="line"><span class="keyword">use</span> <span class="title">Swoole</span>;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Zdmis</span> <span class="keyword">extends</span> <span class="title">Swoole</span>\<span class="title">Controller</span></span></div><div class="line">{</div><div class="line">    <span class="keyword">private</span> $apt;</div><div class="line">    <span class="keyword">private</span> $day;</div><div class="line">    </div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">__construct</span><span class="params">($swoole)</span></span></div><div class="line">    {</div><div class="line">        <span class="keyword">parent</span>::__construct($swoole);</div><div class="line">        date_default_timezone_set(<span class="string">&quot;PRC&quot;</span>);</div><div class="line">        <span class="keyword">$this</span>-&gt;apt = <span class="keyword">new</span> Swoole\SelectDB(<span class="keyword">$this</span>-&gt;db);</div><div class="line">        <span class="keyword">$this</span>-&gt;day = date(<span class="string">&apos;Ymd&apos;</span>,time());</div><div class="line">        <span class="keyword">$this</span>-&gt;redis-&gt;select(<span class="number">1</span>);</div><div class="line">    }</div><div class="line">    </div><div class="line">    <span class="comment">/*&#x6267;&#x884C;&#x7684;&#x8BA1;&#x5212;&#x4EFB;&#x52A1;*/</span></div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">run_task</span><span class="params">()</span></span></div><div class="line">    {</div><div class="line">        $model = Model(<span class="string">&apos;SysCrontab&apos;</span>);</div><div class="line">        $w[<span class="string">&apos;is_deleted&apos;</span>] = <span class="number">0</span>;</div><div class="line">        $res = $model-&gt;gets($w);</div><div class="line">        $cron = <span class="keyword">new</span> \App\Cron\Cron();</div><div class="line">        <span class="keyword">foreach</span>($res <span class="keyword">as</span> $v){</div><div class="line">            $cron-&gt;setExpression($v[time]);</div><div class="line">            <span class="keyword">if</span>(!$cron-&gt;isValid()){</div><div class="line">                <span class="keyword">continue</span>;</div><div class="line">            }</div><div class="line">            $cron-&gt;setTimeZone(<span class="keyword">new</span> \DateTimeZone(<span class="string">&apos;Asia/Shanghai&apos;</span>));</div><div class="line">            $dt = <span class="keyword">new</span> \DateTime(date(<span class="string">&apos;Y-m-d H:i&apos;</span>,time()), <span class="keyword">new</span> \DateTimeZone(<span class="string">&apos;Asia/Shanghai&apos;</span>));</div><div class="line">            $isMatching = $cron-&gt;isMatching($dt);</div><div class="line">            <span class="keyword">if</span>($isMatching){</div><div class="line">                $v[time] = date(<span class="string">&apos;Y-m-d H:i&apos;</span>,time());</div><div class="line">                $task_list[] = $v;</div><div class="line">            }</div><div class="line">        }</div><div class="line">        <span class="comment">/*&#x5F02;&#x6B65;&#x8FDB;&#x7A0B;*/</span></div><div class="line">        <span class="keyword">if</span>(!<span class="keyword">empty</span>($task_list)){</div><div class="line">            <span class="keyword">$this</span>-&gt;_async_process($task_list);</div><div class="line">        }</div><div class="line">        <span class="comment">// &#x5220;&#x9664;3&#x5929;&#x524D;&#x7684;&#x8BB0;&#x5F55;</span></div><div class="line">        $t = date(<span class="string">&apos;Ymd&apos;</span>,time()<span class="number">-60</span>*<span class="number">60</span>*<span class="number">24</span>*<span class="number">3</span>);</div><div class="line">        <span class="keyword">$this</span>-&gt;redis-&gt;del(<span class="string">&quot;cron-record-{$t}&quot;</span>);</div><div class="line">    }</div><div class="line">    </div><div class="line">    <span class="comment">/*&#x6267;&#x884C;&#x8BA1;&#x5212;&#x4EFB;&#x52A1;*/</span></div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">_do_task</span><span class="params">($worker,$task)</span></span></div><div class="line">    {</div><div class="line">        <span class="comment">//redis&#x8BB0;&#x5F55;</span></div><div class="line">        $data[<span class="string">&apos;cron_id&apos;</span>] = $task[<span class="string">&apos;id&apos;</span>];</div><div class="line">        $data[<span class="string">&apos;url&apos;</span>] = $task[<span class="string">&apos;url&apos;</span>];</div><div class="line">        $data[<span class="string">&apos;time&apos;</span>] = $task[<span class="string">&apos;time&apos;</span>];</div><div class="line">        <span class="keyword">$this</span>-&gt;redis-&gt;rPush(<span class="string">&quot;cron-record-{$this-&gt;day}&quot;</span>, serialize($data));</div><div class="line">        </div><div class="line">        $worker-&gt;exec(<span class="string">&apos;/usr/bin/curl&apos;</span>, <span class="keyword">array</span>($task[<span class="string">&apos;url&apos;</span>]));</div><div class="line">    }</div><div class="line">    </div><div class="line">    <span class="comment">/*&#x5F02;&#x6B65;&#x8FDB;&#x7A0B;*/</span></div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">_async_process</span><span class="params">($res)</span></span></div><div class="line">    {</div><div class="line">        $workers = [];</div><div class="line">        $worker_num = count($res);</div><div class="line">        <span class="comment">//&#x5FAA;&#x73AF;&#x521B;&#x5EFA;&#x8FDB;&#x7A0B;</span></div><div class="line">        <span class="keyword">for</span>($i = <span class="number">0</span>; $i &lt; $worker_num; $i++)</div><div class="line">        {</div><div class="line">            $task = $res[$i];</div><div class="line">            $process = <span class="keyword">new</span> \swoole_process(<span class="function"><span class="keyword">function</span><span class="params">(\swoole_process $worker)</span> <span class="title">use</span> <span class="params">($task)</span> </span>{</div><div class="line">                <span class="keyword">$this</span>-&gt;_do_task($worker,$task);</div><div class="line">            });</div><div class="line">            $process-&gt;id = $i;</div><div class="line">            $pid = $process-&gt;start();</div><div class="line">            <span class="comment">//echo &quot;Worker#{$pid} start\n&quot;;</span></div><div class="line">            $workers[$pid] = $process;</div><div class="line">            swoole_event_add($process-&gt;pipe, <span class="function"><span class="keyword">function</span><span class="params">()</span></span>{});</div><div class="line">        }</div><div class="line">    }</div><div class="line"></div><div class="line">    <span class="comment">/*&#x6D4B;&#x8BD5;&#x6837;&#x4F8B;*/</span></div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">test</span><span class="params">()</span></span></div><div class="line">    {</div><div class="line">        $model = Model(<span class="string">&apos;SysCrontab&apos;</span>);</div><div class="line">        $w[<span class="string">&apos;is_deleted&apos;</span>] = <span class="number">0</span>;</div><div class="line">        $res = $model-&gt;gets($w);</div><div class="line">        var_dump( $res);</div><div class="line">    }</div><div class="line">    </div><div class="line"></div><div class="line">}</div></pre></td></tr></table></figure>
+<p>&#x8C03;&#x6574;&#x540E;&#x4F7F;&#x7528;&#x4E86;linux crontab &#x8BED;&#x6CD5;&#x683C;&#x5F0F;&#xFF0C;&#x4F7F;&#x7528;&#x4E86;<a href="https://github.com/poliander/cron" target="_blank" rel="external">github</a>&#x7684;&#x89E3;&#x6790;&#x7C7B;&#xFF0C;&#x76F4;&#x63A5;&#x5F15;&#x7528;src&#x4E2D;&#x7684;&#x7C7B;&#x5373;&#x53EF;</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/05/01/2016-05-01-swoole-simple-egs/" rel="next" title="swoole-simple-egs 简单样例">
+                <i class="fa fa-chevron-left"></i> swoole-simple-egs 简单样例
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/05/01/2016-05-01-tp-uc/" rel="prev" title="tp-uc笔记">
+                tp-uc笔记 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-name">categories</span>
+              
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">60</span>
+                <span class="site-state-item-name">tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#使用swoole-framework的异步进程样例"><span class="nav-number">1.</span> <span class="nav-text">使用swoole-framework的异步进程样例</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Neconano</span>
+</div>
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

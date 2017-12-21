@@ -1,0 +1,599 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="php,namespace,composer," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="spl_autoload_registerspl_autoload_register //&amp;#x5C06;&amp;#x51FD;&amp;#x6570;&amp;#x6CE8;&amp;#x518C;&amp;#x5230;SPL __autoload&amp;#x51FD;&amp;#x6570;&amp;#x6808;&amp;#x4E2D;&amp;#x3002;&amp;#x5982;&amp;#x679C;&amp;#x8BE5;&amp;#x6808;&amp;#x4E2D;&amp;#x7684;&amp;#x51">
+<meta property="og:type" content="article">
+<meta property="og:title" content="php-namespace">
+<meta property="og:url" content="http://yoursite.com/2017/01/01/2017-01-01-php-namespace/index.html">
+<meta property="og:site_name" content="Neconano's notebook">
+<meta property="og:description" content="spl_autoload_registerspl_autoload_register //&amp;#x5C06;&amp;#x51FD;&amp;#x6570;&amp;#x6CE8;&amp;#x518C;&amp;#x5230;SPL __autoload&amp;#x51FD;&amp;#x6570;&amp;#x6808;&amp;#x4E2D;&amp;#x3002;&amp;#x5982;&amp;#x679C;&amp;#x8BE5;&amp;#x6808;&amp;#x4E2D;&amp;#x7684;&amp;#x51">
+<meta property="og:updated_time" content="2017-01-10T09:13:31.862Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="php-namespace">
+<meta name="twitter:description" content="spl_autoload_registerspl_autoload_register //&amp;#x5C06;&amp;#x51FD;&amp;#x6570;&amp;#x6CE8;&amp;#x518C;&amp;#x5230;SPL __autoload&amp;#x51FD;&amp;#x6570;&amp;#x6808;&amp;#x4E2D;&amp;#x3002;&amp;#x5982;&amp;#x679C;&amp;#x8BE5;&amp;#x6808;&amp;#x4E2D;&amp;#x7684;&amp;#x51">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"right","display":"always"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: 'Author'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/01/01/2017-01-01-php-namespace/"/>
+
+  <title> php-namespace | Neconano's notebook </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-right page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Neconano's notebook</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                php-namespace
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2017-01-01T00:00:00+08:00" content="2017-01-01">
+              2017-01-01
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="spl-autoload-register"><a href="#spl-autoload-register" class="headerlink" title="spl_autoload_register"></a>spl_autoload_register</h1><p>spl_autoload_register //&#x5C06;&#x51FD;&#x6570;&#x6CE8;&#x518C;&#x5230;SPL __autoload&#x51FD;&#x6570;&#x6808;&#x4E2D;&#x3002;&#x5982;&#x679C;&#x8BE5;&#x6808;&#x4E2D;&#x7684;&#x51FD;&#x6570;&#x5C1A;&#x672A;&#x6FC0;&#x6D3B;&#xFF0C;&#x5219;&#x6FC0;&#x6D3B;&#x5B83;&#x4EEC;(SPL&#x662F;Standard PHP Library(&#x6807;&#x51C6;PHP&#x5E93;)&#x7684;&#x7F29;&#x5199;)&#x3002;</p>
+<p>SPL autoload&#x673A;&#x5236;&#x7684;&#x5B9E;&#x73B0;&#x662F;&#x901A;&#x8FC7;&#x5C06;&#x51FD;&#x6570;&#x6307;&#x9488;autoload_func&#x6307;&#x5411;&#x81EA;&#x5DF1;&#x5B9E;&#x73B0;&#x7684;&#x5177;&#x6709;&#x81EA;&#x52A8;&#x88C5;&#x8F7D;&#x529F;&#x80FD;&#x7684;&#x51FD;&#x6570;&#x6765;&#x5B9E;&#x73B0;&#x7684;</p>
+<p>&#x8303;&#x4F8B;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">&#x8BBE;&#x6211;&#x4EEC;&#x6709;&#x4E00;&#x4E2A;&#x7C7B;&#x6587;&#x4EF6;A.php&#xFF0C;&#x91CC;&#x9762;&#x5B9A;&#x4E49;&#x4E86;&#x4E00;&#x4E2A;&#x540D;&#x5B57;&#x4E3A;A&#x7684;&#x7C7B;&#xFF1A;</div><div class="line">&lt;?php   </div><div class="line">class A   </div><div class="line">{   </div><div class="line">public function __construct()   </div><div class="line">{   </div><div class="line">echo &apos;Got it.&apos;;   </div><div class="line">}   </div><div class="line">}</div><div class="line">&#x7136;&#x540E;&#x6211;&#x4EEC;&#x6709;&#x4E00;&#x4E2A;index.php&#x9700;&#x8981;&#x7528;&#x5230;&#x8FD9;&#x4E2A;&#x7C7B;A&#xFF0C;&#x5E38;&#x89C4;&#x7684;&#x5199;&#x6CD5;&#x5C31;&#x662F;</div><div class="line">&lt;?php   </div><div class="line">require(&apos;A.php&apos;);   </div><div class="line">$a = new A();</div></pre></td></tr></table></figure>
+<p>&#x8303;&#x4F8B;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">&#x5728;php5&#x4E4B;&#x540E;&#x7684;&#x7248;&#x672C;&#xFF0C;&#x6211;&#x4EEC;&#x5C31;&#x4E0D;&#x518D;&#x9700;&#x8981;&#x8FD9;&#x6837;&#x505A;&#x4E86;&#x3002;&#x5728;php5&#x4E2D;&#xFF0C;&#x8BD5;&#x56FE;&#x4F7F;&#x7528;&#x5C1A;&#x672A;&#x5B9A;&#x4E49;&#x7684;&#x7C7B;&#x65F6;&#x4F1A;&#x81EA;&#x52A8;&#x8C03;&#x7528;__autoload&#x51FD;&#x6570;&#xFF0C;</div><div class="line">&#x6240;&#x4EE5;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x7F16;&#x5199;__autoload&#x51FD;&#x6570;&#x6765;&#x8BA9;php&#x81EA;&#x52A8;&#x52A0;&#x8F7D;&#x7C7B;&#xFF0C;&#x800C;&#x4E0D;&#x5FC5;&#x5199;&#x4E00;&#x4E2A;&#x957F;&#x957F;&#x7684;&#x5305;&#x542B;&#x6587;&#x4EF6;&#x5217;&#x8868;&#x3002;</div><div class="line">&lt;?php   </div><div class="line">function __autoload($class)   </div><div class="line">{   </div><div class="line">$file = $class . &apos;.php&apos;;   </div><div class="line">if (is_file($file)) {   </div><div class="line">require_once($file);   </div><div class="line">}   </div><div class="line">}   </div><div class="line">$a = new A();</div></pre></td></tr></table></figure>
+<p>&#x8303;&#x4F8B;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">&#x4F7F;&#x7528;spl_autoload_register&#x6765;&#x6CE8;&#x518C;&#x6211;&#x4EEC;&#x81EA;&#x5DF1;&#x7684;autoload&#x51FD;&#x6570;</div><div class="line">&lt;?php   </div><div class="line">function loader($class)   </div><div class="line">{   </div><div class="line">$file = $class . &apos;.php&apos;;   </div><div class="line">if (is_file($file)) {   </div><div class="line">require_once($file);   </div><div class="line">}   </div><div class="line">}   </div><div class="line">spl_autoload_register(&apos;loader&apos;);   </div><div class="line">$a = new A();</div></pre></td></tr></table></figure>
+<p>&#x8303;&#x4F8B;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">&lt;?php   </div><div class="line">class Loader   </div><div class="line">{   </div><div class="line">public static function loadClass($class)   </div><div class="line">{   </div><div class="line">$file = $class . &apos;.php&apos;;   </div><div class="line">if (is_file($file)) {   </div><div class="line">require_once($file);   </div><div class="line">}   </div><div class="line">}   </div><div class="line">}   </div><div class="line">spl_autoload_register(array(&apos;Loader&apos;, &apos;loadClass&apos;));   </div><div class="line">$a = new A();</div></pre></td></tr></table></figure>
+<h1 id="&#x4F7F;&#x7528;composer&#x66FF;&#x4EE3;-autoload"><a href="#&#x4F7F;&#x7528;composer&#x66FF;&#x4EE3;-autoload" class="headerlink" title="&#x4F7F;&#x7528;composer&#x66FF;&#x4EE3;_autoload"></a>&#x4F7F;&#x7528;composer&#x66FF;&#x4EE3;_autoload</h1><hr>
+<p><a href="https://segmentfault.com/q/1010000002426493" target="_blank" rel="external">&#x53C2;&#x8003;</a></p>
+<p>&#x4F7F;&#x7528;&#x56FD;&#x5185;&#x955C;&#x50CF;</p>
+<p>composer config -g repo.packagist composer <a href="https://packagist.phpcomposer.com" target="_blank" rel="external">https://packagist.phpcomposer.com</a></p>
+<p>&#x5B89;&#x88C5;&#x597D;compser&#x540E;&#xFF0C;&#x521B;&#x5EFA;composer.json&#x914D;&#x7F6E;&#xFF0C;&#x6267;&#x884C;composer install&#x751F;&#x6210;_autoload</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">composer.json</div><div class="line">{</div><div class="line">    &quot;require&quot;: {</div><div class="line">            &quot;guzzlehttp/guzzle&quot;: &quot;~4.0&quot;</div><div class="line">    },</div><div class="line">    &quot;autoload&quot;: {</div><div class="line">        &quot;classmap&quot;: [</div><div class="line">            &quot;my_library&quot;</div><div class="line">        ]</div><div class="line">    }</div><div class="line">}</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&lt;?php</div><div class="line">namespace my_library;</div><div class="line">class M1{</div><div class="line">    public static function F1(){</div><div class="line">        echo &quot;this is F1&quot;;</div><div class="line">    }</div><div class="line">}</div></pre></td></tr></table></figure>
+<p>&#x8303;&#x4F8B;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;?php</div><div class="line">require __DIR__ . &apos;/vendor/autoload.php&apos;;</div><div class="line">my_library\M1::F1();</div></pre></td></tr></table></figure>
+<p>&#x8303;&#x4F8B;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&lt;?php</div><div class="line">require __DIR__ . &apos;/vendor/autoload.php&apos;;</div><div class="line">use my_library\M1;</div><div class="line">M1::F1();</div></pre></td></tr></table></figure>
+<h1 id="PSR-4"><a href="#PSR-4" class="headerlink" title="PSR-4"></a>PSR-4</h1><p>FIG &#x5236;&#x5B9A;&#x7684;PHP&#x89C4;&#x8303;&#xFF0C;&#x7B80;&#x79F0;PSR&#xFF0C;&#x662F;PHP&#x5F00;&#x53D1;&#x7684;&#x4E8B;&#x5B9E;&#x6807;&#x51C6;&#x3002;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">PSR-0 &#x81EA;&#x52A8;&#x52A0;&#x8F7D;</div><div class="line">PSR-1 &#x57FA;&#x672C;&#x4EE3;&#x7801;&#x89C4;&#x8303;</div><div class="line">PSR-2 &#x4EE3;&#x7801;&#x6837;&#x5F0F;</div><div class="line">PSR-3 &#x65E5;&#x5FD7;&#x63A5;&#x53E3;</div><div class="line">PSR-4 &#x89C4;&#x8303;&#x4E86;&#x5982;&#x4F55;&#x6307;&#x5B9A;&#x6587;&#x4EF6;&#x8DEF;&#x5F84;&#x4ECE;&#x800C;&#x81EA;&#x52A8;&#x52A0;&#x8F7D;&#x7C7B;&#x5B9A;&#x4E49;&#xFF0C;&#x540C;&#x65F6;&#x89C4;&#x8303;&#x4E86;&#x81EA;&#x52A8;&#x52A0;&#x8F7D;&#x6587;&#x4EF6;&#x7684;&#x4F4D;&#x7F6E;&#x3002;</div></pre></td></tr></table></figure>
+<p>PSR-4&#x4E5F;&#x53EF;&#x4EE5;&#x66FF;&#x4EE3;PSR-0</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&quot;autoload&quot;: {</div><div class="line">    &quot;psr-4&quot;: {</div><div class="line">        &quot;Think\\&quot;: &quot;src/Think/&quot;</div><div class="line">    }</div><div class="line">}</div></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/php/" rel="tag">#php</a>
+          
+            <a href="/tags/namespace/" rel="tag">#namespace</a>
+          
+            <a href="/tags/composer/" rel="tag">#composer</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/01/01/2017-01-01-php-lib/" rel="next" title="php-lib">
+                <i class="fa fa-chevron-left"></i> php-lib
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/01/01/2017-01-01-phpword/" rel="prev" title="phpword">
+                phpword <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-name">categories</span>
+              
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">60</span>
+                <span class="site-state-item-name">tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#spl-autoload-register"><span class="nav-number">1.</span> <span class="nav-text">spl_autoload_register</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#使用composer替代-autoload"><span class="nav-number">2.</span> <span class="nav-text">使用composer替代_autoload</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#PSR-4"><span class="nav-number">3.</span> <span class="nav-text">PSR-4</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Neconano</span>
+</div>
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

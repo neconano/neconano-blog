@@ -1,0 +1,611 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="netty,nio,java," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="&amp;#x7B14;&amp;#x8BB0;
+1.&amp;#x4EC0;&amp;#x4E48;&amp;#x662F;nio&amp;#x5EF6;&amp;#x4F38;&amp;#x5FAE;&amp;#x670D;&amp;#x52A1;
+JAVA NIO&amp;#x662F;&amp;#x540C;&amp;#x6B65;&amp;#x975E;&amp;#x963B;&amp;#x585E;io&amp;#x3002;&amp;#x540C;&amp;#x6B65;&amp;#x548C;&amp;#x5F02;&amp;#x6B65;&amp;#x8BF4">
+<meta property="og:type" content="article">
+<meta property="og:title" content="netty-nio">
+<meta property="og:url" content="http://yoursite.com/2016/10/01/2016-10-01-netty-nio/index.html">
+<meta property="og:site_name" content="Neconano's notebook">
+<meta property="og:description" content="&amp;#x7B14;&amp;#x8BB0;
+1.&amp;#x4EC0;&amp;#x4E48;&amp;#x662F;nio&amp;#x5EF6;&amp;#x4F38;&amp;#x5FAE;&amp;#x670D;&amp;#x52A1;
+JAVA NIO&amp;#x662F;&amp;#x540C;&amp;#x6B65;&amp;#x975E;&amp;#x963B;&amp;#x585E;io&amp;#x3002;&amp;#x540C;&amp;#x6B65;&amp;#x548C;&amp;#x5F02;&amp;#x6B65;&amp;#x8BF4">
+<meta property="og:updated_time" content="2016-11-29T02:54:50.578Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="netty-nio">
+<meta name="twitter:description" content="&amp;#x7B14;&amp;#x8BB0;
+1.&amp;#x4EC0;&amp;#x4E48;&amp;#x662F;nio&amp;#x5EF6;&amp;#x4F38;&amp;#x5FAE;&amp;#x670D;&amp;#x52A1;
+JAVA NIO&amp;#x662F;&amp;#x540C;&amp;#x6B65;&amp;#x975E;&amp;#x963B;&amp;#x585E;io&amp;#x3002;&amp;#x540C;&amp;#x6B65;&amp;#x548C;&amp;#x5F02;&amp;#x6B65;&amp;#x8BF4">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"right","display":"always"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: 'Author'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2016/10/01/2016-10-01-netty-nio/"/>
+
+  <title> netty-nio | Neconano's notebook </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-right page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Neconano's notebook</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                netty-nio
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2016-10-01T00:00:00+08:00" content="2016-10-01">
+              2016-10-01
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="&#x7B14;&#x8BB0;"><a href="#&#x7B14;&#x8BB0;" class="headerlink" title="&#x7B14;&#x8BB0;"></a>&#x7B14;&#x8BB0;</h1><hr>
+<h3 id="1-&#x4EC0;&#x4E48;&#x662F;nio"><a href="#1-&#x4EC0;&#x4E48;&#x662F;nio" class="headerlink" title="1.&#x4EC0;&#x4E48;&#x662F;nio"></a>1.&#x4EC0;&#x4E48;&#x662F;nio</h3><p><a href="http://blog.csdn.net/doctor_who2004/article/details/50573894" target="_blank" rel="external">&#x5EF6;&#x4F38;&#x5FAE;&#x670D;&#x52A1;</a></p>
+<p>JAVA NIO&#x662F;&#x540C;&#x6B65;&#x975E;&#x963B;&#x585E;io&#x3002;&#x540C;&#x6B65;&#x548C;&#x5F02;&#x6B65;&#x8BF4;&#x7684;&#x662F;&#x6D88;&#x606F;&#x7684;&#x901A;&#x77E5;&#x673A;&#x5236;&#xFF0C;&#x963B;&#x585E;&#x975E;&#x963B;&#x585E;&#x8BF4;&#x7684;&#x662F;&#x7EBF;&#x7A0B;&#x7684;&#x72B6;&#x6001; &#x3002;</p>
+<p>1.bio/aio</p>
+<p>bio&#x540C;&#x6B65;&#x963B;&#x585E;i/o</p>
+<p>aio&#x5F02;&#x6B65;&#x975E;&#x963B;&#x585E;i/o</p>
+<p>2.&#x6C34;&#x5E73;&#x89E6;&#x53D1;/&#x8FB9;&#x7F18;&#x89E6;&#x53D1;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&#x6C34;&#x5E73;&#x89E6;&#x53D1;(level-triggered&#xFF0C;&#x4E5F;&#x88AB;&#x79F0;&#x4E3A;&#x6761;&#x4EF6;&#x89E6;&#x53D1;)LT:  &#x53EA;&#x8981;&#x6EE1;&#x8DB3;&#x6761;&#x4EF6;&#xFF0C;&#x5C31;&#x89E6;&#x53D1;&#x4E00;&#x4E2A;&#x4E8B;&#x4EF6;(&#x53EA;&#x8981;&#x6709;&#x6570;&#x636E;&#x6CA1;&#x6709;&#x88AB;&#x83B7;&#x53D6;&#xFF0C;&#x5185;&#x6838;&#x5C31;&#x4E0D;&#x65AD;&#x901A;&#x77E5;&#x4F60;) </div><div class="line">&#x8FB9;&#x7F18;&#x89E6;&#x53D1;(edge-triggered)ET: &#x6BCF;&#x5F53;&#x72B6;&#x6001;&#x53D8;&#x5316;&#x65F6;&#xFF0C;&#x89E6;&#x53D1;&#x4E00;&#x4E2A;&#x4E8B;&#x4EF6;&#x3002;</div><div class="line">&#x201C;&#x4E3E;&#x4E2A;&#x8BFB;socket&#x7684;&#x4F8B;&#x5B50;&#xFF0C;&#x5047;&#x5B9A;&#x7ECF;&#x8FC7;&#x957F;&#x65F6;&#x95F4;&#x7684;&#x6C89;&#x9ED8;&#x540E;&#xFF0C;&#x73B0;&#x5728;&#x6765;&#x4E86;100&#x4E2A;&#x5B57;&#x8282;&#xFF0C;&#x8FD9;&#x65F6;&#x65E0;&#x8BBA;&#x8FB9;&#x7F18;&#x89E6;&#x53D1;&#x548C;&#x6761;&#x4EF6;&#x89E6;&#x53D1;&#x90FD;&#x4F1A;&#x4EA7;&#x751F;&#x4E00;&#x4E2A;read ready notification&#x901A;&#x77E5;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x53EF;&#x8BFB;&#x3002;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x8BFB;&#x4E86;50&#x4E2A;&#x5B57;&#x8282;&#xFF0C;&#x7136;&#x540E;&#x91CD;&#x65B0;&#x8C03;&#x7528;api&#x7B49;&#x5F85;io&#x4E8B;&#x4EF6;&#x3002;&#x8FD9;&#x65F6;&#x6761;&#x4EF6;&#x89E6;&#x53D1;&#x7684;api&#x4F1A;&#x56E0;&#x4E3A;&#x8FD8;&#x6709;50&#x4E2A;&#x5B57;&#x8282;&#x53EF;&#x8BFB;&#xFF0C;&#x4ECE;&#x800C;&#x7ACB;&#x5373;&#x8FD4;&#x56DE;&#x7528;&#x6237;&#x4E00;&#x4E2A;read ready notification&#x3002;&#x800C;&#x8FB9;&#x7F18;&#x89E6;&#x53D1;&#x7684;api&#x4F1A;&#x56E0;&#x4E3A;&#x53EF;&#x8BFB;&#x8FD9;&#x4E2A;&#x72B6;&#x6001;&#x6CA1;&#x6709;&#x53D1;&#x751F;&#x53D8;&#x5316;&#x800C;&#x9677;&#x5165;&#x957F;&#x671F;&#x7B49;&#x5F85;&#x3002;&#x56E0;&#x6B64;&#x5728;&#x4F7F;&#x7528;&#x8FB9;&#x7F18;&#x89E6;&#x53D1;&#x7684;api&#x65F6;&#xFF0C;&#x8981;&#x6CE8;&#x610F;&#x6BCF;&#x6B21;&#x90FD;&#x8981;&#x8BFB;&#x5230;socket&#x8FD4;&#x56DE;EWOULDBLOCK&#x4E3A;&#x6B62;&#xFF0C;&#x5426;&#x5219;&#x8FD9;&#x4E2A;socket&#x5C31;&#x7B97;&#x5E9F;&#x4E86;&#x3002;&#x800C;&#x4F7F;&#x7528;&#x6761;&#x4EF6;&#x89E6;&#x53D1;&#x7684;api &#x65F6;&#xFF0C;&#x5982;&#x679C;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x4E0D;&#x9700;&#x8981;&#x5199;&#x5C31;&#x4E0D;&#x8981;&#x5173;&#x6CE8;socket&#x53EF;&#x5199;&#x7684;&#x4E8B;&#x4EF6;&#xFF0C;&#x5426;&#x5219;&#x5C31;&#x4F1A;&#x65E0;&#x9650;&#x6B21;&#x7684;&#x7ACB;&#x5373;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;write ready notification&#x3002;&#x5927;&#x5BB6;&#x5E38;&#x7528;&#x7684;select&#x5C31;&#x662F;&#x5C5E;&#x4E8E;&#x6761;&#x4EF6;&#x89E6;&#x53D1;&#x8FD9;&#x4E00;&#x7C7B;&#xFF0C;&#x957F;&#x671F;&#x5173;&#x6CE8;socket&#x5199;&#x4E8B;&#x4EF6;&#x4F1A;&#x51FA;&#x73B0;CPU 100%&#x7684;&#x6BDB;&#x75C5;&#x3002;</div></pre></td></tr></table></figure>
+<p>3.reaactor&#x6A21;&#x5F0F;</p>
+<p>NIO&#x91CC;Selector&#x591A;&#x8DEF;&#x590D;&#x7528;&#x6A21;&#x578B;</p>
+<h3 id="2-nio&#x7F16;&#x7A0B;"><a href="#2-nio&#x7F16;&#x7A0B;" class="headerlink" title="2.nio&#x7F16;&#x7A0B;"></a>2.nio&#x7F16;&#x7A0B;</h3><p>1.&#x6280;&#x672F;&#x6307;&#x5357;&#x4E2D;&#x7684;nio&#x6837;&#x4F8B;</p>
+<p>&#x4F7F;&#x7528;&#x547D;&#x4EE4;&#x884C;&#x7F16;&#x8BD1;&#x65B9;&#x5F0F;&#xFF1A;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">1.&#x95EE;&#x9898;&#xFF1A;&#x63D0;&#x793A;gdk&#x7F16;&#x7801;&#x9519;&#x8BEF;</div><div class="line">&#x65B9;&#x5F0F;1&#xFF1A;&#x589E;&#x52A0;&#x53C2;&#x6570; -encoding UTF-8</div><div class="line">2.&#x95EE;&#x9898;&#xFF1A;&#x7F16;&#x8BD1;&#x63D0;&#x793A; &#x627E;&#x4E0D;&#x5230;&#x7B26;&#x53F7;</div><div class="line">&#x4E3B;&#x8981;&#x662F;&#x5305;&#x5F15;&#x7528;&#x95EE;&#x9898;</div><div class="line">&#x65B9;&#x5F0F;1&#xFF1A;&#x5148;&#x7F16;&#x8BD1;&#x5F15;&#x7528;&#x7C7B;aaa.java&#xFF0C;&#x6267;&#x884C; javac -d . aaa.java</div><div class="line">&#x518D;&#x7F16;&#x8F91;&#x4E3B;&#x7C7B;bbb.java&#xFF0C;&#x6267;&#x884C;&#x540E;&#x63D0;&#x793A; &#x627E;&#x4E0D;&#x5230;&#x6216;&#x65E0;&#x6CD5;&#x52A0;&#x8F7D;&#x4E3B;&#x7C7B;&#xFF0C;&#x91CD;&#x65B0;&#x7F16;&#x8BD1;&#x6267;&#x884C; javac -d . bbb.java</div><div class="line">&#x8FD0;&#x884C;&#xFF1A; java com.phei.netty.nio.bbb</div><div class="line">&#x603B;&#x7ED3;&#xFF1A;&#x5982;&#x679C;package&#x6253;&#x5305;&#x540E;&#xFF0C;&#x9700;&#x8981;&#x7EDF;&#x4E00;&#x7F16;&#x8BD1;&#x5230;&#x540C;&#x4E00;&#x4E2A;&#x5305;&#x4E0B;</div></pre></td></tr></table></figure>
+<h3 id="3-aio&#x7F16;&#x7A0B;"><a href="#3-aio&#x7F16;&#x7A0B;" class="headerlink" title="3.aio&#x7F16;&#x7A0B;"></a>3.aio&#x7F16;&#x7A0B;</h3><p>1.&#x6280;&#x672F;&#x6307;&#x5357;&#x4E2D;&#x7684;aio&#x6837;&#x4F8B;</p>
+<p>&#x7F16;&#x8BD1;&#x65F6;&#x9047;&#x5230;&#x4E92;&#x76F8;&#x4F9D;&#x8D56;&#x7684;&#x7C7B;&#xFF0C;&#x7F16;&#x8BD1;&#x65F6;&#x53EF;&#x7EA7;&#x8054;&#x6267;&#x884C;</p>
+<p>javac -d . bbb.java aaa.java</p>
+<h3 id="4-demo&#x8FD0;&#x884C;"><a href="#4-demo&#x8FD0;&#x884C;" class="headerlink" title="4.demo&#x8FD0;&#x884C;"></a>4.demo&#x8FD0;&#x884C;</h3><p>&#x5728;&#x4F7F;&#x7528;netty&#x6846;&#x67B6;&#x540E;&#xFF0C;&#x53EF;&#x4F7F;&#x7528;intellij&#x7F16;&#x8BD1;&#x8FD0;&#x884C;demo&#xFF08;&#x76F4;&#x63A5;&#x6253;&#x5F00;&#x6587;&#x4EF6;&#x5939;&#xFF0C;&#x9009;&#x62E9;&#x6E90;&#x6587;&#x4EF6;&#x8FD0;&#x884C;&#xFF09;</p>
+<h3 id="5-thrift&#x5728;windows&#x73AF;&#x5883;&#x4E2D;&#x7F16;&#x8BD1;"><a href="#5-thrift&#x5728;windows&#x73AF;&#x5883;&#x4E2D;&#x7F16;&#x8BD1;" class="headerlink" title="5.thrift&#x5728;windows&#x73AF;&#x5883;&#x4E2D;&#x7F16;&#x8BD1;"></a>5.thrift&#x5728;windows&#x73AF;&#x5883;&#x4E2D;&#x7F16;&#x8BD1;</h3><p><a href="http://blog.csdn.net/hmsiwtv/article/details/46777437" target="_blank" rel="external">&#x53C2;&#x8003;</a></p>
+<p>&#x7531;&#x4E8E;thrift&#x548C;&#x8BED;&#x8A00;&#x65E0;&#x5173;&#xFF0C;&#x6240;&#x4EE5;&#x5728;&#x4F7F;&#x7528;&#x7684;&#x65F6;&#x5019;&#x8981;&#x5BF9;&#x5E94;&#x8BED;&#x8A00;&#x751F;&#x6210;&#x76F8;&#x5E94;&#x7C7B;</p>
+<p>&#x5BF9;&#x4E8E;&#x4E00;&#x4E9B;java&#x9879;&#x76EE;&#x4E2D;&#x6CA1;&#x6709;&#x63D0;&#x4F9B;thrift&#x7684;java&#x7C7B;&#xFF0C;&#x9700;&#x8981;&#x4E0B;&#x8F7D;thrift&#x63D0;&#x4F9B;&#x7684;&#x751F;&#x6210;&#x53EF;&#x6267;&#x884C;&#x7A0B;&#x5E8F;</p>
+<p>&#x4F8B;&#x5982;thrift.exe -r &#x2013;gen java test.thrift</p>
+<h3 id="6-&#x57FA;&#x4E8E;netty&#x7684;Armeria&#x6846;&#x67B6;demo"><a href="#6-&#x57FA;&#x4E8E;netty&#x7684;Armeria&#x6846;&#x67B6;demo" class="headerlink" title="6.&#x57FA;&#x4E8E;netty&#x7684;Armeria&#x6846;&#x67B6;demo"></a>6.&#x57FA;&#x4E8E;netty&#x7684;Armeria&#x6846;&#x67B6;demo</h3><p><a href="http://line.github.io/armeria/" target="_blank" rel="external">github</a></p>
+<p>&#x57FA;&#x4E8E;Armeria&#x7684;&#x6837;&#x4F8B;</p>
+<p><a href="https://github.com/haruki-sugarsun/armeria_test" target="_blank" rel="external">github</a></p>
+<p>1.armeria &#x3092;&#x5229;&#x7528;&#x3057;&#x305F;&#x30A2;&#x30D7;&#x30EA;&#x30B1;&#x30FC;&#x30B7;&#x30E7;&#x30F3;&#x5B9F;&#x88C5;&#x4F8B;&#x3002;</p>
+<p><a href="https://github.com/tokuhirom/armeria-sample" target="_blank" rel="external">github</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&#x8FD9;&#x4E2A;&#x6837;&#x4F8B;&#x8C8C;&#x4F3C;&#x4F7F;&#x7528;&#x4E86;gRPC&#x548C;thrift</div><div class="line">&#x5C06;thrift&#x751F;&#x6210;&#x5BF9;&#x5E94;java&#x7C7B;&#xFF0C;&#x5E76;&#x653E;&#x7F6E;&#x5230;&#x76F8;&#x5E94;&#x76EE;&#x5F55;&#x4E2D;</div><div class="line">&#x6267;&#x884C;npm install -g grpc</div><div class="line">&#x5E76;&#x6CA1;&#x6709;&#x6267;&#x884C;brew install thrift</div><div class="line">&#x5728;&#x6839;&#x76EE;&#x5F55;&#x4E0B;&#x6267;&#x884C;&#x4E86;gradlew generateproto</div><div class="line">&#x5373;&#x53EF;&#x4EE5;&#x6267;&#x884C;&#x4E86;</div></pre></td></tr></table></figure>
+<p>2.ArmeriaExamples</p>
+<p><a href="https://github.com/synk/ArmeriaExamples" target="_blank" rel="external">github</a></p>
+<p>&#x8BE5;&#x6837;&#x4F8B;&#x6709;&#x670D;&#x52A1;&#x7AEF;&#x548C;&#x5BA2;&#x6237;&#x7AEF;</p>
+<h3 id="7-&#x9996;&#x6B21;netty&#x8BFB;&#x4E66;&#x5C0F;&#x7ED3;"><a href="#7-&#x9996;&#x6B21;netty&#x8BFB;&#x4E66;&#x5C0F;&#x7ED3;" class="headerlink" title="7.&#x9996;&#x6B21;netty&#x8BFB;&#x4E66;&#x5C0F;&#x7ED3;"></a>7.&#x9996;&#x6B21;netty&#x8BFB;&#x4E66;&#x5C0F;&#x7ED3;</h3><p>&#x5185;&#x5BB9;&#x8986;&#x76D6;&#x9762;&#x5F88;&#x5C0F;&#xFF0C;&#x6BD4;&#x8F83;&#x9002;&#x5408;&#x65B0;&#x624B;&#x5165;&#x95E8;&#xFF0C;&#x6837;&#x4F8B;&#x5F88;&#x7B80;&#x5355;&#xFF0C;&#x5168;&#x4E66;&#x7FFB;&#x6765;&#x8986;&#x53BB;&#x7684;&#x5C31;&#x8BB2;&#x4E86;&#x5982;&#x4F55;&#x7B80;&#x5355;&#x7684;&#x7528;&#xFF0C;&#x8FD8;&#x6709;nio&#x7684;&#x6A21;&#x5F0F;</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/netty/" rel="tag">#netty</a>
+          
+            <a href="/tags/nio/" rel="tag">#nio</a>
+          
+            <a href="/tags/java/" rel="tag">#java</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/10/01/2016-10-01-microservice/" rel="next" title="microservice">
+                <i class="fa fa-chevron-left"></i> microservice
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/10/01/2016-10-01-python-web-note/" rel="prev" title="python-web-note">
+                python-web-note <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-name">categories</span>
+              
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">60</span>
+                <span class="site-state-item-name">tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#笔记"><span class="nav-number">1.</span> <span class="nav-text">笔记</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-什么是nio"><span class="nav-number">1.0.1.</span> <span class="nav-text">1.什么是nio</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-nio编程"><span class="nav-number">1.0.2.</span> <span class="nav-text">2.nio编程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-aio编程"><span class="nav-number">1.0.3.</span> <span class="nav-text">3.aio编程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-demo运行"><span class="nav-number">1.0.4.</span> <span class="nav-text">4.demo运行</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-thrift在windows环境中编译"><span class="nav-number">1.0.5.</span> <span class="nav-text">5.thrift在windows环境中编译</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-基于netty的Armeria框架demo"><span class="nav-number">1.0.6.</span> <span class="nav-text">6.基于netty的Armeria框架demo</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-首次netty读书小结"><span class="nav-number">1.0.7.</span> <span class="nav-text">7.首次netty读书小结</span></a></li></ol></li></ol></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Neconano</span>
+</div>
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
